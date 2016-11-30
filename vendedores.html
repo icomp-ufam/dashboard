@@ -190,20 +190,42 @@
         </div>
         <!-- END BREADCRUMB -->
         <div class="page-container-boxed" style="margin: 50px">
-            <input class="form-control" tipe="text" ng-model="criterioDeBusca" placeholder="Buscar...">
-            <table class="table table-striped" >
-                <tr>
-                    <th href="" ng-click="ordenarPor('nome')" > Nome </th>
-                    <th href="" ng-click="ordenarPor('cidade')" > Cidade </th>
-                    <th href="" ng-click="ordenarPor('estabelecimento')"> Estabelecimento</th>
-                </tr>
-                <tr  ng-repeat="vendedor in vendedores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                    <td>{{vendedor.nome}}</td>
-                    <td> {{vendedor.cidade}}</td>
-                    <td>{{vendedor.estabelecimento}}</td>
-                </tr>
+            <div class="row">
+                <div class="col-md-12">
 
-            </table>
+                    <!-- START DEFAULT DATATABLE -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Dados dos vendedores</h3>
+                            <ul class="panel-controls">
+                                <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                                <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                                <!--<li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>-->
+                            </ul>
+                        </div>
+                        <div class="panel-body">
+                            <input class="form-control" tipe="text" ng-model="criterioDeBusca" placeholder="Buscar...">
+                            <table class="table " >
+                                <thead>
+                                    <tr>
+                                        <th href="" ng-click="ordenarPor('nomeuser')" > Nome </th>
+                                        <th > Numero </th>
+                                        <th href="" ng-click="ordenarPor('name')"> Estabelecimento</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr  ng-repeat="vendedor in vendedores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                        <td>{{vendedor.nomeuser}}</td>
+                                        <td> {{vendedor.mobile}}</td>
+                                        <td>{{vendedor.name}}</td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- PAGE CONTENT WRAPPER -->
         <div class="page-content-wrap">
@@ -269,6 +291,12 @@
 
 <script type="text/javascript" src="js/plugins/moment.min.js"></script>
 <script type="text/javascript" src="js/plugins/daterangepicker/daterangepicker.js"></script>
+
+<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
+<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+
+<script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
+
 <!-- END THIS PAGE PLUGINS-->
 
 <!-- START TEMPLATE -->
