@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html ng-app= "vendedores" lang="en">
+<html ng-app= "estabelecimentos" lang="en">
 <head>
     <!-- META SECTION -->
-    <title>Venderores</title>
+    <title>Estabelecimentos</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,10 +16,13 @@
 
     <script src="template-joli/lib/angular/angular.js"></script>
     <script src="template-joli/lib/angular/angular-messages.js"></script>
-    <script ype="text/javascript" src="vendedoresController.js"> </script>
+    <script ype="text/javascript" src="estabelecimentosController.js"> </script>
     <!-- EOF CSS INCLUDE -->
+  
+
+
 </head>
-<body ng-controller="vendedoresCtrl" >
+<body ng-controller="estabelecimentosCtrl" >
 <!-- START PAGE CONTAINER -->
 <div class="page-container">
 
@@ -182,11 +185,10 @@
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
             <li ><a href="#">Estabelecimentos</a> </li>
-            <li class="active">Vendedores</li>
 
         </ul>
         <div class="page-title" style="margin-left: 40px">
-            <h2><span ></span> Vendedores</h2>
+            <h2><span ></span>Estabelecimentos</h2>
         </div>
         <!-- END BREADCRUMB -->
         <div class="page-container-boxed" style="margin: 50px">
@@ -196,7 +198,7 @@
                     <!-- START DEFAULT DATATABLE -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Dados dos vendedores</h3>
+                            <h3 class="panel-title"><b>Estabelecimentos Ativos</b></h3>
                             <ul class="panel-controls">
                                 <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
                                 <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
@@ -205,25 +207,61 @@
                         </div>
                         <div class="panel-body">
                             <input class="form-control" tipe="text" ng-model="criterioDeBusca" placeholder="Buscar...">
+                            <br/>
                             <table class="table " >
                                 <thead>
                                     <tr>
                                         <th href="" ng-click="ordenarPor('nomeuser')" > Nome </th>
-                                        <th > Numero </th>
-                                        <th href="" ng-click="ordenarPor('name')"> Estabelecimento</th>
+                                        <th> Contato </th>
+                                       
+                                        <th href="" ng-click="ordenarPor('name')"> Número de vendedores</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr  ng-repeat="vendedor in vendedores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                        <td>{{vendedor.nomeuser}}</td>
-                                        <td> {{vendedor.mobile}}</td>
-                                        <td>{{vendedor.name}}</td>
+                                    <tr  ng-repeat="estabelecimento in estabelecimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                        <td>{{estabelecimento.nome}}</td>
+                                        <td>{{estabelecimento.telefone}}</td>                     
+                                        <td>{{estabelecimento.nVendedores}}</td>
                                     </tr>
                                 </tbody>
 
                             </table>
                         </div>
                     </div>
+                     <!-- START DEFAULT DATATABLE -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><b>Estabelecimentos Pendentes</b></h3>
+                            <ul class="panel-controls">
+                                <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                                <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                                <!--<li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>-->
+                            </ul>
+                        </div>
+                        <div class="panel-body">
+                            <input class="form-control" tipe="text" ng-model="criterioDeBusca" placeholder="Buscar...">
+                            <br/>
+                            <table class="table " >
+                                <thead>
+                                    <tr>
+                                        <th href="" ng-click="ordenarPor('nomeuser')" > Nome </th>
+                                        <th> Contato </th>
+                                       
+                                        <th href="" ng-click="ordenarPor('name')"> Número de vendedores</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr  ng-repeat="estabelecimento in estabelecimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                        <td>{{estabelecimento.nome}}</td>
+                                        <td>{{estabelecimento.telefone}}</td>                     
+                                        <td>{{estabelecimento.nVendedores}}</td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
