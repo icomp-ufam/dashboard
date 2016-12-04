@@ -7,9 +7,16 @@ angular.module("vendedores").controller("vendedoresCtrl", function ($scope, $htt
     $scope.app = "Vendedores";
     $scope.vendedores = [];
 
+
+
     var carregarVendedores = function () {
-        $http.get("http://localhost:3412/vendedores").success(function (data) {
-            $scope.vendedores = data;
+        //$http.defaults.headers.get.Authorization = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOkn";
+        $http.get('http://54.233.67.111:8081/sellers', {
+            headers: {
+                'Authorization' : 'Token token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOkn"'
+            }
+        }).success(function(response){
+            console.log(response)
         }).error(function (data, status) {
             $scope.message = "Aconteceu um problema: " + data;
         });

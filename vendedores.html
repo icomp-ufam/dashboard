@@ -167,14 +167,14 @@
                                     <tr>
                                         <th href="" ng-click="ordenarPor('nomeuser')" > Nome </th>
                                         <th > Numero </th>
-                                        <th href="" ng-click="ordenarPor('name')"> Estabelecimento</th>
+                                        <!-- <th href="" ng-click="ordenarPor('name')"> Estabelecimento</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="vendedor in vendedores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                        <td>{{vendedor.nomeuser}}</td>
+                                    <tr ng-repeat="vendedor in sellers | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                        <td>{{vendedor.id}}</td>
                                         <td> {{vendedor.mobile}}</td>
-                                        <td>{{vendedor.name}}</td>
+                                       <!-- <td>{{vendedor.name}}</td> -->
                                     </tr>
                                 </tbody>
 
