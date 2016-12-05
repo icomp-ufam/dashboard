@@ -1,0 +1,54 @@
+<ul class="breadcrumb">
+    <li><a href="index.html">Teewa</a></li>
+    <li ><a href="#">Vendedores</a> </li>
+</ul>
+<div class="page-title">
+    <h2><span class="fa fa-users"></span> Vendedores</h2>
+</div>
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-content-wrap">
+     <div class="page-container-boxed">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- START DEFAULT DATATABLE -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Listagem de vendedores</h3>
+                    <ul class="panel-controls">
+                        <li>
+                            <--<a href="javascript:(void)" class="panel-refresh">
+                                <span class="fa fa-refresh"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <input class="form-control" tipe="text" ng-model="criterioDeBusca" placeholder="Buscar...">
+                    <br />
+                    <table class="table" >
+                        <thead>
+                            <tr>
+                                <th ng-click="ordenarPor('nomeuser')">Nome</th>
+                                <th>Numero</th>
+                                <th ng-click="ordenarPor('name')">Estabelecimento</th>
+                                <th >Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="vendedor in vendedores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                <td>{{vendedor.nomeuser}}</td>
+                                <td> {{vendedor.mobile}}</td>
+                                <td>{{vendedor.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<script type="text/javascript">
+    panelActions();
+</script>
+<!-- END PAGE CONTENT WRAPPER -->
