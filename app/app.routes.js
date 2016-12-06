@@ -60,6 +60,14 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/chat/chat.html',
             controller: 'chatCtrl',
             activetab: 'chat'
+        }).state('main.dashboard', {
+            url: 'dashboard',
+            template: '<ui-view></ui-view>'
+        }).state('main.dashboard.listar', {
+            url: '/lista',
+            templateUrl: 'app/pages/dashboard/dashboard.html',
+            controller: 'dashboardCtrl',
+            activetab: 'dashboard'
         })
 
     });
