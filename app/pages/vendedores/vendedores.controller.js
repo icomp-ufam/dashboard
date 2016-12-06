@@ -5,21 +5,15 @@
 angular.module("teewa").controller("vendedoresCtrl", function ($scope, $http) {
 
     $scope.app = "Vendedores";
-    $scope.vendedores = [];
+    //$scope.vendedores = [];
 
     var carregarVendedores = function () {
-        $http({
-            url : "http://54.233.67.111:8081/users",
-            method : 'GET',
-            headers : {
-                'Content-Type' : 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
-            }
-        }).success(function(data){
-            alert("login Successfully");
-        }).error(function(error){
-            alert("login error");
+         $http.get("http://localhost:3412/vendedores").success(function (data) {
+            $scope.vendedores = data;
+        }).error(function (data, status) {
+            $scope.message = "Aconteceu um problema: " + data;
         });
+       
     };
 
     /*$scope.adicionarVendedor = function (vendedor) {

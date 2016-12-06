@@ -32,16 +32,16 @@
                                 <thead>
                                     <tr>
                                         <th href="" ng-click="ordenarPor('nomeuser')" > Nome </th>
-                                        <th> Contato </th>
+                                        <th> Endereço </th>
                                        
                                         <th href="" ng-click="ordenarPor('name')"> Número de vendedores</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr  ng-repeat="estabelecimento in estabelecimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                        <td>{{estabelecimento.nome}}</td>
-                                        <td>{{estabelecimento.telefone}}</td>                     
-                                        <td>{{estabelecimento.nVendedores}}</td>
+                                        <td>{{estabelecimento.name}}</td>
+                                        <td>{{estabelecimento.address}}</td>
+                                        <td>{{estabelecimento.qtsellers}}</td>
                                     </tr>
                                 </tbody>
 
@@ -72,9 +72,9 @@
                                 </thead>
                                 <tbody>
                                     <tr  ng-repeat="estabelecimento in estabelecimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                        <td>{{estabelecimento.nome}}</td>
-                                        <td>{{estabelecimento.telefone}}</td>                     
-                                        <td>{{estabelecimento.nVendedores}}</td>
+                                        <td>{{estabelecimento.name}}</td>
+                                        <td>{{estabelecimento.address}}</td>
+                                        <td>{{estabelecimento.qtsellers}}</td>
                                     </tr>
                                 </tbody>
 

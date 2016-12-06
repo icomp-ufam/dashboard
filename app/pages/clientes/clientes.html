@@ -3,7 +3,7 @@
     <li><a href="#">Clientes</a> </li>
 </ul>
 <div class="page-title">
-    <h2><span class="fa fa-users"></span> Clientes</h2>
+    <h2><span class="fa fa-users"></span>Clientes</h2>
 </div>
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">
@@ -30,14 +30,12 @@
                                     <th href="" ng-click="ordenarPor('nomeuser')" > Nome </th>
                                     <th> Contato </th>
                                     
-                                    <th href="" ng-click="ordenarPor('name')"> Cidade </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr  ng-repeat="cliente in clientes | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                    <td>{{cliente.nome}}</td>
-                                    <td>{{cliente.telefone}}</td>
-                                    <td>{{cliente.cidade}}</td>
+                                    <td>{{cliente.name}}</td>
+                                    <td>{{cliente.mobile}}</td>
                                 </tr>
                             </tbody>
                         </table>
