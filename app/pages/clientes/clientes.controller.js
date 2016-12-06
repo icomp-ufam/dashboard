@@ -4,11 +4,11 @@
 angular.module("teewa").controller("clientesCtrl", function ($scope, $http) {
 
     $scope.app = "clientes";
-    $scope.clientes = [
+    /*$scope.clientes = [
                 {nome: "Vendedor1", telefone: "123", cidade: "Manaus"},
                 {nome: "Vendedor2", telefone: "456", cidade: "RJ"},
                 {nome: "Vendedor3", telefone: "789", cidade: "SP"}
-    ];
+    ];*/
 
     var carregarClientes = function () {
         $http.get("http://localhost:3412/clientes").success(function (data) {
