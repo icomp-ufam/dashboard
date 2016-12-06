@@ -1,39 +1,33 @@
 //Conexão com o banco
 var pg = require("pg");
-var conString = "postgres://postgres:@192.168.1.121:5432/teewa";
+var conString = "postgres://postgres:@localhost:5432/teewa";
 var client = new pg.Client(conString);
 client.connect();
 
 //Consultas
-var JsonSellers;
 var sqlSellers = "select \"user\".id, \"user\".name as nomeUser, \"user\".mobile , \"store\".name" 
     sqlSellers += " from \"user\""
     sqlSellers += " inner join \"seller\" on \"user\".id = \"seller\".id"
     sqlSellers += " inner join \"store\" on \"store\".id = \"seller\".idstore;"
 
-var JsonUsers;
-var sqlUsers = "select \"user\".id, \"user\".name from \"user\" where \"user\".id NOT IN (select \"seller\".id from \"seller\") order by \"user\".id"
+var sqlUsers = "select \"user\".name from \"user\" where \"user\".id NOT IN (select \"seller\".id from \"seller\") order by \"user\".id"
 
-var querySellers = client.query(sqlSellers);
-var queryUsers = client.query(sqlUsers);
+function queryAngular(sql) {
+    var retorno;
+    var queryA = client.query(sql);
+    queryA.on("row", function (row, result) {
+        result.addRow(row);
+    });
+    queryA.on("end", function (result) {
+        retorno = JSON.stringify(result.rows, null, "    ");
+        console.log(retorno);
+    });
+    return retorno;
+}
+var JsonUsers = queryAngular(sqlUsers);
+var JsonSellers = queryAngular(sqlSellers);
 
-querySellers.on("row", function (row, result) {
-    result.addRow(row);
-});
-querySellers.on("end", function (result) {
-    JsonSellers = JSON.stringify(result.rows, null, "    ");
-    console.log(JsonSellers);
-});
-
-queryUsers.on("row", function (row, result) {
-    result.addRow(row);
-});
-queryUsers.on("end", function (result) {
-    JsonUsers = JSON.stringify(result.rows, null, "    ");
-    console.log(JsonUsers);
-});
-
-//Criando Roteador
+//Criandoa Roteador
 var router = require('./router');
 
 var app = router(3412);
