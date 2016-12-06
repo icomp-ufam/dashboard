@@ -2,245 +2,747 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39fa8f05-15be-41f2-b7f8-1f0df24c357b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/fonts/FontAwesome.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/fonts/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/fonts/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/fonts/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/blog/post_1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/blog/post_2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/nature.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/ocean.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/users/avatar-old.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/users/avatar.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/users/no-image.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/users/user.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/users/user2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/users/user3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/users/user4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/users/user5.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/users/user6.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/users/user7.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/backgrounds/wall_1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/bg-dot.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/blueimp/error.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/blueimp/loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/blueimp/play-pause.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/blueimp/video-play.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/colorpicker/alpha.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/colorpicker/hue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/colorpicker/saturation.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/dropzone/spritemap.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/dropzone/spritemap@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/fileinput/loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/application.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/code.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/css.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/db.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/directory.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/doc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/file.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/film.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/flash.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/folder_open.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/html.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/java.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/linux.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/music.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/pdf.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/php.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/picture.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/ppt.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/psd.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/ruby.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/script.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/spinner.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/txt.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/xls.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/filetree/zip.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/icheck/grey.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/icheck/grey@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/icons/csv.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/icons/json.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/icons/pdf.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/icons/png.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/icons/ppt.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/icons/sql.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/icons/txt.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/icons/word.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/icons/xls.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/icons/xml.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/animated-overlay.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/resize-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/resize-icon@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/ui-bg_diagonals-thick_18_b81900_40x40.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/ui-bg_diagonals-thick_20_666666_40x40.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/ui-bg_flat_10_000000_40x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/ui-bg_glass_100_f6f6f6_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/ui-bg_glass_100_fdf5ce_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/ui-bg_glass_65_ffffff_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/ui-bg_gloss-wave_35_f6a828_500x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/ui-bg_highlight-soft_100_eeeeee_1x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/ui-bg_highlight-soft_75_ffe45c_1x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/ui-icons_222222_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/ui-icons_228ef1_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/ui-icons_ef8c08_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/ui-icons_ffd27a_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/jquery/ui-icons_ffffff_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/loaders/default.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/logo-grey.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/logo-grey@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/logo-small-grey.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/logo-small-grey@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/logo-small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/logo-small@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/logo@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/owl/AjaxLoader.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/owl/grabbing.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/themes/black.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/themes/blue.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/themes/brown.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/themes/default.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/themes/light.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.module.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.routes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/animate/animate.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/animate/animate.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/blueimp/blueimp-gallery.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/bootstrap/bootstrap.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/bootstrap/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/codemirror.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/3024-day.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/3024-night.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/ambiance-mobile.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/ambiance.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/base16-dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/base16-light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/blackboard.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/cobalt.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/eclipse.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/elegant.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/erlang-dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/lesser-dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/mbo.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/mdn-like.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/midnight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/monokai.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/neat.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/neo.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/night.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/paraiso-dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/paraiso-light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/pastel-on-dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/rubyblue.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/solarized.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/the-matrix.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/tomorrow-night-eighties.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/twilight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/vibrant-ink.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/xq-dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/codemirror/theme/xq-light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/dropzone/dropzone.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/fontawesome/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/fonts/fontawesome-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/fullcalendar/fullcalendar.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/jquery/jquery-ui.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/mcustomscrollbar/jquery.mCustomScrollbar.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/nvd3/nv.d3.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/rickshaw/rickshaw.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/summernote/summernote.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/theme-black.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/theme-blue.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/theme-brown.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/theme-default.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/theme-teewa.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/css/theme-white.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/blueimp/error.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/blueimp/play-pause.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/blueimp/video-play.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/js/actions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/js/plugins.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/admin/form_admin.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/admin/form_admin.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/atendimentos/atendimentos.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/atendimentos/atendimentos.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/chat/chat.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/chat/chat.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/clientes/clientes.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/clientes/clientes.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/main/main.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/main/main.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/vendedores/vendedores.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/vendedores/vendedores.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/services/chat-details.service.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/services/chats.service.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/services/sharedConn.service.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/release/angular-ui-router.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/release/angular-ui-router.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/scripts/ui-router-ng2.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/scripts/ui-router-ng2.ipr" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/scripts/ui-router-ng2.iws" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/src/common.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/src/resolve.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/src/state.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/src/stateDirectives.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/src/stateFilters.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/src/templateFactory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/src/urlMatcherFactory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/src/urlRouter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/src/view.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/src/viewDirective.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/src/viewScroll.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/ui-router.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/ui-router.ipr" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular-ui-router/ui-router.iws" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular/angular-locale_fr-fr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular/angular-locale_pt-br.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular/angular-messages.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular/angular.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/angular/angular.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/css/bootstrap-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/css/bootstrap-theme.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/css/bootstrap-theme.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/css/bootstrap.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/affix.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/alert.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/button.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/carousel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/collapse.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/dropdown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/modal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/npm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/popover.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/scrollspy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/tab.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/tooltip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/bootstrap/js/transition.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jquery/jquery-2.1.1.min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jquery/jquery-migrate.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jquery/jquery-ui.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jquery/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/mcustomscrollbar/jquery.mCustomScrollbar.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/strophe/register/README.markdown" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/strophe/register/strophe.register.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/strophe/strophe.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/strophe/strophe.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/fileupload/files/2V_vkjfD5Gg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/fileupload/files/thumbnail/2V_vkjfD5Gg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/blog/post_1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/blog/post_2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/girls-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/girls-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/girls-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/music-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/music-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/music-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/music-4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/music-5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/nature-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/nature-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/nature-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/nature-4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/nature-5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/nature-6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/nature-7.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/space-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/gallery/space-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/nature.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/ocean.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/users/avatar.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/users/no-image.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/users/user.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/users/user2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/users/user3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/users/user4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/users/user5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/users/user6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/images/users/user7.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/Animal 48.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/Lotus Sport Exige Gt3 01.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/Photoshop_Multi-coloured_butterflies_023732_.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/Quiet Getaway, Lake Tahoe, Nevada-565362.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/Space_Launching_pad_023724_.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/Sport_Extreme__Waves__Ocean__Risk__Surfing_023731_.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/Sritney_Spears2_1920x1200.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/World_other_world_Costa_Rica__Puntarenas_023746_.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/peugeot_908rc-1600x1200.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/u3013_1278_53405-1600x1200.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/u9644_3151_love_4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/white-aston-martin-wallpaper-1920x1080-1008078.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/white_curved_building-1920x1200.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/wide-wallpaper-1920x1080-001.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/wide-wallpaper-1920x1080-001234.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/Images/windows_7___dragon-2560x1600.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/Payment Icons.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/Supervisor.doc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/archive.rar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/archive.tar.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/archive.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/fireworks.swf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/fishes.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/phuket.tiff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/rm.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/virus.exe" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/vmware-win-ie8-elfinder.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/audio/alert.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/audio/fail.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/fonts/FontAwesome.otf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/fonts/fontawesome-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/fonts/fontawesome-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/fonts/fontawesome-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/backgrounds/wall_1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/bg-dot.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/blueimp/error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/blueimp/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/blueimp/play-pause.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/blueimp/video-play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/colorpicker/alpha.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/colorpicker/hue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/colorpicker/saturation.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/dropzone/spritemap.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/dropzone/spritemap@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/fileinput/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/application.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/code.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/css.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/db.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/directory.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/doc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/file.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/film.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/flash.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/folder_open.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/html.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/java.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/linux.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/music.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/pdf.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/php.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/picture.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/ppt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/psd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/ruby.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/script.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/spinner.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/txt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/xls.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/filetree/zip.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/icheck/grey.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/icheck/grey@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/icons/csv.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/icons/json.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/icons/pdf.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/icons/png.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/icons/ppt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/icons/sql.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/icons/txt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/icons/word.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/icons/xls.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/icons/xml.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/animated-overlay.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/resize-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/resize-icon@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/ui-bg_diagonals-thick_18_b81900_40x40.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/ui-bg_diagonals-thick_20_666666_40x40.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/ui-bg_flat_10_000000_40x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/ui-bg_glass_100_f6f6f6_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/ui-bg_glass_100_fdf5ce_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/ui-bg_glass_65_ffffff_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/ui-bg_gloss-wave_35_f6a828_500x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/ui-icons_222222_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/ui-icons_228ef1_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/ui-icons_ef8c08_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/ui-icons_ffd27a_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/jquery/ui-icons_ffffff_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/loaders/default.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/logo-grey.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/logo-grey@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/logo-small-grey.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/logo-small-grey@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/logo-small.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/logo-small@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/logo@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/owl/AjaxLoader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/owl/grabbing.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/themes/black.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/themes/blue.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/themes/brown.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/themes/default.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/themes/light.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/ajax_fullcalendar.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/filetree/jqueryFileTree.asp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/filetree/jqueryFileTree.aspx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/filetree/jqueryFileTree.cf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/filetree/jqueryFileTree.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/filetree/jqueryFileTree.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/filetree/jqueryFileTree.pl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/filetree/jqueryFileTree.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/filetree/jqueryFileTree.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/filetree/jqueryFileTree_huck.lasso" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/filetree/jqueryFileTree_sabourdin.lasso" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/fileupload/UploadHandler.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/fileupload/cors/postmessage.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/fileupload/cors/result.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/fileupload/files/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/fileupload/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/plugins/nvd3/cumulativeLineData.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/plugins/nvd3/linePlusBarData.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/plugins/nvd3/multiBarHorizontalData.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/plugins/nvd3/stackedAreaData.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/upload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/YUICompressor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/books.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/elFinder.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/elFinder.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/elfinder.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/elfinder.full.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/google.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/milter-greylist.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/munin_httptime.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/assets/uploads/MIME-Types/test-pivot.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/blank.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/charts-morris.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/charts-nvd3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/charts-other.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/charts-rickshaw.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/animate/animate.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/animate/animate.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/blueimp/blueimp-gallery.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/bootstrap/bootstrap.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/bootstrap/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/codemirror.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/3024-day.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/3024-night.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/ambiance-mobile.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/ambiance.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/base16-dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/base16-light.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/blackboard.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/cobalt.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/eclipse.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/elegant.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/erlang-dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/lesser-dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/mbo.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/mdn-like.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/midnight.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/monokai.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/neat.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/neo.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/night.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/paraiso-dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/paraiso-light.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/pastel-on-dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/rubyblue.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/solarized.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/the-matrix.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/tomorrow-night-eighties.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/twilight.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/vibrant-ink.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/xq-dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/codemirror/theme/xq-light.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/dropzone/dropzone.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/fontawesome/font-awesome.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/fonts/fontawesome-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/fullcalendar/fullcalendar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/jquery/jquery-ui.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/mcustomscrollbar/jquery.mCustomScrollbar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/nvd3/nv.d3.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/rickshaw/rickshaw.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/summernote/summernote.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/theme-black.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/theme-blue.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/theme-brown.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/theme-default.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/css/theme-white.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/form-editors.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/form-elements.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/form-file-handling.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/form-layouts-one-column.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/form-layouts-separated.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/form-layouts-tabbed.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/form-layouts-two-column.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/form-validation.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/form-wizards.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/blueimp/error.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/blueimp/play-pause.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/img/blueimp/video-play.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/actions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/demo_charts_morris.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/demo_charts_nvd3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/demo_charts_rickshaw.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/demo_dashboard.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/demo_icons.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/demo_maps.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/demo_tables.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/demo_tasks.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/faq.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/blueimp/jquery.blueimp-gallery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/bootstrap/bootstrap-colorpicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/bootstrap/bootstrap-datepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/bootstrap/bootstrap-file-input.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/bootstrap/bootstrap-select.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/bootstrap/bootstrap-timepicker.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/bootstrap/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/bootstrap/npm.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/codemirror.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/apl/apl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/asterisk/asterisk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/clike/clike.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/clojure/clojure.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/cobol/cobol.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/coffeescript/coffeescript.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/commonlisp/commonlisp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/css/css.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/css/less_test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/css/scss_test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/css/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/cypher/cypher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/d/d.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/diff/diff.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/django/django.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/dtd/dtd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/dylan/dylan.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/ecl/ecl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/eiffel/eiffel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/erlang/erlang.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/fortran/fortran.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/gas/gas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/gfm/gfm.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/gfm/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/gherkin/gherkin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/go/go.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/groovy/groovy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/haml/haml.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/haml/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/haskell/haskell.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/haxe/haxe.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/htmlembedded/htmlembedded.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/htmlmixed/htmlmixed.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/http/http.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/jade/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/javascript/javascript.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/javascript/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/jinja2/jinja2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/julia/julia.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/kotlin/kotlin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/livescript/livescript.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/lua/lua.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/markdown/markdown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/markdown/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/meta.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/mirc/mirc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/mllike/mllike.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/nginx/nginx.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/ntriples/ntriples.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/octave/octave.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/pascal/pascal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/pegjs/pegjs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/perl/perl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/php/php.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/php/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/pig/pig.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/properties/properties.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/puppet/puppet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/python/python.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/q/q.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/r/r.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/rpm/changes/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/rpm/rpm.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/rst/rst.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/ruby/ruby.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/ruby/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/rust/rust.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/sass/sass.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/scheme/scheme.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/shell/shell.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/shell/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/sieve/sieve.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/slim/slim.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/slim/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/smalltalk/smalltalk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/smarty/smarty.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/smartymixed/smartymixed.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/solr/solr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/sparql/sparql.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/sql/sql.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/stex/stex.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/stex/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/tcl/tcl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/tiddlywiki/tiddlywiki.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/tiddlywiki/tiddlywiki.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/tiki/tiki.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/tiki/tiki.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/toml/toml.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/turtle/turtle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/vb/vb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/vbscript/vbscript.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/velocity/velocity.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/verilog/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/verilog/verilog.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/xml/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/xml/xml.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/xquery/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/xquery/xquery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/yaml/yaml.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/codemirror/mode/z80/z80.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/datatables/jquery.dataTables.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/daterangepicker/daterangepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/dropzone/dropzone.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fileinput/fileinput.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/filetree/jqueryFileTree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/fullcalendar.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/ar-ma.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/ar-sa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/de-at.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/el.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/en-au.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/en-ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/en-gb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/fr-ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/hi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/is.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/ko.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/lv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/pt-br.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/sl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/sr-cyrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/sr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/th.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/uk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/zh-cn.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/fullcalendar/lang/zh-tw.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/highlight/jquery.highlight-4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/icheck/icheck.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/accept.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/additional.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/alphanumeric.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/bankaccountNL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/bankorgiroaccountNL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/bic.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/cifES.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/creditcardtypes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/currency.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/dateFA.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/dateITA.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/dateNL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/extension.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/giroaccountNL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/iban.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/integer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/ipv4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/ipv6.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/lettersonly.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/letterswithbasicpunc.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/mobileNL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/mobileUK.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/nieES.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/nifES.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/nowhitespace.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/pattern.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/phoneNL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/phoneUK.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/phoneUS.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/phonesUK.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/postalCodeCA.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/postalcodeIT.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/postalcodeNL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/postcodeUK.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/require_from_group.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/skip_or_fill_minimum.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/statesUS.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/strippedminlength.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/time.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/time12h.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/url2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/vinUS.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/zipcodeUS.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/additional/ziprange.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/jquery.validate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_el.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_es_AR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_et.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_eu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_gl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_he.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_is.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_ka.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_kk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_ko.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_lv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_my.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_no.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_pt_BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_pt_PT.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_si.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_sl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_sr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_sr_lat.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_th.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_tj.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_uk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_zh.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/messages_zh_TW.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/methods_de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/methods_es_CL.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/methods_fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/methods_nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery-validation/localization/methods_pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery/jquery-2.1.1.min.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery/jquery-migrate.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery/jquery-ui.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jquery/jquery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jvectormap/jquery-jvectormap-europe-mill-en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jvectormap/jquery-jvectormap-uakraine-merc-en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jvectormap/jquery-jvectormap-us-aea-en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/knob/jquery.knob.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/lesscss/less.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/maskedinput/jquery.maskedinput.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/moment.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/morris/morris.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/morris/raphael-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/jquery.noty.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/layouts/bottom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/layouts/bottomCenter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/layouts/bottomLeft.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/layouts/bottomRight.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/layouts/center.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/layouts/centerLeft.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/layouts/centerRight.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/layouts/inline.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/layouts/top.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/layouts/topCenter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/layouts/topLeft.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/layouts/topRight.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/promise.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/noty/themes/default.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/lib/cie.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/lib/colorbrewer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/lib/crossfilter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/lib/crossfilter.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/lib/d3.v2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/lib/d3.v2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/lib/d3.v3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/lib/fisheye.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/lib/hive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/lib/horizon.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/lib/sankey.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/nv.d3.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/core.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/interactiveLayer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/intro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/axis.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/backup/bullet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/backup/bulletChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/boilerplate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/bullet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/bulletChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/cumulativeLineChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/discreteBar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/discreteBarChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/distribution.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/historicalBar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/historicalBarChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/indentedTree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/legend.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/line.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/lineChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/linePlusBarChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/linePlusBarWithFocusChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/lineWithFisheye.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/lineWithFisheyeChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/lineWithFocusChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/multiBar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/multiBarChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/multiBarHorizontal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/multiBarHorizontalChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/multiBarTimeSeries.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/multiBarTimeSeriesChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/multiChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/ohlcBar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/parallelCoordinates.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/pie.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/pieChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/scatter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/scatterChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/scatterPlusLineChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/sparkline.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/sparklinePlus.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/stackedArea.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/models/stackedAreaChart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/outro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/tooltip.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/nvd3/src/utils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/owl/owl.carousel.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/rangeslider/jQAllRangeSliders-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/rickshaw/d3.layout.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/rickshaw/d3.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/rickshaw/d3.v2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/rickshaw/d3.v3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/rickshaw/rickshaw.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/scrolltotop/scrolltopcontrol.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/smartwizard/jquery.smartWizard-2.0.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/sparkline/jquery.sparkline.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/summernote/summernote.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/tableexport/html2canvas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/tableexport/jquery.base64.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/tableexport/jspdf/jspdf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/tableexport/jspdf/libs/base64.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/tableexport/jspdf/libs/sprintf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/tableexport/simple_html_dom.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/tableexport/tableExport.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/tagsinput/jquery.tagsinput.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/tocify/jquery.tocify.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/tour/bootstrap-tour.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/tour/bootstro.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/jquery.validationEngine.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-cz.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-el.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-et.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-he.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-no.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-pt_BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-sr_Cyrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-sr_Latn.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-zh_CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/plugins/validationengine/languages/jquery.validationEngine-zh_TW.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/portlet.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/js/settings.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/layout-boxed.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/layout-frame-left.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/layout-frame-right.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/layout-nav-custom.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/layout-nav-right.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/layout-nav-toggled.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/layout-nav-top-fixed.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/layout-nav-top.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/layout-search-left.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/angular/angular-locale_fr-fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/angular/angular-locale_pt-br.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/angular/angular-messages.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/angular/angular.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/angular/angular.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/css/bootstrap-theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/css/bootstrap-theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/css/bootstrap-theme.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/css/bootstrap.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/affix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/alert.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/button.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/carousel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/collapse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/dropdown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/modal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/npm.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/popover.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/scrollspy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/tab.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/tooltip.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/lib/bootstrap/js/transition.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/maps.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-address-book.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-blog-list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-blog-post.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-calendar.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-content-table.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-error-404-2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-error-404.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-error-500.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-faq.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-gallery.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-login-website-light.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-login-website.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-login.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-mailbox-compose.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-mailbox-inbox.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-mailbox-message.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-messages.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-profile.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-search.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-tasks.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-timeline-simple.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/pages-timeline.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/table-basic.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/table-datatables.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/table-export.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/teste.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/ui-alerts-popups.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/ui-buttons.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/ui-elements.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/ui-icons.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/ui-lists.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/ui-panels.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/ui-portlet.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/ui-sliders.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/ui-tour.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/ui-typography.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template-joli/ui-widgets.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dashboard.iws" />
@@ -261,82 +763,22 @@
     <favorites_list name="dashboard" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+    <leaf>
+      <file leaf-file-name="router.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node/router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" column="65" lean-forward="true" selection-start-line="40" selection-start-column="65" selection-end-line="40" selection-end-column="65" />
+            <state relative-caret-position="285">
+              <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/app.routes.js">
+      <file leaf-file-name="http.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/node/http.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="44" lean-forward="true" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form_admin.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/admin/form_admin.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vendedores.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/vendedores/vendedores.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vendedores.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/pages/vendedores/vendedores.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.module.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/app.module.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form_admin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/admin/form_admin.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="atendimentos.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentos.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="184">
+              <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -344,51 +786,16 @@
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>contato</find>
-      <find>3412</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>vendedor</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pages/Vendedores_Estab.html" />
-        <option value="$PROJECT_DIR$/pages/vendedoresController.js" />
-        <option value="$PROJECT_DIR$/pages/vendedores.html" />
-        <option value="$PROJECT_DIR$/template-joli/table-datatables.html" />
-        <option value="$PROJECT_DIR$/downDashBoard.html" />
-        <option value="$PROJECT_DIR$/top-downDashBoard/topDashBoard.html" />
-        <option value="$PROJECT_DIR$/top-downDashBoard/sideBar.html" />
-        <option value="$PROJECT_DIR$/itensDashBoard/sideBar.html" />
-        <option value="$PROJECT_DIR$/itensDashBoard/topDashBoard.html" />
-        <option value="$PROJECT_DIR$/topDashBoard.html" />
-        <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/form_adminController.js" />
-        <option value="$PROJECT_DIR$/form_admin.html" />
-        <option value="$PROJECT_DIR$/atendimentos.html" />
-        <option value="$PROJECT_DIR$/estabelecimentos.html" />
-        <option value="$PROJECT_DIR$/clientes.html" />
-        <option value="$PROJECT_DIR$/menu.html" />
-        <option value="$PROJECT_DIR$/vendedores.html" />
-        <option value="$PROJECT_DIR$/vendedoresController.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/app/pages/vendedores/vendedores.controller.js" />
-        <option value="$PROJECT_DIR$/app/pages/vendedores/vendedores.html" />
+        <option value="$PROJECT_DIR$/form_admin.html" />
+        <option value="$PROJECT_DIR$/vendedoresController.js" />
+        <option value="$PROJECT_DIR$/node/http.js" />
       </list>
     </option>
   </component>
@@ -404,8 +811,18 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-1" />
-    <option name="width" value="1442" />
-    <option name="height" value="876" />
+    <option name="width" value="1368" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -422,6 +839,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -429,9 +848,15 @@
               <option name="myItemId" value="dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -441,25 +866,11 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="node" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -469,160 +880,43 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendedores" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="atendimentos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="nodejs_interpreter_path" value="/usr/bin/node" />
-    <property name="js.eslint.eslintPackage" value="" />
-    <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/assets/images/users" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/top-downDashBoard" />
-    </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.vendedores.html">
-    <configuration default="false" name="vendedoresController.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="vendedoresController.js" working-dir="$PROJECT_DIR$">
-      <method />
-    </configuration>
-    <configuration default="false" name="vendedores.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/dashboard/vendedores.html">
-      <method />
-    </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
-      <method />
-    </configuration>
-    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
-      <config-file value="" />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
-      <config-file value="" />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager">
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
       <method />
     </configuration>
-    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
-      <option name="cucumberJsArguments" value="" />
-      <option name="executablePath" />
-      <option name="filePath" />
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
@@ -654,16 +948,6 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Node.js.vendedoresController.js" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.vendedores.html" />
-    </list>
-    <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.vendedores.html" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.vendedoresController.js" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -679,130 +963,58 @@
       <option name="presentableId" value="Default" />
       <updated>1480368415397</updated>
       <workItem from="1480368419517" duration="1936000" />
-      <workItem from="1480373803715" duration="3259000" />
-      <workItem from="1480378699872" duration="1264000" />
-      <workItem from="1480421780319" duration="13097000" />
-      <workItem from="1480515270255" duration="10610000" />
-      <workItem from="1480595575690" duration="7308000" />
-      <workItem from="1480627933697" duration="674000" />
-      <workItem from="1480712201933" duration="7440000" />
-      <workItem from="1480767260331" duration="4757000" />
-      <workItem from="1480856438132" duration="412000" />
-      <workItem from="1480958578672" duration="5986000" />
+      <workItem from="1480373803715" duration="4886000" />
+      <workItem from="1480463897339" duration="606000" />
+      <workItem from="1480467517548" duration="40000" />
+      <workItem from="1480538277239" duration="172000" />
+      <workItem from="1480538484933" duration="3591000" />
+      <workItem from="1480637044171" duration="29000" />
+      <workItem from="1480898604201" duration="153000" />
+      <workItem from="1480968026603" duration="5545000" />
+      <workItem from="1481049212871" duration="1360000" />
     </task>
-    <task id="LOCAL-00001" summary="icones do template atualizados.">
-      <created>1480425425248</created>
+    <task id="LOCAL-00001" summary="Removidos arquivos desnessários do template.">
+      <created>1480378032482</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1480425425248</updated>
+      <updated>1480378032482</updated>
     </task>
-    <task id="LOCAL-00002" summary="listagem de vendedores a partir de serviço node local e correções no template">
-      <created>1480469098331</created>
+    <task id="LOCAL-00002" summary="Adicionado frontend do CRUD do admin">
+      <created>1480541032295</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1480469098331</updated>
+      <updated>1480541032295</updated>
     </task>
-    <task id="LOCAL-00003" summary="modificação na listagem de vendedores a partir de serviço node local e correções na tabela da listagem">
-      <created>1480520472972</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1480520472972</updated>
-    </task>
-    <task id="LOCAL-00004" summary=" adicionando arquivos de serviço e roteamento em node + conexão com o postgresql">
-      <created>1480535286350</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1480535286350</updated>
-    </task>
-    <task id="LOCAL-00005" summary="separando a action bar do escopo do template">
-      <created>1480542566352</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1480542566352</updated>
-    </task>
-    <task id="LOCAL-00006" summary="menu geral adicionado">
-      <created>1480607398383</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1480607398383</updated>
-    </task>
-    <task id="LOCAL-00007" summary="adicionando controllers e removendo barra de pesquisa">
-      <created>1480611893214</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1480611893214</updated>
-    </task>
-    <task id="LOCAL-00008" summary="adicionado cabeçario de autentificação em vendedoresController">
-      <created>1480856686757</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1480856686757</updated>
-    </task>
-    <task id="LOCAL-00009" summary="estrutura organizada em rotas">
-      <created>1480972378678</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1480972378678</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56743000" />
+    <option name="totallyTimeSpent" value="18318000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1442" height="876" extended-state="6" />
+    <frame x="-1" y="0" width="1368" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16666667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2839879" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.442404" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32888147" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.022727273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.442404" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32888147" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -816,349 +1028,82 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="icones do template atualizados." />
-    <MESSAGE value="listagem de vendedores a partir de serviço node local e correções no template" />
-    <MESSAGE value="modificação na listagem de vendedores a partir de serviço node local e correções na tabela da listagem" />
-    <MESSAGE value=" adicionando arquivos de serviço e roteamento em node + conexão com o postgresql" />
-    <MESSAGE value="separando a action bar do escopo do template" />
-    <MESSAGE value="menu geral adicionado" />
-    <MESSAGE value="adicionando controllers e removendo barra de pesquisa" />
-    <MESSAGE value="adicionado cabeçario de autentificação em vendedoresController" />
-    <MESSAGE value="estrutura organizada em rotas" />
-    <option name="LAST_COMMIT_MESSAGE" value="estrutura organizada em rotas" />
+    <MESSAGE value="Removidos arquivos desnessários do template." />
+    <MESSAGE value="Adicionado frontend do CRUD do admin" />
+    <MESSAGE value="template adicionado novamente" />
+    <option name="LAST_COMMIT_MESSAGE" value="template adicionado novamente" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendedores.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="27" lean-forward="false" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendedoresController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendedores.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/estabelecimentosController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="3" lean-forward="true" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/topDashBoard.html" />
-    <entry file="file://$PROJECT_DIR$/downDashBoard.html" />
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="52" lean-forward="true" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template-joli/table-datatables.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6165">
-          <caret line="411" column="76" lean-forward="false" selection-start-line="411" selection-start-column="76" selection-end-line="411" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendedoresController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendedores.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2880">
-          <caret line="192" column="21" lean-forward="true" selection-start-line="192" selection-start-column="21" selection-end-line="192" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="54" lean-forward="false" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/users/no-image.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/users/no-image.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/users/user3.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/users/user2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/Vendedores_Estab.html" />
-    <entry file="file://$PROJECT_DIR$/assets/images/users/no-image.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="28" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/demo_dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-824">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template-joli/table-basic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6122">
-          <caret line="3" column="29" lean-forward="true" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template-joli/js/plugins/datatables/jquery.dataTables.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template-joli/table-datatables.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="403" column="32" lean-forward="true" selection-start-line="403" selection-start-column="32" selection-end-line="403" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clientesController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/downDashBoard.html" />
-    <entry file="file://$PROJECT_DIR$/sideBar.html" />
-    <entry file="file://$PROJECT_DIR$/topDashBoard.html" />
-    <entry file="file://$PROJECT_DIR$/atendimentos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/atendimentosController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/form_adminController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/form_admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/estabelecimentos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="43" column="27" lean-forward="false" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/indexController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clientes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="39" column="29" lean-forward="false" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/estabelecimentosController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="96" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="4" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendedoresController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="25" lean-forward="true" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendedores.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2595">
-          <caret line="173" column="70" lean-forward="false" selection-start-line="173" selection-start-column="70" selection-end-line="173" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/estabelecimentos.html" />
+    <entry file="file://$PROJECT_DIR$/estabelecimentosController.js" />
+    <entry file="file://$PROJECT_DIR$/form_admin.html" />
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="65" lean-forward="true" selection-start-line="40" selection-start-column="65" selection-end-line="40" selection-end-column="65" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.module.js">
+    <entry file="file://$PROJECT_DIR$/js/settings.js" />
+    <entry file="file://$PROJECT_DIR$/assets/images/users/no-image.jpg" />
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="44" lean-forward="true" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentos.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/admin/form_admin.controller.js">
+    <entry file="file://$PROJECT_DIR$/js/settings.js" />
+    <entry file="file://$PROJECT_DIR$/assets/images/users/no-image.jpg" />
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/settings.js" />
+    <entry file="file://$PROJECT_DIR$/assets/images/users/no-image.jpg" />
+    <entry file="file://$PROJECT_DIR$/assets/images/users/user3.jpg" />
+    <entry file="file://$PROJECT_DIR$/assets/images/users/user2.jpg" />
+    <entry file="file://$PROJECT_DIR$/estabelecimentos.html" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="62" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/settings.js" />
+    <entry file="file://$PROJECT_DIR$/assets/images/users/no-image.jpg" />
+    <entry file="file://$PROJECT_DIR$/form_admin.html" />
+    <entry file="file://$PROJECT_DIR$/estabelecimentosController.js" />
+    <entry file="file://$PROJECT_DIR$/vendedoresController.js" />
+    <entry file="file://$PROJECT_DIR$/node/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/vendedores/vendedores.controller.js">
+    <entry file="file://$PROJECT_DIR$/node/http.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/admin/form_admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/vendedores/vendedores.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        <state relative-caret-position="184">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
           <folding />
         </state>
       </provider>
