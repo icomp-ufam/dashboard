@@ -4,11 +4,7 @@
 angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $http) {
 
     $scope.app = "Estabelecimentos";
-    /*$scope.estabelecimentos = [
-                {nome: "Vendedor1", telefone: "123", nVendedores: "50"},
-                {nome: "Vendedor2", telefone: "456", nVendedores: "20"},
-                {nome: "Vendedor3", telefone: "789", nVendedores: "34"}
-    ];*/
+    $scope.estabelecimentos = [];
 
     var carregarEstabelecimentos = function () {
         $http({
@@ -21,7 +17,6 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
             }
             }).success(function(data){
                     $scope.estabelecimentos = data;
-                    console.log("deu Serto");
             }).error(function(error){
                     $scope.message = "Aconteceu um problema: " + data;
                     console.log("login error");
