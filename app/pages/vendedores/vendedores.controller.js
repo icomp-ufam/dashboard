@@ -18,7 +18,6 @@ angular.module("teewa").controller("vendedoresCtrl", function ($scope, $http) {
             }
             }).success(function(data){
                     $scope.vendedores = data;
-                    console.log("deu Serto");
             }).error(function(error){
                     $scope.message = "Aconteceu um problema: " + data;
                     console.log("login error");
@@ -28,7 +27,6 @@ angular.module("teewa").controller("vendedoresCtrl", function ($scope, $http) {
         }).error(function (data, status) {
             $scope.message = "Aconteceu um problema: " + data;
         });*/
-       
     };
 
     /*$scope.adicionarVendedor = function (vendedor) {

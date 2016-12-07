@@ -33,7 +33,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr  ng-repeat="atendimento in atendimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                <tr  ng-repeat="atendimento in atendimentos.chats | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                     <td>{{atendimento.id}}</td>
                                     
                                 </tr>
