@@ -27,13 +27,14 @@
                         <table class="table " >
                             <thead>
                                 <tr>
-                                    <th href="" ng-click="ordenarPor('name')" > Nome </th>
+                                    <th href="" ng-click="ordenarPor('nameuser')" > Nome </th>
                                     <th> Contato </th>
+
                                     
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr  ng-repeat="cliente in clientes | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                <tr  ng-repeat="cliente in clientes.users | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                     <td>{{cliente.name}}</td>
                                     <td>{{cliente.mobile}}</td>
                                 </tr>
