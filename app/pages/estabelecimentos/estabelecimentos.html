@@ -33,8 +33,7 @@
                                     <tr>
                                         <th href="" ng-click="ordenarPor('nomeuser')" > Nome </th>
                                         <th> Endereço </th>
-                                       
-                                       <!-- <th href="" ng-click="ordenarPor('name')"> Número de vendedores</th>-->
+                                        <th> Vendedores</th>
                                     </tr>
                                 </thead>
                                 
@@ -42,7 +41,11 @@
                                     <tr  ng-repeat="estabelecimento in estabelecimentos.stores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                         <td>{{estabelecimento.name}}</td>
                                         <td>{{estabelecimento.address}}</td>
-                                        <!--<td>{{estabelecimento.store_name}}</td>-->
+                                        <td>
+                                            <button class="btn btn-default" ui-sref="main.vendedores.listar">
+                                                Visualizar
+                                            </button>
+                                        </td>
                                     </tr>
                                 </tbody>
 
@@ -57,4 +60,5 @@
 <script type="text/javascript">
     panelActions();
 </script>
+
 <!-- END PAGE CONTENT WRAPPER -->
