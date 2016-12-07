@@ -3,7 +3,7 @@
     <li ><a href="#">atendimentos</a> </li>
 </ul>
 <div class="page-title">
-    <h2><span class="fa fa-users"></span> Atendimentos</h2>
+    <h2><span class="fa fa-users"></span>Atendimentos</h2>
 </div>
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">
@@ -14,7 +14,7 @@
                 <!-- START DEFAULT DATATABLE -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Atendimentos Ativos</h3>
+                        <h3 class="panel-title">Atendimentos Ativo</h3>
                         <ul class="panel-controls">
                             <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
                             <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
@@ -27,17 +27,15 @@
                         <table class="table" >
                             <thead>
                                 <tr>
-                                    <th  ng-click="ordenarPor('nomeuser')" > Nome </th>
-                                    <th> Contato </th>
+                                    <th> Nome </th>
                                     
-                                    <th  ng-click="ordenarPor('name')"> Cidade </th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr  ng-repeat="atendimento in atendimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                    <td>{{atendimento.nome}}</td>
-                                    <td>{{atendimento.telefone}}</td>
-                                    <td>{{atendimento.cidade}}</td>
+                                    <td>{{atendimento.id}}</td>
+                                    
                                 </tr>
                             </tbody>
                         </table>
