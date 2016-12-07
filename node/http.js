@@ -17,6 +17,8 @@ var sqlUsers = "select \"user\".name, \"user\".mobile from \"user\" where \"user
 var JsonStores;
 var sqlStores = "select \"store\".name, \"store\".address, count(\"seller\".id) as qtSellers from \"store\" full outer join \"seller\" ON \"store\".id = \"seller\".idstore group by (\"store\".id)"
 
+var JsonAtendimentos;
+
 
 var querySellers = client.query(sqlSellers);
 var queryUsers = client.query(sqlUsers);

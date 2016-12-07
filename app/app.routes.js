@@ -1,6 +1,6 @@
 angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
-        $urlRouterProvider.otherwise('/admin/lista');
-        $urlRouterProvider.when('/', '/admin/lista');
+        $urlRouterProvider.otherwise('/dashboard/lista');
+        $urlRouterProvider.when('/', '/dashboard/lista');
         $urlRouterProvider.when('/admin', '/admin/lista');
         $urlRouterProvider.when('/clientes', '/clientes/lista');
         $urlRouterProvider.when('/vendedores', '/vendedores/lista');

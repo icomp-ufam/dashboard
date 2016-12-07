@@ -11,11 +11,26 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
     ];*/
 
     var carregarEstabelecimentos = function () {
-        $http.get("http://localhost:3412/estabelecimentos").success(function (data) {
+        $http({
+
+            url : "http://54.233.67.111:8081/stores",
+            method : 'GET',
+            headers : {
+                'Content-Type' : 'application/json',
+            'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            }
+            }).success(function(data){
+                    $scope.estabelecimentos = data;
+                    console.log("deu Serto");
+            }).error(function(error){
+                    $scope.message = "Aconteceu um problema: " + data;
+                    console.log("login error");
+        });
+        /*$http.get("http://localhost:3412/estabelecimentos").success(function (data) {
             $scope.estabelecimentos = data;
         }).error(function (data, status) {
             $scope.message = "Aconteceu um problema: " + data;
-        });
+        });*/
     };
 
     $scope.adicionarEstabelecimento = function (estabelecimento) {

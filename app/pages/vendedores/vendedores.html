@@ -34,11 +34,11 @@
                                 <th >Ações</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr ng-repeat="vendedor in vendedores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                <td>{{vendedor.nomeuser}}</td>
-                                <td> {{vendedor.mobile}}</td>
+                       <tbody>
+                            <tr  ng-repeat="vendedor in vendedores.sellers | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                 <td>{{vendedor.name}}</td>
+                                <td>{{vendedor.mobile}}</td>
+                                <td>{{vendedor.store_name}}</td>
                             </tr>
                         </tbody>
                     </table>

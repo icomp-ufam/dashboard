@@ -11,9 +11,9 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http) {
     ];*/
 
     var carregarClientes = function () {
-        $http.get("http://api.androidhive.info/contacts/").success(function (data) {
+        $http.get("http://localhost:3412/clientes").success(function (data) {
             $scope.clientes = data;
-            console.log(data);
+            //console.log(data);
         }).error(function (data, status) {
             $scope.message = "Aconteceu um problema: " + data;
         });
