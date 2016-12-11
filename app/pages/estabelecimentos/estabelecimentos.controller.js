@@ -28,14 +28,14 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
         });*/
     };
 
-    $scope.adicionarEstabelecimento = function (estabelecimento) {
+    /*$scope.adicionarEstabelecimento = function (estabelecimento) {
         estabelecimento.data = new Date();
         $http.post("http://localhost:3412/estabelecimentos", estabelecimento).success(function (data) {
             delete $scope.estabelecimento;
             $scope.estabelecimentoForm.$setPristine();
             carregarestabelecimentos();
         });
-    };
+    };*/
     $scope.apagarestabelecimentos = function (estabelecimentos) {
         $scope.estabelecimentos = estabelecimentos.filter(function (estabelecimento) {
             if (!estabelecimento.selecionado) return estabelecimento;
@@ -52,20 +52,6 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
     };
 
     carregarEstabelecimentos();
-    var cookiename = getCookie("cookiename");
-    if (cookiename == "value") {
-        //write your script
-    }
 
-//function getCookie
-    function getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') c = c.substring(1);
-            if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
-        }
-        return "";
-    }
+
 });

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" class="body-full-height">
+<head>
+    <!-- META SECTION -->
+    <title>login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- END META SECTION -->
+
+    <!-- CSS INCLUDE -->
+    <link rel="stylesheet" type="text/css" id="theme" href="app/assets/css/theme-brown.css"/>
+    <!-- EOF CSS INCLUDE -->
+    <script>
+        $("#filename").on('change', function () {
+            if (typeof (FileReader) != "undefined"){
+                var image_holder = $("#image-holder");
+                image_holder.empty();
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("<img/>",{
+                        "src": e.target.result,
+                        "class": "thumb-img"
+                    }).appendTo(image_holder);
+                }
+                image_holder.show();
+                reader.readAsDataURL($(this)[0].files[0]);
+            }else {
+                alert("not supported!");
+            }
+        });
+    </script>
+</head>
+<body style="background-color: #063a48" >
+<div style="margin: 50px; margin-left: 150px; margin-right: 150px;" class="page-content-wrap">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal">
+                <div class="panel panel-default ">
+                    <div class="panel-heading" style="background-color: #d9d9d9">
+                        <h3 class="panel-title">Cadastro de Estabelecimento</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Cadastre aqui os dados seu estabelecimento</p>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-12 control-label">Nome</label>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <span class="help-block">Ex: PetShop Dog Feliz</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-12 control-label">Email</label>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <span class="help-block">Ex: teewaadmin@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-12 control-label">Senha</label>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
+                                    <input type="password" class="form-control"/>
+                                </div>
+                                <!--<span class="help-block">aviso</span>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-12 control-label">Confirme a senha</label>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
+                                    <input type="password" class="form-control"/>
+                                </div>
+                                <!--<span class="help-block">aviso</span>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-12 control-label">Foto</label>
+                            <div class="col-md-6 col-xs-12">
+                                <input type="file" class="file-preview-image" name="filename" id="filename" title="Escolher arquivo"/>
+                                <div id="image-holder"></div>
+                                <span class="help-block">Faça upload da sua foto de perfil</span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default">Limpar formulário</button>
+                        <button class="btn btn-primary pull-right">Solicitar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
