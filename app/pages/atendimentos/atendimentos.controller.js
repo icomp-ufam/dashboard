@@ -9,7 +9,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
     var carregarAtendimentos = function () {
         $http({
 
-            url : "http://54.233.67.111:8081/users/cases/5/chats",
+            url : "http://54.233.67.111:8081/users/cases/20/chats",
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',
