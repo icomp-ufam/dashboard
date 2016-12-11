@@ -34,6 +34,7 @@
                     <span class="xn-text">Novo administrador</span>
                 </a>
             </li>
+            
             <li>
                 <a href="#">
                     <span class="fa fa-user" aria-hidden="true"></span>
@@ -78,7 +79,8 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <li ng-class="{active: state.current.activetab == 'pacotes'}">
+                <a ui-sref="main.pacotes.listar">
                     <span class="fa fa-cubes"></span>
                     <span class="xn-text">Pacotes</span>
                 </a>
