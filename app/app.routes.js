@@ -10,6 +10,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         $urlRouterProvider.when('/pacotes', '/pacotes/lista');
 
 
+
         $stateProvider.state('main', {
             url: '/',
             templateUrl: 'app/pages/main/main.html',
