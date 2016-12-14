@@ -50,3 +50,29 @@ xmlhttp1.onload = function () {
     })
 
 };
+
+var xmlhttp3 = new XMLHttpRequest();
+var url3 = "http://54.233.67.111:8081/analytics/users/by/cases";
+var myArr3;
+xmlhttp3.open("GET", url3, true);
+xmlhttp3.send();
+
+xmlhttp3.onload = function () {
+    if(this.readyState==4 && this.status==200) {
+        myArr3 = JSON.parse(this.responseText);
+    }
+
+    dataJ3 = [];
+    for (el in myArr3)
+        dataJ3.push({y: myArr3[el].casos, a: myArr3[el].usuarios})
+    Morris.Bar({
+        element: 'morris-bar-example',
+        data: dataJ3,
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Casos'],
+        barColors: ['#2aabd2']
+    });
+
+};
+
