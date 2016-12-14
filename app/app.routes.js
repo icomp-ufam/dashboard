@@ -9,6 +9,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         $urlRouterProvider.when('/chat', '/chat/lista');
         $urlRouterProvider.when('/pacotes', '/pacotes/lista');
         $urlRouterProvider.when('/avaliacoes', '/avaliacoes/lista');
+        $urlRouterProvider.when('/pacotes-escolher', '/pacotes/escolha');
 
 
         $stateProvider.state('main', {
@@ -87,7 +88,15 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/avaliacoes/avaliacoes.html',
             controller: 'avaliacoesCtrl',
             activetab: 'avaliacoes'
-        })
 
+        }).state('main.escolher-pacote', {
+            url: '/escolher-pacote',
+            template: '<ui-view></ui-view>'
+        }).state('main.pacotes.escolher', {
+            url: '/escolha',
+            templateUrl: 'app/pages/pacotes/pacotes.html',
+            controller: 'formPacotesCtrl',
+            activetab: 'escolher-pacote'
+        })
 
     });

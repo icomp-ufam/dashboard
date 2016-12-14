@@ -92,6 +92,15 @@
                     <span class="xn-text">Pacotes</span>
                 </a>
             </li>
+
+            <li>
+            <li ng-class="{active: state.current.activetab == 'escolher-pacote'}">
+                <a ui-sref="main.pacotes.escolher">
+                    <span class="fa fa-money"></span>
+                    <span class="xn-text">Escolher pacotes</span>
+                </a>
+            </li>
+
             <li>
                 <li ng-class="{active: state.current.activetab == 'dashboardVendedor'}">
                 <a ui-sref="main.dashboardVendedor.listar">
