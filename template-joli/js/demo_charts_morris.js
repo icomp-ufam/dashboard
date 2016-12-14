@@ -1,5 +1,6 @@
 var morrisCharts = function() {
 
+
     Morris.Line({
       element: 'morris-line-example',
       data: [
@@ -65,5 +66,6 @@ var morrisCharts = function() {
         ],
         colors: ['#95B75D', '#1caf9a', '#FEA223']
     });
+
 
 }();

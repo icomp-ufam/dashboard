@@ -65,6 +65,13 @@
                     <span class="xn-text">Chat</span>
                 </a>
             </li>
+
+            <li ng-class="{active: state.current.activetab == 'avaliacoes'}">
+                <a ui-sref="main.avaliacoes.listar">
+                    <span class="fa fa-bar-chart-o"></span>
+                    <span class="xn-text">Avaliações</span>
+                </a>
+            </li>
             
             <li ng-class="{active: state.current.activetab == 'clientes'}">
                 <a ui-sref="main.clientes.listar">

@@ -1,7 +1,856 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39fa8f05-15be-41f2-b7f8-1f0df24c357b" name="Default" comment="" />
+    <list default="true" id="39fa8f05-15be-41f2-b7f8-1f0df24c357b" name="Default" comment="Listagens do banco (vendedores, clientes e estabelecimentos)">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/application_xp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/application_xp_terminal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/box.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/cd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/controller.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/drive.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/film.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/folder.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/font.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/image.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/map.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_attach.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_code.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_copy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_excel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_find.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_gear.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_lightning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_paintbrush.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_paste.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_refresh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_save.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_acrobat.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_actionscript.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_c.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_camera.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_cd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_code.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_code_red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_coldfusion.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_compressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_copy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_cplusplus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_csharp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_cup.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_database.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_dvd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_excel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_find.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_flash.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_freehand.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_gear.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_get.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_h.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_horizontal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_lightning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_link.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_magnify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_medal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_office.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_paint.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_paintbrush.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_paste.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_php.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_picture.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_powerpoint.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_put.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_ruby.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_stack.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_star.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_swoosh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_text.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_text_width.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_tux.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_vector.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_visualstudio.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_width.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_word.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_world.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_wrench.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_white_zip.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_word.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/icons/page_world.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/js/demo_charts_morris.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/js/icheck/icheck.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/js/mcustomscrollbar/jquery.mCustomScrollbar.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/js/morris/morris.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/js/morris/raphael-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/avaliacoes/avaliacoes.controller.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pages/avaliacoes/avaliacoes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/.bin/live-server" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/.editorconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/CONTRIBUTING.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/injected.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/live-server.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/.bin/watchr" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/ReadMe.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/examples/normal-usage.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/examples/safe-string.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/lib/colors.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/lib/custom/trap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/lib/custom/zalgo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/lib/extendStringPrototype.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/lib/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/lib/maps/america.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/lib/maps/rainbow.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/lib/maps/random.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/lib/maps/zebra.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/lib/styles.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/lib/system/supports-colors.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/safe.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/colors/themes/generic-logging.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/History.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/History.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/browser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/component.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/node.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/node_modules/ms/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/node_modules/ms/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/node_modules/ms/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/node_modules/ms/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/node_modules/ms/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/debug/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/escape-html/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/escape-html/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/escape-html/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/escape-html/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/node_modules/ee-first/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/node_modules/ee-first/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/node_modules/ee-first/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/node_modules/ee-first/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/unpipe/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/unpipe/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/unpipe/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/unpipe/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/node_modules/unpipe/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/finalhandler/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/parseurl/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/parseurl/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/parseurl/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/parseurl/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/parseurl/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/utils-merge/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/utils-merge/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/utils-merge/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/utils-merge/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/node_modules/utils-merge/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/connect/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/.eslintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/CONTRIBUTING.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/lib/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/node_modules/vary/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/node_modules/vary/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/node_modules/vary/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/node_modules/vary/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/node_modules/vary/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/test/basic-auth.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/test/body-events.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/test/cors.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/test/error-response.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/test/example-app.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/test/issue-2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/test/issue-31.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/cors/test/mocha.opts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/LICENCE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/examples/pretty.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/duplexer/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/duplexer/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/duplexer/LICENCE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/duplexer/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/duplexer/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/duplexer/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/duplexer/test/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/from/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/from/LICENSE.APACHE2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/from/LICENSE.MIT" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/from/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/from/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/from/readme.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/from/test/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/map-stream/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/map-stream/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/map-stream/LICENCE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/map-stream/examples/pretty.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/map-stream/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/map-stream/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/map-stream/readme.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/map-stream/test/simple-map.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/pause-stream/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/pause-stream/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/pause-stream/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/pause-stream/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/pause-stream/readme.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/pause-stream/test/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/pause-stream/test/pause-end.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/split/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/split/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/split/LICENCE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/split/examples/pretty.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/split/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/split/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/split/readme.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/split/test/options.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/split/test/partitioned_unicode.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/split/test/split.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/split/test/try_catch.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/stream-combiner/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/stream-combiner/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/stream-combiner/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/stream-combiner/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/stream-combiner/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/stream-combiner/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/stream-combiner/test/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/through/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/through/LICENSE.APACHE2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/through/LICENSE.MIT" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/through/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/through/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/through/readme.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/through/test/async.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/through/test/auto-destroy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/through/test/buffering.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/through/test/end.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/node_modules/through/test/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/readme.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/test/connect.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/test/helper/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/test/merge.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/test/parse.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/test/pause.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/test/pipeline.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/test/readArray.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/test/readable.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/test/replace.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/test/simple-map.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/test/spec.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/test/split.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/test/stringify.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/event-stream/test/writeArray.asynct.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/CHANGELOG.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/CODE_OF_CONDUCT.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/examples/autobahn_client.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/examples/client.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/examples/haproxy.conf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/examples/proxy_server.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/examples/server.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/examples/sse.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/examples/ws.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/lib/faye/eventsource.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/lib/faye/websocket.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/lib/faye/websocket/api.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/lib/faye/websocket/api/event.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/lib/faye/websocket/api/event_target.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/lib/faye/websocket/client.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/CHANGELOG.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/CODE_OF_CONDUCT.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/examples/tcp_server.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/lib/websocket/driver.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/lib/websocket/driver/base.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/lib/websocket/driver/client.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/lib/websocket/driver/draft75.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/lib/websocket/driver/draft76.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/lib/websocket/driver/headers.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/lib/websocket/driver/hybi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/lib/websocket/driver/hybi/frame.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/lib/websocket/driver/hybi/message.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/lib/websocket/driver/proxy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/lib/websocket/driver/server.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/lib/websocket/driver/stream_reader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/lib/websocket/http_parser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/lib/websocket/streams.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/node_modules/websocket-extensions/CHANGELOG.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/node_modules/websocket-extensions/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/node_modules/websocket-extensions/lib/parser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/node_modules/websocket-extensions/lib/pipeline/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/node_modules/websocket-extensions/lib/pipeline/cell.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/node_modules/websocket-extensions/lib/pipeline/functor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/node_modules/websocket-extensions/lib/pipeline/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/node_modules/websocket-extensions/lib/pipeline/pledge.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/node_modules/websocket-extensions/lib/pipeline/ring_buffer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/node_modules/websocket-extensions/lib/websocket_extensions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/node_modules/websocket-extensions/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/node_modules/websocket-driver/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/faye-websocket/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/.babelrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/gensrc/auth/base.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/gensrc/auth/basic.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/gensrc/auth/digest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/gensrc/auth/utils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/gensrc/http-auth.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/gensrc/server/connect.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/gensrc/server/http.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/gensrc/server/https.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/gensrc/server/koa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/gensrc/server/passport.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/gensrc/server/proxy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/.bin/uuid" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-crypt/.babelrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-crypt/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-crypt/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-crypt/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-crypt/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-crypt/gensrc/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-crypt/node_modules/unix-crypt-td-js/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-crypt/node_modules/unix-crypt-td-js/README.markdown" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-crypt/node_modules/unix-crypt-td-js/dist/unix-crypt-td.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-crypt/node_modules/unix-crypt-td-js/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-crypt/node_modules/unix-crypt-td-js/src/unix-crypt-td.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-crypt/node_modules/unix-crypt-td-js/test/test.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-crypt/node_modules/unix-crypt-td-js/test/unix-crypt-td-test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-crypt/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-md5/.babelrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-md5/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-md5/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-md5/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-md5/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-md5/gensrc/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/apache-md5/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/benchmark/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/benchmark/bench.gnu" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/benchmark/bench.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/benchmark/benchmark-native.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/benchmark/benchmark.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/bin/uuid" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/component.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/test/compare_v1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/test/test.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/test/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/node_modules/node-uuid/uuid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/http-auth/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/basic-auth/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/basic-auth/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/basic-auth/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/basic-auth/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/basic-auth/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/History.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/browser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/component.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/node.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/node_modules/ms/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/node_modules/ms/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/node_modules/ms/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/node_modules/ms/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/node_modules/ms/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/debug/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/depd/History.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/depd/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/depd/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/depd/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/depd/lib/browser/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/depd/lib/compat/buffer-concat.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/depd/lib/compat/callsite-tostring.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/depd/lib/compat/event-listener-count.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/depd/lib/compat/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/depd/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/on-finished/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/on-finished/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/on-finished/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/on-finished/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/on-finished/node_modules/ee-first/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/on-finished/node_modules/ee-first/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/on-finished/node_modules/ee-first/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/on-finished/node_modules/ee-first/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/on-finished/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/on-headers/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/on-headers/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/on-headers/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/on-headers/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/node_modules/on-headers/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/morgan/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/object-assign/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/object-assign/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/object-assign/readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/opn/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/opn/node_modules/pinkie-promise/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/opn/node_modules/pinkie-promise/node_modules/pinkie/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/opn/node_modules/pinkie-promise/node_modules/pinkie/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/opn/node_modules/pinkie-promise/node_modules/pinkie/readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/opn/node_modules/pinkie-promise/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/opn/node_modules/pinkie-promise/readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/opn/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/opn/readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/opn/xdg-open" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/proxy-middleware/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/proxy-middleware/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/proxy-middleware/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/proxy-middleware/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/proxy-middleware/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/proxy-middleware/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/.bin/mime" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/debug/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/debug/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/debug/History.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/debug/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/debug/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/debug/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/debug/browser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/debug/component.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/debug/debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/debug/node.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/debug/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/depd/History.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/depd/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/depd/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/depd/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/depd/lib/browser/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/depd/lib/compat/buffer-concat.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/depd/lib/compat/callsite-tostring.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/depd/lib/compat/event-listener-count.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/depd/lib/compat/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/depd/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/destroy/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/destroy/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/destroy/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/destroy/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/encodeurl/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/encodeurl/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/encodeurl/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/encodeurl/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/encodeurl/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/escape-html/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/escape-html/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/escape-html/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/escape-html/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/etag/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/etag/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/etag/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/etag/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/etag/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/fresh/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/fresh/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/fresh/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/fresh/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/fresh/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/http-errors/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/http-errors/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/http-errors/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/http-errors/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/http-errors/node_modules/inherits/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/http-errors/node_modules/inherits/inherits.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/http-errors/node_modules/inherits/inherits_browser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/http-errors/node_modules/inherits/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/http-errors/node_modules/setprototypeof/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/http-errors/node_modules/setprototypeof/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/http-errors/node_modules/setprototypeof/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/http-errors/node_modules/setprototypeof/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/http-errors/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/mime/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/mime/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/mime/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/mime/build/build.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/mime/build/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/mime/cli.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/mime/mime.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/mime/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/mime/types.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/ms/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/ms/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/ms/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/ms/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/ms/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/on-finished/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/on-finished/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/on-finished/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/on-finished/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/on-finished/node_modules/ee-first/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/on-finished/node_modules/ee-first/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/on-finished/node_modules/ee-first/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/on-finished/node_modules/ee-first/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/on-finished/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/range-parser/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/range-parser/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/range-parser/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/range-parser/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/range-parser/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/statuses/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/statuses/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/statuses/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/statuses/codes.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/statuses/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/node_modules/statuses/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/send/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/accepts/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/accepts/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/accepts/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/accepts/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/accepts/node_modules/negotiator/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/accepts/node_modules/negotiator/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/accepts/node_modules/negotiator/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/accepts/node_modules/negotiator/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/accepts/node_modules/negotiator/lib/charset.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/accepts/node_modules/negotiator/lib/encoding.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/accepts/node_modules/negotiator/lib/language.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/accepts/node_modules/negotiator/lib/mediaType.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/accepts/node_modules/negotiator/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/accepts/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/batch/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/batch/History.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/batch/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/batch/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/batch/component.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/batch/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/batch/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/History.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/browser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/component.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/node.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/node_modules/ms/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/node_modules/ms/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/node_modules/ms/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/node_modules/ms/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/node_modules/ms/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/debug/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/escape-html/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/escape-html/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/escape-html/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/escape-html/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/node_modules/inherits/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/node_modules/inherits/inherits.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/node_modules/inherits/inherits_browser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/node_modules/inherits/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/node_modules/setprototypeof/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/node_modules/setprototypeof/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/node_modules/setprototypeof/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/node_modules/setprototypeof/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/node_modules/statuses/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/node_modules/statuses/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/node_modules/statuses/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/node_modules/statuses/codes.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/node_modules/statuses/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/node_modules/statuses/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/http-errors/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/mime-types/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/mime-types/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/mime-types/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/mime-types/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/mime-types/node_modules/mime-db/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/mime-types/node_modules/mime-db/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/mime-types/node_modules/mime-db/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/mime-types/node_modules/mime-db/db.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/mime-types/node_modules/mime-db/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/mime-types/node_modules/mime-db/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/mime-types/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/parseurl/HISTORY.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/parseurl/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/parseurl/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/parseurl/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/node_modules/parseurl/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/directory.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/serve-index/public/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/bin/watchr" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/es5/lib/watchr-util.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/es5/lib/watchr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/example.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/node_modules/editions/.flowconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/node_modules/editions/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/node_modules/editions/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/node_modules/editions/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/node_modules/editions/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/node_modules/editions/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/node_modules/editions/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/eachr/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extendr/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extendr/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extendr/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extendr/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extendr/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extendr/node_modules/editions/.flowconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extendr/node_modules/editions/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extendr/node_modules/editions/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extendr/node_modules/editions/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extendr/node_modules/editions/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extendr/node_modules/editions/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extendr/node_modules/editions/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extendr/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extendr/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extract-opts/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extract-opts/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extract-opts/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extract-opts/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extract-opts/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extract-opts/node_modules/editions/.flowconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extract-opts/node_modules/editions/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extract-opts/node_modules/editions/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extract-opts/node_modules/editions/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extract-opts/node_modules/editions/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extract-opts/node_modules/editions/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extract-opts/node_modules/editions/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extract-opts/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/extract-opts/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/.flowconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/node_modules/editions/.flowconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/node_modules/editions/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/node_modules/editions/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/node_modules/editions/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/node_modules/editions/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/node_modules/editions/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/node_modules/editions/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/node_modules/ignorepatterns/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/node_modules/ignorepatterns/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/node_modules/ignorepatterns/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/node_modules/ignorepatterns/es5/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/node_modules/ignorepatterns/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/node_modules/ignorepatterns/source/index.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/ignorefs/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/node_modules/editions/.flowconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/node_modules/editions/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/node_modules/editions/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/node_modules/editions/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/node_modules/editions/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/node_modules/editions/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/node_modules/editions/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/node_modules/graceful-fs/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/node_modules/graceful-fs/fs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/node_modules/graceful-fs/graceful-fs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/node_modules/graceful-fs/legacy-streams.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/node_modules/graceful-fs/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/node_modules/graceful-fs/polyfills.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/safefs/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/safefs/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/safefs/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/safefs/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/safefs/es5/lib/safefs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/safefs/es6/lib/safefs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/safefs/es6guardian.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/safefs/nakefile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/safefs/node_modules/graceful-fs/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/safefs/node_modules/graceful-fs/fs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/safefs/node_modules/graceful-fs/graceful-fs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/safefs/node_modules/graceful-fs/legacy-streams.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/safefs/node_modules/graceful-fs/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/safefs/node_modules/graceful-fs/polyfills.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/safefs/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/HISTORY.md.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/LICENSE.md.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/README.md.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/assets/biscotto.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/assets/biscotto.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/assets/search_data.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/class_index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/class_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/classes/Task.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/classes/TaskGroup.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/extra_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/file_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/method_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/docs/mixin_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/ambi/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/ambi/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/ambi/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/ambi/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/ambi/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/ambi/node_modules/editions/.flowconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/ambi/node_modules/editions/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/ambi/node_modules/editions/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/ambi/node_modules/editions/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/ambi/node_modules/editions/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/ambi/node_modules/editions/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/ambi/node_modules/editions/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/ambi/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/ambi/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/csextends/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/csextends/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/csextends/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/csextends/out/lib/csextends.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/node_modules/csextends/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/out/lib/taskgroup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/node_modules/taskgroup/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/out/lib/scandirectory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/scandirectory/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/es2015/lib/interface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/es2015/lib/task.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/es2015/lib/taskgroup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/es2015/lib/util.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/node_modules/ambi/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/node_modules/ambi/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/node_modules/ambi/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/node_modules/ambi/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/node_modules/ambi/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/node_modules/ambi/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/node_modules/ambi/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/node_modules/editions/.flowconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/node_modules/editions/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/node_modules/editions/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/node_modules/editions/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/node_modules/editions/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/node_modules/editions/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/node_modules/editions/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/source/lib/interface.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/source/lib/task.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/source/lib/taskgroup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/taskgroup/source/lib/util.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/.flowconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/node_modules/editions/.flowconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/node_modules/editions/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/node_modules/editions/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/node_modules/editions/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/node_modules/editions/es2015/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/node_modules/editions/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/node_modules/editions/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/node_modules/typechecker/source/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/src/lib/watchr-util.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/node_modules/watchr/src/lib/watchr.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/acceptance.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/cli.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/conf/https.conf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/conf/server.cert" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/conf/server.key" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/cors.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/data/fragment.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/data/htpasswd-test" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/data/index-caps.htm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/data/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/data/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/data/sub/sub.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/data/test.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/htpasswd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/https.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/middleware.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/mount.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/live-server/test/proxy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.routes.js" afterPath="$PROJECT_DIR$/app/app.routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/main/main.html" afterPath="$PROJECT_DIR$/app/pages/main/main.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template-joli/js/demo_charts_morris.js" afterPath="$PROJECT_DIR$/template-joli/js/demo_charts_morris.js" />
+    </list>
     <ignored path="dashboard.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -21,91 +870,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="estabelecimentos.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.html">
+      <file leaf-file-name="avaliacoes.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/avaliacoes/avaliacoes.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+            <state relative-caret-position="60">
+              <caret line="6" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#44#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="avaliacoes.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/avaliacoes/avaliacoes.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="clientes.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="12" column="45" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vendedores.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/vendedores/vendedores.html">
+      <file leaf-file-name="demo_charts_morris.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/js/demo_charts_morris.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+            <state relative-caret-position="270">
+              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="atendimentos.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentos.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="atendimentos.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentos.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="64" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/main/main.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1819">
-              <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vendedores.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/vendedores/vendedores.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/dashboard/dashboard.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/dashboard/dashboard.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/app.routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1173">
-              <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
+            <state relative-caret-position="344">
+              <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -116,20 +929,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>contato</find>
-      <find>3412</find>
-      <find>&lt;--</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>vendedor</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -137,39 +940,20 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pages/Vendedores_Estab.html" />
-        <option value="$PROJECT_DIR$/pages/vendedoresController.js" />
-        <option value="$PROJECT_DIR$/pages/vendedores.html" />
-        <option value="$PROJECT_DIR$/template-joli/table-datatables.html" />
-        <option value="$PROJECT_DIR$/downDashBoard.html" />
-        <option value="$PROJECT_DIR$/top-downDashBoard/topDashBoard.html" />
-        <option value="$PROJECT_DIR$/top-downDashBoard/sideBar.html" />
-        <option value="$PROJECT_DIR$/itensDashBoard/sideBar.html" />
-        <option value="$PROJECT_DIR$/itensDashBoard/topDashBoard.html" />
-        <option value="$PROJECT_DIR$/topDashBoard.html" />
-        <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/form_adminController.js" />
         <option value="$PROJECT_DIR$/form_admin.html" />
-        <option value="$PROJECT_DIR$/atendimentos.html" />
-        <option value="$PROJECT_DIR$/estabelecimentos.html" />
-        <option value="$PROJECT_DIR$/clientes.html" />
-        <option value="$PROJECT_DIR$/menu.html" />
-        <option value="$PROJECT_DIR$/vendedores.html" />
         <option value="$PROJECT_DIR$/vendedoresController.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/app/pages/clientes/clientes.html" />
-        <option value="$PROJECT_DIR$/app/pages/clientes/clientes.controller.js" />
-        <option value="$PROJECT_DIR$/node/http.js" />
-        <option value="$PROJECT_DIR$/app/pages/admin/form_admin.html" />
-        <option value="$PROJECT_DIR$/app/pages/main/main.html" />
         <option value="$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.controller.js" />
         <option value="$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.html" />
-        <option value="$PROJECT_DIR$/app/app.routes.js" />
-        <option value="$PROJECT_DIR$/app/pages/dashboard/dashboard.controller.js" />
-        <option value="$PROJECT_DIR$/app/pages/vendedores/vendedores.controller.js" />
-        <option value="$PROJECT_DIR$/app/pages/dashboard/dashboard.html" />
         <option value="$PROJECT_DIR$/app/pages/vendedores/vendedores.html" />
-        <option value="$PROJECT_DIR$/app/pages/atendimentos/atendimentos.html" />
+        <option value="$PROJECT_DIR$/app/pages/clientes/clientes.controller.js" />
+        <option value="$PROJECT_DIR$/node/http.js" />
+        <option value="$PROJECT_DIR$/app/pages/avaliacoes/avaliacoes.controller.js" />
+        <option value="$PROJECT_DIR$/app/pages/main/main.html" />
+        <option value="$PROJECT_DIR$/app/app.routes.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/template-joli/js/demo_charts_morris.js" />
+        <option value="$PROJECT_DIR$/app/pages/avaliacoes/avaliacoes.html" />
+        <option value="$PROJECT_DIR$/app/assets/js/demo_charts_morris.js" />
       </list>
     </option>
   </component>
@@ -184,9 +968,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1378" />
-    <option name="height" value="735" />
+    <option name="x" value="-1" />
+    <option name="width" value="1368" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -213,7 +997,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -221,9 +1005,15 @@
               <option name="myItemId" value="dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -233,11 +1023,11 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="template-joli" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -247,15 +1037,61 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template-joli" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -265,19 +1101,19 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="clientes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -287,19 +1123,19 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -309,55 +1145,53 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="atendimentos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="nodejs_interpreter_path" value="/usr/bin/node" />
-    <property name="js.eslint.eslintPackage" value="" />
-    <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/pages" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/js" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/assets/images/users" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/top-downDashBoard" />
-    </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.vendedores.html">
-    <configuration default="false" name="vendedoresController.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="vendedoresController.js" working-dir="$PROJECT_DIR$">
-      <method />
-    </configuration>
-    <configuration default="false" name="vendedores.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/dashboard/vendedores.html">
-      <method />
-    </configuration>
+  <component name="RunManager">
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
@@ -389,16 +1223,6 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Node.js.vendedoresController.js" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.vendedores.html" />
-    </list>
-    <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.vendedores.html" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.vendedoresController.js" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -414,172 +1238,84 @@
       <option name="presentableId" value="Default" />
       <updated>1480368415397</updated>
       <workItem from="1480368419517" duration="1936000" />
-      <workItem from="1480373803715" duration="3259000" />
-      <workItem from="1480378699872" duration="1264000" />
-      <workItem from="1480421780319" duration="13097000" />
-      <workItem from="1480515270255" duration="10610000" />
-      <workItem from="1480595575690" duration="7308000" />
-      <workItem from="1480627933697" duration="674000" />
-      <workItem from="1480712201933" duration="7440000" />
-      <workItem from="1480767260331" duration="4757000" />
-      <workItem from="1480856438132" duration="412000" />
-      <workItem from="1480958578672" duration="7443000" />
-      <workItem from="1481042284326" duration="7585000" />
-      <workItem from="1481062941708" duration="3635000" />
-      <workItem from="1481071743913" duration="1297000" />
-      <workItem from="1481119174684" duration="15103000" />
-      <workItem from="1481473866118" duration="7000" />
+      <workItem from="1480373803715" duration="4886000" />
+      <workItem from="1480463897339" duration="606000" />
+      <workItem from="1480467517548" duration="40000" />
+      <workItem from="1480538277239" duration="172000" />
+      <workItem from="1480538484933" duration="3591000" />
+      <workItem from="1480637044171" duration="29000" />
+      <workItem from="1480898604201" duration="153000" />
+      <workItem from="1480968026603" duration="5545000" />
+      <workItem from="1481049212871" duration="2382000" />
+      <workItem from="1481053372318" duration="10338000" />
+      <workItem from="1481137431137" duration="668000" />
+      <workItem from="1481312380652" duration="12000" />
+      <workItem from="1481572658959" duration="1109000" />
+      <workItem from="1481669896116" duration="7916000" />
     </task>
-    <task id="LOCAL-00001" summary="icones do template atualizados.">
-      <created>1480425425248</created>
+    <task id="LOCAL-00001" summary="Removidos arquivos desnessários do template.">
+      <created>1480378032482</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1480425425248</updated>
+      <updated>1480378032482</updated>
     </task>
-    <task id="LOCAL-00002" summary="listagem de vendedores a partir de serviço node local e correções no template">
-      <created>1480469098331</created>
+    <task id="LOCAL-00002" summary="Adicionado frontend do CRUD do admin">
+      <created>1480541032295</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1480469098331</updated>
+      <updated>1480541032295</updated>
     </task>
-    <task id="LOCAL-00003" summary="modificação na listagem de vendedores a partir de serviço node local e correções na tabela da listagem">
-      <created>1480520472972</created>
+    <task id="LOCAL-00003" summary="template adicionado novamente">
+      <created>1481051563308</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1480520472972</updated>
+      <updated>1481051563308</updated>
     </task>
-    <task id="LOCAL-00004" summary=" adicionando arquivos de serviço e roteamento em node + conexão com o postgresql">
-      <created>1480535286350</created>
+    <task id="LOCAL-00004" summary="Rota do banco para clientes">
+      <created>1481052254273</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1480535286350</updated>
+      <updated>1481052254273</updated>
     </task>
-    <task id="LOCAL-00005" summary="separando a action bar do escopo do template">
-      <created>1480542566352</created>
+    <task id="LOCAL-00005" summary="Listagens do banco (vendedores, clientes e estabelecimentos)">
+      <created>1481058235046</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1480542566352</updated>
+      <updated>1481058235046</updated>
     </task>
-    <task id="LOCAL-00006" summary="menu geral adicionado">
-      <created>1480607398383</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1480607398383</updated>
-    </task>
-    <task id="LOCAL-00007" summary="adicionando controllers e removendo barra de pesquisa">
-      <created>1480611893214</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1480611893214</updated>
-    </task>
-    <task id="LOCAL-00008" summary="adicionado cabeçario de autentificação em vendedoresController">
-      <created>1480856686757</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1480856686757</updated>
-    </task>
-    <task id="LOCAL-00009" summary="estrutura organizada em rotas">
-      <created>1480972378678</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1480972378678</updated>
-    </task>
-    <task id="LOCAL-00010" summary="estrutura organizada em rotas 2">
-      <created>1480976182748</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1480976182748</updated>
-    </task>
-    <task id="LOCAL-00011" summary="adicionando função para consulta">
-      <created>1481053382191</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1481053382191</updated>
-    </task>
-    <task id="LOCAL-00012" summary="dashboard com nova estrutura">
-      <created>1481058510432</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1481058510432</updated>
-    </task>
-    <task id="LOCAL-00013" summary="dados(vendedores, estabelecimentos) obtidos através das rotas, e rota da pagina inicial alterada para dashboard">
-      <created>1481072595703</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1481072595703</updated>
-    </task>
-    <task id="LOCAL-00014" summary="atualizando">
-      <created>1481130254641</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1481130254641</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85827000" />
+    <option name="totallyTimeSpent" value="39383000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
-    <editor active="false" />
+    <frame x="-1" y="0" width="1368" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1918239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22809668" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44107744" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.022727273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32888147" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32888147" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32888147" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.442404" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32888147" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -593,33 +1329,131 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="icones do template atualizados." />
-    <MESSAGE value="listagem de vendedores a partir de serviço node local e correções no template" />
-    <MESSAGE value="modificação na listagem de vendedores a partir de serviço node local e correções na tabela da listagem" />
-    <MESSAGE value=" adicionando arquivos de serviço e roteamento em node + conexão com o postgresql" />
-    <MESSAGE value="separando a action bar do escopo do template" />
-    <MESSAGE value="menu geral adicionado" />
-    <MESSAGE value="adicionando controllers e removendo barra de pesquisa" />
-    <MESSAGE value="adicionado cabeçario de autentificação em vendedoresController" />
-    <MESSAGE value="estrutura organizada em rotas" />
-    <MESSAGE value="estrutura organizada em rotas 2" />
-    <MESSAGE value="adicionando função para consulta" />
-    <MESSAGE value="dashboard com nova estrutura" />
-    <MESSAGE value="dados(vendedores, estabelecimentos) obtidos através das rotas, e rota da pagina inicial alterada para dashboard" />
-    <MESSAGE value="atualizando" />
-    <option name="LAST_COMMIT_MESSAGE" value="atualizando" />
+    <MESSAGE value="Removidos arquivos desnessários do template." />
+    <MESSAGE value="Adicionado frontend do CRUD do admin" />
+    <MESSAGE value="template adicionado novamente" />
+    <MESSAGE value="Rota do banco para clientes" />
+    <MESSAGE value="Listagens do banco (vendedores, clientes e estabelecimentos)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Listagens do banco (vendedores, clientes e estabelecimentos)" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendedoresController.js" />
-    <entry file="file://$PROJECT_DIR$/vendedores.html" />
+    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="94" selection-start-line="19" selection-start-column="94" selection-end-line="19" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/vendedores/vendedores.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/http.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="94" selection-start-line="18" selection-start-column="94" selection-end-line="18" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/vendedores/vendedores.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/estabelecimentos.html" />
+    <entry file="file://$PROJECT_DIR$/estabelecimentosController.js" />
+    <entry file="file://$PROJECT_DIR$/form_admin.html" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/settings.js" />
+    <entry file="file://$PROJECT_DIR$/assets/images/users/no-image.jpg" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -636,166 +1470,164 @@
     <entry file="file://$PROJECT_DIR$/assets/images/users/no-image.jpg" />
     <entry file="file://$PROJECT_DIR$/assets/images/users/user3.jpg" />
     <entry file="file://$PROJECT_DIR$/assets/images/users/user2.jpg" />
-    <entry file="file://$PROJECT_DIR$/pages/Vendedores_Estab.html" />
-    <entry file="file://$PROJECT_DIR$/assets/images/users/no-image.jpg" />
-    <entry file="file://$PROJECT_DIR$/js/settings.js" />
-    <entry file="file://$PROJECT_DIR$/js/demo_dashboard.js" />
-    <entry file="file://$PROJECT_DIR$/template-joli/table-basic.html" />
-    <entry file="file://$PROJECT_DIR$/template-joli/js/plugins/datatables/jquery.dataTables.min.js" />
-    <entry file="file://$PROJECT_DIR$/template-joli/table-datatables.html" />
-    <entry file="file://$PROJECT_DIR$/clientesController.js" />
-    <entry file="file://$PROJECT_DIR$/downDashBoard.html" />
-    <entry file="file://$PROJECT_DIR$/sideBar.html" />
-    <entry file="file://$PROJECT_DIR$/topDashBoard.html" />
-    <entry file="file://$PROJECT_DIR$/atendimentos.html" />
-    <entry file="file://$PROJECT_DIR$/atendimentosController.js" />
-    <entry file="file://$PROJECT_DIR$/form_adminController.js" />
-    <entry file="file://$PROJECT_DIR$/form_admin.html" />
     <entry file="file://$PROJECT_DIR$/estabelecimentos.html" />
-    <entry file="file://$PROJECT_DIR$/indexController.js" />
-    <entry file="file://$PROJECT_DIR$/clientes.html" />
+    <entry file="file://$PROJECT_DIR$/js/settings.js" />
+    <entry file="file://$PROJECT_DIR$/assets/images/users/no-image.jpg" />
+    <entry file="file://$PROJECT_DIR$/form_admin.html" />
     <entry file="file://$PROJECT_DIR$/estabelecimentosController.js" />
     <entry file="file://$PROJECT_DIR$/vendedoresController.js" />
-    <entry file="file://$PROJECT_DIR$/vendedores.html" />
-    <entry file="file://$PROJECT_DIR$/menu.html" />
-    <entry file="file://$PROJECT_DIR$/app/app.module.js">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/phrase.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/http.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/admin/form_admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="65" selection-start-line="40" selection-start-column="65" selection-end-line="40" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/admin/form_admin.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+        <state relative-caret-position="191">
+          <caret line="57" column="14" selection-start-line="57" selection-start-column="14" selection-end-line="57" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="11" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/main/main.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/main/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1819">
-          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/vendedores/vendedores.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/dashboard/dashboard.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/dashboard/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="180">
+          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+        <state relative-caret-position="585">
+          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/vendedores/vendedores.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+        <state relative-caret-position="540">
+          <caret line="36" column="54" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentos.controller.js">
+    <entry file="file://$PROJECT_DIR$/node/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="64" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="64" />
+        <state relative-caret-position="180">
+          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentos.html">
+    <entry file="file://$PROJECT_DIR$/node/http.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+        <state relative-caret-position="30">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template-joli/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="164" column="66" selection-start-line="164" selection-start-column="49" selection-end-line="164" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/main/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="244" column="12" selection-start-line="244" selection-start-column="12" selection-end-line="244" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/js/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template-joli/charts-morris.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="447" column="46" selection-start-line="447" selection-start-column="0" selection-end-line="448" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template-joli/js/demo_charts_morris.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="93" column="7" selection-start-line="93" selection-start-column="7" selection-end-line="94" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/avaliacoes/avaliacoes.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#44#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="12" column="45" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/avaliacoes/avaliacoes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/js/demo_charts_morris.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
           <folding />
         </state>
       </provider>
