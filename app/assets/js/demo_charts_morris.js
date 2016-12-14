@@ -51,6 +51,7 @@ xmlhttp1.onload = function () {
 
 };
 
+//usuarios por caso
 var xmlhttp3 = new XMLHttpRequest();
 var url3 = "http://54.233.67.111:8081/analytics/users/by/cases";
 var myArr3;
@@ -153,3 +154,27 @@ xmlhttpConsultaLA3.onload = function () {
 
 };
 
+var xmlhttpConsultaCaseByUser = new XMLHttpRequest();
+var urlConsultaCaseByUser = "http://54.233.67.111:8081/analytics/cases/by/users";
+var myArrConsultaCaseByUser;
+xmlhttpConsultaCaseByUser.open("GET", urlConsultaCaseByUser, true);
+xmlhttpConsultaCaseByUser.send();
+
+xmlhttpConsultaCaseByUser.onload = function () {
+    if(this.readyState==4 && this.status==200) {
+        myArrConsultaCaseByUser = JSON.parse(this.responseText);
+    }
+
+    dataJConsultaCaseByUser = [];
+    for (el in myArrConsultaCaseByUser)
+        dataJConsultaCaseByUser.push({y: myArrConsultaCaseByUser[el].name, a: myArrConsultaCaseByUser[el].casos})
+    Morris.Bar({
+        element: 'morris-bar-ConsultaCaseByUser',
+        data: dataJConsultaCaseByUser,
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['casos'],
+        barColors: ['#2aabd2']
+    });
+
+};

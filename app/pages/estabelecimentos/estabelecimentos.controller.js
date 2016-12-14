@@ -21,11 +21,6 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
                     $scope.message = "Aconteceu um problema: " + data;
                     console.log("login error");
         });
-        /*$http.get("http://localhost:3412/estabelecimentos").success(function (data) {
-            $scope.estabelecimentos = data;
-        }).error(function (data, status) {
-            $scope.message = "Aconteceu um problema: " + data;
-        });*/
     };
 
     /*$scope.adicionarEstabelecimento = function (estabelecimento) {

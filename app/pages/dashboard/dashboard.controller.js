@@ -47,6 +47,20 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http) {
             $scope.message = "Aconteceu um problema: " + data;
         });*/
     };
+    $scope.UserbyCases = [];
+
+    var carregarUsuariosEcasos = function () {
+        $http({
+            url : "http://54.233.67.111:8081/analytics/cases/by/users",
+            method : 'GET',
+        }).success(function(data){
+            $scope.UserbyCases = data;
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + data;
+            console.log($scope.mensage);
+        });
+    };
+    carregarUsuariosEcasos();
 
     /*$scope.adicionarEstabelecimento = function (estabelecimento) {
         estabelecimento.data = new Date();
