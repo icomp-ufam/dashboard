@@ -76,6 +76,33 @@ xmlhttp3.onload = function () {
     });
 
 };
+
+var xmlhttp4 = new XMLHttpRequest();
+var url4 = "http://54.233.67.111:8081/analytics/hourly/queries/day";
+var myArr4;
+xmlhttp4.open("GET", url4, true);
+xmlhttp4.send();
+
+xmlhttp4.onload = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        myArr4 = JSON.parse(this.responseText);
+    }
+
+    //ordena pela hora (label)
+    myArr4.sort(function(a,b) {return a.hora - b.hora});
+    dataJ4 = [];
+
+    //cria dados para o grafico baseado no json de resposta
+    for (el in myArr4)
+        dataJ4.push({label: myArr4[el].hora+":hrs", value: myArr4[el].casos});
+
+    Morris.Donut({
+        element: 'consultaPorHora',
+        data: dataJ4,
+        colors: ['#9EFD04', '#02D2B3', '#FEA223', "#B218C3", "#E22431"]
+    });
+};
+
 //Consulta por loja e atendimento: Quantidade de consultas atendidas;
 var xmlhttpConsultaLA1 = new XMLHttpRequest();
 var urlConsultaLA1 = "http://54.233.67.111:8081/analytics/inquiries/store/service";
