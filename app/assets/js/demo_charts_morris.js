@@ -24,4 +24,29 @@ xmlhttp.onload = function() {
     });
 };
 
+var xmlhttp1 = new XMLHttpRequest();
+var url1 = "http://54.233.67.111:8081/analytics/queries/date";
+var myArr1;
+xmlhttp1.open("GET", url1, true);
+xmlhttp1.send();
 
+xmlhttp1.onload = function () {
+  if(this.readyState==4 && this.status==200) {
+      myArr1 = JSON.parse(this.responseText);
+  }
+
+  dataJ2 = [];
+    for (el in myArr1)
+        dataJ2.push({y: myArr1[el].data.substring(0,10), a: myArr1[el].count})
+
+    Morris.Line({
+        element: 'morris-line-example',
+        data: dataJ2,
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Consultas'],
+        resize: true,
+        lineColors: ['#33414E', '#95B75D']
+    })
+
+};
