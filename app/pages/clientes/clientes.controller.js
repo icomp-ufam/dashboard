@@ -26,23 +26,8 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http) {
 
 
 
-    }
-        /*    $http.get("http://localhost:3412/clientes").success(function (data) {
-            $scope.clientes = data;
-            //console.log(data);
-        }).error(function (data, status) {
-            $scope.message = "Aconteceu um problema: " + data;
-        });
     };
 
-    $scope.adicionarCliente = function (cliente) {
-        cliente.data = new Date();
-        $http.post("http://localhost:3412/clientes", cliente).success(function (data) {
-            delete $scope.cliente;
-            $scope.clienteForm.$setPristine();
-            carregarClientes();
-        });
-    };*/
     $scope.apagarClientes = function (clientes) {
         $scope.clientes = clientes.filter(function (cliente) {
             if (!cliente.selecionado) return cliente;

@@ -9,6 +9,27 @@
     <div class="page-content-wrap">
     <div class="page-container-boxed" >
         <div class="row">
+            <div class="col-md-3">
+
+                <!-- START WIDGET REGISTRED -->
+                <div class="widget widget-default widget-item-icon" ui-sref="main.clientes.listar">
+                    <div class="widget-item-left">
+                        <span class="fa fa-user"></span>
+                    </div>
+                    <div class="widget-data">
+                        <div class="widget-int num-count">{{qtClientes}}</div>
+
+                        <div class="widget-title">Usuários registrados</div>
+                        <div class="widget-subtitle">no Teewa</div>
+                    </div>
+
+                </div>
+                <!-- END WIDGET REGISTRED -->
+
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-md-6">
                 <!-- START CONSULTAS POR HORA -->
                 <div class="panel panel-default">
@@ -22,7 +43,7 @@
                 <!-- END CONSULTAS POR HORA-->
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" >
 
                 <!-- START LINE CHART -->
                 <div class="panel panel-default">
