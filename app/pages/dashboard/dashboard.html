@@ -53,6 +53,116 @@
                 </div>
 
             </div>
+            <div class="row">
+                <div class="col-md-6">
+
+                    <!-- START BAR CHART -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Consulta por loja e atendimento: Quantidade de consultas atendidas</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="morris-bar-ConsultaLA1" style="height: 300px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- END BAR CHART -->
+
+
+                </div>
+                <div class="col-md-6">
+
+                    <!-- START BAR CHART -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Consulta por loja e atendimento: Total de consultas realizadas</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="morris-bar-ConsultaLA2" style="height: 300px;"></div>
+                        </div>
+                    </div>
+
+
+                    <!-- END BAR CHART -->
+
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-18">
+
+                    <!-- START BAR CHART -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Consulta por loja e atendimento: Percentual de atendimento</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="morris-bar-ConsultaLA3" style="height: 300px;"></div>
+                        </div>
+                    </div>
+
+
+                    <!-- END BAR CHART -->
+
+
+                </div>
+
+                
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-18">
+
+                            <!-- START STRIPED TABLE SAMPLE -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Casos realizados por clientes</h3>
+                                    <ul class="panel-controls">
+                                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                                
+                                        <!--<li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>-->
+                                        </ul>
+                                </div>
+                                <div class="panel-body">
+                                    
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Caso</th>
+                                                <th>Consulta</th>
+                                                <th>Data/hora</th>
+                                                <th>Cliente</th>
+                                                <th>Loja</th>
+                                                <th>Atendente</th>
+                                                <th>Status</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="case in cases | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                                <td>{{case.caso}}</td>
+                                                <td>{{case.consulta}}</td>
+                                                <td>{{case.data_hora}}</td>
+                                                <td>{{case.cliente}}</td>
+                                                <td>{{case.loja}}</td>
+                                                <td>{{case.atendente}}</td>
+                                                <td>{{case.status}}</td>
+
+                                                
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>                                
+                                </div>
+                            </div>
+                            <!-- END STRIPED TABLE SAMPLE -->
+
+                </div>
+            </div>
+
+
         </div>
     </div>
     </div>

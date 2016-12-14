@@ -75,4 +75,81 @@ xmlhttp3.onload = function () {
     });
 
 };
+//Consulta por loja e atendimento: Quantidade de consultas atendidas;
+var xmlhttpConsultaLA1 = new XMLHttpRequest();
+var urlConsultaLA1 = "http://54.233.67.111:8081/analytics/inquiries/store/service";
+var myArrConsultaLA1;
+xmlhttpConsultaLA1.open("GET", urlConsultaLA1, true);
+xmlhttpConsultaLA1.send();
+
+xmlhttpConsultaLA1.onload = function () {
+    if(this.readyState==4 && this.status==200) {
+        myArrConsultaLA1 = JSON.parse(this.responseText);
+    }
+
+    dataJConsultaLA1 = [];
+    for (el in myArrConsultaLA1)
+        dataJConsultaLA1.push({y: myArrConsultaLA1[el].name, a: myArrConsultaLA1[el].atendidas, n: myArrConsultaLA1[el].id})
+    Morris.Bar({
+        element: 'morris-bar-ConsultaLA1',
+        data: dataJConsultaLA1,
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Atendidas'],
+        barColors: ['#2aabd2']
+    });
+
+};
+
+//Consulta por loja e atendimento: Total de consultas realizadas;
+var xmlhttpConsultaLA2 = new XMLHttpRequest();
+var urlConsultaLA2 = "http://54.233.67.111:8081/analytics/inquiries/store/service";
+var myArrConsultaLA2;
+xmlhttpConsultaLA2.open("GET", urlConsultaLA1, true);
+xmlhttpConsultaLA2.send();
+
+xmlhttpConsultaLA2.onload = function () {
+    if(this.readyState==4 && this.status==200) {
+        myArrConsultaLA2 = JSON.parse(this.responseText);
+    }
+
+    dataJConsultaLA2 = [];
+    for (el in myArrConsultaLA2)
+        dataJConsultaLA2.push({y: myArrConsultaLA2[el].name, a: myArrConsultaLA2[el].totais})
+    Morris.Bar({
+        element: 'morris-bar-ConsultaLA2',
+        data: dataJConsultaLA2,
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Totais'],
+        barColors: ['#2aabd2']
+    });
+
+};
+
+//Consulta por loja e atendimento: Percentual de atendimento;
+var xmlhttpConsultaLA3 = new XMLHttpRequest();
+var urlConsultaLA3 = "http://54.233.67.111:8081/analytics/inquiries/store/service";
+var myArrConsultaLA3;
+xmlhttpConsultaLA3.open("GET", urlConsultaLA1, true);
+xmlhttpConsultaLA3.send();
+
+xmlhttpConsultaLA3.onload = function () {
+    if(this.readyState==4 && this.status==200) {
+        myArrConsultaLA3 = JSON.parse(this.responseText);
+    }
+
+    dataJConsultaLA3 = [];
+    for (el in myArrConsultaLA3)
+        dataJConsultaLA3.push({y: myArrConsultaLA3[el].name, a: myArrConsultaLA3[el].percentual})
+    Morris.Bar({
+        element: 'morris-bar-ConsultaLA3',
+        data: dataJConsultaLA3,
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Totais'],
+        barColors: ['#2aabd2']
+    });
+
+};
 
