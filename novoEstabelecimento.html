@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" class="body-full-height">
+<html class="body-full-height">
 <head>
     <!-- META SECTION -->
-    <title>login</title>
+    <title>Cadastre Sua Empresa</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,98 +12,147 @@
 
     <!-- CSS INCLUDE -->
     <link rel="stylesheet" type="text/css" id="theme" href="app/assets/css/theme-brown.css"/>
+    <link href="app/assets/css/estilo.css" type="text/css" rel="stylesheet" />
     <!-- EOF CSS INCLUDE -->
+    <style type="text/css">.thumb-image{float:left;width:100px;position:relative;padding:5px;}</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:600" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBQowKBYapyO6kNnaGxWR-jJUsDe4JJRkk&amp;sensor=false"></script>
+    <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/jquery/mapa.js"></script>
+    <script type="text/javascript" src="lib/jquery/jquery-ui.custom.min.js"></script>
+
     <script>
-        $("#filename").on('change', function () {
-            if (typeof (FileReader) != "undefined"){
-                var image_holder = $("#image-holder");
-                image_holder.empty();
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $("<img/>",{
-                        "src": e.target.result,
-                        "class": "thumb-img"
-                    }).appendTo(image_holder);
-                }
-                image_holder.show();
-                reader.readAsDataURL($(this)[0].files[0]);
-            }else {
-                alert("not supported!");
-            }
-        });
+
     </script>
 </head>
 <body style="background-color: #063a48" >
-<div style="margin: 50px; margin-left: 150px; margin-right: 150px;" class="page-content-wrap">
-    <div class="row">
-        <div class="col-md-12">
-            <form class="form-horizontal">
-                <div class="panel panel-default ">
-                    <div class="panel-heading" style="background-color: #d9d9d9">
-                        <h3 class="panel-title">Cadastro de Estabelecimento</h3>
-                    </div>
-                    <div class="panel-body">
-                        <p>Cadastre aqui os dados seu estabelecimento</p>
-                    </div>
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label class="col-md-3 col-xs-12 control-label">Nome</label>
+    <div style="margin: 50px; margin-left: 150px; margin-right: 150px;" class="page-content-wrap">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-horizontal">
+                    <div class="panel panel-default ">
+                        <div class="panel-heading" style="background-color: #d9d9d9">
+                            <h3 class="panel-title">Cadastro de Estabelecimento</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>Cadastre aqui os dados seu estabelecimento</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Nome</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input type="text" id="nome" name="nome" class="form-control"/>
+                                    </div>
+                                    <span class="help-block">Ex: PetShop Dog Feliz</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Email</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input type="text" id="email" name="email" class="form-control"/>
+                                    </div>
+                                    <span class="help-block">Ex: teewaadmin@gmail.com</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">CNPJ</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input type="text" id="cnpj" name="cnpj" class="form-control"/>
+                                    </div>
+                                    <span class="help-block">Ex: xx.xxx.xxx/xxxx-xx</span>
+                                </div>
+                            </div>
+                            <label class="col-md-3 col-xs-12 control-label">Categoria</label>
                             <div class="col-md-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" id="categoria" name="categoria" class="form-control"/>
                                 </div>
-                                <span class="help-block">Ex: PetShop Dog Feliz</span>
+                                <span class="help-block"></span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-3 col-xs-12 control-label">Email</label>
-                            <div class="col-md-6 col-xs-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                    <input type="text" class="form-control"/>
-                                </div>
-                                <span class="help-block">Ex: teewaadmin@gmail.com</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 col-xs-12 control-label">Senha</label>
-                            <div class="col-md-6 col-xs-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
-                                    <input type="password" class="form-control"/>
-                                </div>
-                                <!--<span class="help-block">aviso</span>-->
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 col-xs-12 control-label">Confirme a senha</label>
-                            <div class="col-md-6 col-xs-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
-                                    <input type="password" class="form-control"/>
-                                </div>
-                                <!--<span class="help-block">aviso</span>-->
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 col-xs-12 control-label">Foto</label>
-                            <div class="col-md-6 col-xs-12">
-                                <input type="file" class="file-preview-image" name="filename" id="filename" title="Escolher arquivo"/>
-                                <div id="image-holder"></div>
-                                <span class="help-block">Faça upload da sua foto de perfil</span>
+                            <div class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3 col-xs-12 control-label">Selecione o logotipo</label>
+                                    <div class="col-md-6">
+                                        <div id="wrapper" style=" margin-top: 20px;">
+                                            <input id="fileUpload" name="fileUpload" multiple="multiple" type="file"/>
+                                                <div id="image-holder" style="height: 200px; width: 200px"></div>
+                                        </div>
+                                    </div>
 
+                                </div>
                             </div>
+                            <div class="form-group" >
+                                <label class="col-md-3 col-xs-12 control-label">Endereço</label>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input class="form-control" type="text" id="txtEndereco" name="txtEndereco" />
+                                    </div>
+                                    <!--input class="btn btn-default" type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no mapa" /-->
+                                </div>
+                            </div>
+                            <div class="form-group" >
+                                <label class="col-md-3 col-xs-12 control-label">Mapa</label>
+                                <div id="mapa" style="height: 250px; width: 450px" >
+                                </div>
+                                <input type="hidden" id="txtLatitude" name="txtLatitude" />
+                                <input type="hidden" id="txtLongitude" name="txtLongitude" />
+                                <!--input type="submit" value="Enviar" name="btnEnviar" /-->
+                            </div>
+
+                    </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default">Limpar formulário</button>
+                            <input class="btn btn-primary pull-right" type="submit" value="Cadastrar" name="Enviar">
                         </div>
-                    </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-default">Limpar formulário</button>
-                        <button class="btn btn-primary pull-right">Solicitar</button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </body>
+
+
+<script>
+    $(document).ready(function() {
+        $("#fileUpload").on('change', function() {
+            //Get count of selected files
+            var countFiles = $(this)[0].files.length;
+            var imgPath = $(this)[0].value;
+            var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+            var image_holder = $("#image-holder");
+            image_holder.empty();
+            if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+                if (typeof(FileReader) != "undefined") {
+                    //loop for each file selected for uploaded.
+                    for (var i = 0; i < countFiles; i++)
+                    {
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                            $("<img />", {
+                                "src": e.target.result,
+                                "class": "thumb-image",
+                                "style": "height: 200px; width: 200px"
+                            }).appendTo(image_holder);
+                        }
+                        image_holder.show();
+                        reader.readAsDataURL($(this)[0].files[i]);
+                    }
+                } else {
+                    alert("This browser does not support FileReader.");
+                }
+            } else {
+                alert("Pls select only images");
+            }
+        });
+    });
+</script>
 </html>
