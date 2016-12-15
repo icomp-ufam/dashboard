@@ -1,9 +1,9 @@
 <ul class="breadcrumb">
     <li><a href="#">Home</a></li>
-    <li ><a href="#">Casos</a> </li>
+    <li ><a href="#">Situação Atendimentos</a> </li>
 </ul>
 <div class="page-title">
-    <h2><span class="fa fa-search"></span> Casos solicitados por clientes</h2>
+    <h2><span class="fa fa-search"></span> Situação de atendimento de cada consulta</h2>
 </div>
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">
@@ -27,27 +27,29 @@
                         <table class="table" >
                             <thead>
                                 <tr>
-                                    <th>Caso</th>
-                                                <th>Consulta</th>
+                                                <th>Caso</th>
+                                                <th>Nome do Caso</th>
+                                                <th>Nome Solicitante</th>
                                                 <th>Data/hora</th>
-                                                <th>Cliente</th>
-                                                <th>Loja</th>
-                                                <th>Atendente</th>
-                                                <th>Status</th>
+                                                <th>Lojas que Atenderam</th>
+                                                <th>Lojas que Negaram</th>
+                                                <th>Lojas que Não Atenderam</th>
+                                                <th>Lojas que Receberam</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                        <tr ng-repeat="case in cases | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                        <tr ng-repeat="atendimento in atendimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                               
-                                                <td>{{case.caso}}</td>
+                                                <td>{{atendimento.idcase}}</td>
+                                                <td>{{atendimento.case_name}}</td>
+                                                <td>{{atendimento.name}}</td>
+                                                <td>{{atendimento.date_trunc}}</td>
+                                                <td>{{atendimento.ate}}</td>
+                                                <td>{{atendimento.neg}}</td>
+                                                <td>{{atendimento.nat}}</td>
+                                                <td>{{atendimento.tot}}</td>
                                                 
-                                                <td>{{case.consulta}}</td>
-                                                <td>{{case.data_hora}}</td>
-                                                <td>{{case.cliente}}</td>
-                                                <td>{{case.loja}}</td>
-                                                <td>{{case.atendente}}</td>
-                                                <td>{{case.status}}</td>
 
                                                 
                                             </tr>
