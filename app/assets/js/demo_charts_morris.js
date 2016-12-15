@@ -20,6 +20,7 @@ xmlhttp.onload = function() {
     Morris.Donut({
         element: 'morris-donut-example',
         data: dataJ,
+        resize: true,
         colors: ['#95B75D', '#1caf9a', '#FEA223', "#33414e", "#D32F2F"]
     });
 };

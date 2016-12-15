@@ -10,6 +10,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         $urlRouterProvider.when('/pacotes', '/pacotes/lista');
         $urlRouterProvider.when('/avaliacoes', '/avaliacoes/lista');
         $urlRouterProvider.when('/pacotes-escolher', '/pacotes/escolha');
+        $urlRouterProvider.when('/analises-casos', '/analises/casos');
 
 
         $stateProvider.state('main', {
@@ -88,7 +89,6 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/avaliacoes/avaliacoes.html',
             controller: 'avaliacoesCtrl',
             activetab: 'avaliacoes'
-
         }).state('main.escolher-pacote', {
             url: '/escolher-pacote',
             template: '<ui-view></ui-view>'
@@ -97,6 +97,14 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/pacotes/pacotes.html',
             controller: 'formPacotesCtrl',
             activetab: 'escolher-pacote'
+        }).state('main.analises-casos', {
+            url: '/analises-casos',
+            template: '<ui-view></ui-view>'
+        }).state('main.analises.casos', {
+            url: '/casos',
+            templateUrl: 'app/pages/analises/casos.html',
+            controller: 'analiseslistagemCtrl',
+            activetab: 'analises-casos'
         })
 
     });
