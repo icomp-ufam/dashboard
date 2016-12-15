@@ -31,7 +31,7 @@
              <div class="col-md-3">
 
                 <!-- START WIDGET REGISTRED -->
-                <div class="widget widget-default widget-item-icon" ui-sref="main.analises.casos">
+                <div class="widget widget-default widget-item-icon" ui-sref="main.analisesCasos.listar">
                     <div class="widget-item-left">
                         <span class="fa fa-search"></span>
                     </div>
@@ -191,59 +191,7 @@
 
             </div>
 
-            <div class="row">
-
-                <div class="col-md-18">
-
-                            <!-- START STRIPED TABLE SAMPLE -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Casos realizados por clientes</h3>
-                                    <ul class="panel-controls">
-                                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
-                                
-                                        <!--<li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>-->
-                                        </ul>
-                                </div>
-                                <div class="panel-body">
-                                    
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Caso</th>
-                                                <th>Consulta</th>
-                                                <th>Data/hora</th>
-                                                <th>Cliente</th>
-                                                <th>Loja</th>
-                                                <th>Atendente</th>
-                                                <th>Status</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!--tr ng-repeat="case in cases | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao"-->
-                                              <tr>
-                                                <td>{{case.caso}}</td>
-                                                <td>{{case.consulta}}</td>
-                                                <td>{{case.data_hora}}</td>
-                                                <td>{{case.cliente}}</td>
-                                                <td>{{case.loja}}</td>
-                                                <td>{{case.atendente}}</td>
-                                                <td>{{case.status}}</td>
-
-                                                
-                                            </tr>
-                                            
-                                        </tbody>
-                                    </table>                                
-                                </div>
-                            </div>
-                            <!-- END STRIPED TABLE SAMPLE -->
-
-                </div>
-            </div>
-
-
+        
         </div>
     </div>
     </div>
