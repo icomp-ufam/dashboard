@@ -103,7 +103,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         }).state('main.analisesCasos.listar', {
             url: '/listaCasos',
             templateUrl: 'app/pages/analises/analiseCasos.html',
-            controller: 'analiseCasosCtrl',
+            controller: 'analiseCtrl',
             activetab: 'analisesCasos'
         }).state('main.analisesCasos.listarAtendimentos', {
             url: '/listaAtendimentos',
