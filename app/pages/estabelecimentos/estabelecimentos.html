@@ -33,6 +33,8 @@
                                     <tr>
                                         <th href="" ng-click="ordenarPor('nomeuser')" > Nome </th>
                                         <th> Endereço </th>
+                                        <th>Média Avaliação</th>
+                                        <th>Qtd Avaliações</th>
                                         <th> Vendedores</th>
                                     </tr>
                                 </thead>
@@ -41,6 +43,10 @@
                                     <tr  ng-repeat="estabelecimento in estabelecimentos.stores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                         <td>{{estabelecimento.name}}</td>
                                         <td>{{estabelecimento.address}}</td>
+                                        <td>{{estabelecimento.avg_rating}}</td>
+                                        <td>{{estabelecimento.sum_rating}}</td>
+
+
                                         <td>
                                             <button class="btn btn-default" ui-sref="main.vendedores.listar">
                                                 Visualizar
