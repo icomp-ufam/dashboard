@@ -30,8 +30,6 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
                         //console.log($scope.storeID);
 
                         (function (index) {
-
-
                             $http({
                                 url : "http://54.233.67.111:8081/stores/"+$scope.storeID+"/avg",
                                 method : 'GET',
@@ -49,8 +47,6 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
                                     $scope.estabelecimentos.stores[index].avg_rating = $scope.rating.rating.avg_rating;
                                     $scope.estabelecimentos.stores[index].sum_rating = $scope.rating.rating.sum_rating;
                                 }
-
-
 
                             }).error(function(error){
                                 $scope.message = "Aconteceu um problema: " + data;
