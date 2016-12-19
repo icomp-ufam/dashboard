@@ -20,7 +20,7 @@ xmlhttp.onload = function() {
     Morris.Donut({
         element: 'morris-donut-example',
         data: dataJ,
-        resize: true,
+        //resize: true,
         colors: ['#95B75D', '#1caf9a', '#FEA223', "#33414e", "#D32F2F"]
     });
 };
@@ -100,6 +100,7 @@ xmlhttp4.onload = function() {
     Morris.Donut({
         element: 'consultaPorHora',
         data: dataJ4,
+        resize: true,
         colors: ['#9EFD04', '#02D2B3', '#FEA223', "#B218C3", "#E22431"]
     });
 };

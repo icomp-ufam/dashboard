@@ -110,6 +110,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/analises/analiseAtendimentos.html',
             controller: 'analiseCtrl',
             activetab: 'analisesAtendimentos'
+        }).state('main.analisesCasos.listarNatendimentos', {
+            url: '/listaNatendimentos',
+            templateUrl: 'app/pages/analises/analiseNatendimentos.html',
+            controller: 'analiseCtrl',
+            activetab: 'analisesNatendimentos'
         })
 
     });
