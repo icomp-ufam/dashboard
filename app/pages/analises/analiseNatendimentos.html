@@ -1,9 +1,9 @@
 <ul class="breadcrumb">
     <li><a href="#">Home</a></li>
-    <li ><a href="#">Situação Atendimentos</a> </li>
+    <li ><a href="#">Consultas Não atendidas</a> </li>
 </ul>
 <div class="page-title">
-    <h2><span class="fa fa-search"></span> Situação de atendimento de cada consulta</h2>
+    <h2><span class="fa fa-thumbs-down"></span> Consultas não atendidas</h2>
 </div>
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">
@@ -31,7 +31,6 @@
                                                 <th>Nome do Caso</th>
                                                 <th>Nome Solicitante</th>
                                                 <th>Data/hora</th>
-                                                <th>ATE</th>
                                                 <th>NEG</th>
                                                 <th>NAT</th>
                                                 <th>TOT</th>
@@ -39,16 +38,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                        <tr ng-repeat="atendimento in atendimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                        <tr ng-repeat="Natendimento in Natendimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                               
-                                                <td class="active">{{atendimento.idcase}}</td>
-                                                <td class="active">{{atendimento.case_name}}</td>
-                                                <td class="active">{{atendimento.name}}</td>
-                                                <td class="active">{{atendimento.date_trunc}}</td>
-                                                <td class="success">{{atendimento.ate}}</td>
-                                                <td class="danger">{{atendimento.neg}}</td>
-                                                <td  class="warning">{{atendimento.nat}}</td>
-                                                <td class="info">{{atendimento.tot}}</td>
+                                                <td class="active">{{Natendimento.idcase}}</td>
+                                                <td class="active">{{Natendimento.case_name}}</td>
+                                                <td class="active">{{Natendimento.name}}</td>
+                                                <td class="active">{{Natendimento.date_trunc}}</td>
+                                                <td class="danger">{{Natendimento.neg}}</td>
+                                                <td class="warning">{{Natendimento.nat}}</td>
+                                                <td class="info">{{Natendimento.tot}}</td>
                                                 
 
                                                 

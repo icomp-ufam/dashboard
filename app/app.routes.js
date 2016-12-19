@@ -103,13 +103,18 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         }).state('main.analisesCasos.listar', {
             url: '/listaCasos',
             templateUrl: 'app/pages/analises/analiseCasos.html',
-            controller: 'analiseCasosCtrl',
+            controller: 'analiseCtrl',
             activetab: 'analisesCasos'
         }).state('main.analisesCasos.listarAtendimentos', {
             url: '/listaAtendimentos',
             templateUrl: 'app/pages/analises/analiseAtendimentos.html',
             controller: 'analiseCtrl',
             activetab: 'analisesAtendimentos'
+        }).state('main.analisesCasos.listarNatendimentos', {
+            url: '/listaNatendimentos',
+            templateUrl: 'app/pages/analises/analiseNatendimentos.html',
+            controller: 'analiseCtrl',
+            activetab: 'analisesNatendimentos'
         })
 
     });
