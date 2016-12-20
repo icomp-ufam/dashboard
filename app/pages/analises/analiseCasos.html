@@ -27,33 +27,28 @@
                         <table class="table" >
                             <thead>
                                 <tr>
-                                    <th>Caso</th>
-                                                <th>Consulta</th>
-                                                <th>Data/hora</th>
-                                                <th>Cliente</th>
-                                                <th>Loja</th>
-                                                <th>Atendente</th>
-                                                <th>Status</th>
-
+                                    <th ng-click="ordenarPor('caso')">Casos</th>
+                                    <th ng-click="ordenarPor('consulta')" >Consulta</th>
+                                    <th ng-click="ordenarPor('data_hora')" >Data/hora</th>
+                                    <th ng-click="ordenarPor('cliente')" >Cliente</th>
+                                    <th ng-click="ordenarPor('loja')" >Loja</th>
+                                    <th ng-click="ordenarPor('atendente')" >Atendente</th>
+                                    <th ng-click="ordenarPor('status')" >Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                        <tr ng-repeat="case in cases | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                              
-                                                <td>{{case.caso}}</td>
-                                                
-                                                <td>{{case.consulta}}</td>
-                                                <td>{{case.data_hora}}</td>
-                                                <td>{{case.cliente}}</td>
-                                                <td>{{case.loja}}</td>
-                                                <td>{{case.atendente}}</td>
-                                                <td>{{case.status}}</td>
+                            <tr ng-repeat="case in cases | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
 
-                                                
-                                            </tr>
-                                            
-                                        </tbody>
-                        </table>
+                                    <td>{{case.caso}}</td>
+                                    <td>{{case.consulta}}</td>
+                                    <td>{{case.data_hora}}</td>
+                                    <td>{{case.cliente}}</td>
+                                    <td>{{case.loja}}</td>
+                                    <td>{{case.atendente}}</td>
+                                    <td>{{case.status}}</td>
+                                </tr>
+                            </tbody>
+                         </table>
                     </div>
                 </div>
                 
@@ -64,4 +59,3 @@
 <script type="text/javascript">
     panelActions();
 </script>
-Contact GitHub 

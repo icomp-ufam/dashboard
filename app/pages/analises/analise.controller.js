@@ -25,11 +25,6 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http) {
                     $scope.message = "Aconteceu um problema: " + data;
                     console.log("login error");
         });
-        /*$http.get("http://localhost:3412/estabelecimentos").success(function (data) {
-            $scope.estabelecimentos = data;
-        }).error(function (data, status) {
-            $scope.message = "Aconteceu um problema: " + data;
-        });*/
     };
     var carregarAtendimentos = function () {
         $http({
@@ -46,11 +41,6 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http) {
                     $scope.message = "Aconteceu um problema: " + data;
                     console.log("login error");
         });
-        /*$http.get("http://localhost:3412/estabelecimentos").success(function (data) {
-            $scope.estabelecimentos = data;
-        }).error(function (data, status) {
-            $scope.message = "Aconteceu um problema: " + data;
-        });*/
     };
     var carregarNatendimentos = function () {
         $http({
@@ -67,15 +57,12 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http) {
                     $scope.message = "Aconteceu um problema: " + data;
                     console.log("login error");
         });
-        /*$http.get("http://localhost:3412/estabelecimentos").success(function (data) {
-            $scope.estabelecimentos = data;
-        }).error(function (data, status) {
-            $scope.message = "Aconteceu um problema: " + data;
-        });*/
     };
 
-
-    
+    $scope.ordenarPor = function (campo) {
+        $scope.criterioDeOrdenacao = campo;
+        $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
+    };
 
     /*$scope.adicionarEstabelecimento = function (estabelecimento) {
         estabelecimento.data = new Date();
@@ -85,9 +72,9 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http) {
             carregarestabelecimentos();
         });
     };*/
-    carregarCases();
+    //carregarCases();
     carregarAtendimentos();
-    carregarNatendimentos();
+    //carregarNatendimentos();
 
 
 });

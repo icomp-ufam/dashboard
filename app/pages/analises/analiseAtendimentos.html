@@ -27,14 +27,14 @@
                         <table class="table" >
                             <thead>
                                 <tr>
-                                                <th>Caso</th>
-                                                <th>Nome do Caso</th>
-                                                <th>Nome Solicitante</th>
-                                                <th>Data/hora</th>
-                                                <th>ATE</th>
-                                                <th>NEG</th>
-                                                <th>NAT</th>
-                                                <th>TOT</th>
+                                                <th ng-click="ordenarPor('idcase')" >Caso</th>
+                                                <th ng-click="ordenarPor('case_name')"  >Nome do Caso</th>
+                                                <th ng-click="ordenarPor('name')" >Nome Solicitante</th>
+                                                <th ng-click="ordenarPor('date_trunc')" >Data/hora</th>
+                                                <th ng-click="ordenarPor('ate')"  >ATE</th>
+                                                <th ng-click="ordenarPor('neg')" >NEG</th>
+                                                <th ng-click="ordenarPor('nat')"  >NAT</th>
+                                                <th ng-click="ordenarPor('tot')" >TOT</th>
 
                                 </tr>
                             </thead>
