@@ -4,12 +4,16 @@
 angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) {
 
     $scope.app = "Atendimentos";
+     //$scope.estabelecimentos = [];
+    //$scope.cases = [];
     $scope.atendimentos = [];
+    //$scope.Natendimentos = [];
 
+    
     var carregarAtendimentos = function () {
         $http({
 
-            url : "http://54.233.67.111:8081/users/cases/20/chats",
+            url : "http://54.233.67.111:8081/analytics/cases/situation",
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',
@@ -17,35 +21,27 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
             }
             }).success(function(data){
                     $scope.atendimentos = data;
-                    console.log("deu Serto");
             }).error(function(error){
                     $scope.message = "Aconteceu um problema: " + data;
                     console.log("login error");
         });
     };
-
-    $scope.adicionaratendimento = function (atendimento) {
-        atendimento.data = new Date();
-        $http.post("http://localhost:3412/atendimentos", atendimento).success(function (data) {
-            delete $scope.atendimento;
-            $scope.atendimentoForm.$setPristine();
-            carregaratendimentos();
-        });
-    };
-    $scope.apagaratendimentos = function (atendimentos) {
-        $scope.atendimentos = atendimentos.filter(function (atendimento) {
-            if (!atendimento.selecionado) return atendimento;
-        });
-    };
-    $scope.isatendimentoselecionado = function (atendimentos) {
-        return atendimentos.some(function (atendimento) {
-            return atendimento.selecionado;
-        });
-    };
+    
     $scope.ordenarPor = function (campo) {
         $scope.criterioDeOrdenacao = campo;
         $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
     };
 
+    /*$scope.adicionarEstabelecimento = function (estabelecimento) {
+        estabelecimento.data = new Date();
+        $http.post("http://localhost:3412/estabelecimentos", estabelecimento).success(function (data) {
+            delete $scope.estabelecimento;
+            $scope.estabelecimentoForm.$setPristine();
+            carregarestabelecimentos();
+        });
+    };*/
+    //carregarCases();
     carregarAtendimentos();
+    //carregarNatendimentos();
+
 });

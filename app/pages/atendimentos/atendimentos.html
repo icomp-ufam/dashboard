@@ -1,9 +1,9 @@
 <ul class="breadcrumb">
     <li><a href="#">Home</a></li>
-    <li ><a href="#">atendimentos</a> </li>
+    <li ><a href="#">Situação Atendimentos</a> </li>
 </ul>
 <div class="page-title">
-    <h2><span class="fa fa-users"></span>Atendimentos</h2>
+    <h2><span class="fa fa-search"></span> Situação de atendimento de cada consulta</h2>
 </div>
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">
@@ -14,7 +14,7 @@
                 <!-- START DEFAULT DATATABLE -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Atendimentos Ativo</h3>
+                        <h3 class="panel-title"></h3>
                         <ul class="panel-controls">
                             <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
                             <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
@@ -42,15 +42,42 @@
                         <table class="table" >
                             <thead>
                                 <tr>
-                                    <th> Nome </th>
+                                                <th ng-click="ordenarPor('idcase')" >ID</th>
+                                                <th ng-click="ordenarPor('case_name')"  >Consulta</th>
+                                                <th>Categoria</th>
+                                                <th ng-click="ordenarPor('name')" >Cliente</th>
+                                                 <th>Loja</th>
+                                               
+                                                <th>Data</th>
+                                                 <th>Hora</th>
+                                                <th ng-click="ordenarPor('ate')"  >ATE</th>
+                                                <th ng-click="ordenarPor('neg')" >NEG</th>
+                                                <th ng-click="ordenarPor('nat')"  >NAT</th>
+                                                <th ng-click="ordenarPor('tot')" >TOT</th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr  ng-repeat="atendimento in atendimentos.chats | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                    <td>{{atendimento.id}}</td>
-                                    
-                                </tr>
-                            </tbody>
+                                        <tr ng-repeat="atendimento in atendimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                              
+                                                <td class="active">{{atendimento.idcase}}</td>
+                                                <td class="active">{{atendimento.case_name}}</td>
+                                                <td class="active">Comida</td>
+                                                <td class="active">{{atendimento.name}}</td>
+                                                <td class="active">Loja Parceira</td>
+
+                                                <td class="active">{{atendimento.date_trunc}}</td>
+                                                <td class="active">{{atendimento.date_trunc}}</td>                                                
+                                                <td class="success">{{atendimento.ate}}</td>
+                                                <td class="danger">{{atendimento.neg}}</td>
+                                                <td  class="warning">{{atendimento.nat}}</td>
+                                                <td class="info">{{atendimento.tot}}</td>
+                                                
+
+                                                
+                                            </tr>
+                                            
+                                        </tbody>
                         </table>
                     </div>
                 </div>

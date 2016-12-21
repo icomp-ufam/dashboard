@@ -19,7 +19,7 @@
                     <div class="widget-data">
                         <div class="widget-int num-count">{{qtClientes}}</div>
 
-                        <div class="widget-title">Usuários registrados</div>
+                        <div class="widget-title">Clientes registrados</div>
                         <div class="widget-subtitle">no Teewa</div>
                     </div>
 
@@ -27,18 +27,37 @@
                 <!-- END WIDGET REGISTRED -->
 
             </div>
+                <!-- START WIDGET REGISTRED
 
-             <div class="col-md-3">
+            <div class="col-md-3">
 
-                <!-- START WIDGET REGISTRED -->
-                <div class="widget widget-default widget-item-icon" ui-sref="main.analisesCasos.listar">
+                <div class="widget widget-default widget-item-icon" ui-sref="main.analisesCasos.listarAtendimentos">
                     <div class="widget-item-left">
-                        <span class="fa fa-search"></span>
+                        <span class="fa fa-info-circle"></span>
                     </div>
                     <div class="widget-data">
                         <div class="widget-title"></div>
 
-                        <div class="widget-title">Casos realizados por cliente</div>
+                        <div class="widget-title">Situação de atendimento de cada consulta</div>
+                        <div class="widget-subtitle">no Teewa</div>
+                    </div>
+
+                </div>
+
+            </div>
+                            END WIDGET REGISTRED -->
+
+            <div class="col-md-3">
+
+                <!-- START WIDGET REGISTRED -->
+                <div class="widget widget-default widget-item-icon" ui-sref="main.estabelecimentos.listar">
+                    <div class="widget-item-left">
+                        <span class="fa fa-shopping-cart"></span>
+                    </div>
+                    <div class="widget-data">
+                        <div class="widget-int num-count">{{qtClientes}}</div>
+
+                        <div class="widget-title">Lojas Registradas</div>
                         <div class="widget-subtitle">no Teewa</div>
                     </div>
 
@@ -54,9 +73,9 @@
                         <span class="fa fa-info-circle"></span>
                     </div>
                     <div class="widget-data">
-                        <div class="widget-title"></div>
+                        <div class="widget-int num-count">{{qtClientes}}</div>
 
-                        <div class="widget-title">Situação de atendimento de cada consulta</div>
+                        <div class="widget-title">Atendimentos Registrados</div>
                         <div class="widget-subtitle">no Teewa</div>
                     </div>
 
@@ -64,9 +83,10 @@
                 <!-- END WIDGET REGISTRED -->
 
             </div>
+                            <!-- START WIDGET REGISTRED
+
               <div class="col-md-3">
 
-                <!-- START WIDGET REGISTRED -->
                 <div class="widget widget-default widget-item-icon" ui-sref="main.analisesCasos.listarNatendimentos">
                     <div class="widget-item-left">
                         <span class="fa fa-thumbs-down"></span>
@@ -75,6 +95,25 @@
                         <div class="widget-title"></div>
 
                         <div class="widget-title">Consultas não atendidas</div>
+                        <div class="widget-subtitle">no Teewa</div>
+                    </div>
+
+                </div>
+
+            </div>
+                           END WIDGET REGISTRED -->
+
+            <div class="col-md-3">
+
+                <!-- START WIDGET REGISTRED -->
+                <div class="widget widget-default widget-item-icon" ui-sref="main.analisesCasos.listarNatendimentos">
+                    <div class="widget-item-left">
+                        <span class="fa fa-bullhorn"></span>
+                    </div>
+                    <div class="widget-data">
+                        <div class="widget-int num-count">{{qtClientes}}</div>
+
+                        <div class="widget-title">Denúncias Registradas</div>
                         <div class="widget-subtitle">no Teewa</div>
                     </div>
 
