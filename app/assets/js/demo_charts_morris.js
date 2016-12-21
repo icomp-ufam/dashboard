@@ -11,11 +11,17 @@ xmlhttp.onload = function() {
 
     //ordena pela hora (label)
     myArr.sort(function(a,b) {return a.hora - b.hora});
-    dataJ = [];
+    dataJ = [];//new Array(23);
 
     //cria dados para o grafico baseado no json de resposta
     for (el in myArr)
-        dataJ.push({label: myArr[el].hora+":hrs", value: myArr[el].media_casos});
+       dataJ.push({label: myArr[el].hora+":hrs", value: myArr[el].media_casos});
+    /*for (i = 0; i < dataJ.length; i++){
+        if(i == myArr[i].hora)
+            dataJ.push({label: myArr[el].hora+":hrs", value: myArr[el].media_casos});
+        else
+            dataJ.push({label: i+":hrs", value: 0});
+    }*/
 
     Morris.Donut({
         element: 'morris-donut-example',
