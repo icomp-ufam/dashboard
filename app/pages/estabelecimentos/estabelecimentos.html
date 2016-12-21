@@ -54,6 +54,13 @@
                             <table class="table" >
                                 <thead>
                                     <tr>
+                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome..."></th>
+                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.address" placeholder="Endereço..."></th>
+                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.avg_rating" placeholder="Média..."></th>
+                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.sum_rating" placeholder="Qtd Avaliações..."></th>
+                                    </tr>
+
+                                    <tr>
                                         <th href="" ng-click="ordenarPor('name')" > Nome </th>
                                         <th> Endereço </th>
                                         <th ng-click="ordenarPor('avg_rating')"  >Média Avaliação</th>
@@ -66,7 +73,7 @@
                                     <tr  ng-repeat="estabelecimento in estabelecimentos.stores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                         <td>{{estabelecimento.name}}</td>
                                         <td>{{estabelecimento.address}}</td>
-                                        <td>{{estabelecimento.avg_rating}}</td>
+                                        <td>{{estabelecimento.avg_rating | number:1}}</td>
                                         <td>{{estabelecimento.sum_rating}}</td>
 
 
