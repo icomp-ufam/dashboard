@@ -37,10 +37,17 @@
                                 <button type="submit" class=" btn btn-default"> filtrar </button>
                             </div>
                         </div> </br>
-                        <input class="form-control" tipe="text" ng-model="criterioDeBusca" placeholder="Buscar...">
-                        <br/>
                         <table class="table" >
                             <thead>
+                                <tr>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.caso" placeholder="Id..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.consulta" placeholder="Consulta..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.data_hora" placeholder="Data..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.cliente" placeholder="Nome do cliente..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.loja" placeholder="Nome da loja..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.atendente" placeholder="Nome do atendente..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.status" placeholder="status..."></th>
+                                </tr>
                                 <tr>
                                     <th ng-click="ordenarPor('caso')">Casos</th>
                                     <th ng-click="ordenarPor('consulta')" >Consulta</th>
