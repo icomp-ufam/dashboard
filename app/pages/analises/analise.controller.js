@@ -72,9 +72,9 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http) {
             carregarestabelecimentos();
         });
     };*/
-    //carregarCases();
+    carregarCases();
     carregarAtendimentos();
-    //carregarNatendimentos();
+    carregarNatendimentos();
 
 
 });
