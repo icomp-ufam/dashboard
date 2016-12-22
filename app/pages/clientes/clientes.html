@@ -69,10 +69,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr  ng-repeat="cliente in clientes.users | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                    <td>{{cliente.name}}</td>
-                                    <td>{{cliente.mobile}}</td>
-                                    <td>171</td>
+                                <tr  ng-repeat="cliente in clientes| filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                    <td>{{cliente.nome}}</td>
+                                    <td>{{cliente.contato}}</td>
+                                    <td>{{cliente.qtde_casos}}</td>
 
                                 </tr>
                             </tbody>
