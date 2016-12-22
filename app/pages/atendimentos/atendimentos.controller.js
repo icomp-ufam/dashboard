@@ -11,7 +11,8 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
         $scope.atendimentosPorDiaSemanas = [];
         $scope.atendimentosPorDiaMess = [];
         $scope.atendimentosPorCategorias = [];
-
+        var data_start;
+        var data_end;
     //$scope.Natendimentos = [];
 
     
@@ -32,8 +33,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
         });
     };*/
     $scope.carregarAtendimentos = function (date_start, date_end) {
-        //console.log(date_start);
-        //console.log(date_end);
+        
 
         $http({
 
@@ -51,6 +51,8 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
         }).success(function(data,date){
             $scope.atendimentos = data;
             console.log(data);
+            console.log(date_start);
+        console.log(date_end);
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
@@ -59,8 +61,9 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
 
     };
     $scope.carregarAtendimentosPorHora = function (date_start, date_end) {
-        //console.log(date_start);
-        //console.log(date_end);
+        console.log("cima");
+        console.log(date_start);
+        console.log(date_end);
 
         $http({
 
@@ -73,18 +76,25 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
             data: {
                 //'date_start' : date_start,
                 //'date_end' : date_end,
-                'date_start' : '01/01/2016',
-                'date_end' : '22/12/2016',
+                'date_start' : date_start,
+                'date_end' : date_end,
                 //'idcategory' : '5'
             }
-        }).success(function(data,date){
+        }).success(function(data){
             $scope.atendimentosPorHoras = data;
             console.log(data);
-            
+            console.log("por hora")
+            console.log(date_start);
+            console.log(date_end);
+            data_start = date_start;
+            data_end = date_end;
+            console.log("atendimentosPorHoras: " + $scope.atendimentosPorHoras);
+
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
         });
+
 
     };
     $scope.carregarAtendimentosPorDiaSemana = function (date_start, date_end) {
@@ -100,10 +110,9 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
                 'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
             },
             data: {
-                //'date_start' : date_start,
-                //'date_end' : date_end,
-                'date_start' : '01/01/2016',
-                'date_end' : '22/12/2016',
+                'date_start' : date_start,
+                'date_end' : date_end,
+               
                 //'idcategory' : '5'
             }
         }).success(function(data,date){
@@ -129,10 +138,9 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
                 'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
             },
             data: {
-                //'date_start' : date_start,
-                //'date_end' : date_end,
-                'date_start' : '01/01/2016',
-                'date_end' : '22/12/2016',
+                'date_start' : date_start,
+                'date_end' : date_end,
+                
                 //'idcategory' : '5'
             }
         }).success(function(data,date){
@@ -158,10 +166,9 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
                 'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
             },
             data: {
-                //'date_start' : date_start,
-                //'date_end' : date_end,
-                'date_start' : '01/01/2016',
-                'date_end' : '22/12/2016',
+                'date_start' : date_start,
+                'date_end' : date_end,
+                
                 //'idcategory' : '5'
             }
         }).success(function(data,date){
@@ -208,28 +215,3 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
 
 
 });
-//atendimentos por hora: atendidos
-var xmlhttpPorHora1 = new XMLHttpRequest();
-var urlPorHora1 = "http://54.233.67.111:8081/analytics/users/by/cases";
-var myArrPorHora1;
-xmlhttpPorHora1.open("GET", urlPorHora1, true);
-xmlhttpPorHora1.send();
-
-xmlhttpPorHora1.onload = function () {
-    if(this.readyState==4 && this.status==200) {
-        myArrPorHora1 = JSON.parse(this.responseText);
-    }
-
-    dataJPorHora1 = [];
-    for (el in myArrPorHora1)
-        dataJPorHora1.push({y: myArrPorHora1[el].casos, a: myArrPorHora1[el].usuarios})
-    Morris.Bar({
-        element: 'morris-bar-example',
-        data: dataJPorHora1,
-        xkey: 'y',
-        ykeys: ['a'],
-        labels: ['Casos'],
-        barColors: ['#2aabd2']
-    });
-
-};

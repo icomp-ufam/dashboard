@@ -7,6 +7,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http) {
     //$scope.estabelecimentos = [];
     $scope.cases = [];
     $scope.clientes = [];
+    $scope.atendimentos = [];
 
     var carregarClientes = function () {
         $http({
@@ -24,6 +25,33 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http) {
             $scope.message = "Aconteceu um problema: " + data;
             console.log("login error");
         });
+    };
+    $scope.carregarAtendimentos = function () {
+        //console.log(date_start);
+        //console.log(date_end);
+
+        $http({
+
+            url : "http://api.teewa.com.br:8081/dash/calls/",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'date_start' : date_start,
+                'date_end' : date_end
+                //'idcategory' : '5'
+            }
+        }).success(function(data,date){
+            $scope.atendimentos = data;
+            console.log(data);
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+            console.log("login error");
+        });
+            
+
     };
 
     var carregarCases = function () {

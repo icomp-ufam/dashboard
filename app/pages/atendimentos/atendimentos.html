@@ -13,7 +13,8 @@
          <div class="col-md-3">
 
                 <!-- START WIDGET REGISTRED -->
-                <div class="widget widget-default widget-item-icon" ui-sref="main.atendimentos.listarPorHora">
+
+                <div class="widget widget-default widget-item-icon" ui-sref="main.atendimentos.listarPorHora" ng-click="carregarAtendimentosPorHora((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))">
                     <div class="widget-item-left">
                         <span class="fa fa-clock-o"></span>
                     </div>
@@ -105,6 +106,8 @@
                             <div class="col-md-2">
                                 <br>
                                 <button class=" btn btn-default" ng-click="carregarAtendimentos((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))"> filtrar </button>
+                                <br>
+                                
                             </div>
                         </div> </br>
                         <table class="table" >

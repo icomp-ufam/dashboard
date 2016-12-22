@@ -5,6 +5,25 @@
 </ul>
 <div class="page-title">
     <h2><span class="fa fa-tags"></span> ATENDIMENTOS POR CATEGORIA</h2>
+    <div class="row">
+                          
+                        </div> </br>
+                        <div class="row">
+                            <div class="col-md-2">
+                                Data Inicio: <input class="form-control col-md3" type="date"  ng-model="data.start" >
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                                Data Fim: <input class="form-control col-md3" type="date"  ng-model="data.end" >
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                                <br>
+                                <button class=" btn btn-default" ng-click="carregarAtendimentosPorCategoria((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))"> filtrar </button>
+                                <br>
+                                
+                            </div>
+                        </div> </br>
 </div>
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">
