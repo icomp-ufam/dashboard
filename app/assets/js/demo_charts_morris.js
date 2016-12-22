@@ -14,8 +14,11 @@ xmlhttp.onload = function() {
     dataJ = [];//new Array(23);
 
     //cria dados para o grafico baseado no json de resposta
-    for (el in myArr)
-       dataJ.push({label: myArr[el].hora+":hrs", value: myArr[el].media_casos});
+    for (el in myArr){
+        dataJ.push({label: myArr[el].hora+":hrs", value: myArr[el].media_casos});
+        
+    }
+      
     /*for (i = 0; i < dataJ.length; i++){
         if(i == myArr[i].hora)
             dataJ.push({label: myArr[el].hora+":hrs", value: myArr[el].media_casos});

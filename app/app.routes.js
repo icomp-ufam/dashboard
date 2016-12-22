@@ -57,6 +57,26 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/atendimentos/atendimentos.html',
             controller: 'atendimentosCtrl',
             activetab: 'atendimentos'
+        }).state('main.atendimentos.listarPorHora', {
+            url: '/listarPorHora',
+            templateUrl: 'app/pages/atendimentos/atendimentosPorHora.html',
+            controller: 'atendimentosCtrl',
+            activetab: 'atendimentosPorHora'
+        }).state('main.atendimentos.listarPorDiaSemana', {
+            url: '/listarPorDiaSemana',
+            templateUrl: 'app/pages/atendimentos/atendimentosPorDiaSemana.html',
+            controller: 'atendimentosCtrl',
+            activetab: 'atendimentosDiaSemana'
+        }).state('main.atendimentos.listarPorDiaMes', {
+            url: '/listarPorDiaMes',
+            templateUrl: 'app/pages/atendimentos/atendimentosPorDiaMes.html',
+            controller: 'atendimentosCtrl',
+            activetab: 'atendimentosDiaMes'
+        }).state('main.atendimentos.listarPorCategoria', {
+            url: '/listarPorCategoria',
+            templateUrl: 'app/pages/atendimentos/atendimentosPorCategoria.html',
+            controller: 'atendimentosCtrl',
+            activetab: 'atendimentosPorCategoria'
         }).state('main.chat', {
             url: 'chat',
             template: '<ui-view></ui-view>'
