@@ -46,7 +46,15 @@
                                     <th ><input class="form-control" type="text" ng-model="criterioDeBusca.cliente" placeholder="Nome do cliente..."></th>
                                     <th ><input class="form-control" type="text" ng-model="criterioDeBusca.loja" placeholder="Nome da loja..."></th>
                                     <th ><input class="form-control" type="text" ng-model="criterioDeBusca.atendente" placeholder="Nome do atendente..."></th>
-                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.status" placeholder="status..."></th>
+                                    <th >
+                                        <select class="form-control" ng-model="criterioDeBusca.status">
+                                            <option value="">..Selecione..</option>
+                                            <option value="0"> Não Atendido </option>
+                                            <option value="1"> Atendido </option>
+                                            <option value="2"> Negado </option>
+                                            <option value="3"> Outro Atendente </option>
+                                        </select>
+                                    </th>
                                 </tr>
                                 <tr>
                                     <th ng-click="ordenarPor('caso')">Casos</th>
@@ -67,7 +75,13 @@
                                     <td>{{case.cliente}}</td>
                                     <td>{{case.loja}}</td>
                                     <td>{{case.atendente}}</td>
-                                    <td>{{case.status}}</td>
+                                    <td ng-switch on="{{case.status}}">
+                                        <span ng-switch-when="0"> Não Atendido </span>
+                                        <span ng-switch-when="1"> Atendido </span>
+                                        <span ng-switch-when="2"> Negado </span>
+                                        <span ng-switch-when="3"> Outro Atendente </span>
+                                        <span ng-switch-default> default </span>
+                                    </td>
                                 </tr>
                             </tbody>
                          </table>

@@ -50,7 +50,7 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http) {
             headers : {
                 'Content-Type' : 'application/json',
             'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
-            }
+            },
             }).success(function(data){
                     $scope.Natendimentos = data;
             }).error(function(error){

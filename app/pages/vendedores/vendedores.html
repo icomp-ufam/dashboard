@@ -36,13 +36,17 @@
                             <button type="submit" class=" btn btn-default"> filtrar </button>
                         </div>
                     </div> </br>
-                    <input class="form-control" tipe="text" ng-model="criterioDeBusca" placeholder="Buscar...">
-                    <br />
                     <table class="table" >
                         <thead>
                             <tr>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Id..."></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.mobile" placeholder="Consulta..."></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.store_name" placeholder="Solicitante..."></th>
+                                <th> </th>
+                            </tr>
+                            <tr>
                                 <th ng-click="ordenarPor('name')">Nome</th>
-                                <th>Numero</th>
+                                <th ng-click="ordenarPor('mobile')">Numero</th>
                                 <th ng-click="ordenarPor('store_name')">Estabelecimento</th>
                                 <th >Ações</th>
                             </tr>
@@ -52,6 +56,7 @@
                                 <td>{{vendedor.name}}</td>
                                 <td>{{vendedor.mobile}}</td>
                                 <td>{{vendedor.store_name}}</td>
+                                <td> <button> Validar/Revogar</button> </td>
                             </tr>
                         </tbody>
                     </table>

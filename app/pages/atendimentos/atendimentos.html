@@ -37,23 +37,33 @@
                                 <button type="submit" class=" btn btn-default"> filtrar </button>
                             </div>
                         </div> </br>
-                        <input class="form-control" tipe="text" ng-model="criterioDeBusca" placeholder="Buscar...">
-                        <br/>
                         <table class="table" >
                             <thead>
                                 <tr>
-                                                <th ng-click="ordenarPor('idcase')" >ID</th>
-                                                <th ng-click="ordenarPor('case_name')"  >Consulta</th>
-                                                <th>Categoria</th>
-                                                <th ng-click="ordenarPor('name')" >Cliente</th>
-                                                 <th>Loja</th>
-                                               
-                                                <th>Data</th>
-                                                 <th>Hora</th>
-                                                <th ng-click="ordenarPor('ate')"  >ATE</th>
-                                                <th ng-click="ordenarPor('neg')" >NEG</th>
-                                                <th ng-click="ordenarPor('nat')"  >NAT</th>
-                                                <th ng-click="ordenarPor('tot')" >TOT</th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.idcase" placeholder="Id..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.case_name" placeholder="Consulta..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.Categoria" placeholder="Comida..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Cliente..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.Loja" placeholder="Id..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.date_trunc" placeholder="Data..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.date_trunc" placeholder="Hora..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.ate" placeholder="ATE..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.neg" placeholder="NEG..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.nat" placeholder="NAT..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.tot" placeholder="TOT..."></th>
+                                </tr>
+                                <tr>
+                                    <th ng-click="ordenarPor('idcase')" >ID</th>
+                                    <th ng-click="ordenarPor('case_name')"  >Consulta</th>
+                                    <th>Categoria</th>
+                                    <th ng-click="ordenarPor('name')" >Cliente</th>
+                                    <th>Loja</th>
+                                    <th>Data</th>
+                                    <th>Hora</th>
+                                    <th ng-click="ordenarPor('ate')"  >ATE</th>
+                                    <th ng-click="ordenarPor('neg')" >NEG</th>
+                                    <th ng-click="ordenarPor('nat')"  >NAT</th>
+                                    <th ng-click="ordenarPor('tot')" >TOT</th>
 
                                 </tr>
                             </thead>
@@ -65,7 +75,6 @@
                                                 <td class="active">Comida</td>
                                                 <td class="active">{{atendimento.name}}</td>
                                                 <td class="active">Loja Parceira</td>
-
                                                 <td class="active">{{atendimento.date_trunc}}</td>
                                                 <td class="active">{{atendimento.date_trunc}}</td>                                                
                                                 <td class="success">{{atendimento.ate}}</td>

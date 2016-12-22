@@ -15,12 +15,34 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http) {
             headers : {
                 'Content-Type' : 'application/json',
                 'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
-            }
+            },
         }).success(function(data){
             $scope.clientes = data;
             console.log("deu Serto");
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + data;
+            console.log("login error");
+        });
+    };
+
+    var carregarClientesPorData = function () {
+        $http({
+
+            url : "http://api.teewa.com.br:8081/dash/users/",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            body: {
+                'date_start' : '13/12/2016',
+                'date_end' : '20/12/2016'
+            },
+        }).success(function(data){
+            $scope.clientes = data;
+            console.log("deu Serto mesmo?");
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
         });
 
@@ -43,5 +65,6 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http) {
         $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
     };
 
-    carregarClientes();
+    //carregarClientes();
+    carregarClientesPorData();
 });

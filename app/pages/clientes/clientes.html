@@ -55,17 +55,17 @@
                                 <button type="submit" class=" btn btn-default"> filtrar </button>
                             </div>
                         </div> </br>
-                        <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Buscar...">
-                        <br/>
                         <table class="table " >
                             <thead>
+                                <tr>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.mobile" placeholder="Contato..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.Qnt_caces" placeholder="Casos..."></th>
+                                </tr>
                                 <tr>
                                     <th  href="" ng-click="ordenarPor('name')" > Nome </th>
                                     <th> Contato </th>
                                     <th> Quantidade de Casos </th>
-
-
-                                    
                                 </tr>
                             </thead>
                             <tbody>
