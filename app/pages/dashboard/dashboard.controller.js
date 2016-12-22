@@ -32,7 +32,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
 
         $http({
 
-            url : "http://api.teewa.com.br:8081/dash/calls/",
+            url : config.baseUrl + "/dash/calls/",
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
