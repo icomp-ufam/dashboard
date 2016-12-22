@@ -58,9 +58,49 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
         });
     };
 
+    var carregarEstabelecimentos = function () {
+        $http({
+
+            url : config.baseUrl + "/dash/store",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'date_start' : '13/12/2015',
+                'date_end' : '20/12/2016'
+            }
+        }).success(function(data){
+            $scope.estabelecimentos = data;
+            //console.log(data);
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
     $scope.ordenarPor = function (campo) {
         $scope.criterioDeOrdenacao = campo;
         $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
+    };
+
+    $scope.carregarGraficoRating = function(myArrRating) {
+        //console.log(myArrRating);
+        myArrRating.sort(function(a,b) {return a.media - b.media});
+        dataJRating = [];
+        for (el in myArrRating)
+            dataJRating.push({media: myArrRating[el].media, qtd_av: myArrRating[el].qtd_avaliacoes});
+
+        Morris.Bar({
+            element: 'morris-bar-Rating',
+            data: dataJRating,
+            xkey: 'media',
+            ykeys: ['qtd_av'],
+            labels: ['avaliações'],
+            barColors: ['#1caf9a']
+        });
+
     };
 
     /*$scope.adicionarEstabelecimento = function (estabelecimento) {
@@ -74,6 +114,7 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
     carregarCases();
     carregarAtendimentos();
     carregarNatendimentos();
+    carregarEstabelecimentos();
 
 
 });

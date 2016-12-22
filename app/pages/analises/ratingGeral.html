@@ -30,12 +30,14 @@
                         <h3 class="panel-title">Média x Qtd Avaliações</h3>
                         <ul class="panel-controls" style="margin-top: 2px;">
 
-                            <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+
+                            <li><a ng-click="carregarGraficoRating(estabelecimentos)" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
 
                         </ul>
                     </div>
                     <div class="panel-body">
-                        <div id="morris-bar-ratinggeral" style="height: 300px;"></div>
+
+                        <div id="morris-bar-Rating" style="height: 300px;"></div>
                     </div>
                 </div>
 
@@ -48,7 +50,8 @@
 <script type="text/javascript" src="template-joli/js/plugins/moment.min.js"></script>
 <script type="text/javascript" src="template-joli/js/plugins/daterangepicker/daterangepicker.js"></script>
 
-<script>$(function(){
+<script>
+    $(function(){
     /* reportrange */
     if($("#reportrange1").length > 0){
         $("#reportrange1").daterangepicker({
@@ -76,6 +79,24 @@
     }
     /* end reportrange */
 
-    });</script>
+    });
+</script>
+
+<script type="text/javascript" src="/dashboard/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/dashboard/lib/jquery/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="/dashboard/lib/bootstrap/js/bootstrap.js"></script>
+
+<script type='text/javascript' src='/dashboard/app/assets/js/icheck/icheck.min.js'></script>
+
+<script type="text/javascript" src="/dashboard/app/assets/js/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+
+
+<script type="text/javascript" src="/dashboard/app/assets/js/morris/raphael-min.js"></script>
+<script type="text/javascript" src="/dashboard/app/assets/js/morris/morris.min.js"></script>
+
+<script type="text/javascript" src="/dashboard/app/assets/js/plugins.js"></script>
+
+<script type="text/javascript" src="/dashboard/app/assets/js/actions.js"></script>
 
 </html>
