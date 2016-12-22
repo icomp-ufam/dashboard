@@ -37,43 +37,44 @@
                             <p class="text-info"> filtrar: </p>
                             <div class="row">
                                 <div class="col-md-2">
-                                    Data Inicio: <input class="form-control col-md3" type="date">
+                                    Data Inicio: <input class="form-control col-md3" ng-model="data.start" type="date">
                                 </div>
                                 <div class="col-md-1"></div>
                                 <div class="col-md-2">
-                                    Data Fim: <input class="form-control col-md3" type="date">
+                                    Data Fim: <input class="form-control col-md3" ng-model="data.end" type="date">
                                 </div>
                                 <div class="col-md-1"></div>
                                 <div class="col-md-2">
                                     <br>
-                                    <button type="submit" class=" btn btn-default"> filtrar </button>
+                                    <button type="submit" class=" btn btn-default" ng-click="carregarPorData((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))"> filtrar </button>
                                 </div>
+
                             </div> </br>
                             <table class="table" >
                                 <thead>
                                     <tr>
                                         <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome..."></th>
                                         <th ><input class="form-control" type="text" ng-model="criterioDeBusca.address" placeholder="Endereço..."></th>
-                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.avg_rating" placeholder="Média..."></th>
-                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.sum_rating" placeholder="Qtd Avaliações..."></th>
+                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.media" placeholder="Média..."></th>
+                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.qtd_avaliacoes" placeholder="Qtd Avaliações..."></th>
                                         <th> </th>
                                     </tr>
 
                                     <tr>
                                         <th href="" ng-click="ordenarPor('name')" > Nome </th>
                                         <th> Endereço </th>
-                                        <th ng-click="ordenarPor('avg_rating')"  >Média Avaliação</th>
-                                        <th ng-click="ordenarPor('sum_rating')" >Qtd Avaliações</th>
+                                        <th ng-click="ordenarPor('media')"  >Média Avaliação</th>
+                                        <th ng-click="ordenarPor('qtd_avaliacoes')" >Qtd Avaliações</th>
                                         <th> Detalhes</th>
                                     </tr>
                                 </thead>
                                 
                                 <tbody>
-                                    <tr  ng-repeat="estabelecimento in estabelecimentos.stores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                    <tr  ng-repeat="estabelecimento in estabelecimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                         <td>{{estabelecimento.name}}</td>
                                         <td>{{estabelecimento.address}}</td>
-                                        <td>{{estabelecimento.avg_rating | number:1}}</td>
-                                        <td>{{estabelecimento.sum_rating}}</td>
+                                        <td>{{estabelecimento.media | number:1}}</td>
+                                        <td>{{estabelecimento.qtd_avaliacoes}}</td>
 
 
                                         <td>

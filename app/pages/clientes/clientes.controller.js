@@ -45,9 +45,6 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http) {
             $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
         });
-
-
-
     };
 
     $scope.apagarClientes = function (clientes) {

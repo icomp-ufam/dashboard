@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39fa8f05-15be-41f2-b7f8-1f0df24c357b" name="Default" comment="Adicionada avaliação do estabelecimento">
+    <list default="true" id="39fa8f05-15be-41f2-b7f8-1f0df24c357b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/clientes/clientes.controller.js" afterPath="$PROJECT_DIR$/app/pages/clientes/clientes.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.controller.js" afterPath="$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.html" afterPath="$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.html" />
     </list>
     <ignored path="dashboard.iws" />
@@ -24,21 +26,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="estabelecimentos.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="estabelecimentos.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
+            <state relative-caret-position="180">
+              <caret line="45" column="60" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="analiseCasos.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/analises/analiseCasos.html">
+      <file leaf-file-name="clientes.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="49" column="37" selection-start-line="41" selection-start-column="31" selection-end-line="49" selection-end-column="37" />
+            <state relative-caret-position="229">
+              <caret line="30" column="59" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="estabelecimentos.controller.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="81" column="49" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -69,14 +81,14 @@
         <option value="$PROJECT_DIR$/template-joli/js/demo_charts_morris.js" />
         <option value="$PROJECT_DIR$/app/pages/avaliacoes/avaliacoes.html" />
         <option value="$PROJECT_DIR$/app/assets/js/demo_charts_morris.js" />
-        <option value="$PROJECT_DIR$/app/pages/clientes/clientes.controller.js" />
         <option value="$PROJECT_DIR$/app/pages/dashboard/dashboard.html" />
         <option value="$PROJECT_DIR$/app/pages/dashboard/dashboard.controller.js" />
         <option value="$PROJECT_DIR$/app/pages/pacotes/pacotes.html" />
         <option value="$PROJECT_DIR$/app/app.routes.js" />
         <option value="$PROJECT_DIR$/app/pages/main/main.html" />
-        <option value="$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.controller.js" />
+        <option value="$PROJECT_DIR$/app/pages/clientes/clientes.controller.js" />
         <option value="$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.html" />
+        <option value="$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.controller.js" />
       </list>
     </option>
   </component>
@@ -136,6 +148,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template-joli" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -393,7 +419,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/analises/analiseCasos.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/clientes/clientes.controller.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/clientes/clientes.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -573,7 +600,9 @@
       <workItem from="1482091903955" duration="2480000" />
       <workItem from="1482097925982" duration="3975000" />
       <workItem from="1482171598716" duration="9207000" />
-      <workItem from="1482351172176" duration="3648000" />
+      <workItem from="1482351172176" duration="3977000" />
+      <workItem from="1482356938209" duration="10000" />
+      <workItem from="1482368522471" duration="7700000" />
     </task>
     <task id="LOCAL-00001" summary="Removidos arquivos desnessários do template.">
       <created>1480378032482</created>
@@ -659,26 +688,33 @@
       <option name="project" value="LOCAL" />
       <updated>1482182244386</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Adicionada avaliação do estabelecimento">
+      <created>1482356551067</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1482356551067</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92153000" />
+    <option name="totallyTimeSpent" value="100192000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18882175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19410875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.014610389" sideWeight="0.5271903" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.014610389" sideWeight="0.5271903" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.014610389" sideWeight="0.47280967" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44967532" sideWeight="0.47280967" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -864,24 +900,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template-joli/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1130">
-          <caret line="378" column="28" selection-start-line="378" selection-start-column="28" selection-end-line="378" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/template-joli/charts-morris.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="347" column="30" selection-start-line="334" selection-start-column="24" selection-end-line="347" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="49" column="2" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -935,13 +957,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="6" selection-start-line="30" selection-start-column="4" selection-end-line="34" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -949,19 +964,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/js/demo_charts_morris.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -969,7 +975,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="19" column="72" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -977,22 +982,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
           <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/analises/analiseCasos.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="49" column="37" selection-start-line="41" selection-start-column="31" selection-end-line="49" selection-end-column="37" />
+        <state relative-caret-position="1125">
+          <caret line="75" column="42" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template-joli/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="610" column="77" selection-start-line="573" selection-start-column="28" selection-end-line="629" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="30" column="59" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="72" column="51" selection-start-line="72" selection-start-column="51" selection-end-line="72" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
+        <state relative-caret-position="180">
+          <caret line="45" column="60" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="81" column="49" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
           <folding />
         </state>
       </provider>
