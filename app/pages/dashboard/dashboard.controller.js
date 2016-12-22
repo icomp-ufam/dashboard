@@ -1,7 +1,7 @@
 /**
  * Created by marcos on 29/11/16.
  */
-angular.module("teewa").controller("dashboardCtrl", function ($scope, $http) {
+angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, config) {
     //$scope.state = $state;
     $scope.app = "Dashboard";
     //$scope.estabelecimentos = [];
@@ -10,7 +10,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http) {
 
     var carregarClientes = function () {
         $http({
-            url : "http://54.233.67.111:8081/users",
+            url : config.baseUrl + "/users",
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',
@@ -29,7 +29,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http) {
     var carregarCases = function () {
         $http({
 
-            url : "http://54.233.67.111:8081/analytics/cases",
+            url : config.baseUrl + "/analytics/cases",
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',
@@ -41,17 +41,13 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http) {
                     $scope.message = "Aconteceu um problema: " + data;
                     console.log("login error");
         });
-        /*$http.get("http://localhost:3412/estabelecimentos").success(function (data) {
-            $scope.estabelecimentos = data;
-        }).error(function (data, status) {
-            $scope.message = "Aconteceu um problema: " + data;
-        });*/
-    };
-    $scope.UserbyCases = [];
 
+    };
+
+    $scope.UserbyCases = [];
     var carregarUsuariosEcasos = function () {
         $http({
-            url : "http://54.233.67.111:8081/analytics/cases/by/users",
+            url : config.baseUrl + "/analytics/cases/by/users",
             method : 'GET',
         }).success(function(data){
             $scope.UserbyCases = data;
@@ -61,17 +57,6 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http) {
         });
     };
     carregarUsuariosEcasos();
-
-    /*$scope.adicionarEstabelecimento = function (estabelecimento) {
-        estabelecimento.data = new Date();
-        $http.post("http://localhost:3412/estabelecimentos", estabelecimento).success(function (data) {
-            delete $scope.estabelecimento;
-            $scope.estabelecimentoForm.$setPristine();
-            carregarestabelecimentos();
-        });
-    };*/
     carregarCases();
     carregarClientes();
-
-
 });

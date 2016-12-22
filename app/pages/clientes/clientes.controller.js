@@ -1,7 +1,7 @@
 /**
  * Created by Larissa Fabíola on 30/11/16.
  */
-angular.module("teewa").controller("clientesCtrl", function ($scope, $http) {
+angular.module("teewa").controller("clientesCtrl", function ($scope, $http, config) {
 
     $scope.app = "Clientes";
     $scope.clientes = [];
@@ -10,7 +10,7 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http) {
     var carregarClientes = function () {
         $http({
 
-            url : "http://54.233.67.111:8081/users",
+            url : config.baseUrl + "/users",
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',
@@ -28,7 +28,7 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http) {
     var carregarClientesPorData = function () {
         $http({
 
-            url : "http://api.teewa.com.br:8081/dash/users/",
+            url : config.baseUrl + "/dash/users/",
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',

@@ -1,7 +1,7 @@
 /**
  * Created by Larissa Fabíola on 30/11/16.
  */
-angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) {
+angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, config) {
 
     $scope.app = "Atendimentos";
      //$scope.estabelecimentos = [];
@@ -37,7 +37,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
 
         $http({
 
-            url : "http://api.teewa.com.br:8081/dash/calls/",
+            url : config.baseUrl + "/dash/calls/",
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
 
         $http({
 
-            url : "http://api.teewa.com.br:8081/dash/calls/hour/",
+            url : config.baseUrl + "/dash/calls/hour/",
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
@@ -93,7 +93,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
 
         $http({
 
-            url : "http://api.teewa.com.br:8081/dash/calls/day_week",
+            url : config.baseUrl + "/dash/calls/day_week",
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
@@ -122,7 +122,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
 
         $http({
 
-            url : "http://api.teewa.com.br:8081/dash/calls/day_month",
+            url : config.baseUrl + "/dash/calls/day_month",
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http) 
 
         $http({
 
-            url : "http://api.teewa.com.br:8081/dash/calls/category",
+            url : config.baseUrl + "/dash/calls/category",
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',

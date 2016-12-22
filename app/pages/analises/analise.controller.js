@@ -1,7 +1,7 @@
 /**
  * Created by Larissa Fabíola on 30/11/16.
  */
-angular.module("teewa").controller("analiseCtrl", function ($scope, $http) {
+angular.module("teewa").controller("analiseCtrl", function ($scope, $http, config) {
 
    //$scope.state = $state;
     $scope.app = "AnaliseCasos";
@@ -13,7 +13,7 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http) {
     var carregarCases = function () {
         $http({
 
-            url : "http://54.233.67.111:8081/analytics/cases",
+            url : config.baseUrl + "/analytics/cases",
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',
@@ -29,7 +29,7 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http) {
     var carregarAtendimentos = function () {
         $http({
 
-            url : "http://54.233.67.111:8081/analytics/cases/situation",
+            url : config.baseUrl + "/analytics/cases/situation",
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',
@@ -44,8 +44,7 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http) {
     };
     var carregarNatendimentos = function () {
         $http({
-
-            url : "http://54.233.67.111:8081/analytics/cases/unattended",
+            url : config.baseUrl + "/analytics/cases/unattended",
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',

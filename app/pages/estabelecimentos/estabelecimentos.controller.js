@@ -2,7 +2,7 @@
  * Created by Larissa Fabíola on 30/11/16.
  */
 var rating;
-angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $http) {
+angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $http, config) {
 
     $scope.app = "Estabelecimentos";
     $scope.estabelecimentos = [];
@@ -65,7 +65,7 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
     var carregarEstabelecimentos = function () {
         $http({
 
-            url : "http://54.233.67.111:8081/dash/store",
+            url : config.baseUrl + "/dash/store",
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
 
     $scope.carregarPorData = function (date_start, date_end) {
         $http({
-            url : "http://54.233.67.111:8081/dash/store",
+            url : config.baseUrl + "/dash/store",
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
+var baseURl = "http://api.teewa.com.br:8081";
 var xmlhttp = new XMLHttpRequest();
-var url = "http://54.233.67.111:8081/analytics/hourly/queries/day/avg";
+var url = baseURl + "/analytics/hourly/queries/day/avg";
 var myArr;
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
@@ -18,14 +19,12 @@ xmlhttp.onload = function() {
         dataJ.push({label: myArr[el].hora+":hrs", value: myArr[el].media_casos});
         
     }
-      
     /*for (i = 0; i < dataJ.length; i++){
         if(i == myArr[i].hora)
             dataJ.push({label: myArr[el].hora+":hrs", value: myArr[el].media_casos});
         else
             dataJ.push({label: i+":hrs", value: 0});
     }*/
-
     Morris.Donut({
         element: 'morris-donut-example',
         data: dataJ,
@@ -35,7 +34,7 @@ xmlhttp.onload = function() {
 };
 
 var xmlhttp1 = new XMLHttpRequest();
-var url1 = "http://54.233.67.111:8081/analytics/queries/date";
+var url1 = baseURl + "/analytics/queries/date";
 var myArr1;
 xmlhttp1.open("GET", url1, true);
 xmlhttp1.send();
@@ -63,7 +62,7 @@ xmlhttp1.onload = function () {
 
 //usuarios por caso
 var xmlhttp3 = new XMLHttpRequest();
-var url3 = "http://54.233.67.111:8081/analytics/users/by/cases";
+var url3 = baseURl + "/analytics/users/by/cases";
 var myArr3;
 xmlhttp3.open("GET", url3, true);
 xmlhttp3.send();
@@ -88,7 +87,7 @@ xmlhttp3.onload = function () {
 };
 
 var xmlhttp4 = new XMLHttpRequest();
-var url4 = "http://54.233.67.111:8081/analytics/hourly/queries/day";
+var url4 = baseURl + "/analytics/hourly/queries/day";
 var myArr4;
 xmlhttp4.open("GET", url4, true);
 xmlhttp4.send();
@@ -116,7 +115,7 @@ xmlhttp4.onload = function() {
 
 //Consulta por loja e atendimento: Quantidade de consultas atendidas;
 var xmlhttpConsultaLA1 = new XMLHttpRequest();
-var urlConsultaLA1 = "http://54.233.67.111:8081/analytics/inquiries/store/service";
+var urlConsultaLA1 = baseURl + "/analytics/inquiries/store/service";
 var myArrConsultaLA1;
 xmlhttpConsultaLA1.open("GET", urlConsultaLA1, true);
 xmlhttpConsultaLA1.send();
@@ -142,9 +141,9 @@ xmlhttpConsultaLA1.onload = function () {
 
 //Consulta por loja e atendimento: Total de consultas realizadas;
 var xmlhttpConsultaLA2 = new XMLHttpRequest();
-var urlConsultaLA2 = "http://54.233.67.111:8081/analytics/inquiries/store/service";
+var urlConsultaLA2 = baseURl + "/analytics/inquiries/store/service";
 var myArrConsultaLA2;
-xmlhttpConsultaLA2.open("GET", urlConsultaLA1, true);
+xmlhttpConsultaLA2.open("GET", urlConsultaLA2, true);
 xmlhttpConsultaLA2.send();
 
 xmlhttpConsultaLA2.onload = function () {
@@ -168,9 +167,9 @@ xmlhttpConsultaLA2.onload = function () {
 
 //Consulta por loja e atendimento: Percentual de atendimento;
 var xmlhttpConsultaLA3 = new XMLHttpRequest();
-var urlConsultaLA3 = "http://54.233.67.111:8081/analytics/inquiries/store/service";
+var urlConsultaLA3 = baseURl + "/analytics/inquiries/store/service";
 var myArrConsultaLA3;
-xmlhttpConsultaLA3.open("GET", urlConsultaLA1, true);
+xmlhttpConsultaLA3.open("GET", urlConsultaLA3, true);
 xmlhttpConsultaLA3.send();
 
 xmlhttpConsultaLA3.onload = function () {
@@ -193,7 +192,7 @@ xmlhttpConsultaLA3.onload = function () {
 };
 
 var xmlhttpConsultaCaseByUser = new XMLHttpRequest();
-var urlConsultaCaseByUser = "http://54.233.67.111:8081/analytics/cases/by/users";
+var urlConsultaCaseByUser = baseURl + "/analytics/cases/by/users";
 var myArrConsultaCaseByUser;
 xmlhttpConsultaCaseByUser.open("GET", urlConsultaCaseByUser, true);
 xmlhttpConsultaCaseByUser.send();

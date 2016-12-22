@@ -2,7 +2,7 @@
  * Created by marcos on 29/11/16.
  */
 
-angular.module("teewa").controller("vendedoresCtrl", function ($scope, $http) {
+angular.module("teewa").controller("vendedoresCtrl", function ($scope, $http, config) {
 
     $scope.app = "Vendedores";
     $scope.vendedores = [];
@@ -10,7 +10,7 @@ angular.module("teewa").controller("vendedoresCtrl", function ($scope, $http) {
     var carregarVendedores = function () {
         $http({
 
-            url : "http://54.233.67.111:8081/sellers",
+            url : config.baseUrl + "/sellers",
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',
