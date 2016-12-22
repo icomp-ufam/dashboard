@@ -10,7 +10,7 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
     $scope.i = 0;
     $scope.rating = [];
 
-    var carregarEstabelecimentos = function(){
+    /*var carregarEstabelecimentos = function(){
             $http({
 
             url : "http://54.233.67.111:8081/stores",
@@ -60,8 +60,48 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
             }).error(function(error){
                     $scope.message = "Aconteceu um problema: " + data;
         });
+    };*/
+
+    var carregarEstabelecimentos = function () {
+        $http({
+
+            url : "http://54.233.67.111:8081/dash/store",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'date_start' : '13/12/2015',
+                'date_end' : '20/12/2016'
+            }
+        }).success(function(data){
+            $scope.estabelecimentos = data;
+            console.log(data);
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
     };
 
+    $scope.carregarPorData = function (date_start, date_end) {
+        $http({
+            url : "http://54.233.67.111:8081/dash/store",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'date_start' : date_start,
+                'date_end' : date_end
+            }
+        }).success(function(data){
+            $scope.estabelecimentos = data;
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
 
     $scope.apagarestabelecimentos = function (estabelecimentos) {
         $scope.estabelecimentos = estabelecimentos.filter(function (estabelecimento) {

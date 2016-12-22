@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Avaliação Geral dos Estabelecimentos</title>
+</head>
+<body>
+
+<div class="page-content-wrap">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+
+                        <span>Selecione um período:</span>
+                    </div>
+                    <ul class="panel-controls panel-controls-title">
+                        <li>
+                            <div id="reportrange1" class="dtrange">
+                                <span></span><b class="caret"></b>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Média x Qtd Avaliações</h3>
+                        <ul class="panel-controls" style="margin-top: 2px;">
+
+                            <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+
+                        </ul>
+                    </div>
+                    <div class="panel-body">
+                        <div id="morris-bar-ratinggeral" style="height: 300px;"></div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="template-joli/js/plugins/moment.min.js"></script>
+<script type="text/javascript" src="template-joli/js/plugins/daterangepicker/daterangepicker.js"></script>
+
+<script>$(function(){
+    /* reportrange */
+    if($("#reportrange1").length > 0){
+        $("#reportrange1").daterangepicker({
+            ranges: {
+                'Hoje': [moment(), moment()],
+                'Ontem': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Últimos 7 dias': [moment().subtract(6, 'days'), moment()],
+                'Últimos 30 dias': [moment().subtract(29, 'days'), moment()],
+                'Este mês': [moment().startOf('month'), moment().endOf('month')],
+                'Mês passado': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            },
+            opens: 'left',
+            buttonClasses: ['btn btn-default'],
+            applyClass: 'btn-small btn-primary',
+            cancelClass: 'btn-small',
+            format: 'DD.YY.YYYY',
+            separator: ' to ',
+            startDate: moment().subtract('days', 29),
+            endDate: moment()
+        },function(start, end) {
+            $('#reportrange1 span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        });
+
+        $("#reportrange1 span").html(moment().subtract('days', 29).format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+    }
+    /* end reportrange */
+
+    });</script>
+
+</html>

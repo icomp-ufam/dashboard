@@ -12,7 +12,6 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         $urlRouterProvider.when('/pacotes-escolher', '/pacotes/escolha');
         $urlRouterProvider.when('/analisesCasos', '/analises/lista');
 
-
         $stateProvider.state('main', {
             url: '/',
             templateUrl: 'app/pages/main/main.html',
@@ -135,6 +134,10 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/analises/analiseNatendimentos.html',
             controller: 'analiseCtrl',
             activetab: 'analisesNatendimentos'
+       }).state('main.analisesCasos.ratingGeral', {
+            url: '/rating-geral',
+            templateUrl: 'app/pages/analises/ratingGeral.html',
+            controller: 'analiseCtrl',
+            activetab: 'estabelecimentos'
         })
-
     });
