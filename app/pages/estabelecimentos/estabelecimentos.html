@@ -22,7 +22,15 @@
         <div class="page-container-boxed">
             <div class="row">
                 <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <a ui-sref="main.analisesCasos.ratingGeral" class="tile tile-info">
+                                <span class="fa fa-heart"></span>
+                                <p>Avaliação das lojas</p>
 
+                            </a>
+                        </div>
+                    </div>
                     <!-- START DEFAULT DATATABLE -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -57,6 +65,8 @@
                                         <th ><input class="form-control" type="text" ng-model="criterioDeBusca.address" placeholder="Endereço..."></th>
                                         <th ><input class="form-control" type="text" ng-model="criterioDeBusca.media" placeholder="Média..."></th>
                                         <th ><input class="form-control" type="text" ng-model="criterioDeBusca.qtd_avaliacoes" placeholder="Qtd Avaliações..."></th>
+                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.n_vendedores" placeholder="Qtd Vendedores..."></th>
+                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.consultas" placeholder="Qtd Consultas..."></th>
                                         <th> </th>
                                     </tr>
 
@@ -65,6 +75,9 @@
                                         <th> Endereço </th>
                                         <th ng-click="ordenarPor('media')"  >Média Avaliação</th>
                                         <th ng-click="ordenarPor('qtd_avaliacoes')" >Qtd Avaliações</th>
+                                        <th ng-click="ordenarPor('n_vendedores')" >Qtd Vendedores</th>
+                                        <th ng-click="ordenarPor('consultas')" >Qtd Consultas</th>
+
                                         <th> Detalhes</th>
                                     </tr>
                                 </thead>
@@ -75,10 +88,12 @@
                                         <td>{{estabelecimento.address}}</td>
                                         <td>{{estabelecimento.media | number:1}}</td>
                                         <td>{{estabelecimento.qtd_avaliacoes}}</td>
-
+                                        <td>{{estabelecimento.n_vendedores}}</td>
+                                        <td>{{estabelecimento.consultas}}</td>
 
                                         <td>
-                                            <button class="btn btn-default" ui-sref="main.vendedores.listar">
+                                            <!--<button class="btn btn-default" ui-sref="main.vendedores.listar">-->
+                                            <button class="btn btn-default" ui-sref="#">
                                                 Detalhes
                                             </button>
                                         </td>

@@ -77,6 +77,7 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
             }
         }).success(function(data){
             $scope.estabelecimentos = data;
+            console.log(data);
 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;

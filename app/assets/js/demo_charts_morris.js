@@ -211,5 +211,4 @@ xmlhttpConsultaCaseByUser.onload = function () {
         labels: ['casos'],
         barColors: ['#2aabd2']
     });
-
 };
