@@ -32,6 +32,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/clientes/clientes.html',
             controller: 'clientesCtrl',
             activetab: 'clientes'
+        }).state('main.clientes.graphic', {
+            url: 'graphic',
+            templateUrl: 'app/pages/clientes/clienteGraphic.html',
+            controller: 'clientesCtrl',
+            activetab: 'clientes'
         }).state('main.estabelecimentos', {
             url: 'estabelecimentos',
             template: '<ui-view></ui-view>'
