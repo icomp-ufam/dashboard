@@ -8,6 +8,9 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
     $scope.cases = [];
     $scope.clientes = [];
     $scope.atendimentos = [];
+    $scope.estabelecimentos = [];
+    $scope.denuncias = [];
+
 
     var carregarClientes = function () {
         $http({
@@ -39,13 +42,14 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
                 'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
             },
             data: {
-                'date_start' : date_start,
-                'date_end' : date_end
+                'date_start' : '01/01/2016',
+                'date_end' : '31/12/2016',
                 //'idcategory' : '5'
             }
         }).success(function(data,date){
             $scope.atendimentos = data;
-            console.log(data);
+            $scope.qtAtendimentos = $scope.atendimentos.length;
+            //console.log($scope.qtAtendimentos)
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
@@ -84,7 +88,60 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
             console.log($scope.mensage);
         });
     };
+
+    $scope.carregarEstabelecimentos = function () {
+        $http({
+
+            url : config.baseUrl + "/dash/store",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'date_start' : '01/01/2016',
+                'date_end' : '31/12/2016'
+            }
+        }).success(function(data){
+            $scope.estabelecimentos = data;
+            $scope.qtEstalecimentos = $scope.estabelecimentos.length;
+
+            //console.log("estabelecimentos: " + $scope.qtEstalecimentos );
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
+    $scope.carregarDenuncias = function () {
+        $http({
+
+            url : config.baseUrl + "/dash/complaints",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'date_start' : '01/01/2016',
+                'date_end' : '31/12/2016'
+            }
+        }).success(function(data){
+            $scope.denuncias = data;
+            $scope.qtDenuncias = $scope.denuncias.length;
+
+            //console.log("denuncias: " + $scope.qtDenuncias);
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
+
     carregarUsuariosEcasos();
     carregarCases();
     carregarClientes();
+    $scope.carregarAtendimentos();
+    $scope.carregarEstabelecimentos();
+    $scope.carregarDenuncias();
 });
