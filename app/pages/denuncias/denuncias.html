@@ -12,27 +12,12 @@
         <div class="row">
             <div class="col-md-3">
 
-                <!-- START WIDGET REGISTRED -->
-                <div class="widget widget-default widget-item-icon" ui-sref="main.denuncias.listar">
-                    <div class="widget-item-left">
-                        <span class="fa fa-search"></span>
-                    </div>
-                    <div class="widget-data">
-                        <div class="widget-title"></div>
-
-                        <div class="widget-title">Denúncias Registradas</div>
-                        <div class="widget-subtitle">no Teewa</div>
-                    </div>
-
-                </div>
-                <!-- END WIDGET REGISTRED -->
-
             </div>
             <div class="col-md-12">
                 <!-- START DEFAULT DATATABLE -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Clientes Ativos</h3>
+                        <h3 class="panel-title">Denúncias</h3>
                         <ul class="panel-controls">
                             <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
                             <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
@@ -58,21 +43,28 @@
                         <table class="table " >
                             <thead>
                             <tr>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.nome" placeholder="Nome..."></th>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.contato" placeholder="Contato..."></th>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.qtde_casos" placeholder="Casos..."></th>
-                            </tr>
-                            <tr>
                                 <th  href="" ng-click="ordenarPor('name')" > Nome </th>
-                                <th> Contato </th>
-                                <th> Quantidade de Casos </th>
+                                <th> Vendedor Denunciado</th>
+                                <th> Loja Denunciada</th>
+                                <th> Tipo de Ocorrência </th>
+                                <th> Ocorrência </th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr  ng-repeat="denuncia in denuncias| filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                <td>{{denuncia.nome}}</td>
-                                <td>{{cliente.contato}}</td>
-                                <td>{{cliente.qtde_casos}}</td>
+                                <td>{{denuncia.cliente}}</td>
+                                <td>{{denuncia.vendedor_denunciado}}</td>
+                                <td>{{denuncia.loja_denunciada}}</td>
+                                <td ng-switch on="{{denuncia.type}}">
+                                    <span ng-switch-when="1"> Assédio </span>
+                                    <span ng-switch-when="2"> Conteúdo Impróprio </span>
+                                    <span ng-switch-when="3"> Estabelecimento Falso </span>
+                                    <span ng-switch-when="4"> Linguagem Imprópria </span>
+                                    <span ng-switch-when="5"> Usuário Falso </span>
+                                    <span ng-switch-when="6"> Outros </span>
+
+                                </td>
+                                <td>{{denuncia.description}}</td>
 
                             </tr>
                             </tbody>
