@@ -117,6 +117,7 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
             var options = {
                 title: 'Chess opening moves',
                 width: 950,
+                height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
                 bars: 'horizontal', //orientação do gráfico
                 axes: {
@@ -124,7 +125,7 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
                         0: { side: 'top', label: 'Casos'} // Top x-axis.
                     }
                 },
-                bar: { groupWidth: "10%" }
+                bar: { groupWidth: 20 }
             };
             //Construindo o gráfico
             var chart = new google.charts.Bar(document.getElementById('top_x_div'));
