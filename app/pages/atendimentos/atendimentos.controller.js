@@ -61,9 +61,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
 
     };
     $scope.carregarAtendimentosPorHora = function (date_start, date_end) {
-        console.log("cima");
-        console.log(date_start);
-        console.log(date_end);
+       
 
         $http({
 
@@ -82,13 +80,13 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             }
         }).success(function(data){
             $scope.atendimentosPorHoras = data;
-            console.log(data);
-            console.log("por hora")
-            console.log(date_start);
-            console.log(date_end);
+            graficoAtendimentoPorHoraTOT(data);
+            graficoAtendimentoPorHoraNEG(data);
+            graficoAtendimentoPorHoraNAT(data);
+            graficoAtendimentoPorHoraATE(data);
+
             data_start = date_start;
             data_end = date_end;
-            console.log("atendimentosPorHoras: " + $scope.atendimentosPorHoras);
 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
@@ -117,7 +115,10 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             }
         }).success(function(data,date){
             $scope.atendimentosPorDiaSemanas = data;
-            console.log(data);
+            graficoAtendimentoPorDiaSemanaTOT(data);
+            graficoAtendimentoPorDiaSemanaNEG(data);
+            graficoAtendimentoPorDiaSemanaNAT(data);
+            graficoAtendimentoPorDiaSemanaATE(data);
             
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
@@ -145,8 +146,10 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             }
         }).success(function(data,date){
             $scope.atendimentosPorDiaMess = data;
-            console.log(data);
-            
+            graficoAtendimentoPorDiaMesTOT(data);
+            graficoAtendimentoPorDiaMesNEG(data);
+            graficoAtendimentoPorDiaMesNAT(data);
+            graficoAtendimentoPorDiaMesATE(data);            
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
@@ -173,8 +176,10 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             }
         }).success(function(data,date){
             $scope.atendimentosPorCategorias = data;
-            console.log(data);
-            
+            graficoAtendimentoPorCategoriaTOT(data);
+            graficoAtendimentoPorCategoriaNEG(data);
+            graficoAtendimentoPorCategoriaNAT(data);
+            graficoAtendimentoPorCategoriaATE(data);            
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
@@ -195,6 +200,785 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             carregarestabelecimentos();
         });
     };*/
+/*var baseURl = "http://api.teewa.com.br:8081";
+
+//usuarios por caso
+var xmlhttp3 = new XMLHttpRequest();
+var url3 = baseURl + "/analytics/users/by/cases";
+var myArr3;
+xmlhttp3.open("GET", url3, true);
+xmlhttp3.send();
+
+xmlhttp3.onload = function () {
+    if(this.readyState==4 && this.status==200) {
+        myArr3 = JSON.parse(this.responseText);
+    }
+
+    dataJ3 = [];
+    for (el in myArr3)
+        dataJ3.push({y: myArr3[el].casos, a: myArr3[el].usuarios})
+    Morris.Bar({
+        element: 'morris-bar-example',
+        data: dataJ3,
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Casos'],
+        barColors: ['#2aabd2']
+    });
+
+};*/
+
+function graficoAtendimentoPorHoraTOT(dado){
+        var hora = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            hora[dt] = dado[dt].case_hour.toString();
+            qtd[dt] = parseInt(dado[dt].tot);
+        }
+        //tamanho minimo do grafico
+        if(hora.length < 5)
+            for (i = 0; i < 3; i++){
+                hora[i + (hora.length)] = "";
+                qtd[i+ (hora.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Hora');
+            data.addColumn('number', 'TOTAL');
+            //Povondo o grafico
+            for(i = 0; i < hora.length; i++){
+                data.addRow([hora[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'TOTAL DE LOJAS'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorHoraTOT'));
+            chart.draw(data, options);
+        };
+}
+function graficoAtendimentoPorHoraATE(dado){
+        var hora = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            hora[dt] = dado[dt].case_hour.toString();
+            qtd[dt] = parseInt(dado[dt].ate);
+        }
+        //tamanho minimo do grafico
+        if(hora.length < 5)
+            for (i = 0; i < 3; i++){
+                hora[i + (hora.length)] = "";
+                qtd[i+ (hora.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Hora');
+            data.addColumn('number', 'ATENDERAM');
+            //Povondo o grafico
+            for(i = 0; i < hora.length; i++){
+                data.addRow([hora[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                                colors: ['green'],
+
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE ATENDERAM'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorHoraATE'));
+            chart.draw(data, options);
+        };
+}
+
+function graficoAtendimentoPorHoraNEG(dado){
+        var hora = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            hora[dt] = dado[dt].case_hour.toString();
+            qtd[dt] = parseInt(dado[dt].neg);
+        }
+        //tamanho minimo do grafico
+        if(hora.length < 5)
+            for (i = 0; i < 3; i++){
+                hora[i + (hora.length)] = "";
+                qtd[i+ (hora.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Hora');
+            data.addColumn('number', 'NEGARAM');
+            //Povondo o grafico
+            for(i = 0; i < hora.length; i++){
+                data.addRow([hora[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                bars: 'horizontal', //orientação do gráfico
+                                colors: ['red'],
+
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NEGARAM'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorHoraNEG'));
+            chart.draw(data, options);
+        };
+}
+function graficoAtendimentoPorHoraNAT(dado){
+        var hora = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            hora[dt] = dado[dt].case_hour.toString();
+            qtd[dt] = parseInt(dado[dt].nat);
+        }
+        //tamanho minimo do grafico
+        if(hora.length < 5)
+            for (i = 0; i < 3; i++){
+                hora[i + (hora.length)] = "";
+                qtd[i+ (hora.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Hora');
+            data.addColumn('number', 'NÃO ATENDERAM');
+            //Povondo o grafico
+            for(i = 0; i < hora.length; i++){
+                data.addRow([hora[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                                colors: ['yellow'],
+
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NÃO ATENDERAM'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorHoraNAT'));
+            chart.draw(data, options);
+        };
+}
+
+
+
+
+function graficoAtendimentoPorDiaSemanaTOT(dado){
+        var dia = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            dia[dt] = dado[dt].day_of_week.toString();
+            qtd[dt] = parseInt(dado[dt].tot);
+        }
+        //tamanho minimo do grafico
+        if(dia.length < 5)
+            for (i = 0; i < 3; i++){
+                dia[i + (dia.length)] = "";
+                qtd[i+ (dia.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Dia');
+            data.addColumn('number', 'TOTAL');
+            //Povondo o grafico
+            for(i = 0; i < dia.length; i++){
+                data.addRow([dia[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'TOTAL DE LOJAS'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaSemanaTOT'));
+            chart.draw(data, options);
+        };
+}
+function graficoAtendimentoPorDiaSemanaATE(dado){
+        var dia = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            dia[dt] = dado[dt].day_of_week.toString();
+            qtd[dt] = parseInt(dado[dt].ate);
+        }
+        //tamanho minimo do grafico
+        if(dia.length < 5)
+            for (i = 0; i < 3; i++){
+                dia[i + (dia.length)] = "";
+                qtd[i+ (dia.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Dia');
+            data.addColumn('number', 'ATENDERAM');
+            //Povondo o grafico
+            for(i = 0; i < dia.length; i++){
+                data.addRow([dia[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                                colors: ['green'],
+
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE ATENDERAM'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaSemanaATE'));
+            chart.draw(data, options);
+        };
+}
+
+function graficoAtendimentoPorDiaSemanaNEG(dado){
+        var dia = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            dia[dt] = dado[dt].day_of_week.toString();
+            qtd[dt] = parseInt(dado[dt].neg);
+        }
+        //tamanho minimo do grafico
+        if(dia.length < 5)
+            for (i = 0; i < 3; i++){
+                dia[i + (dia.length)] = "";
+                qtd[i+ (dia.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Dia');
+            data.addColumn('number', 'NEGARAM');
+            //Povondo o grafico
+            for(i = 0; i < dia.length; i++){
+                data.addRow([dia[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                bars: 'horizontal', //orientação do gráfico
+                                colors: ['red'],
+
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NEGARAM'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaSemanaNEG'));
+            chart.draw(data, options);
+        };
+}
+function graficoAtendimentoPorDiaSemanaNAT(dado){
+        var dia = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            dia[dt] = dado[dt].day_of_week.toString();
+            qtd[dt] = parseInt(dado[dt].nat);
+        }
+        //tamanho minimo do grafico
+        if(dia.length < 5)
+            for (i = 0; i < 3; i++){
+                dia[i + (dia.length)] = "";
+                qtd[i+ (dia.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Dia');
+            data.addColumn('number', 'NÃO ATENDERAM');
+            //Povondo o grafico
+            for(i = 0; i < dia.length; i++){
+                data.addRow([dia[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                                colors: ['yellow'],
+
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NÃO ATENDERAM'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaSemanaNAT'));
+            chart.draw(data, options);
+        };
+}
+
+
+
+
+
+
+function graficoAtendimentoPorDiaMesTOT(dado){
+        var dia = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            dia[dt] = dado[dt].day_of_month.toString();
+            qtd[dt] = parseInt(dado[dt].tot);
+        }
+        //tamanho minimo do grafico
+        if(dia.length < 5)
+            for (i = 0; i < 3; i++){
+                dia[i + (dia.length)] = "";
+                qtd[i+ (dia.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Dia');
+            data.addColumn('number', 'TOTAL');
+            //Povondo o grafico
+            for(i = 0; i < dia.length; i++){
+                data.addRow([dia[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'TOTAL DE LOJAS'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaMesTOT'));
+            chart.draw(data, options);
+        };
+}
+function graficoAtendimentoPorDiaMesATE(dado){
+        var dia = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            dia[dt] = dado[dt].day_of_month.toString();
+            qtd[dt] = parseInt(dado[dt].ate);
+        }
+        //tamanho minimo do grafico
+        if(dia.length < 5)
+            for (i = 0; i < 3; i++){
+                dia[i + (dia.length)] = "";
+                qtd[i+ (dia.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Dia');
+            data.addColumn('number', 'ATENDERAM');
+            //Povondo o grafico
+            for(i = 0; i < dia.length; i++){
+                data.addRow([dia[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                                colors: ['green'],
+
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE ATENDERAM'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaMesATE'));
+            chart.draw(data, options);
+        };
+}
+
+function graficoAtendimentoPorDiaMesNEG(dado){
+        var dia = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            dia[dt] = dado[dt].day_of_month.toString();
+            qtd[dt] = parseInt(dado[dt].neg);
+        }
+        //tamanho minimo do grafico
+        if(dia.length < 5)
+            for (i = 0; i < 3; i++){
+                dia[i + (dia.length)] = "";
+                qtd[i+ (dia.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Dia');
+            data.addColumn('number', 'NEGARAM');
+            //Povondo o grafico
+            for(i = 0; i < dia.length; i++){
+                data.addRow([dia[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                bars: 'horizontal', //orientação do gráfico
+                                colors: ['red'],
+
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NEGARAM'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaMesNEG'));
+            chart.draw(data, options);
+        };
+}
+function graficoAtendimentoPorDiaMesNAT(dado){
+        var dia = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            dia[dt] = dado[dt].day_of_month.toString();
+            qtd[dt] = parseInt(dado[dt].nat);
+        }
+        //tamanho minimo do grafico
+        if(dia.length < 5)
+            for (i = 0; i < 3; i++){
+                dia[i + (dia.length)] = "";
+                qtd[i+ (dia.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Dia');
+            data.addColumn('number', 'NÃO ATENDERAM');
+            //Povondo o grafico
+            for(i = 0; i < dia.length; i++){
+                data.addRow([dia[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                                colors: ['yellow'],
+
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NÃO ATENDERAM'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaMesNAT'));
+            chart.draw(data, options);
+        };
+}
+
+
+
+
+function graficoAtendimentoPorCategoriaTOT(dado){
+        var categoria = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            categoria[dt] = dado[dt].categoria.toString();
+            qtd[dt] = parseInt(dado[dt].tot);
+        }
+        //tamanho minimo do grafico
+        if(categoria.length < 5)
+            for (i = 0; i < 3; i++){
+                categoria[i + (categoria.length)] = "";
+                qtd[i+ (categoria.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'categoria');
+            data.addColumn('number', 'TOTAL');
+            //Povondo o grafico
+            for(i = 0; i < categoria.length; i++){
+                data.addRow([categoria[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'TOTAL DE LOJAS'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorCategoriaTOT'));
+            chart.draw(data, options);
+        };
+}
+function graficoAtendimentoPorCategoriaATE(dado){
+        var categoria = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            categoria[dt] = dado[dt].categoria.toString();
+            qtd[dt] = parseInt(dado[dt].ate);
+        }
+        //tamanho minimo do grafico
+        if(categoria.length < 5)
+            for (i = 0; i < 3; i++){
+                categoria[i + (categoria.length)] = "";
+                qtd[i+ (categoria.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'categoria');
+            data.addColumn('number', 'ATENDERAM');
+            //Povondo o grafico
+            for(i = 0; i < categoria.length; i++){
+                data.addRow([categoria[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                                colors: ['green'],
+
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE ATENDERAM'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorCategoriaATE'));
+            chart.draw(data, options);
+        };
+}
+
+function graficoAtendimentoPorCategoriaNEG(dado){
+        var categoria = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            categoria[dt] = dado[dt].categoria.toString();
+            qtd[dt] = parseInt(dado[dt].neg);
+        }
+        //tamanho minimo do grafico
+        if(categoria.length < 5)
+            for (i = 0; i < 3; i++){
+                categoria[i + (categoria.length)] = "";
+                qtd[i+ (categoria.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'categoria');
+            data.addColumn('number', 'NEGARAM');
+            //Povondo o grafico
+            for(i = 0; i < categoria.length; i++){
+                data.addRow([categoria[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                bars: 'horizontal', //orientação do gráfico
+                                colors: ['red'],
+
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NEGARAM'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorCategoriaNEG'));
+            chart.draw(data, options);
+        };
+}
+function graficoAtendimentoPorCategoriaNAT(dado){
+        var categoria = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            categoria[dt] = dado[dt].categoria.toString();
+            qtd[dt] = parseInt(dado[dt].nat);
+        }
+        //tamanho minimo do grafico
+        if(categoria.length < 5)
+            for (i = 0; i < 3; i++){
+                categoria[i + (categoria.length)] = "";
+                qtd[i+ (categoria.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'categoria');
+            data.addColumn('number', 'NÃO ATENDERAM');
+            //Povondo o grafico
+            for(i = 0; i < categoria.length; i++){
+                data.addRow([categoria[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                                colors: ['yellow'],
+
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NÃO ATENDERAM'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorCategoriaNAT'));
+            chart.draw(data, options);
+        };
+}
+
+
+
+
+
     //carregarCases();
     var curr = new Date; // get current date
     var first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
@@ -205,12 +989,12 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     //console.log(firstday);
     //console.log(lastday);
 
-    $scope.carregarAtendimentos(firstday, lastday);
+//    $scope.carregarAtendimentos(firstday, lastday);
     //carregarNatendimentos();
     $scope.carregarAtendimentosPorHora(firstday, lastday);
     $scope.carregarAtendimentosPorDiaSemana(firstday, lastday);
     $scope.carregarAtendimentosPorDiaMes(firstday, lastday);
-    $scope.carregarAtendimentosPorCategoria(firstday, lastday);
+  $scope.carregarAtendimentosPorCategoria(firstday, lastday);
 
 
 
