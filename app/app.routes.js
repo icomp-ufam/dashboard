@@ -82,6 +82,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/atendimentos/atendimentosPorCategoria.html',
             controller: 'atendimentosCtrl',
             activetab: 'atendimentosPorCategoria'
+        }).state('main.atendimentos.listarPorDate', {
+            url: '/listarPorDate',
+            templateUrl: 'app/pages/atendimentos/atendimentosPorData.html',
+            controller: 'atendimentosCtrl',
+            activetab: 'atendimentosPorData'
         }).state('main.chat', {
             url: 'chat',
             template: '<ui-view></ui-view>'
