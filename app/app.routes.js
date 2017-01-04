@@ -38,6 +38,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/clientes/clienteGraphic.html',
             controller: 'clientesCtrl',
             activetab: 'clientes'
+        }).state('main.clientes.NDeconsultasGraphic', {
+            url: '/listaNumeroDeConsultasgraphic',
+            templateUrl: 'app/pages/clientes/clienteUsuariosPorNdeConsultas.html',
+            controller: 'clientesCtrl',
+            activetab: 'clientesPorNdeConsultas'
         }).state('main.estabelecimentos', {
             url: 'estabelecimentos',
             template: '<ui-view></ui-view>'
@@ -46,6 +51,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/estabelecimentos/estabelecimentos.html',
             controller: 'estabelecimentosCtrl',
             activetab: 'estabelecimentos'
+        }).state('main.estabelecimentos.listarConsultasPorLojaAtendimento', {
+            url: '/listaConsultasPorLojaAtendimento',
+            templateUrl: 'app/pages/estabelecimentos/estabelecimentosConsultasPorLojaAtendimento.html',
+            controller: 'estabelecimentosCtrl',
+            activetab: 'estabelecimentosConsultasPorLojaAtendimento'
         }).state('main.admin', {
             url: 'admin',
             template: '<ui-view></ui-view>'
@@ -67,6 +77,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/atendimentos/atendimentosPorHora.html',
             controller: 'atendimentosCtrl',
             activetab: 'atendimentosPorHora'
+        }).state('main.atendimentos.listarPorHoraContagemMedia', {
+            url: '/listarPorHoraContagemMedia',
+            templateUrl: 'app/pages/atendimentos/atendimentosPorHoraContagemMedia.html',
+            controller: 'atendimentosCtrl',
+            activetab: 'atendimentosPorHoraContagemMedia'
         }).state('main.atendimentos.listarPorDiaSemana', {
             url: '/listarPorDiaSemana',
             templateUrl: 'app/pages/atendimentos/atendimentosPorDiaSemana.html',
@@ -87,6 +102,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/atendimentos/atendimentosPorData.html',
             controller: 'atendimentosCtrl',
             activetab: 'atendimentosPorData'
+        }).state('main.atendimentos.listarPorDataGeral', {
+            url: '/listarPorDataGeral',
+            templateUrl: 'app/pages/atendimentos/atendimentosPorDataGeral.html',
+            controller: 'atendimentosCtrl',
+            activetab: 'atendimentosPorDataGeral'
         }).state('main.chat', {
             url: 'chat',
             template: '<ui-view></ui-view>'

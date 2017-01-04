@@ -189,7 +189,7 @@
                             <tbody>
                                         <tr ng-repeat="atendimentosPorDate in atendimentosPorDates | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                               
-                                                <td class="active">{{atendimentosPorDate.case_date}}</td>
+                                                <td class="active">{{atendimentosPorDate.case_date.substring(0, 10)}}</td>
                                                                                            
                                                 <td class="info">{{atendimentosPorDate.tot}}</td>
                                                 

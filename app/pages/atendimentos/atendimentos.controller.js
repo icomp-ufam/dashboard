@@ -1013,7 +1013,7 @@ function graficoAtendimentoPorDateTOT(dado){
         var qtd = [];
         //dados para o grafico
         for(dt in dado) {
-            date[dt] = dado[dt].case_hour.toString();
+            date[dt] = dado[dt].case_date.substring(0, 10);
             qtd[dt] = parseInt(dado[dt].tot);
         }
         //tamanho minimo do grafico
@@ -1057,7 +1057,7 @@ function graficoAtendimentoPorDateATE(dado){
         var qtd = [];
         //dados para o grafico
         for(dt in dado) {
-            date[dt] = dado[dt].case_date.toString();
+            date[dt] = dado[dt].case_date.substring(0, 10);
             qtd[dt] = parseInt(dado[dt].ate);
         }
         //tamanho minimo do grafico
@@ -1104,7 +1104,7 @@ function graficoAtendimentoPorDateNEG(dado){
         var qtd = [];
         //dados para o grafico
         for(dt in dado) {
-            date[dt] = dado[dt].case_date.toString();
+            date[dt] = dado[dt].case_date.substring(0, 10);
             qtd[dt] = parseInt(dado[dt].neg);
         }
         //tamanho minimo do grafico
@@ -1150,7 +1150,7 @@ function graficoAtendimentoPorDateNAT(dado){
         var qtd = [];
         //dados para o grafico
         for(dt in dado) {
-            date[dt] = dado[dt].case_date.toString();
+            date[dt] = dado[dt].case_date.substring(0, 10);
             qtd[dt] = parseInt(dado[dt].nat);
         }
         //tamanho minimo do grafico
@@ -1168,6 +1168,7 @@ function graficoAtendimentoPorDateNAT(dado){
             data.addColumn('number', 'NÃO ATENDERAM');
             //Povondo o grafico
             for(i = 0; i < date.length; i++){
+                console.log(date[i]);
                 data.addRow([date[i], qtd[i]]);
             }
 

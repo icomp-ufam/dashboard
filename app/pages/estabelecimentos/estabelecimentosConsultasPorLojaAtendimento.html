@@ -1,0 +1,116 @@
+<ul class="breadcrumb">
+    <li><a ui-sref="main.dashboard.listar">Home</a></li>
+    <li ><a ui-sref="main.estabelecimentos.listar">Estabelecimentos</a> </li>
+    <li ><a ui-sref="main.estabelecimentos.listarConsultasPorLojaAtendimento">Consultas por Loja e Atendimento</a> </li>
+</ul>
+<div class="page-title">
+    
+    
+                        
+</div>
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-content-wrap">
+    <!-- END BREADCRUMB -->
+    <div class="page-container-boxed" >
+        <div class="row">
+                <div class="col-md-12">
+
+                    <!-- START BAR CHART -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Consulta por loja e atendimento: Quantidade de consultas atendidas</h3>
+                            <ul class="panel-controls" style="margin-top: 2px;">
+                                <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+
+                            </ul>
+                        </div>
+                        <div class="panel-body">
+                            <div id="morris-bar-ConsultaLA1" style="height: 300px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- END BAR CHART -->
+
+                <!-- END CONSULTAS POR HORA-->
+
+
+
+                </div>
+                <div class="col-md-12">
+
+                    <!-- START BAR CHART -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Consulta por loja e atendimento: Total de consultas realizadas</h3>
+                            <ul class="panel-controls" style="margin-top: 2px;">
+                        
+                                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                                                                        
+                                    </ul> 
+                        </div>
+                        <div class="panel-body">
+                            <div id="morris-bar-ConsultaLA2" style="height: 300px;"></div>
+                        </div>
+                    </div>
+                    <!-- END BAR CHART -->
+                </div>
+
+            </div>
+
+
+<div class="row">
+                <div class="col-md-18">
+
+                    <!-- START BAR CHART -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Consulta por loja e atendimento: Percentual de atendimento</h3>
+                            <ul class="panel-controls" style="margin-top: 2px;">
+                        
+                                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                                                                        
+                                    </ul> 
+                        </div>
+                        <div class="panel-body">
+                            <div id="morris-bar-ConsultaLA3" style="height: 300px;"></div>
+                        </div>
+                    </div>
+
+
+                    <!-- END BAR CHART -->
+
+
+                </div>
+
+                
+            </div>
+        
+        
+       
+
+
+
+    </div>
+</div>
+<script type="text/javascript">
+    panelActions();
+</script>
+
+<script type="text/javascript" src="/dashboard/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/dashboard/lib/jquery/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="/dashboard/lib/bootstrap/js/bootstrap.js"></script>
+
+<script type='text/javascript' src='/dashboard/app/assets/js/icheck/icheck.min.js'></script>
+
+<script type="text/javascript" src="/dashboard/app/assets/js/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+
+
+<script type="text/javascript" src="/dashboard/app/assets/js/morris/raphael-min.js"></script>
+<script type="text/javascript" src="/dashboard/app/assets/js/morris/morris.min.js"></script>
+
+<script type="text/javascript" src="/dashboard/app/assets/js/plugins.js"></script>
+
+<script type="text/javascript" src="/dashboard/app/assets/js/actions.js"></script>
+
+<script type="text/javascript" src="/dashboard/app/assets/js/demo_charts_morris.js"></script>

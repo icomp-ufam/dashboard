@@ -5,9 +5,30 @@
 </ul>
 <div class="page-title">
     <h2><span class="fa fa-clock-o"></span> ATENDIMENTOS POR HORA</h2>
-     <div class="row">
-                          
-                        </div> </br>
+     <div class="row"> 
+    </div> </br>
+    <div class="row"> 
+
+    <div class="col-md-3">
+
+                <!-- START WIDGET REGISTRED -->
+
+                <div class="widget widget-default widget-item-icon" ui-sref="main.atendimentos.listarPorHoraContagemMedia" ng-click="carregarAtendimentosPorHora((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))">
+                    <div class="widget-item-left">
+                        <span class="fa fa-clock-o"></span>
+                    </div>
+                    <div class="widget-data">
+
+                        <div class="widget-title">Média/Contagem por Hora do Dia</div>
+                        <div class="widget-subtitle">no Teewa</div>
+                    </div>
+
+                </div>
+                <!-- END WIDGET REGISTRED -->
+
+            </div>
+            
+    </div> </br>
                         <div class="row">
                             <div class="col-md-2">
                                 Data Inicio: <input class="form-control col-md3" type="date"  ng-model="data.start" >
