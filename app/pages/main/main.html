@@ -41,8 +41,8 @@
                     <span class="xn-text">Perfil</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
+            <li ng-class="{active: state.current.activetab == 'denuncias'}">
+                <a ui-sref="main.denuncias.listar">
                     <span class="fa fa-exclamation-triangle" aria-hidden="true"></span>
                     <span class="xn-text">Denúncias</span>
                 </a>
