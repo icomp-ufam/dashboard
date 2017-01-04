@@ -1,4 +1,4 @@
-angular.module("teewa").controller("denunciasCtrl", function ($scope, $http) {
+angular.module("teewa").controller("denunciasCtrl", function ($scope, $http, config) {
 
     $scope.app = "Denuncias";
     $scope.denuncias = [];
@@ -6,15 +6,15 @@ angular.module("teewa").controller("denunciasCtrl", function ($scope, $http) {
     var carregarDenunciasPorData = function (date_start, date_end) {
         $http({
 
-            url : "http://api.teewa.com.br:8081/dash/complaints",
+            url : config.baseUrl + "/dash/complaints/",
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
                 'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
             },
             data: {
-                'date_start' : 01/01/2016,
-                'date_end' : 22/12/2016
+                'date_start' : '01/01/2016',
+                'date_end' : '22/12/2016'
             }
         }).success(function(data){
             $scope.denuncias = data;

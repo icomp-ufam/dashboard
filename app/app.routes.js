@@ -111,7 +111,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             template: '<ui-view></ui-view>'
         }).state('main.denuncias.listar', {
             url: '/lista',
-            templateUrl: 'app/pages/pacotes/denuncias.html',
+            templateUrl: 'app/pages/denuncias/denuncias.html',
             controller: 'denunciasCtrl',
             activetab: 'denuncias'
         }).state('main.avaliacoes', {
