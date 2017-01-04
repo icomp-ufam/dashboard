@@ -4,37 +4,38 @@
 angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, config) {
 
     $scope.app = "Atendimentos";
-     //$scope.estabelecimentos = [];
+    //$scope.estabelecimentos = [];
     //$scope.cases = [];
     $scope.atendimentos = [];
-        $scope.atendimentosPorHoras = [];
-        $scope.atendimentosPorDates = [];
-        $scope.atendimentosPorDiaSemanas = [];
-        $scope.atendimentosPorDiaMess = [];
-        $scope.atendimentosPorCategorias = [];
-        var data_start;
-        var data_end;
+    $scope.atendimentosPorHoras = [];
+    $scope.atendimentosPorDates = [];
+    $scope.atendimentosPorDiaSemanas = [];
+    $scope.atendimentosPorDiaMess = [];
+    $scope.atendimentosPorCategorias = [];
+    $scope.consultasPorHora = [];
+    var data_start;
+    var data_end;
     //$scope.Natendimentos = [];
 
-    
-    /*var carregarAtendimentos = function () {
-        $http({
 
-            url : "http://54.233.67.111:8081/analytics/cases/situation",
-            method : 'GET',
-            headers : {
-                'Content-Type' : 'application/json',
-            'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
-            }
-            }).success(function(data){
-                    $scope.atendimentos = data;
-            }).error(function(error){
-                    $scope.message = "Aconteceu um problema: " + data;
-                    console.log("login error");
-        });
-    };*/
+    /*var carregarAtendimentos = function () {
+     $http({
+
+     url : "http://54.233.67.111:8081/analytics/cases/situation",
+     method : 'GET',
+     headers : {
+     'Content-Type' : 'application/json',
+     'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+     }
+     }).success(function(data){
+     $scope.atendimentos = data;
+     }).error(function(error){
+     $scope.message = "Aconteceu um problema: " + data;
+     console.log("login error");
+     });
+     };*/
     $scope.carregarAtendimentos = function (date_start, date_end) {
-        
+
 
         $http({
 
@@ -53,16 +54,52 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             $scope.atendimentos = data;
             console.log(data);
             console.log(date_start);
-        console.log(date_end);
+            console.log(date_end);
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
         });
-            
+
+
+    };
+    $scope.carregaConsultasPorHora = function(){
+        $http({
+
+            url : config.baseUrl + "/analytics/hourly/queries/day/avg",
+            method : 'get',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+        }).success(function(data){
+            $scope.consultasPorHora = data;
+            graficoConsultasPorHora(data);
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+            console.log("login error");
+        });
+
+    };
+    $scope.carregaConsultasPorHoraContagem = function(){
+        $http({
+
+            url : config.baseUrl + "/analytics/hourly/queries/day",
+            method : 'get',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+        }).success(function(data){
+            $scope.consultasPorHora = data;
+            graficoConsultasPorHoraContagem(data);
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+            console.log("login error");
+        });
 
     };
     $scope.carregarAtendimentosPorHora = function (date_start, date_end) {
-       
+
 
         $http({
 
@@ -144,7 +181,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             data: {
                 'date_start' : date_start,
                 'date_end' : date_end,
-               
+
                 //'idcategory' : '5'
             }
         }).success(function(data,date){
@@ -153,7 +190,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             graficoAtendimentoPorDiaSemanaNEG(data);
             graficoAtendimentoPorDiaSemanaNAT(data);
             graficoAtendimentoPorDiaSemanaATE(data);
-            
+
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
@@ -175,7 +212,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             data: {
                 'date_start' : date_start,
                 'date_end' : date_end,
-                
+
                 //'idcategory' : '5'
             }
         }).success(function(data,date){
@@ -183,7 +220,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             graficoAtendimentoPorDiaMesTOT(data);
             graficoAtendimentoPorDiaMesNEG(data);
             graficoAtendimentoPorDiaMesNAT(data);
-            graficoAtendimentoPorDiaMesATE(data);            
+            graficoAtendimentoPorDiaMesATE(data);
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
@@ -205,7 +242,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             data: {
                 'date_start' : date_start,
                 'date_end' : date_end,
-                
+
                 //'idcategory' : '5'
             }
         }).success(function(data,date){
@@ -213,56 +250,165 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             graficoAtendimentoPorCategoriaTOT(data);
             graficoAtendimentoPorCategoriaNEG(data);
             graficoAtendimentoPorCategoriaNAT(data);
-            graficoAtendimentoPorCategoriaATE(data);            
+            graficoAtendimentoPorCategoriaATE(data);
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
         });
 
     };
-    
+
     $scope.ordenarPor = function (campo) {
         $scope.criterioDeOrdenacao = campo;
         $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
     };
 
     /*$scope.adicionarEstabelecimento = function (estabelecimento) {
-        estabelecimento.data = new Date();
-        $http.post("http://localhost:3412/estabelecimentos", estabelecimento).success(function (data) {
-            delete $scope.estabelecimento;
-            $scope.estabelecimentoForm.$setPristine();
-            carregarestabelecimentos();
-        });
-    };*/
-/*var baseURl = "http://api.teewa.com.br:8081";
+     estabelecimento.data = new Date();
+     $http.post("http://localhost:3412/estabelecimentos", estabelecimento).success(function (data) {
+     delete $scope.estabelecimento;
+     $scope.estabelecimentoForm.$setPristine();
+     carregarestabelecimentos();
+     });
+     };*/
+    /*var baseURl = "http://api.teewa.com.br:8081";
 
-//usuarios por caso
-var xmlhttp3 = new XMLHttpRequest();
-var url3 = baseURl + "/analytics/users/by/cases";
-var myArr3;
-xmlhttp3.open("GET", url3, true);
-xmlhttp3.send();
+     //usuarios por caso
+     var xmlhttp3 = new XMLHttpRequest();
+     var url3 = baseURl + "/analytics/users/by/cases";
+     var myArr3;
+     xmlhttp3.open("GET", url3, true);
+     xmlhttp3.send();
 
-xmlhttp3.onload = function () {
-    if(this.readyState==4 && this.status==200) {
-        myArr3 = JSON.parse(this.responseText);
+     xmlhttp3.onload = function () {
+     if(this.readyState==4 && this.status==200) {
+     myArr3 = JSON.parse(this.responseText);
+     }
+
+     dataJ3 = [];
+     for (el in myArr3)
+     dataJ3.push({y: myArr3[el].casos, a: myArr3[el].usuarios})
+     Morris.Bar({
+     element: 'morris-bar-example',
+     data: dataJ3,
+     xkey: 'y',
+     ykeys: ['a'],
+     labels: ['Casos'],
+     barColors: ['#2aabd2']
+     });
+
+     };*/
+    function graficoConsultasPorHoraContagem(dado){
+        var hora = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            hora[dt] = dado[dt].hora.toString();
+            qtd[dt] = parseInt(dado[dt].casos);
+        }
+        //ordedando por hora
+        var swapped;
+        do {
+            swapped = false;
+            for (var i = 0; i < hora.length - 1; i++) {
+                if (hora[i] > hora[i + 1]) {
+                    var temp = hora[i];
+                    var temp2 = qtd[i];
+                    hora[i] = hora[i + 1];
+                    qtd[i] = qtd[i + 1];
+                    hora[i + 1] = temp;
+                    qtd[i + 1] = temp2;
+                    swapped = true;
+                }
+            }
+        }while (swapped);
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Hora');
+            data.addColumn('number', 'Consultas');
+            //Povoando o grafico
+            for(i = 0; i < hora.length; i++){
+                data.addRow([hora[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'Consultas por hora (Contagem)'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoConsultasPorHoraContagem'));
+            chart.draw(data, options);
+        };
     }
 
-    dataJ3 = [];
-    for (el in myArr3)
-        dataJ3.push({y: myArr3[el].casos, a: myArr3[el].usuarios})
-    Morris.Bar({
-        element: 'morris-bar-example',
-        data: dataJ3,
-        xkey: 'y',
-        ykeys: ['a'],
-        labels: ['Casos'],
-        barColors: ['#2aabd2']
-    });
+    function graficoConsultasPorHora(dado){
+        var hora = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            hora[dt] = dado[dt].hora.toString();
+            qtd[dt] = parseInt(dado[dt].media_casos);
+        }
 
-};*/
+        var swapped;
+        do {
+            swapped = false;
+            for (var i = 0; i < hora.length - 1; i++) {
+                if (hora[i] > hora[i + 1]) {
+                    var temp = hora[i];
+                    var temp2 = qtd[i];
+                    hora[i] = hora[i + 1];
+                    qtd[i] = qtd[i + 1];
+                    hora[i + 1] = temp;
+                    qtd[i + 1] = temp2;
+                    swapped = true;
+                }
+            }
+        }while (swapped);
 
-function graficoAtendimentoPorHoraTOT(dado){
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Hora');
+            data.addColumn('number', 'Consultas');
+            //Povoando o grafico
+            for(i = 0; i < hora.length; i++){
+                data.addRow([hora[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'Média por hora do dia'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoConsultasPorHora'));
+            chart.draw(data, options);
+        };
+    }
+
+    function graficoAtendimentoPorHoraTOT(dado){
         var hora = [];
         var qtd = [];
         //dados para o grafico
@@ -283,7 +429,7 @@ function graficoAtendimentoPorHoraTOT(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Hora');
             data.addColumn('number', 'TOTAL');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < hora.length; i++){
                 data.addRow([hora[i], qtd[i]]);
             }
@@ -305,8 +451,8 @@ function graficoAtendimentoPorHoraTOT(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorHoraTOT'));
             chart.draw(data, options);
         };
-}
-function graficoAtendimentoPorHoraATE(dado){
+    }
+    function graficoAtendimentoPorHoraATE(dado){
         var hora = [];
         var qtd = [];
         //dados para o grafico
@@ -327,7 +473,7 @@ function graficoAtendimentoPorHoraATE(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Hora');
             data.addColumn('number', 'ATENDERAM');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < hora.length; i++){
                 data.addRow([hora[i], qtd[i]]);
             }
@@ -337,7 +483,7 @@ function graficoAtendimentoPorHoraATE(dado){
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                                colors: ['green'],
+                colors: ['green'],
 
                 bars: 'horizontal', //orientação do gráfico
                 axes: {
@@ -351,9 +497,9 @@ function graficoAtendimentoPorHoraATE(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorHoraATE'));
             chart.draw(data, options);
         };
-}
+    }
 
-function graficoAtendimentoPorHoraNEG(dado){
+    function graficoAtendimentoPorHoraNEG(dado){
         var hora = [];
         var qtd = [];
         //dados para o grafico
@@ -374,7 +520,7 @@ function graficoAtendimentoPorHoraNEG(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Hora');
             data.addColumn('number', 'NEGARAM');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < hora.length; i++){
                 data.addRow([hora[i], qtd[i]]);
             }
@@ -385,7 +531,7 @@ function graficoAtendimentoPorHoraNEG(dado){
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
                 bars: 'horizontal', //orientação do gráfico
-                                colors: ['red'],
+                colors: ['red'],
 
                 axes: {
                     x: {
@@ -398,8 +544,8 @@ function graficoAtendimentoPorHoraNEG(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorHoraNEG'));
             chart.draw(data, options);
         };
-}
-function graficoAtendimentoPorHoraNAT(dado){
+    }
+    function graficoAtendimentoPorHoraNAT(dado){
         var hora = [];
         var qtd = [];
         //dados para o grafico
@@ -420,7 +566,7 @@ function graficoAtendimentoPorHoraNAT(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Hora');
             data.addColumn('number', 'NÃO ATENDERAM');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < hora.length; i++){
                 data.addRow([hora[i], qtd[i]]);
             }
@@ -430,7 +576,7 @@ function graficoAtendimentoPorHoraNAT(dado){
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                                colors: ['yellow'],
+                colors: ['yellow'],
 
                 bars: 'horizontal', //orientação do gráfico
                 axes: {
@@ -444,12 +590,12 @@ function graficoAtendimentoPorHoraNAT(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorHoraNAT'));
             chart.draw(data, options);
         };
-}
+    }
 
 
 
 
-function graficoAtendimentoPorDiaSemanaTOT(dado){
+    function graficoAtendimentoPorDiaSemanaTOT(dado){
         var dia = [];
         var qtd = [];
         //dados para o grafico
@@ -470,7 +616,7 @@ function graficoAtendimentoPorDiaSemanaTOT(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'TOTAL');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < dia.length; i++){
                 data.addRow([dia[i], qtd[i]]);
             }
@@ -492,8 +638,8 @@ function graficoAtendimentoPorDiaSemanaTOT(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaSemanaTOT'));
             chart.draw(data, options);
         };
-}
-function graficoAtendimentoPorDiaSemanaATE(dado){
+    }
+    function graficoAtendimentoPorDiaSemanaATE(dado){
         var dia = [];
         var qtd = [];
         //dados para o grafico
@@ -514,7 +660,7 @@ function graficoAtendimentoPorDiaSemanaATE(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'ATENDERAM');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < dia.length; i++){
                 data.addRow([dia[i], qtd[i]]);
             }
@@ -524,7 +670,7 @@ function graficoAtendimentoPorDiaSemanaATE(dado){
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                                colors: ['green'],
+                colors: ['green'],
 
                 bars: 'horizontal', //orientação do gráfico
                 axes: {
@@ -538,9 +684,9 @@ function graficoAtendimentoPorDiaSemanaATE(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaSemanaATE'));
             chart.draw(data, options);
         };
-}
+    }
 
-function graficoAtendimentoPorDiaSemanaNEG(dado){
+    function graficoAtendimentoPorDiaSemanaNEG(dado){
         var dia = [];
         var qtd = [];
         //dados para o grafico
@@ -561,7 +707,7 @@ function graficoAtendimentoPorDiaSemanaNEG(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'NEGARAM');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < dia.length; i++){
                 data.addRow([dia[i], qtd[i]]);
             }
@@ -572,7 +718,7 @@ function graficoAtendimentoPorDiaSemanaNEG(dado){
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
                 bars: 'horizontal', //orientação do gráfico
-                                colors: ['red'],
+                colors: ['red'],
 
                 axes: {
                     x: {
@@ -585,8 +731,8 @@ function graficoAtendimentoPorDiaSemanaNEG(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaSemanaNEG'));
             chart.draw(data, options);
         };
-}
-function graficoAtendimentoPorDiaSemanaNAT(dado){
+    }
+    function graficoAtendimentoPorDiaSemanaNAT(dado){
         var dia = [];
         var qtd = [];
         //dados para o grafico
@@ -607,7 +753,7 @@ function graficoAtendimentoPorDiaSemanaNAT(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'NÃO ATENDERAM');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < dia.length; i++){
                 data.addRow([dia[i], qtd[i]]);
             }
@@ -617,7 +763,7 @@ function graficoAtendimentoPorDiaSemanaNAT(dado){
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                                colors: ['yellow'],
+                colors: ['yellow'],
 
                 bars: 'horizontal', //orientação do gráfico
                 axes: {
@@ -631,10 +777,10 @@ function graficoAtendimentoPorDiaSemanaNAT(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaSemanaNAT'));
             chart.draw(data, options);
         };
-}
+    }
 
 
-function graficoAtendimentoPorDiaMesTOT(dado){
+    function graficoAtendimentoPorDiaMesTOT(dado){
         var dia = [];
         var qtd = [];
         //dados para o grafico
@@ -655,7 +801,7 @@ function graficoAtendimentoPorDiaMesTOT(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'TOTAL');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < dia.length; i++){
                 data.addRow([dia[i], qtd[i]]);
             }
@@ -677,8 +823,8 @@ function graficoAtendimentoPorDiaMesTOT(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaMesTOT'));
             chart.draw(data, options);
         };
-}
-function graficoAtendimentoPorDiaMesATE(dado){
+    }
+    function graficoAtendimentoPorDiaMesATE(dado){
         var dia = [];
         var qtd = [];
         //dados para o grafico
@@ -699,7 +845,7 @@ function graficoAtendimentoPorDiaMesATE(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'ATENDERAM');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < dia.length; i++){
                 data.addRow([dia[i], qtd[i]]);
             }
@@ -709,7 +855,7 @@ function graficoAtendimentoPorDiaMesATE(dado){
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                                colors: ['green'],
+                colors: ['green'],
 
                 bars: 'horizontal', //orientação do gráfico
                 axes: {
@@ -723,9 +869,9 @@ function graficoAtendimentoPorDiaMesATE(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaMesATE'));
             chart.draw(data, options);
         };
-}
+    }
 
-function graficoAtendimentoPorDiaMesNEG(dado){
+    function graficoAtendimentoPorDiaMesNEG(dado){
         var dia = [];
         var qtd = [];
         //dados para o grafico
@@ -746,7 +892,7 @@ function graficoAtendimentoPorDiaMesNEG(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'NEGARAM');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < dia.length; i++){
                 data.addRow([dia[i], qtd[i]]);
             }
@@ -757,7 +903,7 @@ function graficoAtendimentoPorDiaMesNEG(dado){
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
                 bars: 'horizontal', //orientação do gráfico
-                                colors: ['red'],
+                colors: ['red'],
 
                 axes: {
                     x: {
@@ -770,8 +916,8 @@ function graficoAtendimentoPorDiaMesNEG(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaMesNEG'));
             chart.draw(data, options);
         };
-}
-function graficoAtendimentoPorDiaMesNAT(dado){
+    }
+    function graficoAtendimentoPorDiaMesNAT(dado){
         var dia = [];
         var qtd = [];
         //dados para o grafico
@@ -792,7 +938,7 @@ function graficoAtendimentoPorDiaMesNAT(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'NÃO ATENDERAM');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < dia.length; i++){
                 data.addRow([dia[i], qtd[i]]);
             }
@@ -802,7 +948,7 @@ function graficoAtendimentoPorDiaMesNAT(dado){
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                                colors: ['yellow'],
+                colors: ['yellow'],
 
                 bars: 'horizontal', //orientação do gráfico
                 axes: {
@@ -816,12 +962,12 @@ function graficoAtendimentoPorDiaMesNAT(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaMesNAT'));
             chart.draw(data, options);
         };
-}
+    }
 
 
 
 
-function graficoAtendimentoPorCategoriaTOT(dado){
+    function graficoAtendimentoPorCategoriaTOT(dado){
         var categoria = [];
         var qtd = [];
         //dados para o grafico
@@ -842,7 +988,7 @@ function graficoAtendimentoPorCategoriaTOT(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'categoria');
             data.addColumn('number', 'TOTAL');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < categoria.length; i++){
                 data.addRow([categoria[i], qtd[i]]);
             }
@@ -864,8 +1010,8 @@ function graficoAtendimentoPorCategoriaTOT(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorCategoriaTOT'));
             chart.draw(data, options);
         };
-}
-function graficoAtendimentoPorCategoriaATE(dado){
+    }
+    function graficoAtendimentoPorCategoriaATE(dado){
         var categoria = [];
         var qtd = [];
         //dados para o grafico
@@ -886,7 +1032,7 @@ function graficoAtendimentoPorCategoriaATE(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'categoria');
             data.addColumn('number', 'ATENDERAM');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < categoria.length; i++){
                 data.addRow([categoria[i], qtd[i]]);
             }
@@ -896,7 +1042,7 @@ function graficoAtendimentoPorCategoriaATE(dado){
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                                colors: ['green'],
+                colors: ['green'],
 
                 bars: 'horizontal', //orientação do gráfico
                 axes: {
@@ -910,9 +1056,9 @@ function graficoAtendimentoPorCategoriaATE(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorCategoriaATE'));
             chart.draw(data, options);
         };
-}
+    }
 
-function graficoAtendimentoPorCategoriaNEG(dado){
+    function graficoAtendimentoPorCategoriaNEG(dado){
         var categoria = [];
         var qtd = [];
         //dados para o grafico
@@ -933,7 +1079,7 @@ function graficoAtendimentoPorCategoriaNEG(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'categoria');
             data.addColumn('number', 'NEGARAM');
-            //Povondo o grafico
+            //Povoaando o grafico
             for(i = 0; i < categoria.length; i++){
                 data.addRow([categoria[i], qtd[i]]);
             }
@@ -944,7 +1090,7 @@ function graficoAtendimentoPorCategoriaNEG(dado){
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
                 bars: 'horizontal', //orientação do gráfico
-                                colors: ['red'],
+                colors: ['red'],
 
                 axes: {
                     x: {
@@ -957,8 +1103,8 @@ function graficoAtendimentoPorCategoriaNEG(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorCategoriaNEG'));
             chart.draw(data, options);
         };
-}
-function graficoAtendimentoPorCategoriaNAT(dado){
+    }
+    function graficoAtendimentoPorCategoriaNAT(dado){
         var categoria = [];
         var qtd = [];
         //dados para o grafico
@@ -979,7 +1125,7 @@ function graficoAtendimentoPorCategoriaNAT(dado){
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'categoria');
             data.addColumn('number', 'NÃO ATENDERAM');
-            //Povondo o grafico
+            //Povoando o grafico
             for(i = 0; i < categoria.length; i++){
                 data.addRow([categoria[i], qtd[i]]);
             }
@@ -989,7 +1135,7 @@ function graficoAtendimentoPorCategoriaNAT(dado){
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                                colors: ['yellow'],
+                colors: ['yellow'],
 
                 bars: 'horizontal', //orientação do gráfico
                 axes: {
@@ -1003,12 +1149,12 @@ function graficoAtendimentoPorCategoriaNAT(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorCategoriaNAT'));
             chart.draw(data, options);
         };
-}
+    }
 
 
 
 
-function graficoAtendimentoPorDateTOT(dado){
+    function graficoAtendimentoPorDateTOT(dado){
         var date = [];
         var qtd = [];
         //dados para o grafico
@@ -1051,8 +1197,8 @@ function graficoAtendimentoPorDateTOT(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDateTOT'));
             chart.draw(data, options);
         };
-}
-function graficoAtendimentoPorDateATE(dado){
+    }
+    function graficoAtendimentoPorDateATE(dado){
         var date = [];
         var qtd = [];
         //dados para o grafico
@@ -1083,7 +1229,7 @@ function graficoAtendimentoPorDateATE(dado){
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                                colors: ['green'],
+                colors: ['green'],
 
                 bars: 'horizontal', //orientação do gráfico
                 axes: {
@@ -1097,9 +1243,9 @@ function graficoAtendimentoPorDateATE(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDateATE'));
             chart.draw(data, options);
         };
-}
+    }
 
-function graficoAtendimentoPorDateNEG(dado){
+    function graficoAtendimentoPorDateNEG(dado){
         var date = [];
         var qtd = [];
         //dados para o grafico
@@ -1131,7 +1277,7 @@ function graficoAtendimentoPorDateNEG(dado){
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
                 bars: 'horizontal', //orientação do gráfico
-                                colors: ['red'],
+                colors: ['red'],
 
                 axes: {
                     x: {
@@ -1144,8 +1290,8 @@ function graficoAtendimentoPorDateNEG(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDateNEG'));
             chart.draw(data, options);
         };
-}
-function graficoAtendimentoPorDateNAT(dado){
+    }
+    function graficoAtendimentoPorDateNAT(dado){
         var date = [];
         var qtd = [];
         //dados para o grafico
@@ -1171,13 +1317,12 @@ function graficoAtendimentoPorDateNAT(dado){
                 console.log(date[i]);
                 data.addRow([date[i], qtd[i]]);
             }
-
             var options = {
                 title: 'Chess opening moves',
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                                colors: ['yellow'],
+                colors: ['yellow'],
 
                 bars: 'horizontal', //orientação do gráfico
                 axes: {
@@ -1191,7 +1336,8 @@ function graficoAtendimentoPorDateNAT(dado){
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDateNAT'));
             chart.draw(data, options);
         };
-}
+    }
+
 
 
 
@@ -1211,9 +1357,9 @@ function graficoAtendimentoPorDateNAT(dado){
     $scope.carregarAtendimentosPorHora(firstday, lastday);
     $scope.carregarAtendimentosPorDiaSemana(firstday, lastday);
     $scope.carregarAtendimentosPorDiaMes(firstday, lastday);
-  $scope.carregarAtendimentosPorCategoria(firstday, lastday);
-  $scope.carregarAtendimentosPorDate(firstday, lastday);
-
-
+    $scope.carregarAtendimentosPorCategoria(firstday, lastday);
+    $scope.carregarAtendimentosPorDate(firstday, lastday);
+    $scope.carregaConsultasPorHora();
+    $scope.carregaConsultasPorHoraContagem();
 
 });
