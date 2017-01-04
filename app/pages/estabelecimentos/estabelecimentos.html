@@ -20,18 +20,18 @@
     
         <!-- END BREADCRUMB -->
         <div class="page-container-boxed">
-            <div class="row">
+
+        <div class="row">
             <div class="col-md-3">
 
                 <!-- START WIDGET REGISTRED -->
-
-                <div class="widget widget-default widget-item-icon" ui-sref="main.estabelecimentos.listarConsultasPorLojaAtendimento" ng-click="carregarAtendimentosPorHora((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))">
+                <div class="widget widget-default widget-item-icon" ui-sref="main.analisesCasos.ratingGeral">
                     <div class="widget-item-left">
-                        <span class="fa fa-clock-o"></span>
+                        <span class="fa fa-star-half-o"></span>
                     </div>
                     <div class="widget-data">
 
-                        <div class="widget-title">Consultas por Loja/Atendimento</div>
+                        <div class="widget-title">Avaliação das lojas</div>
                         <div class="widget-subtitle">no Teewa</div>
                     </div>
 
@@ -39,16 +39,32 @@
                 <!-- END WIDGET REGISTRED -->
 
             </div>
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <a ui-sref="main.analisesCasos.ratingGeral" class="tile tile-info">
-                                <span class="fa fa-heart"></span>
-                                <p>Avaliação das lojas</p>
+            
+        <div class="col-md-3">
 
-                            </a>
+                        <!-- START WIDGET REGISTRED -->
+
+                        <div class="widget widget-default widget-item-icon" ui-sref="main.estabelecimentos.listarConsultasPorLojaAtendimento" ng-click="carregarAtendimentosPorHora((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))">
+                            <div class="widget-item-left">
+                                <span class="fa fa-clock-o"></span>
+                            </div>
+                            <div class="widget-data">
+
+                                <div class="widget-title">Consultas por Loja/Atendimento</div>
+                                <div class="widget-subtitle">no Teewa</div>
+                            </div>
+
                         </div>
+                        <!-- END WIDGET REGISTRED -->
+
+
                     </div>
+        
+        </div>
+            <div class="row">
+                    
+                <div class="col-md-12">
+                    
                     <!-- START DEFAULT DATATABLE -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
