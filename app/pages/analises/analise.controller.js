@@ -95,8 +95,9 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
         }).success(function(data){
             $scope.estabelecimentos = data;
             carregarGraficoRating($scope.estabelecimentos);
-            $scope.periodoatual = date_start +" a " +date_end
-
+            $scope.periodoatual = date_start +" a " +date_end;
+            $scope.periodo1 = date_start;
+            $scope.periodo2 = date_end;
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });

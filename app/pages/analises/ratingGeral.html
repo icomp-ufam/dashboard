@@ -10,11 +10,11 @@
     </div> </br>
     <div class="row">
         <div class="col-md-2">
-            Data Inicio: <input class="form-control col-md3" type="date"  ng-model="data.start" >
+            Data Inicio: <input class="form-control col-md3" type="date"  ng-model="data.start" value={{periodo1}}>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-2">
-            Data Fim: <input class="form-control col-md3" type="date"  ng-model="data.end" >
+            Data Fim: <input class="form-control col-md3" type="date"  ng-model="data.end" value="{{periodo2}}" >
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-2">
@@ -37,7 +37,7 @@
                 <!-- START BAR CHART -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Rating das lojas - {{periodoatual}}</h3>
+                        <h3 class="panel-title">Rating das lojas - {{periodo1}} - {{periodo2}} - {{periodoatual}}</h3>
                         </br>
 
                         <ul class="panel-controls" style="margin-top: 2px;">

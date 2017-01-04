@@ -99,6 +99,8 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
 
     };
     $scope.carregarAtendimentosPorHora = function (date_start, date_end) {
+        console.log("teste start: " + date_start);
+                console.log("teste end: " + date_end);
 
 
         $http({
@@ -1354,12 +1356,12 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
 
 //    $scope.carregarAtendimentos(firstday, lastday);
     //carregarNatendimentos();
-    $scope.carregarAtendimentosPorHora(firstday, lastday);
-    $scope.carregarAtendimentosPorDiaSemana(firstday, lastday);
-    $scope.carregarAtendimentosPorDiaMes(firstday, lastday);
-    $scope.carregarAtendimentosPorCategoria(firstday, lastday);
-    $scope.carregarAtendimentosPorDate(firstday, lastday);
-    $scope.carregaConsultasPorHora();
-    $scope.carregaConsultasPorHoraContagem();
+ //   $scope.carregarAtendimentosPorHora(firstday, lastday);
+//    $scope.carregarAtendimentosPorDiaSemana(firstday, lastday);
+//    $scope.carregarAtendimentosPorDiaMes(firstday, lastday);
+//    $scope.carregarAtendimentosPorCategoria(firstday, lastday);
+//    $scope.carregarAtendimentosPorDate(firstday, lastday);
+ //   $scope.carregaConsultasPorHora();
+ //   $scope.carregaConsultasPorHoraContagem();
 
 });
