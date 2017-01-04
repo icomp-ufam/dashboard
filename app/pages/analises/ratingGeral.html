@@ -8,23 +8,6 @@
     <div class="row">
 
     </div> </br>
-    <div class="row">
-        <div class="col-md-2">
-            Data Inicio: <input class="form-control col-md3" type="date"  ng-model="data.start" value={{periodo1}}>
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-2">
-            Data Fim: <input class="form-control col-md3" type="date"  ng-model="data.end" value="{{periodo2}}" >
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-2">
-            <br>
-            <button class=" btn btn-default" ng-click="carregarPorData((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))"> filtrar </button>
-
-            <br>
-
-        </div>
-    </div> </br>
 </div>
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">
@@ -37,7 +20,7 @@
                 <!-- START BAR CHART -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Rating das lojas - {{periodo1}} - {{periodo2}} - {{periodoatual}}</h3>
+                        <h3 class="panel-title">Rating das lojas</h3>
                         </br>
 
                         <ul class="panel-controls" style="margin-top: 2px;">
@@ -49,7 +32,7 @@
 
                     </div>
                     <div class="panel-body">
-                        <div id="graficoRatingGeral" style="width: 1050px; height: 500px; "></div>
+                        <div id="graficoRatingGeral" style="width: 1050px; height: 500px; overflow-x: scroll;overflow-y: scroll "></div>
                     </div>
                 </div>
                 <!-- END BAR CHART -->

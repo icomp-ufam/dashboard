@@ -120,35 +120,34 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
 
     function carregarGraficoRating(dado){
         var media = [];
-        var qtd = [];
+        var loja = [];
         //dados para o grafico
-        console.log(dado);
         for(dt in dado) {
             media[dt] = dado[dt].media;
-            qtd[dt] = parseInt(dado[dt].qtd_avaliacoes);
+            loja[dt] = dado[dt].name;
         }
-
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
         function drawStuff() {
             var data = new google.visualization.DataTable();
+            data.addColumn('string', 'loja');
             data.addColumn('number', 'media');
-            data.addColumn('number', 'qte');
+
             //Povondo o grafico
             for(i = 0; i < media.length; i++){
-                data.addRow([media[i], qtd[i]]);
+                data.addRow([loja[i], media[i]]);
             }
 
             var options = {
                 title: 'Chess opening moves',
-                //width: 950,
-                //height: data.getNumberOfRows() * 65,
+                width: 950,
+                height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
                 bars: 'horizontal', //orientação do gráfico
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'qtd de avaliações'} // Top x-axis.
+                        0: { side: 'top', label: 'lojas'} // Top x-axis.
                     }
                 },
                 bar: { groupWidth: 20 }
@@ -169,10 +168,10 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
     var first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
     var last = first + 6; // last day is the first day + 6
 
-    var firstday = new Date(curr.setDate(first)).toLocaleDateString();
+
     var lastday = new Date(curr.setDate(last)).toLocaleDateString();
 
-    $scope.carregarPorData(firstday, lastday);
+    $scope.carregarPorData('01/01/2015', lastday);
 
 
 });

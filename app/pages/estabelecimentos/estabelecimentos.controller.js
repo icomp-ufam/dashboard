@@ -62,27 +62,6 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
         });
     };*/
 
-    var carregarEstabelecimentos = function () {
-        $http({
-
-            url : config.baseUrl + "/dash/store",
-            method : 'post',
-            headers : {
-                'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
-            },
-            data: {
-                'date_start' : '13/12/2015',
-                'date_end' : '20/12/2016'
-            }
-        }).success(function(data){
-            $scope.estabelecimentos = data;
-            console.log(data);
-
-        }).error(function(error){
-            $scope.message = "Aconteceu um problema: " + error;
-        });
-    };
 
     $scope.carregarPorData = function (date_start, date_end) {
         $http({
@@ -118,5 +97,11 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
         $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
     };
 
-    carregarEstabelecimentos();
+
+    var curr = new Date; // get current date
+    var first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
+    var last = first + 6; // last day is the first day + 6
+
+    var lastday = new Date(curr.setDate(last)).toLocaleDateString();
+    $scope.carregarPorData('01/01/2015', lastday);
 });
