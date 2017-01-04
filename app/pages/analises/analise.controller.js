@@ -80,28 +80,33 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
         });
     };
 
+    $scope.carregarPorData = function (date_start, date_end) {
+        $http({
+            url : config.baseUrl + "/dash/store",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'date_start' : date_start,
+                'date_end' : date_end
+            }
+        }).success(function(data){
+            $scope.estabelecimentos = data;
+            carregarGraficoRating($scope.estabelecimentos);
+            $scope.periodoatual = date_start +" a " +date_end
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
     $scope.ordenarPor = function (campo) {
         $scope.criterioDeOrdenacao = campo;
         $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
     };
 
-    $scope.carregarGraficoRating = function(myArrRating) {
-        //console.log(myArrRating);
-        myArrRating.sort(function(a,b) {return a.media - b.media});
-        dataJRating = [];
-        for (el in myArrRating)
-            dataJRating.push({media: myArrRating[el].media, qtd_av: myArrRating[el].qtd_avaliacoes});
-
-        Morris.Bar({
-            element: 'morris-bar-Rating',
-            data: dataJRating,
-            xkey: 'media',
-            ykeys: ['qtd_av'],
-            labels: ['avaliações'],
-            barColors: ['#1caf9a']
-        });
-
-    };
 
     /*$scope.adicionarEstabelecimento = function (estabelecimento) {
         estabelecimento.data = new Date();
@@ -111,10 +116,62 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
             carregarestabelecimentos();
         });
     };*/
+
+    function carregarGraficoRating(dado){
+        var media = [];
+        var qtd = [];
+        //dados para o grafico
+        console.log(dado);
+        for(dt in dado) {
+            media[dt] = dado[dt].media;
+            qtd[dt] = parseInt(dado[dt].qtd_avaliacoes);
+        }
+
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'media');
+            data.addColumn('number', 'qte');
+            //Povondo o grafico
+            for(i = 0; i < media.length; i++){
+                data.addRow([media[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                //width: 950,
+                //height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'qtd de avaliações'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoRatingGeral'));
+            chart.draw(data, options);
+        };
+    }
+
+
     carregarCases();
     carregarAtendimentos();
     carregarNatendimentos();
     carregarEstabelecimentos();
+
+    var curr = new Date; // get current date
+    var first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
+    var last = first + 6; // last day is the first day + 6
+
+    var firstday = new Date(curr.setDate(first)).toLocaleDateString();
+    var lastday = new Date(curr.setDate(last)).toLocaleDateString();
+
+    $scope.carregarPorData(firstday, lastday);
 
 
 });

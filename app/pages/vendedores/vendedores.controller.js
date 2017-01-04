@@ -29,6 +29,7 @@ angular.module("teewa").controller("vendedoresCtrl", function ($scope, $http, co
         });*/
     };
 
+
     /*$scope.adicionarVendedor = function (vendedor) {
         vendedor.data = new Date();
         $http.post("http://localhost:3412/vendedores", vendedor).success(function (data) {
@@ -37,6 +38,34 @@ angular.module("teewa").controller("vendedoresCtrl", function ($scope, $http, co
             carregarvendedores();
         });
     };*/
+
+    var carregarVendedoresLoja = function (data_start, data_end, idstore) {
+        $http({
+
+            url : config.baseUrl + "/dash/store/seller",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'date_start' : date_start,
+                'date_end' : date_end
+            }
+        }).success(function(data){
+            $scope.vendedores = data;
+            console.log($scope.vendedores)
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + data;
+            console.log("login error");
+        });
+        /*$http.get("http://localhost:3412/vendedores").success(function (data) {
+         $scope.vendedores = data;
+         }).error(function (data, status) {
+         $scope.message = "Aconteceu um problema: " + data;
+         });*/
+    };
+
     $scope.apagarVendedores = function (vendedores) {
         $scope.vendedores = vendedores.filter(function (vendedor) {
             if (!vendedor.selecionado) return vendedor;

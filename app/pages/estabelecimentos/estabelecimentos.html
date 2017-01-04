@@ -22,9 +22,6 @@
         <div class="page-container-boxed">
             <div class="row">
             <div class="col-md-3">
-
-                <!-- START WIDGET REGISTRED -->
-
                 <div class="widget widget-default widget-item-icon" ui-sref="main.estabelecimentos.listarConsultasPorLojaAtendimento" ng-click="carregarAtendimentosPorHora((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))">
                     <div class="widget-item-left">
                         <span class="fa fa-clock-o"></span>
@@ -34,21 +31,24 @@
                         <div class="widget-title">Consultas por Loja/Atendimento</div>
                         <div class="widget-subtitle">no Teewa</div>
                     </div>
-
                 </div>
-                <!-- END WIDGET REGISTRED -->
-
             </div>
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <a ui-sref="main.analisesCasos.ratingGeral" class="tile tile-info">
-                                <span class="fa fa-heart"></span>
-                                <p>Avaliação das lojas</p>
-
-                            </a>
-                        </div>
+            <div class="col-md-3">
+                <div class="widget widget-default widget-item-icon" ui-sref="main.analisesCasos.ratingGeral" ng-click="carregarAtendimentosPorHora((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))">
+                    <div class="widget-item-left">
+                        <span class="fa fa-heart"></span>
                     </div>
+                    <div class="widget-data">
+
+                        <div class="widget-title">Avaliação das Lojas</div>
+                        <div class="widget-subtitle">no Teewa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <div class="col-md-12">
+
                     <!-- START DEFAULT DATATABLE -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -111,7 +111,7 @@
 
                                         <td>
                                             <!--<button class="btn btn-default" ui-sref="main.vendedores.listar">-->
-                                            <button class="btn btn-default" ui-sref="main.vendedores.listar">
+                                            <button ui-sref="main.vendedores.listar" class="btn btn-default" ng-click="carregarVendedoresLoja((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'), estabelecimento.id)">
                                                 Detalhes
                                             </button>
                                         </td>
