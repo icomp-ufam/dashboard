@@ -13,8 +13,13 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     $scope.atendimentosPorDiaMess = [];
     $scope.atendimentosPorCategorias = [];
     $scope.consultasPorHora = [];
-    var data_start;
-    var data_end;
+    $scope.example = {
+         value: new Date(2013, 9, 22),
+        value2: new Date(2013, 8, 23)
+
+       };
+    $scope.data_start = [];
+    $scope.data_end = [];
     //$scope.Natendimentos = [];
 
 
@@ -52,9 +57,9 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             }
         }).success(function(data,date){
             $scope.atendimentos = data;
-            console.log(data);
-            console.log(date_start);
-            console.log(date_end);
+            
+            //console.log(date_start);
+            //console.log(date_end);
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
@@ -99,9 +104,21 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
 
     };
     $scope.carregarAtendimentosPorHora = function (date_start, date_end) {
-        console.log("teste start: " + date_start);
-                console.log("teste end: " + date_end);
+        var str1 = date_start.split("/");
+        var day1 = parseInt(str1[0]);
+        var month1 = parseInt(str1[1]);
+        var year1 = parseInt(str1[2]);
+        console.log(day1);
+        console.log(month1);
+        console.log(year1);
 
+        var str2 = date_end.split("/");
+        var day2 = parseInt(str2[0]);
+        var month2 = parseInt(str2[1]);
+        var year2 = parseInt(str2[2]);
+        console.log(day2);
+        console.log(month2);
+        console.log(year2);
 
         $http({
 
@@ -125,12 +142,23 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             graficoAtendimentoPorHoraNAT(data);
             graficoAtendimentoPorHoraATE(data);
 
-            data_start = date_start;
-            data_end = date_end;
+            $scope.data_start = {
+                value: new Date(year1,month1 - 1, day1),
+
+            };
+            $scope.data_end = {
+                value: new Date(year2,month2 - 1, day2),
+
+            };
+            
+            console.log($scope.data_start.value);
+            console.log($scope.data_end.value);
 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
+
+
         });
 
 
@@ -1340,6 +1368,21 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
         };
     }
 
+//Pegando a data atual
+    d = new Date();
+    //console.log("d: " + d);
+    var dia = d.getDate();
+    var mes = d.getMonth() + 1;
+    var ano = d.getFullYear();
+    var dataAtual = dia + "/"+mes +"/"+  ano;
+
+    //pegando data da semana passada
+    var novaData = new Date(d.getTime() - 10080*60000);
+    //console.log("nova Data: " + novaData);
+    var dataPassada = novaData.getDate() +"/"+ (novaData.getMonth() +1) + "/" + novaData.getFullYear()
+    //carregando clientes da semana passada até hoje
+    console.log("semana passada: "+dataPassada +" hoje: "+ dataAtual);
+    //carregarClientesPorData2(dataPassada ,dataAtual);
 
 
 
@@ -1352,11 +1395,10 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     var firstday = new Date(curr.setDate(first)).toLocaleDateString();
     var lastday = new Date(curr.setDate(last)).toLocaleDateString();
     //console.log(firstday);
-    //console.log(lastday);
 
-//    $scope.carregarAtendimentos(firstday, lastday);
+  // $scope.carregarAtendimentos("28/12/2016" ,dataAtual);
     //carregarNatendimentos();
-    $scope.carregarAtendimentosPorHora(firstday, lastday);
+    $scope.carregarAtendimentosPorHora( dataPassada, dataAtual);
     $scope.carregarAtendimentosPorDiaSemana(firstday, lastday);
     $scope.carregarAtendimentosPorDiaMes(firstday, lastday);
     $scope.carregarAtendimentosPorCategoria(firstday, lastday);
