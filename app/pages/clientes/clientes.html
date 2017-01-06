@@ -90,13 +90,13 @@
                                     <th ><input class="form-control" type="text" ng-model="criterioDeBusca.qtde_casos" placeholder="Casos..."></th>
                                 </tr>
                                 <tr>
-                                    <th  href="" ng-click="ordenarPor('name')" > Nome </th>
+                                    <th  href="" ng-click="ordenarPor('nome')"  > Nome </th>
                                     <th> Contato </th>
                                     <th> Quantidade de Casos </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr  ng-repeat="cliente in clientes| filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                <tr  ng-repeat="cliente in clientes| filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao | orderBy:'nome'">
                                     <td>{{cliente.nome}}</td>
                                     <td>{{cliente.contato}}</td>
                                     <td>{{cliente.qtde_casos}}</td>

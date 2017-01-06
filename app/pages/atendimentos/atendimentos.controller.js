@@ -39,6 +39,11 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
      console.log("login error");
      });
      };*/
+
+    $scope.orderByFunction = function(friend){
+        return parseInt(friend.case_hour);
+    };
+
     $scope.carregarAtendimentos = function (date_start, date_end) {
 
 
@@ -57,7 +62,6 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             }
         }).success(function(data,date){
             $scope.atendimentos = data;
-            
             //console.log(date_start);
             //console.log(date_end);
         }).error(function(error){
@@ -78,6 +82,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             },
         }).success(function(data){
             $scope.consultasPorHora = data;
+            console.log(data);
             graficoConsultasPorHora(data);
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
@@ -137,6 +142,9 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             }
         }).success(function(data){
             $scope.atendimentosPorHoras = data;
+            var temp = [];
+            temp = angular.fromJson(data);
+            console.log(data);
             graficoAtendimentoPorHoraTOT(data);
             graficoAtendimentoPorHoraNEG(data);
             graficoAtendimentoPorHoraNAT(data);
@@ -333,7 +341,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
         var qtd = [];
         //dados para o grafico
         for(dt in dado) {
-            hora[dt] = dado[dt].hora.toString();
+            hora[dt] = parseInt(dado[dt].hora);
             qtd[dt] = parseInt(dado[dt].casos);
         }
         //ordedando por hora
@@ -357,7 +365,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
         google.charts.setOnLoadCallback(drawStuff);
         function drawStuff() {
             var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Hora');
+            data.addColumn('number', 'Hora');
             data.addColumn('number', 'Consultas');
             //Povoando o grafico
             for(i = 0; i < hora.length; i++){
@@ -388,10 +396,10 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
         var qtd = [];
         //dados para o grafico
         for(dt in dado) {
-            hora[dt] = dado[dt].hora.toString();
+            hora[dt] = parseInt(dado[dt].hora);
             qtd[dt] = parseInt(dado[dt].media_casos);
         }
-
+        //ordenando por hora
         var swapped;
         do {
             swapped = false;
@@ -412,7 +420,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
         google.charts.setOnLoadCallback(drawStuff);
         function drawStuff() {
             var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Hora');
+            data.addColumn('number', 'Hora');
             data.addColumn('number', 'Consultas');
             //Povoando o grafico
             for(i = 0; i < hora.length; i++){

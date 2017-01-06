@@ -7,8 +7,6 @@ angular.module('teewa').factory('Chats', ['sharedConn', '$rootScope', '$state', 
     console.log(connection);
     loadRoster = function() {
         
-
-        
         // set up presence handler and send initial presence
         connection.addHandler(
             //on recieve precence iq
