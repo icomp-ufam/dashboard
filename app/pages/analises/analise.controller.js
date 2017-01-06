@@ -10,7 +10,7 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
     $scope.atendimentos = [];
     $scope.Natendimentos = [];
 
-    var carregarCases = function (date_start, date_end) {
+    $scope.carregarCases = function (date_start, date_end) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
         console.log(NovaDate_start);
@@ -33,17 +33,18 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
                     value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
 
                 };
-            }).error(function(error){
+            }).error(function(error, data){
                     $scope.message = "Aconteceu um problema: " + data;
                     console.log("login error");
         });
     };
 
-    $scope.orderByFunction = function(friend){
+$scope.orderByFunction = function(friend){
         return parseInt(friend.caso);
+
     };
 
-    var carregarAtendimentos = function () {
+  $scope.carregarAtendimentos = function () {
         $http({
 
             url : config.baseUrl + "/analytics/cases/situation",
@@ -54,12 +55,12 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
             }
             }).success(function(data){
                     $scope.atendimentos = data;
-            }).error(function(error){
+            }).error(function(error,data){
                     $scope.message = "Aconteceu um problema: " + data;
                     console.log("login error");
         });
     };
-    var carregarNatendimentos = function () {
+  $scope.carregarNatendimentos = function () {
         $http({
             url : config.baseUrl + "/analytics/cases/unattended",
             method : 'GET',
@@ -69,13 +70,13 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
             },
             }).success(function(data){
                     $scope.Natendimentos = data;
-            }).error(function(error){
+            }).error(function(error,data){
                     $scope.message = "Aconteceu um problema: " + data;
                     console.log("login error");
         });
     };
 
-    var carregarEstabelecimentos = function () {
+    $scope.carregarEstabelecimentos = function () {
         $http({
 
             url : config.baseUrl + "/dash/store",
@@ -92,7 +93,7 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
             $scope.estabelecimentos = data;
             //console.log(data);
 
-        }).error(function(error){
+        }).error(function(error,data){
             $scope.message = "Aconteceu um problema: " + error;
         });
     };
@@ -115,7 +116,7 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
             $scope.periodoatual = date_start +" a " +date_end;
             $scope.periodo1 = date_start;
             $scope.periodo2 = date_end;
-        }).error(function(error){
+        }).error(function(error,data){
             $scope.message = "Aconteceu um problema: " + error;
         });
     };
@@ -181,10 +182,10 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
         value: new Date(d.value.getTime() - 10080*60000),
     }
 
-    carregarCases(novaData, d);
-    carregarAtendimentos();
-    carregarNatendimentos();
-    carregarEstabelecimentos();
+    $scope.carregarCases(novaData, d);
+    $scope.carregarAtendimentos();
+    $scope.carregarNatendimentos();
+    $scope.carregarEstabelecimentos();
 
     var curr = new Date; // get current date
     var first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
@@ -194,6 +195,5 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
     var lastday = new Date(curr.setDate(last)).toLocaleDateString();
 
     $scope.carregarPorData('01/01/2015', lastday);
-
 
 });

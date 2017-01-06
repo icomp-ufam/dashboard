@@ -70,18 +70,22 @@
                         <p class="text-info"> filtrar: </p>
                         <div class="row">
                             <div class="col-md-2">
-                               Data Inicio: <input class="form-control col-md3" ng-model="data.start" type="date" id="inicio">
+                                Data Inicio: <input class="form-control col-md3" type="date"  ng-model="data_start.value">
+                                
                             </div>
                             <div class="col-md-1"></div>
                             <div class="col-md-2">
-                                Data Fim: <input class="form-control col-md3" ng-model="data.end" type="date" id="fim">
+                                Data Fim: <input class="form-control col-md3" type="date"  ng-model="data_end.value" >
                             </div>
                             <div class="col-md-1"></div>
                             <div class="col-md-2">
                                 <br>
-                            <button type="submit" ng-click="carregarClientesPorData((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))" class=" btn btn-default"> filtrar </button>
+                                <button class=" btn btn-default" ng-click="carregarClientesPorData((data_start | date: 'dd/MM/y'), (data_end | date: 'dd/MM/y'))"> filtrar </button>
+                                <br>
+                                
                             </div>
-                        </div> </br>
+                        </div> 
+                        </br>
                         <table class="table " >
                             <thead>
                                 <tr>

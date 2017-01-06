@@ -6,11 +6,12 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
     $scope.app = "Clientes";
     $scope.clientes = [];
 
-    $scope.carregarClientesPorData = function (inicio, final) {
-        var dataInicio = new Date(document.getElementById("inicio").value);
-        var dataFim = new Date(document.getElementById("fim").value);
-        if (dataInicio > dataFim) alert("Data inicio deve ser menor que data fim");
-        else{
+    $scope.carregarClientesPorData = function (date_start, date_end) {
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
+        var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
+        console.log(NovaDate_start);
+        console.log(NovaDate_end);
+
             $http({
 
                 url : config.baseUrl + "/dash/users/",
@@ -20,18 +21,27 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
                     'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
                 },
                 data: {
-                    'date_start' : inicio,
-                    'date_end' : final
+                    'date_start' : NovaDate_start,
+                'date_end' : NovaDate_end,
                 }
             }).success(function(data){
                 $scope.clientes = data;
                 grafico(data);
-                console.log(data);
+
+                $scope.data_start = {
+                        value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+
+                };
+                $scope.data_end = {
+                    value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+                };
+
             }).error(function(error){
                 $scope.message = "Aconteceu um problema: " + error;
                 console.log("login error");
             });
-        }
+        
 
     };
 
@@ -74,19 +84,26 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
         $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
     };
 
-    //Pegando a data atual
-    d = new Date();
-    var dia = d.getDate();
-    var mes = d.getMonth() + 1;
-    var ano = d.getFullYear();
-    var dataAtual = dia + "/"+mes +"/"+  ano;
+    // //Pegando a data atual
+    // d = new Date();
+    // var dia = d.getDate();
+    // var mes = d.getMonth() + 1;
+    // var ano = d.getFullYear();
+    // var dataAtual = dia + "/"+mes +"/"+  ano;
 
-    //pegando data da semana passada
-    var novaData = new Date(d.getTime() - 10080*60000);
-    var dataPassada = novaData.getDate() +"/"+ (novaData.getMonth() +1) + "/" + novaData.getFullYear()
-    //carregando clientes da semana passada até hoje
-    console.log("semana passada: "+dataPassada +" hoje: "+ dataAtual);
-    carregarClientesPorData2(dataPassada ,dataAtual);
+    // //pegando data da semana passada
+    // var novaData = new Date(d.getTime() - 10080*60000);
+    // var dataPassada = novaData.getDate() +"/"+ (novaData.getMonth() +1) + "/" + novaData.getFullYear()
+    // //carregando clientes da semana passada até hoje
+    // console.log("semana passada: "+dataPassada +" hoje: "+ dataAtual);
+    var d = {
+        value: new Date(),
+    }
+     var novaData = {
+        value: new Date(d.value.getTime() - 10080*60000),
+    }
+
+    $scope.carregarClientesPorData(novaData, d);
 
 
     function grafico(dado){
