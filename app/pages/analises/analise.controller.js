@@ -10,7 +10,11 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
     $scope.atendimentos = [];
     $scope.Natendimentos = [];
 
-    var carregarCases = function () {
+    var carregarCases = function (date_start, date_end) {
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
+        var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
+        console.log(NovaDate_start);
+        console.log(NovaDate_end);
         $http({
 
             url : config.baseUrl + "/analytics/cases",
@@ -21,6 +25,14 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
             }
             }).success(function(data){
                     $scope.cases = data;
+                    $scope.data_start = {
+                        value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+
+                };
+                $scope.data_end = {
+                    value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+                };
             }).error(function(error){
                     $scope.message = "Aconteceu um problema: " + data;
                     console.log("login error");
@@ -157,9 +169,14 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
             chart.draw(data, options);
         };
     }
+    var d = {
+        value: new Date(),
+    }
+     var novaData = {
+        value: new Date(d.value.getTime() - 10080*60000),
+    }
 
-
-    carregarCases();
+    carregarCases(novaData, d);
     carregarAtendimentos();
     carregarNatendimentos();
     carregarEstabelecimentos();
