@@ -56,7 +56,16 @@
                             </thead>
                             <tbody>
                             <tr ng-repeat="atendimentosPorDiaSemana in atendimentosPorDiaSemanas | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">  
-                                    <td class="active">{{atendimentosPorDiaSemana.day_of_week}}</td>
+                                    <!--td class="active">{{atendimentosPorDiaSemana.day_of_week}}</--td-->
+                                    <td class="active" ng-switch on="{{atendimentosPorDiaSemana.day_of_week}}">
+                                        <span ng-switch-when="0"> Domingo </span>
+                                        <span ng-switch-when="1"> Segunda </span>
+                                        <span ng-switch-when="2"> Terça </span>
+                                        <span ng-switch-when="3"> Quarta </span>
+                                        <span ng-switch-when="4"> Quinta </span>
+                                        <span ng-switch-when="5"> Sexta </span>
+                                        <span ng-switch-when="6"> Sábado </span>
+                                    </td>
                                     <td class="success">{{atendimentosPorDiaSemana.ate}}</td>
                                 </tr>
                             </tbody>
@@ -90,12 +99,20 @@
                             </thead>
                             <tbody>
                             <tr ng-repeat="atendimentosPorDiaSemana in atendimentosPorDiaSemanas | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                  
-                                    <td class="active">{{atendimentosPorDiaSemana.day_of_week}}</td>
+
+                                <td class="active" ng-switch on="{{atendimentosPorDiaSemana.day_of_week}}">
+                                    <span ng-switch-when="0"> Domingo </span>
+                                    <span ng-switch-when="1"> Segunda </span>
+                                    <span ng-switch-when="2"> Terça </span>
+                                    <span ng-switch-when="3"> Quarta </span>
+                                    <span ng-switch-when="4"> Quinta </span>
+                                    <span ng-switch-when="5"> Sexta </span>
+                                    <span ng-switch-when="6"> Sábado </span>
+                                </td>
                                                                                
-                                    <td class="danger">{{atendimentosPorDiaSemana.neg}}</td>
+                                <td class="danger">{{atendimentosPorDiaSemana.neg}}</td>
              
-                                </tr>
+                            </tr>
                                 
                             </tbody>
                         </table>
@@ -131,7 +148,15 @@
                             </thead>
                               <tbody>
                                 <tr ng-repeat="atendimentosPorDiaSemana in atendimentosPorDiaSemanas | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                        <td class="active">{{atendimentosPorDiaSemana.day_of_week}}</td>
+                                    <td class="active" ng-switch on="{{atendimentosPorDiaSemana.day_of_week}}">
+                                        <span ng-switch-when="0"> Domingo </span>
+                                        <span ng-switch-when="1"> Segunda </span>
+                                        <span ng-switch-when="2"> Terça </span>
+                                        <span ng-switch-when="3"> Quarta </span>
+                                        <span ng-switch-when="4"> Quinta </span>
+                                        <span ng-switch-when="5"> Sexta </span>
+                                        <span ng-switch-when="6"> Sábado </span>
+                                    </td>
                                         <td class="warning">{{atendimentosPorDiaSemana.nat}}</td>
                                     </tr>
                                 </tbody>
@@ -165,7 +190,15 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="atendimentosPorDiaSemana in atendimentosPorDiaSemanas | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                        <td class="active">{{atendimentosPorDiaSemana.day_of_week}}</td>                             
+                                    <td class="active" ng-switch on="{{atendimentosPorDiaSemana.day_of_week}}">
+                                        <span ng-switch-when="0"> Domingo </span>
+                                        <span ng-switch-when="1"> Segunda </span>
+                                        <span ng-switch-when="2"> Terça </span>
+                                        <span ng-switch-when="3"> Quarta </span>
+                                        <span ng-switch-when="4"> Quinta </span>
+                                        <span ng-switch-when="5"> Sexta </span>
+                                        <span ng-switch-when="6"> Sábado </span>
+                                    </td>
                                         <td class="info">{{atendimentosPorDiaSemana.tot}}</td>
                                     </tr>
                                 </tbody>
