@@ -36,8 +36,11 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
      });
      };*/
 
-    $scope.orderByFunction = function(friend){
-        return parseInt(friend.case_hour);
+    // $scope.orderByFunction = function(friend){
+    //     return parseInt(friend.case_hour);
+    // };
+    $scope.orderByF2 = function(f){
+        return parseInt(f.date_trunc);
     };
 
     $scope.carregarAtendimentos = function (date_start, date_end) {
@@ -140,8 +143,43 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
         }).success(function(data){
             $scope.atendimentosPorHoras = data;
             var temp = [];
+            var novojsong = [];
             temp = angular.fromJson(data);
-            console.log(data);
+            var j = 0;
+            var pets = '{"pets":[' +
+                '               {"name":"jack"},' +
+                '               {"name":"john"},' +
+                '               {"name":"joe"}]' +
+                '        }';
+            var arr = JSON.parse(pets);
+            var novo = '{';
+            for (i = 0; i<= 23; i++){
+                if(i == 23){
+                    if(i == temp[j]['case_hour']) {
+                        novo += '"'+i+'":{"case_hour":'+i+',"ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"}';
+                        //novojsong[i] = Array(i, Array(temp[j]['ate'],temp[j]['neg'],temp[j]['nat'],temp[j]['tot']));
+                        j++;
+                    }else{
+                        novo += '"'+i+'":{"case_hour":'+i+',"ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"}';
+                        //novojsong[i] = Array(i, Array(0, 0, 0, 0));
+                        j = j;
+                    }
+                }else{
+                    if(i == temp[j]['case_hour']) {
+                        novo += '"'+i+'":{"case_hour":'+i+',"ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"},';
+                        //novojsong[i] = Array(i, Array(temp[j]['ate'],temp[j]['neg'],temp[j]['nat'],temp[j]['tot']));
+                        j++;
+                    }else{
+                        novo += '"'+i+'":{"case_hour":'+i+',"ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"},';
+                        //novojsong[i] = Array(i, Array(0, 0, 0, 0));
+                        j = j;
+                    }
+                }
+
+            }
+            novo += '}';
+            $scope.atendimentosPorHorasCompleto = JSON.parse(novo);
+            console.log($scope.atendimentosPorHorasCompleto);
             graficoAtendimentoPorHoraTOT(data);
             graficoAtendimentoPorHoraNEG(data);
             graficoAtendimentoPorHoraNAT(data);
@@ -1454,7 +1492,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     // $scope.carregarAtendimentosPorDiaMes(novaData, d);
     // $scope.carregarAtendimentosPorCategoria(novaData, d);
     $scope.carregarAtendimentosPorDate(novaData, d);
-    // $scope.carregaConsultasPorHora();
-    // $scope.carregaConsultasPorHoraContagem();
+    $scope.carregaConsultasPorHora();
+    $scope.carregaConsultasPorHoraContagem();
 
 });

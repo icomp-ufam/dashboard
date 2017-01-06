@@ -42,7 +42,8 @@
             </div>
         </div> </br>
 </div>
-<!-- PAGE CONTENT WRAPPER -->
+<!-- PAGE CONTENT WRAPPER {{atendimentosPorHorasCompleto}} -->
+
 <div class="page-content-wrap">
     <!-- END BREADCRUMB -->
     <div class="page-container-boxed" >
@@ -66,14 +67,14 @@
                         <table class="table" >
                             <thead>
                                 <tr>
-                                    <th ng-click="ordenarPor('case_hour')">Hora</th>
-                                    <th ng-click="ordenarPor('ate')">ATENDERAM</th>
+                                    <th >Hora</th>
+                                    <th >ATENDERA</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="atendimentosPorHora in atendimentosPorHoras | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao |orderBy:orderByFunction:reverse">
-                                    <td class="active">{{atendimentosPorHora.case_hour}}</td>
-                                    <td class="success">{{atendimentosPorHora.ate}}</td>
+                                <tr ng-repeat="atendimentosPorHora in atendimentosPorHorasCompleto">
+                                    <td class="active">{{atendimentosPorHora.case_hour.valueOf()}}</td>
+                                    <td class="success">{{atendimentosPorHora.ate.valueOf()}}</td>
                                 </tr>
                                             
                             </tbody>
@@ -105,7 +106,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="atendimentosPorHora in atendimentosPorHoras | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao|orderBy:orderByFunction:reverse">
+                                <tr ng-repeat="atendimentosPorHora in atendimentosPorHorasCompleto">
                                     <td class="active">{{atendimentosPorHora.case_hour}}</td>
                                     <td class="danger">{{atendimentosPorHora.neg}}</td>
                                 </tr>
@@ -138,7 +139,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="atendimentosPorHora in atendimentosPorHoras | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao |orderBy:orderByFunction:reverse">
+                            <tr ng-repeat="atendimentosPorHora in atendimentosPorHorasCompleto ">
                                     <td class="active">{{atendimentosPorHora.case_hour}}</td>
                                     <td class="warning">{{atendimentosPorHora.nat}}</td>
                                 </tr>
@@ -170,7 +171,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              <tr ng-repeat="atendimentosPorHora in atendimentosPorHoras | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao |orderBy:orderByFunction:reverse">
+                              <tr ng-repeat="atendimentosPorHora in atendimentosPorHorasCompleto">
                                <td class="active">{{atendimentosPorHora.case_hour}}</td>
                                <td class="info">{{atendimentosPorHora.tot}}</td>
                              </tr>

@@ -39,7 +39,7 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
         });
     };
 
-$scope.orderByFunction = function(friend){
+    $scope.orderByFunction = function(friend){
         return parseInt(friend.caso);
 
     };
