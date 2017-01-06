@@ -17,11 +17,14 @@
 
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">
-    
-        <!-- END BREADCRUMB -->
-        <div class="page-container-boxed">
-            <div class="row">
+
+    <!-- END BREADCRUMB -->
+    <div class="page-container-boxed">
+        <div class="row">
             <div class="col-md-3">
+
+                <!-- START WIDGET REGISTRED -->
+
                 <div class="widget widget-default widget-item-icon" ui-sref="main.estabelecimentos.listarConsultasPorLojaAtendimento" ng-click="carregarAtendimentosPorHora((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))">
                     <div class="widget-item-left">
                         <span class="fa fa-clock-o"></span>
@@ -31,100 +34,103 @@
                         <div class="widget-title">Consultas por Loja/Atendimento</div>
                         <div class="widget-subtitle">no Teewa</div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="widget widget-default widget-item-icon" ui-sref="main.analisesCasos.ratingGeral" ng-click="carregarAtendimentosPorHora((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))">
-                    <div class="widget-item-left">
-                        <span class="fa fa-heart"></span>
-                    </div>
-                    <div class="widget-data">
 
-                        <div class="widget-title">Avaliação das Lojas</div>
-                        <div class="widget-subtitle">no Teewa</div>
+                </div>
+                <!-- END WIDGET REGISTRED -->
+
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2">
+                        <a ui-sref="main.analisesCasos.ratingGeral" class="tile tile-info">
+                            <span class="fa fa-heart"></span>
+                            <p>Avaliação das lojas</p>
+
+                        </a>
                     </div>
                 </div>
+                <!-- START DEFAULT DATATABLE -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Estabelecimentos Ativos</h3>
+                        <ul class="panel-controls">
+                            <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                            <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                            <!--<li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>-->
+                        </ul>
+                    </div>
+                    <div class="panel-body">
+                        <p class="text-info"> filtrar: </p>
+                        <div class="row">
+                            <div class="col-md-2">
+                                Data Inicio: <input class="form-control col-md3" ng-model="data.start" type="date">
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                                Data Fim: <input class="form-control col-md3" ng-model="data.end" type="date">
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                                <br>
+                                <button type="submit" class=" btn btn-default" ng-click="carregarPorData((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))"> filtrar </button>
+                            </div>
+
+                        </div> </br>
+                        <table class="table" >
+                            <thead>
+                            <tr>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome..."></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.address" placeholder="Endereço..."></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.n_vendedores" placeholder="Qtd Vendedores..."></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.qtd_avaliacoes" placeholder="Qtd Avaliações..."></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.media" placeholder="Média..."></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.atendimentos" placeholder="Qtd Atendimentos..."></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.consultas" placeholder="Qtd Consultas..."></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.percentual" placeholder="% Atendimentos..."></th>
+                                <th> </th>
+                            </tr>
+
+                            <tr>
+                                <th href="" ng-click="ordenarPor('name')" > Nome </th>
+                                <th> Endereço </th>
+                                <th ng-click="ordenarPor('n_vendedores')" >Qtd Vendedores</th>
+                                <th ng-click="ordenarPor('qtd_avaliacoes')" >Qtd Avaliações</th>
+                                <th ng-click="ordenarPor('media')"  >Média Avaliação</th>
+                                <th ng-click="ordenarPor('atendimentos')"  >Qtd Atendimentos</th>
+                                <th ng-click="ordenarPor('consultas')" >Qtd Consultas</th>
+                                <th ng-click="ordenarPor('percentual')"  >% Atendimentos</th>
+
+
+                                <th> Detalhes</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr  ng-repeat="estabelecimento in estabelecimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                <td>{{estabelecimento.name}}</td>
+                                <td>{{estabelecimento.address}}</td>
+                                <td>{{estabelecimento.n_vendedores}}</td>
+                                <td>{{estabelecimento.qtd_avaliacoes}}</td>
+                                <td>{{estabelecimento.media | number:1}}</td>
+                                <td>{{estabelecimento.atendimentos}}</td>
+                                <td>{{estabelecimento.consultas}}</td>
+                                <td>{{estabelecimento.percentual}}</td>
+                                <td>
+                                    <!--<button class="btn btn-default" ui-sref="main.vendedores.listar">-->
+                                    <button class="btn btn-default" ui-sref="main.vendedores.listar">
+                                        Detalhes
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+
             </div>
         </div>
-
-                <div class="col-md-12">
-
-                    <!-- START DEFAULT DATATABLE -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Estabelecimentos Ativos</h3>
-                            <ul class="panel-controls">
-                                <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
-                                <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
-                                <!--<li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>-->
-                            </ul>
-                        </div>
-                        <div class="panel-body">
-                            <p class="text-info"> filtrar: </p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Data Inicio: <input class="form-control col-md3" ng-model="data.start" type="date">
-                                </div>
-                                <div class="col-md-1"></div>
-                                <div class="col-md-2">
-                                    Data Fim: <input class="form-control col-md3" ng-model="data.end" type="date">
-                                </div>
-                                <div class="col-md-1"></div>
-                                <div class="col-md-2">
-                                    <br>
-                                    <button type="submit" class=" btn btn-default" ng-click="carregarPorData((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))"> filtrar </button>
-                                </div>
-
-                            </div> </br>
-                            <table class="table" >
-                                <thead>
-                                    <tr>
-                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome..."></th>
-                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.address" placeholder="Endereço..."></th>
-                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.media" placeholder="Média..."></th>
-                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.qtd_avaliacoes" placeholder="Qtd Avaliações..."></th>
-                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.n_vendedores" placeholder="Qtd Vendedores..."></th>
-                                        <th ><input class="form-control" type="text" ng-model="criterioDeBusca.consultas" placeholder="Qtd Consultas..."></th>
-                                        <th> </th>
-                                    </tr>
-
-                                    <tr>
-                                        <th href="" ng-click="ordenarPor('name')" > Nome </th>
-                                        <th> Endereço </th>
-                                        <th ng-click="ordenarPor('media')"  >Média Avaliação</th>
-                                        <th ng-click="ordenarPor('qtd_avaliacoes')" >Qtd Avaliações</th>
-                                        <th ng-click="ordenarPor('n_vendedores')" >Qtd Vendedores</th>
-                                        <th ng-click="ordenarPor('consultas')" >Qtd Consultas</th>
-
-                                        <th> Detalhes</th>
-                                    </tr>
-                                </thead>
-                                
-                                <tbody>
-                                    <tr  ng-repeat="estabelecimento in estabelecimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                        <td>{{estabelecimento.name}}</td>
-                                        <td>{{estabelecimento.address}}</td>
-                                        <td>{{estabelecimento.media | number:1}}</td>
-                                        <td>{{estabelecimento.qtd_avaliacoes}}</td>
-                                        <td>{{estabelecimento.n_vendedores}}</td>
-                                        <td>{{estabelecimento.consultas}}</td>
-
-                                        <td>
-                                            <!--<button class="btn btn-default" ui-sref="main.vendedores.listar">-->
-                                            <button class="btn btn-default" ui-sref="main.vendedores.listar">
-                                                Detalhes
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
+    </div>
 </div>
 <script type="text/javascript">
     panelActions();

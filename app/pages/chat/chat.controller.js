@@ -36,8 +36,9 @@ angular.module('teewa').controller('chatCtrl', function($scope, $state, sharedCo
     // }
     // sharedConn.login("leo32",XMPP_DOMAIN,"pandora561500");
 
-    var XMPP_DOMAIN = 'chatme.community'; // Domain we are going to be connected to.
-
+    //var XMPP_DOMAIN = 'chatme.community'; // Domain we are going to be connected to.
+    var XMPP_DOMAIN = 'myserver'; // Domain we are going to be connected to.
+    
     $scope.login = function(user) {
         sharedConn.login("teewa01",XMPP_DOMAIN,"12345678");
         $scope.chats = sharedConn.getRoster();

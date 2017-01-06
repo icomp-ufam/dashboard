@@ -26,6 +26,11 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
                     console.log("login error");
         });
     };
+
+    $scope.orderByFunction = function(friend){
+        return parseInt(friend.caso);
+    };
+
     var carregarAtendimentos = function () {
         $http({
 

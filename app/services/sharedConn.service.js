@@ -2,7 +2,8 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
 
     var SharedConnObj = {};
 
-    SharedConnObj.BOSH_SERVICE = 'https://conversejs.org/http-bind/';
+    //SharedConnObj.BOSH_SERVICE = 'https://conversejs.org/http-bind/';
+    SharedConnObj.BOSH_SERVICE = 'http://localhost:7070/http-bind/';
     SharedConnObj.connection = null; // The main Strophe connection object.
     SharedConnObj.loggedIn = false;
     SharedConnObj.roster = [];
@@ -34,10 +35,15 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
 
     //Login Function
     SharedConnObj.login = function(jid, host, pass) {
-        SharedConnObj.connection = new Strophe.Connection(SharedConnObj.BOSH_SERVICE, {
+        SharedConnObj.connection = new Strophe.Connection(
+            SharedConnObj.BOSH_SERVICE, {
             'keepalive': true
         }); // We initialize the Strophe connection.
-        SharedConnObj.connection.connect(jid + '@' + host, pass, SharedConnObj.onConnect);
+        
+        SharedConnObj.connection.connect(
+            jid + '@' + host+"/web",
+            pass, 
+            SharedConnObj.onConnect);
     };
 
     //On connect XMPP

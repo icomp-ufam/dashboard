@@ -10,56 +10,50 @@
     <div class="row"> 
 
     <div class="col-md-3">
-
-                <!-- START WIDGET REGISTRED -->
-
-                <div class="widget widget-default widget-item-icon" ui-sref="main.atendimentos.listarPorHoraContagemMedia" ng-click="carregarAtendimentosPorHora((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))">
-                    <div class="widget-item-left">
-                        <span class="fa fa-clock-o"></span>
-                    </div>
-                    <div class="widget-data">
-
-                        <div class="widget-title">Média/Contagem por Hora do Dia</div>
-                        <div class="widget-subtitle">no Teewa</div>
-                    </div>
-
+            <!-- START WIDGET REGISTRED -->
+            <div class="widget widget-default widget-item-icon" ui-sref="main.atendimentos.listarPorHoraContagemMedia" ng-click="carregarAtendimentosPorHora((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))">
+                <div class="widget-item-left">
+                    <span class="fa fa-clock-o"></span>
                 </div>
-                <!-- END WIDGET REGISTRED -->
+                <div class="widget-data">
+
+                    <div class="widget-title">Média/Contagem por Hora do Dia</div>
+                    <div class="widget-subtitle">no Teewa</div>
+                </div>
+            </div>
+            <!-- END WIDGET REGISTRED -->
+    </div>
+    </div> </br>
+        <div class="row">
+            <div class="col-md-2">
+                Data Inicio: <input class="form-control col-md3" type="date"  ng-model="data.start" >
+            </div>
+
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                Data Fim: <input class="form-control col-md3" type="date"  ng-model="data.end" >
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <br>
+                <button class=" btn btn-default" ng-click="carregarAtendimentosPorHora((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))"> filtrar </button>
+                <br>
 
             </div>
-            
-    </div> </br>
-                        <div class="row">
-                            <div class="col-md-2">
-                                Data Inicio: <input class="form-control col-md3" type="date"  ng-model="data.start" >
-                            </div>
-                            
-                            <div class="col-md-1"></div>
-                            <div class="col-md-2">
-                                Data Fim: <input class="form-control col-md3" type="date"  ng-model="data.end" >
-                            </div>
-                            <div class="col-md-1"></div>
-                            <div class="col-md-2">
-                                <br>
-                                <button class=" btn btn-default" ng-click="carregarAtendimentosPorHora((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))"> filtrar </button>
-                                <br>
-                                
-                            </div>
-                        </div> </br>
+        </div> </br>
 </div>
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">
     <!-- END BREADCRUMB -->
     <div class="page-container-boxed" >
         <div class="row">
-
          
             <div class="col-md-3">
                 <!-- START DEFAULT DATATABLE -->
                 <div class="panel panel-warning">
 
                     <div class="panel-heading">
-                        <h3 class="panel-title">ATENDIDAS</h3>
+                        <h3 class="panel-title">ATENDIDA</h3>
                         <ul class="panel-controls">
                         
                             <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
@@ -71,26 +65,18 @@
                     <div class="panel-body">
                         <table class="table" >
                             <thead>
-                              
                                 <tr>
                                     <th ng-click="ordenarPor('case_hour')">Hora</th>
                                     <th ng-click="ordenarPor('ate')">ATENDERAM</th>
-                                    
                                 </tr>
                             </thead>
                             <tbody>
-                                        <tr ng-repeat="atendimentosPorHora in atendimentosPorHoras | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                              
-                                                <td class="active">{{atendimentosPorHora.case_hour}}</td>
-                                                                                           
-                                                <td class="success">{{atendimentosPorHora.ate}}</td>
-                                                
-                                                
-
-                                                
-                                            </tr>
+                                <tr ng-repeat="atendimentosPorHora in atendimentosPorHoras | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao |orderBy:orderByFunction:reverse">
+                                    <td class="active">{{atendimentosPorHora.case_hour}}</td>
+                                    <td class="success">{{atendimentosPorHora.ate}}</td>
+                                </tr>
                                             
-                                        </tbody>
+                            </tbody>
                         </table>
                     </div>
 
@@ -113,28 +99,17 @@
                     <div class="panel-body">
                         <table class="table" >
                             <thead>
-                                
                                 <tr>
                                     <th ng-click="ordenarPor('case_hour')">Hora</th>
                                     <th ng-click="ordenarPor('neg')">NEGARAM</th>
-                                    
-
                                 </tr>
                             </thead>
                             <tbody>
-                                        <tr ng-repeat="atendimentosPorHora in atendimentosPorHoras | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                              
-                                                <td class="active">{{atendimentosPorHora.case_hour}}</td>
-                                                                                           
-                                                <td class="danger">{{atendimentosPorHora.neg}}</td>
-                                                
-                                                
-                                                
-
-                                                
-                                            </tr>
-                                            
-                                        </tbody>
+                                <tr ng-repeat="atendimentosPorHora in atendimentosPorHoras | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao|orderBy:orderByFunction:reverse">
+                                    <td class="active">{{atendimentosPorHora.case_hour}}</td>
+                                    <td class="danger">{{atendimentosPorHora.neg}}</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
 
@@ -157,27 +132,17 @@
                     <div class="panel-body">
                         <table class="table" >
                             <thead>
-                                
                                 <tr>
                                     <th ng-click="ordenarPor('case_hour')">Hora</th>
-                                    
                                     <th ng-click="ordenarPor('nat')">NÃO ATENDERAM</th>
-                                    
-
                                 </tr>
                             </thead>
                             <tbody>
-                                        <tr ng-repeat="atendimentosPorHora in atendimentosPorHoras | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                              
-                                                <td class="active">{{atendimentosPorHora.case_hour}}</td>
-                                                                                           
-                                                <td class="warning">{{atendimentosPorHora.nat}}</td>
-                                                     
-
-                    
-                                            </tr>
-                                            
-                                        </tbody>
+                            <tr ng-repeat="atendimentosPorHora in atendimentosPorHoras | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao |orderBy:orderByFunction:reverse">
+                                    <td class="active">{{atendimentosPorHora.case_hour}}</td>
+                                    <td class="warning">{{atendimentosPorHora.nat}}</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
 
@@ -190,7 +155,6 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">RECEBIDAS</h3>
                         <ul class="panel-controls">
-                        
                             <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
                             <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
                             <li><a ng-click="graficoHoraTOT=!graficoHoraTOT"><span class="fa fa-bar-chart-o"></span></a></li>
@@ -200,25 +164,18 @@
                     <div class="panel-body">
                         <table class="table" >
                             <thead>
-                                
                                 <tr>
                                     <th ng-click="ordenarPor('case_hour')">Hora</th>
-                                    
                                     <th ng-click="ordenarPor('tot')">TOTAL</th>
-
                                 </tr>
                             </thead>
                             <tbody>
-                                        <tr ng-repeat="atendimentosPorHora in atendimentosPorHoras | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                              
-                                                <td class="active">{{atendimentosPorHora.case_hour}}</td>
-                                                                                           
-                                                <td class="info">{{atendimentosPorHora.tot}}</td>
-                                                
-                                                
-                                            </tr>
+                              <tr ng-repeat="atendimentosPorHora in atendimentosPorHoras | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao |orderBy:orderByFunction:reverse">
+                               <td class="active">{{atendimentosPorHora.case_hour}}</td>
+                               <td class="info">{{atendimentosPorHora.tot}}</td>
+                             </tr>
                                             
-                                        </tbody>
+                           </tbody>
                         </table>
                     </div>
 
