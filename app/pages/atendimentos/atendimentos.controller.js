@@ -45,7 +45,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     };
 
     $scope.carregarAtendimentos = function (date_start, date_end) {
-
+        console.log("teste data");
 
         $http({
 
