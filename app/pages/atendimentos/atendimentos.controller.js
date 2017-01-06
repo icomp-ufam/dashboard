@@ -1448,11 +1448,11 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
      var novaData = {
         value: new Date(d.value.getTime() - 10080*60000),
     }
-    // $scope.carregarAtendimentos(novaData, d);
-    // $scope.carregarAtendimentosPorHora(novaData, d);
-    // $scope.carregarAtendimentosPorDiaSemana(novaData, d);
-    // $scope.carregarAtendimentosPorDiaMes(novaData, d);
-    // $scope.carregarAtendimentosPorCategoria(novaData, d);
+    $scope.carregarAtendimentos(novaData, d);
+    $scope.carregarAtendimentosPorHora(novaData, d);
+    $scope.carregarAtendimentosPorDiaSemana(novaData, d);
+    $scope.carregarAtendimentosPorDiaMes(novaData, d);
+    $scope.carregarAtendimentosPorCategoria(novaData, d);
     $scope.carregarAtendimentosPorDate(novaData, d);
     // $scope.carregaConsultasPorHora();
     // $scope.carregaConsultasPorHoraContagem();
