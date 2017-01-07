@@ -4,12 +4,12 @@
 
 angular.module("teewa")
 
-    .controller("vendedoresCtrl", function ($scope, $http, config) {
+    .controller("vendedoresCtrl", function ($scope, $http, config, $stateParams) {
 
     $scope.app = "Vendedores";
     $scope.vendedores = [];
 
-    $scope.idloja = 2;
+    $scope.idloja = $stateParams.idloja;
 
     var carregarVendedoresLoja = function (date_start, date_end, idstore) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear();

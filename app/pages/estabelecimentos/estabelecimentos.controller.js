@@ -16,8 +16,6 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
     $scope.carregarPorData = function (date_start, date_end) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear();
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear();
-        console.log(NovaDate_start);
-        console.log(NovaDate_end);
 
         $http({
             url : config.baseUrl + "/dash/store",

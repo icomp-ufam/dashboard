@@ -9,8 +9,8 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
     $scope.cases = [];
     $scope.atendimentos = [];
     $scope.Natendimentos = [];
-    $scope.data_startParam = $stateParams.variable
-             console.log(" $stateParams = " + $scope.data_startParam );
+    $scope.data_startParam = $stateParams.variable;
+    console.log(" $stateParams = " + $scope.data_startParam );
 
     
 
