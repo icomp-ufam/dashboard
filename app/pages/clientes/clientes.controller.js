@@ -9,8 +9,7 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
 
     $scope.clickThis=function() {
          $state.go("main.analisesCasos.listar", { variable: 'consegui passar o id'  });
-
-     }
+    };
 
     $scope.carregarClientesPorData = function (date_start, date_end) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()

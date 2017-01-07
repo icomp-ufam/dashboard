@@ -2,44 +2,19 @@
  * Created by marcos on 29/11/16.
  */
 
-angular.module("teewa").controller("vendedoresCtrl", function ($scope, $http, config) {
+angular.module("teewa")
+
+    .controller("vendedoresCtrl", function ($scope, $http, config) {
 
     $scope.app = "Vendedores";
     $scope.vendedores = [];
 
-    var carregarVendedores = function () {
-        $http({
+    $scope.idloja = 2;
 
-            url : config.baseUrl + "/sellers",
-            method : 'GET',
-            headers : {
-                'Content-Type' : 'application/json',
-            'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
-            }
-            }).success(function(data){
-                    $scope.vendedores = data;
-            }).error(function(error){
-                    $scope.message = "Aconteceu um problema: " + data;
-                    console.log("login error");
-        });
-        /*$http.get("http://localhost:3412/vendedores").success(function (data) {
-            $scope.vendedores = data;
-        }).error(function (data, status) {
-            $scope.message = "Aconteceu um problema: " + data;
-        });*/
-    };
+    var carregarVendedoresLoja = function (date_start, date_end, idstore) {
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear();
+        var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear();
 
-
-    /*$scope.adicionarVendedor = function (vendedor) {
-        vendedor.data = new Date();
-        $http.post("http://localhost:3412/vendedores", vendedor).success(function (data) {
-            delete $scope.vendedor;
-            $scope.vendedorForm.$setPristine();
-            carregarvendedores();
-        });
-    };*/
-
-    var carregarVendedoresLoja = function (data_start, data_end, idstore) {
         $http({
 
             url : config.baseUrl + "/dash/store/seller",
@@ -49,21 +24,27 @@ angular.module("teewa").controller("vendedoresCtrl", function ($scope, $http, co
                 'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
             },
             data: {
-                'date_start' : date_start,
-                'date_end' : date_end
+                'date_start' : NovaDate_start,
+                'date_end' : NovaDate_end,
+                'idstore'  : idstore
             }
         }).success(function(data){
             $scope.vendedores = data;
-            console.log($scope.vendedores)
+            //console.log($scope.vendedores);
+
+            $scope.data_start = {
+                value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+
+            };
+            $scope.data_end = {
+                value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+            };
+
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + data;
             console.log("login error");
         });
-        /*$http.get("http://localhost:3412/vendedores").success(function (data) {
-         $scope.vendedores = data;
-         }).error(function (data, status) {
-         $scope.message = "Aconteceu um problema: " + data;
-         });*/
     };
 
     $scope.apagarVendedores = function (vendedores) {
@@ -81,5 +62,12 @@ angular.module("teewa").controller("vendedoresCtrl", function ($scope, $http, co
         $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
     };
 
-    carregarVendedores();
+        var d = {
+            value: new Date(),
+        }
+        var novaData = {
+            value: new Date(2014, 12, 01),
+        }
+
+    carregarVendedoresLoja(novaData, d, $scope.idloja);
 });

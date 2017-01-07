@@ -21,7 +21,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             url: 'vendedores',
             template: '<ui-view></ui-view>'
         }).state('main.vendedores.listar', {
-            url: '/lista',
+            url: '/lista/:idloja',
             templateUrl: 'app/pages/vendedores/vendedores.html',
             controller: 'vendedoresCtrl',
             activetab: 'vendedores'

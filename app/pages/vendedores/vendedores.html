@@ -13,6 +13,7 @@
             <!-- START DEFAULT DATATABLE -->
             <div class="panel panel-default">
                 <div class="panel-heading">
+
                     <h3 class="panel-title">Listagem de vendedores</h3>
                     <ul class="panel-controls">
                         <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
@@ -24,38 +25,42 @@
                     <p class="text-info"> filtrar: </p>
                     <div class="row">
                         <div class="col-md-2">
-                            Data Inicio: <input class="form-control col-md3" type="date">
+                            Data Inicio: <input class="form-control col-md3" type="date" ng-model="data_start.value">
                         </div>
                         <div class="col-md-1"></div>
                         <div class="col-md-2">
-                            Data Fim: <input class="form-control col-md3" type="date">
+                            Data Fim: <input class="form-control col-md3" type="date" ng-model="data_end.value">
                         </div>
                         <div class="col-md-1"></div>
                         <div class="col-md-2">
                             <br>
-                            <button type="submit" class=" btn btn-default"> filtrar </button>
+                            <button type="submit" class=" btn btn-default" ng-click="carregarVendedoresLoja((data_start | date: 'dd/MM/y'), (data_end | date: 'dd/MM/y'), idloja)"> filtrar </button>
                         </div>
                     </div> </br>
                     <table class="table" >
                         <thead>
                             <tr>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Id..."></th>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.mobile" placeholder="Consulta..."></th>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.store_name" placeholder="Solicitante..."></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome"></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.atendimento" placeholder="Qte Atendimentos"></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.avg_rating" placeholder="Avaliação..."></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.sum_rating" placeholder="Qte avaliações..."></th>
                                 <th> </th>
                             </tr>
                             <tr>
                                 <th ng-click="ordenarPor('name')">Nome</th>
-                                <th ng-click="ordenarPor('mobile')">Numero</th>
-                                <th ng-click="ordenarPor('store_name')">Estabelecimento</th>
+                                <th ng-click="ordenarPor('atendimento')">Qte Atendimentos</th>
+                                <th ng-click="ordenarPor('avg_rating')">Avaliação</th>
+                                <th ng-click="ordenarPor('sum_rating')">Qte Avaliações</th>
+
                                 <th >Ações</th>
                             </tr>
                         </thead>
                        <tbody>
-                            <tr ng-repeat="vendedor in vendedores.sellers | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                            <tr ng-repeat="vendedor in vendedores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                 <td>{{vendedor.name}}</td>
-                                <td>{{vendedor.mobile}}</td>
-                                <td>{{vendedor.store_name}}</td>
+                                <td>{{vendedor.atendimento}}</td>
+                                <td>{{vendedor.avg_rating}}</td>
+                                <td>{{vendedor.sum_rating}}</td>
                                 <td> <button class="btn btn-default" > Detalhes</button> </td>
                             </tr>
                         </tbody>
