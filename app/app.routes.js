@@ -161,16 +161,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             url: 'analisesCasos',
             template: '<ui-view></ui-view>'
         }).state('main.analisesCasos.listar', {
-            url: '/listaCasos/{contactId}',
+            url: '/listaCasos/:variable',
             //url: '/listaCasos',
             
             templateUrl: 'app/pages/analises/analiseCasos.html',
-            controller: function ($stateParams) {
-            // If we got here from a url of /contacts/42
-            //expect($stateParams).toBe({contactId: "42"});
-            //expect($stateParams).toBe({contactId: "42"})
-            console.log($stateParams.contactId)
-            },
+            controller: 'analiseCtrl',
             activetab: 'analisesCasos'
         }).state('main.analisesCasos.listarAtendimentos', {
             url: '/listaAtendimentos',

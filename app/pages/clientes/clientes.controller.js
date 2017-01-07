@@ -7,9 +7,10 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
     $scope.clientes = [];
     //$scope.userInput = 1;
 
-    // $scope.clickThis=function() {
-    //     $state.go("main.analisesCasos.listar", { id: 1});
-    // }
+    $scope.clickThis=function() {
+         $state.go("main.analisesCasos.listar", { variable: 'consegui passar o id'  });
+
+     }
 
     $scope.carregarClientesPorData = function (date_start, date_end) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
@@ -108,7 +109,7 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
         value: new Date(d.value.getTime() - 10080*60000),
     }
 
-    $scope.carregarClientesPorData(novaData, d);
+    //$scope.carregarClientesPorData(novaData, d);
 
 
     function grafico(dado){

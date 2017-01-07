@@ -9,9 +9,14 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
     $scope.cases = [];
     $scope.atendimentos = [];
     $scope.Natendimentos = [];
+    $scope.data_startParam = $stateParams.variable
+             console.log(" $stateParams = " + $scope.data_startParam );
+
     
 
     $scope.carregarCases = function (date_start, date_end) {
+                     //console.log(" data_startParamDentro:" + $scope.data_start );
+
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
         console.log(NovaDate_start);
