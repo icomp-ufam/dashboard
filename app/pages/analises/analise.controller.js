@@ -1,7 +1,7 @@
 /**
  * Created by Larissa Fabíola on 30/11/16.
  */
-angular.module("teewa").controller("analiseCtrl", function ($scope, $http, config) {
+angular.module("teewa").controller("analiseCtrl", function ($scope, $http, config, $stateParams, $state) {
 
    //$scope.state = $state;
     $scope.app = "AnaliseCasos";
@@ -9,6 +9,7 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
     $scope.cases = [];
     $scope.atendimentos = [];
     $scope.Natendimentos = [];
+    
 
     $scope.carregarCases = function (date_start, date_end) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()

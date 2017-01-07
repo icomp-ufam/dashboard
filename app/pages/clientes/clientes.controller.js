@@ -1,10 +1,15 @@
 /**
  * Created by Larissa Fabíola on 30/11/16.
  */
-angular.module("teewa").controller("clientesCtrl", function ($scope, $http, config) {
+angular.module("teewa").controller("clientesCtrl", function ($scope, $http, config, $state) {
 
     $scope.app = "Clientes";
     $scope.clientes = [];
+    //$scope.userInput = 1;
+
+    // $scope.clickThis=function() {
+    //     $state.go("main.analisesCasos.listar", { id: 1});
+    // }
 
     $scope.carregarClientesPorData = function (date_start, date_end) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()

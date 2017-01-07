@@ -27,9 +27,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             activetab: 'vendedores'
         }).state('main.clientes', {
             url: 'clientes',
+         
             template: '<ui-view></ui-view>'
         }).state('main.clientes.listar', {
             url: '/lista',
+            
             templateUrl: 'app/pages/clientes/clientes.html',
             controller: 'clientesCtrl',
             activetab: 'clientes'
@@ -159,9 +161,16 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             url: 'analisesCasos',
             template: '<ui-view></ui-view>'
         }).state('main.analisesCasos.listar', {
-            url: '/listaCasos',
+            url: '/listaCasos/{contactId}',
+            //url: '/listaCasos',
+            
             templateUrl: 'app/pages/analises/analiseCasos.html',
-            controller: 'analiseCtrl',
+            controller: function ($stateParams) {
+            // If we got here from a url of /contacts/42
+            //expect($stateParams).toBe({contactId: "42"});
+            //expect($stateParams).toBe({contactId: "42"})
+            console.log($stateParams.contactId)
+            },
             activetab: 'analisesCasos'
         }).state('main.analisesCasos.listarAtendimentos', {
             url: '/listaAtendimentos',
