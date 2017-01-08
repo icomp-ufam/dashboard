@@ -9,13 +9,19 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
     $scope.cases = [];
     $scope.atendimentos = [];
     $scope.Natendimentos = [];
-    $scope.data_startParam = $stateParams.variable;
-    console.log(" $stateParams = " + $scope.data_startParam );
+    $scope.data_startParam = {
+        value: new Date($stateParams.data_startParametro)
+    }
+    $scope.data_endParam = {
+        value: new Date($stateParams.data_endParametro)
+    }
+    // console.log(" $stateParams1 = " + $scope.data_startParam.value.getDate() );
+    // console.log(" $stateParams2 = " + $scope.data_endParam.value );
 
     
 
     $scope.carregarCases = function (date_start, date_end) {
-                     //console.log(" data_startParamDentro:" + $scope.data_start );
+        //console.log(" data_startParamDentroo:" + date_start.value);
 
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
@@ -147,8 +153,8 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
         var loja = [];
         //dados para o grafico
         for(dt in dado) {
-            media[dt] = dado[dt].media;
-            loja[dt] = dado[dt].name;
+            media[dt] = parseInt(dado[dt].media);
+            loja[dt] = dado[dt].name.toString();
         }
 
         google.charts.load('current', {'packages':['bar']});
@@ -188,7 +194,8 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
         value: new Date(d.value.getTime() - 10080*60000),
     }
 
-    $scope.carregarCases(novaData, d);
+    $scope.carregarCases($scope.data_startParam, $scope.data_endParam);
+    //$scope.carregarCases(novaData, d);
     $scope.carregarAtendimentos();
     $scope.carregarNatendimentos();
     $scope.carregarEstabelecimentos();

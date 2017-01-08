@@ -36,7 +36,8 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             controller: 'clientesCtrl',
             activetab: 'clientes'
         }).state('main.clientes.graphic', {
-            url: 'graphic',
+            url: '/graphic/:data_startParametro/:data_endParametro',
+            
             templateUrl: 'app/pages/clientes/clienteGraphic.html',
             controller: 'clientesCtrl',
             activetab: 'clientes'
@@ -75,7 +76,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             controller: 'atendimentosCtrl',
             activetab: 'atendimentos'
         }).state('main.atendimentos.listarPorHora', {
-            url: '/listarPorHora',
+            url: '/listarPorHora/:data_startParametro/:data_endParametro',
             templateUrl: 'app/pages/atendimentos/atendimentosPorHora.html',
             controller: 'atendimentosCtrl',
             activetab: 'atendimentosPorHora'
@@ -85,22 +86,22 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             controller: 'atendimentosCtrl',
             activetab: 'atendimentosPorHoraContagemMedia'
         }).state('main.atendimentos.listarPorDiaSemana', {
-            url: '/listarPorDiaSemana',
+            url: '/listarPorDiaSemana/:data_startParametro/:data_endParametro',
             templateUrl: 'app/pages/atendimentos/atendimentosPorDiaSemana.html',
             controller: 'atendimentosCtrl',
             activetab: 'atendimentosDiaSemana'
         }).state('main.atendimentos.listarPorDiaMes', {
-            url: '/listarPorDiaMes',
+            url: '/listarPorDiaMes/:data_startParametro/:data_endParametro',
             templateUrl: 'app/pages/atendimentos/atendimentosPorDiaMes.html',
             controller: 'atendimentosCtrl',
             activetab: 'atendimentosDiaMes'
         }).state('main.atendimentos.listarPorCategoria', {
-            url: '/listarPorCategoria',
+            url: '/listarPorCategoria/:data_startParametro/:data_endParametro',
             templateUrl: 'app/pages/atendimentos/atendimentosPorCategoria.html',
             controller: 'atendimentosCtrl',
             activetab: 'atendimentosPorCategoria'
         }).state('main.atendimentos.listarPorDate', {
-            url: '/listarPorDate',
+            url: '/listarPorDate/:data_startParametro/:data_endParametro',
             templateUrl: 'app/pages/atendimentos/atendimentosPorData.html',
             controller: 'atendimentosCtrl',
             activetab: 'atendimentosPorData'
@@ -161,7 +162,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             url: 'analisesCasos',
             template: '<ui-view></ui-view>'
         }).state('main.analisesCasos.listar', {
-            url: '/listaCasos/:variable',
+            url: '/listaCasos/:data_startParametro/:data_endParametro',
             //url: '/listaCasos',
             
             templateUrl: 'app/pages/analises/analiseCasos.html',

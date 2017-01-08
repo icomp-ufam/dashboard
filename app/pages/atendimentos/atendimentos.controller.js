@@ -1,7 +1,7 @@
 /**
  * Created by Larissa Fabíola on 30/11/16.
  */
-angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, config) {
+angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, config, $state, $stateParams) {
 
     $scope.app = "Atendimentos";
     //$scope.estabelecimentos = [];
@@ -18,27 +18,72 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     $scope.data_end = [];
     //$scope.Natendimentos = [];
 
+    $scope.data_startParam = {
+        value: new Date($stateParams.data_startParametro)
+    }
+    $scope.data_endParam = {
+        value: new Date($stateParams.data_endParametro)
+    }
+    console.log(" $stateParams1 = " + $scope.data_startParam.value.getDate() );
+     console.log(" $stateParams2 = " + $scope.data_endParam.value );
 
-    /*var carregarAtendimentos = function () {
-     $http({
 
-     url : "http://54.233.67.111:8081/analytics/cases/situation",
-     method : 'GET',
-     headers : {
-     'Content-Type' : 'application/json',
-     'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
-     }
-     }).success(function(data){
-     $scope.atendimentos = data;
-     }).error(function(error){
-     $scope.message = "Aconteceu um problema: " + data;
-     console.log("login error");
-     });
-     };*/
+    $scope.clickThisAtendimentosPorHora=function(date_start, date_end) {
+        // console.log("teste date_start : " + date_start.value);
+        // console.log("teste date_end : " + date_end );
+         $state.go("main.atendimentos.listarPorHora", 
+            {
+            data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+            data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
 
-    // $scope.orderByFunction = function(friend){
-    //     return parseInt(friend.case_hour);
-    // };
+        });
+    };
+
+    $scope.clickThisAtendimentosPorDiaSemana=function(date_start, date_end) {
+        // console.log("teste date_start : " + date_start.value);
+        // console.log("teste date_end : " + date_end );
+         $state.go("main.atendimentos.listarPorDiaSemana", 
+            {
+            data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+            data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+        });
+    };
+
+    $scope.clickThisAtendimentosPorDiaMes=function(date_start, date_end) {
+        // console.log("teste date_start : " + date_start.value);
+        // console.log("teste date_end : " + date_end );
+         $state.go("main.atendimentos.listarPorDiaMes", 
+            {
+            data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+            data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+        });
+    };
+
+    $scope.clickThisAtendimentosPorCategoria=function(date_start, date_end) {
+        // console.log("teste date_start : " + date_start.value);
+        // console.log("teste date_end : " + date_end );
+         $state.go("main.atendimentos.listarPorCategoria", 
+            {
+            data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+            data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+        });
+    };
+
+    $scope.clickThisAtendimentosPorDate=function(date_start, date_end) {
+        // console.log("teste date_start : " + date_start.value);
+        // console.log("teste date_end : " + date_end );
+         $state.go("main.atendimentos.listarPorDate", 
+            {
+            data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+            data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+        });
+    };
+
+    
     $scope.orderByF2 = function(f){
         return parseInt(f.date_trunc);
     };
@@ -1487,12 +1532,12 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
         value: new Date(d.value.getTime() - 10080*60000),
     }
     $scope.carregarAtendimentos(novaData, d);
-    $scope.carregarAtendimentosPorHora(novaData, d);
-    $scope.carregarAtendimentosPorDiaSemana(novaData, d);
+    $scope.carregarAtendimentosPorHora($scope.data_startParam, $scope.data_endParam);
+    $scope.carregarAtendimentosPorDiaSemana($scope.data_startParam, $scope.data_endParam);
     $scope.carregarAtendimentosPorDiaMes(novaData, d);
-    $scope.carregarAtendimentosPorCategoria(novaData, d);
-    $scope.carregarAtendimentosPorDate(novaData, d);
-    $scope.carregaConsultasPorHora();
-    $scope.carregaConsultasPorHoraContagem();
+    $scope.carregarAtendimentosPorCategoria($scope.data_startParam, $scope.data_endParam);
+    $scope.carregarAtendimentosPorDate($scope.data_startParam, $scope.data_endParam);
+    // $scope.carregaConsultasPorHora();
+    // $scope.carregaConsultasPorHoraContagem();
 
 });

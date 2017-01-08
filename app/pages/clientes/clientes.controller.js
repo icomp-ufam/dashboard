@@ -1,14 +1,41 @@
 /**
  * Created by Larissa Fabíola on 30/11/16.
  */
-angular.module("teewa").controller("clientesCtrl", function ($scope, $http, config, $state) {
+angular.module("teewa").controller("clientesCtrl", function ($scope, $http, config, $stateParams, $state) {
 
     $scope.app = "Clientes";
     $scope.clientes = [];
-    //$scope.userInput = 1;
+     $scope.clientesGraphic = [];
 
-    $scope.clickThis=function() {
-         $state.go("main.analisesCasos.listar", { variable: 'consegui passar o id'  });
+    $scope.data_startParam = {
+        value: new Date($stateParams.data_startParametro)
+    }
+    $scope.data_endParam = {
+        value: new Date($stateParams.data_endParametro)
+    }
+    // console.log(" $stateParams1 = " + $scope.data_startParam.value.getDate() );
+    // console.log(" $stateParams2 = " + $scope.data_endParam.value );
+
+
+    $scope.clickThisAnaliseCasos=function(date_start, date_end) {
+        // console.log("teste date_start : " + date_start.value);
+        // console.log("teste date_end : " + date_end );
+         $state.go("main.analisesCasos.listar", 
+            {
+            data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+            data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+        });
+    };
+    $scope.clickThisClientesGraphic=function(date_start, date_end) {
+        // console.log("teste date_start : " + date_start.value);
+        // console.log("teste date_end : " + date_end );
+         $state.go("main.clientes.graphic", 
+            {
+            data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+            data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+        });
     };
 
     $scope.carregarClientesPorData = function (date_start, date_end) {
@@ -31,7 +58,7 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
                 }
             }).success(function(data){
                 $scope.clientes = data;
-                grafico(data);
+                //grafico(data);
 
                 $scope.data_start = {
                         value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
@@ -50,28 +77,41 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
 
     };
 
-    var carregarClientesPorData2 = function (inicio, final) {
-        $http({
+    $scope.carregarClientesPorData2 = function (date_start, date_end) {
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
+        var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
+        console.log(NovaDate_start);
+        console.log(NovaDate_end);
 
-            url : config.baseUrl + "/dash/users/",
-            method : 'post',
-            headers : {
-                'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
-            },
-            data: {
-                'date_start' : inicio,
-                'date_end' : final
-            }
-        }).success(function(data){
-            $scope.clientes = data;
-            grafico(data);
-            console.log(data);
-        }).error(function(error){
-            $scope.message = "Aconteceu um problema: " + error;
-            console.log("login error");
-        });
+            $http({
 
+                url : config.baseUrl + "/dash/users/",
+                method : 'post',
+                headers : {
+                    'Content-Type': 'application/json',
+                    'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                },
+                data: {
+                    'date_start' : NovaDate_start,
+                'date_end' : NovaDate_end,
+                }
+            }).success(function(data){
+                $scope.clientesGraphic = data;
+                grafico(data);
+
+                $scope.data_start = {
+                        value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+
+                };
+                $scope.data_end = {
+                    value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+                };
+
+            }).error(function(error){
+                $scope.message = "Aconteceu um problema: " + error;
+                console.log("login error");
+            });
     };
 
     $scope.apagarClientes = function (clientes) {
@@ -108,7 +148,8 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
         value: new Date(d.value.getTime() - 10080*60000),
     }
 
-    //$scope.carregarClientesPorData(novaData, d);
+    $scope.carregarClientesPorData(novaData, d);
+    $scope.carregarClientesPorData2($scope.data_startParam, $scope.data_endParam);
 
 
     function grafico(dado){
@@ -116,15 +157,15 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
         var qtd = [];
         //dados para o grafico
         for(dt in dado) {
-            nome[dt] = dado[dt].nome;
+            nome[dt] = dado[dt].nome.toString();
             qtd[dt] = parseInt(dado[dt].qtde_casos);
         }
-        //tamanho minimo do grafico
-        if(nome.length < 5)
-            for (i = 0; i < 3; i++){
-                nome[i + (nome.length)] = "";
-                qtd[i+ (nome.length)] = 0;
-            }
+        // //tamanho minimo do grafico
+        // if(nome.length < 5)
+        //     for (i = 0; i < 3; i++){
+        //         nome[i + (nome.length)] = "";
+        //         qtd[i+ (nome.length)] = 0;
+        //     }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
