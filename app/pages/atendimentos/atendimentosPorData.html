@@ -58,9 +58,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                        <tr ng-repeat="atendimentosPorDate in atendimentosPorDates | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                        <tr ng-repeat="atendimentosPorDate in atendimentosPorDates | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao | orderBy:'-case_date'">
                                               
-                                                <td class="active">{{atendimentosPorDate.case_date}}</td>
+                                                <td class="active">{{atendimentosPorDate.case_date | date: 'dd/MM/y'}}</td>
                                                                                            
                                                 <td class="success">{{atendimentosPorDate.ate}}</td>
                                                 
@@ -101,9 +101,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                        <tr ng-repeat="atendimentosPorDate in atendimentosPorDates | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                        <tr ng-repeat="atendimentosPorDate in atendimentosPorDates | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao | orderBy:'-case_date'">
                                               
-                                                <td class="active">{{atendimentosPorDate.case_date}}</td>
+                                                <td class="active">{{atendimentosPorDate.case_date | date: 'dd/MM/y'}}</td>
                                                                                            
                                                 <td class="danger">{{atendimentosPorDate.neg}}</td>
                                                 
@@ -146,9 +146,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                        <tr ng-repeat="atendimentosPorDate in atendimentosPorDates | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                        <tr ng-repeat="atendimentosPorDate in atendimentosPorDates | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao | orderBy:'-case_date'">
                                               
-                                                <td class="active">{{atendimentosPorDate.case_date}}</td>
+                                                <td class="active">{{atendimentosPorDate.case_date| date: 'dd/MM/y'}}</td>
                                                                                            
                                                 <td class="warning">{{atendimentosPorDate.nat}}</td>
                                                      
@@ -188,9 +188,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                        <tr ng-repeat="atendimentosPorDate in atendimentosPorDates | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                        <tr ng-repeat="atendimentosPorDate in atendimentosPorDates | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao | orderBy:'-case_date'">
                                               
-                                                <td class="active">{{atendimentosPorDate.case_date.substring(0, 10)}}</td>
+                                                <td class="active">{{atendimentosPorDate.case_date.substring(0, 10) | date: 'dd/MM/y'}}</td>
                                                                                            
                                                 <td class="info">{{atendimentosPorDate.tot}}</td>
                                                 

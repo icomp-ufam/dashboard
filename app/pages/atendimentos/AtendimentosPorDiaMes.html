@@ -57,7 +57,7 @@
                             <tbody>
                                         <tr ng-repeat="atendimentosPorDiaMes in atendimentosPorDiaMess | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                               
-                                                <td class="active">{{atendimentosPorDiaMes.day_of_month | 'dd/mm/yyyy'}}</td>
+                                                <td class="active">{{atendimentosPorDiaMes.day_of_month}}</td>
                                                                                            
                                                 <td class="success">{{atendimentosPorDiaMes.ate}}</td>
                                                 

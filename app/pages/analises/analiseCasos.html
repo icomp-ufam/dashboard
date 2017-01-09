@@ -59,7 +59,7 @@
                                 <tr>
                                     <th ng-click="ordenarPor('caso')">Casos</th>
                                     <th ng-click="ordenarPor('consulta')" >Consulta</th>
-                                    <th ng-click="ordenarPor('data_hora')" >Data/hora</th>
+                                    <th ng-click="ordenarPor('data_hora')" >Dat!!
                                     <th ng-click="ordenarPor('cliente')" >Cliente</th>
                                     <th ng-click="ordenarPor('loja')" >Loja</th>
                                     <th ng-click="ordenarPor('atendente')" >Atendente</th>
@@ -71,7 +71,7 @@
 
                                     <td>{{case.caso}}</td>
                                     <td>{{case.consulta}}</td>
-                                    <td>{{case.data_hora}}</td>
+                                    <td>{{case.data_hora.substring(0, 8)}}</td>
                                     <td>{{case.cliente}}</td>
                                     <td>{{case.loja}}</td>
                                     <td>{{case.atendente}}</td>
