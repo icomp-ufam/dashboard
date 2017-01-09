@@ -47,7 +47,7 @@ angular.module('teewa').controller('chatCtrl', function($scope, $state, sharedCo
         $scope.myId = sharedConn.getConnectObj().jid;
         $scope.messages = [];
         $scope.to_id = ChatDetails.getTo();
-    }
+    };
     
     $scope.login();
 
@@ -131,11 +131,10 @@ angular.module('teewa').controller('chatCtrl', function($scope, $state, sharedCo
             console.log('Message recieved from ' + from + ': ' + textMsg);
         }
 
-    }
-
+    };
 
     $scope.$on('msgRecievedBroadcast', function(event, data) {
         $scope.messageRecieve(data);
     })
 
-})
+});
