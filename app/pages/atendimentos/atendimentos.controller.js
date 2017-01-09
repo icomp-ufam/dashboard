@@ -1572,7 +1572,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     $scope.carregarAtendimentosPorDiaMes($scope.data_startParam, $scope.data_endParam);
     $scope.carregarAtendimentosPorCategoria($scope.data_startParam, $scope.data_endParam);
     $scope.carregarAtendimentosPorDate($scope.data_startParam, $scope.data_endParam);
-    // $scope.carregaConsultasPorHora();
-    // $scope.carregaConsultasPorHoraContagem();
+     $scope.carregaConsultasPorHora();
+     $scope.carregaConsultasPorHoraContagem();
 
 });
