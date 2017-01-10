@@ -47,6 +47,8 @@
                                 <th> </th>
                             </tr>
                             <tr>
+
+                                <th ng-click="ordenarPor('id')">ID</th>
                                 <th ng-click="ordenarPor('name')">Nome</th>
                                 <th ng-click="ordenarPor('atendimento')">Qte Atendimentos</th>
                                 <th ng-click="ordenarPor('avg_rating')">Avaliação</th>
@@ -57,6 +59,8 @@
                         </thead>
                        <tbody>
                             <tr ng-repeat="vendedor in vendedores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+
+                                <td>{{vendedor.id}}</td>
                                 <td>{{vendedor.name}}</td>
                                 <td>{{vendedor.atendimento}}</td>
                                 <td>{{vendedor.avg_rating}}</td>

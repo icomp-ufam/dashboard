@@ -15,6 +15,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
 
         $urlRouterProvider.when('dashboard-vendedor', 'dashboard-vendedor/index');
 
+
         $stateProvider.state('main', {
             url: '/',
             templateUrl: 'app/pages/main/main.html',
@@ -126,15 +127,23 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/dashboard/dashboard.html',
             controller: 'dashboardCtrl',
             activetab: 'dashboard'
-        }).state('main.dashboardVendedor', {
-            url: 'dashboard-vendedor',
-            template: '<ui-view></ui-view>'
-        }).state('main.dashboardVendedor.index', {
+        })
+
+            .state('main.dashboardVendedor', {
+                url: 'dashboard-vendedor',
+                template: '<ui-view></ui-view>'
+            }).state('main.dashboardVendedor.index', {
             url: '/index',
             templateUrl: 'app/pages/dashboard-vendedor/dashboard-vendedor.html',
             controller: 'dashboardVendedorCtrl',
             activetab: 'dashboardVendedor'
+        }).state('main.dashboardVendedor.casosAbertos', {
+            url: '/casos-abertos',
+            templateUrl: 'app/pages/dashboard-vendedor/casos-abertos.html',
+            controller: 'dashboardVendedorCtrl',
+            activetab: 'dashboardVendedor'
         })
+
             .state('main.pacotes', {
             url: 'pacotes',
             template: '<ui-view></ui-view>'
@@ -193,4 +202,5 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             controller: 'analiseCtrl',
             activetab: 'estabelecimentos'
         })
+
     });
