@@ -6,26 +6,27 @@ angular.module('teewa').factory('Chats', ['sharedConn', '$rootScope', '$state', 
     ChatsObj.roster = [];
     console.log(connection);
     loadRoster = function() {
-        
-        // set up presence handler and send initial presence
+
+
+        // configura o manipulador de presença e envia presença inicial
         connection.addHandler(
             //on recieve precence iq
             function(presence) {
-                /*var presence_type = $(presence).attr('type'); // unavailable, subscribed, etc...
-						   var from = $(presence).attr('from'); // the jabber_id of the contact
-						   if (presence_type != 'error'){
-							 if (presence_type === 'unavailable'){
-								console.log("offline"); //alert('offline');
-							 }else{
-							   var show = $(presence).find("show").text(); // this is what gives away, dnd, etc.
-							   if (show === 'chat' || show === ''){
-								 console.log("online"); //alert('online');
-							   }else{
-								 console.log("etc");//alert('etc');
-							   }
-							 }
-						   }
-						   */
+                var presence_type = $(presence).attr('type'); // unavailable, subscribed, etc...
+                   var from = $(presence).attr('from'); // the jabber_id of the contact
+                   if (presence_type != 'error'){
+                     if (presence_type === 'unavailable'){
+                        console.log("offline"); //alert('offline');
+                     }else{
+                       var show = $(presence).find("show").text(); // this is what gives away, dnd, etc.
+                       if (show === 'chat' || show === ''){
+                         console.log("online"); //alert('online');
+                       }else{
+                         console.log("etc");//alert('etc');
+                       }
+                     }
+                   }
+
                 return true;
             }, null, "presence");
 
@@ -40,12 +41,11 @@ angular.module('teewa').factory('Chats', ['sharedConn', '$rootScope', '$state', 
                 if (!iq || iq.length == 0)
                     return;
 
-                //jquery load data after loading the page.This function updates data after jQuery loading
+                // jquery carregar dados depois de carregar a página. Esta função atualiza dados após o carregamento de jQuery
                 $rootScope.$apply(function() {
 
                     $(iq).find("item").each(function() {
-
-                        //roster update via Client 1(ie this client) accepting request
+                        // atualização de lista através do cliente 1 (ou seja, este cliente) aceitando solicitação
                         if ($(this).attr("subscription") == "from") {
 
                             ChatsObj.roster.push({
@@ -55,7 +55,7 @@ angular.module('teewa').factory('Chats', ['sharedConn', '$rootScope', '$state', 
                                 face: 'app/assets/images/users/no-image.jpg'
                             });
                         }
-                        // Waiting for the Client 2 to accept the request
+                        // Esperando que o Cliente 2 aceite o pedido
                         else if ($(this).attr("subscription") == "none" && $(this).attr("ask") == "subscribe") {
 
                             ChatsObj.roster.push({
@@ -67,8 +67,7 @@ angular.module('teewa').factory('Chats', ['sharedConn', '$rootScope', '$state', 
 
 
                         }
-
-                        //roster update via Client 2 deleting the roster contact
+                        // Atualização da lista através do Cliente 2 excluindo o contato da lista
                         else if ($(this).attr("subscription") == "none") {
                             console.log($(this).attr("jid"));
                             ChatsObj.removeRoster(ChatsObj.getRoster($(this).attr("jid")));
