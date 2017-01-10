@@ -11,12 +11,12 @@
         <div class="row">
             <div class="col-md-3">
                 <!-- START WIDGET REGISTRED -->
-                <div class="widget widget-default widget-item-icon" ui-sref="#">
+                <div class="widget widget-default widget-item-icon" ui-sref="main.dashboardVendedor.casosNovos">
                     <div class="widget-item-left">
                         <span class="fa fa-bell-o"></span>
                     </div>
                     <div class="widget-data">
-                        <div class="widget-int num-count">18</div>
+                        <div class="widget-int num-count">{{qteCasos}}</div>
 
                         <div class="widget-title">Casos não atendidos</div>
                     </div>
@@ -30,7 +30,7 @@
                         <span class="fa fa-comment-o"></span>
                     </div>
                     <div class="widget-data">
-                        <div class="widget-int num-count">20</div>
+                        <div class="widget-int num-count">{{qteChats}}</div>
 
                         <div class="widget-title">Casos abertos</div>
                     </div>
