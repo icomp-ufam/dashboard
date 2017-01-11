@@ -1,24 +1,73 @@
+<div class="row">
 <!-- MESSAGES -->
-<div class="col-md-3">
 
-    <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
-        <div class="panel-heading">
-            <h3 class="panel-title"><span class="fa fa-comments"></span> Chats </h3>
-
-        </div>
-
-        <div class="panel-body list-group list-group-contacts scroll" style="height: 200px;">
-            <a href="#" class="list-group-item" ng-repeat="chat in chats">
-                <div class="list-group-status status-offline"></div>
-                <img ng-src="{{urlPhotos}}{{chat.userTo.photo}}"  alt="User"/>
-                <span class="contacts-title">{{chat.userTo.name}}</span>
-                <p>{{chat.created_at | date:'dd/MM/yyyy - HH:mm'}}</p>
-                <span class="contacts-title">{{chat.case.name}}</span>
-            </a>
+<div class="col-md-8">
+    <div class="content-frame">
+        <!-- START CONTENT FRAME TOP -->
+        <div class="content-frame-top">
+            <div class="page-title">
+                <h2><span class="fa fa-comments"></span> {{chatAtual}}</h2>
+            </div>
 
         </div>
-        <div class="panel-footer text-center">
-            <a href="pages-messages.html">Show all messages</a>
+
+    <!-- START CONTENT FRAME BODY -->
+    <div class="content-frame-body-right">
+
+        <div class="messages messages-img">
+            <div  ng-repeat="message in messages" ng-class="{in: message.userId == myId}" class="item item-visible">
+                <div class="image">
+                    <img src="app/assets/images/users/no-image.jpg" alt="John Doe">
+                </div>
+                <div class="text">
+                    <div class="heading">
+                        <a href="#">{{message.userId}}</a>
+                        <span class="date">{{message.time}}</span>
+                    </div>
+                    {{message.text}}
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default push-up-10">
+            <div class="panel-body panel-body-search">
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default"><span class="fa fa-camera"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-chain"></span></button>
+                    </div>
+                    <input type="text" ng-model="data.message" class="form-control" placeholder="Digite uma mensagem..."/>
+                    <div class="input-group-btn">
+                        <button ng-click="showSendMessage()" class="btn btn-default"><span class="fa fa-send"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    <div class="col-md-4 content-frame-right" >
+
+        <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="fa fa-comments"></span> Chat </h3>
+
+            </div>
+
+            <div class="panel-body list-group list-group-contacts scroll" style="height: 200px;">
+                <a ng-click="clickChat(chat.case.name)" class="list-group-item" ng-repeat="chat in chats">
+                    <div class="list-group-status status-offline"></div>
+                    <img  ng-show="chat.userTo.photo" ng-src="{{urlPhotos}}{{chat.userTo.photo}}"  alt="User"/>
+                    <span class="contacts-title">{{chat.userTo.name}}</span>
+                    <p>{{chat.created_at | date:'dd/MM/yyyy - HH:mm'}}</p>
+                    <span class="contacts-title">{{chat.case.name}}</span>
+                </a>
+                <div class="panel-footer text-center">
+                    <a>Mostrar tudo</a>
+                </div>
+
+            </div>
+
         </div>
     </div>
 </div>
