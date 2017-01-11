@@ -12,8 +12,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.urlPhotos = config.baseUrl + "/photos/";
     $scope.urlFiles = config.baseUrl + "/case_images/";
 
-    // id do erick
-    $scope.idVendedor = '650';
+    // id Larissa
+    $scope.idVendedor = '672';
 
     $scope.carregarCasosAbertos = function () {
         $http({
@@ -42,10 +42,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
                 'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
             },
             data: {
-                //id do teewa
-                'idstore' : '1',
-                //id do caio
-                'idseller' :'652'
+                //id do chat-dashboard
+                'idstore' : '118',
+
+                'idseller' :$scope.idVendedor
             }
         }).success(function(data){
             $scope.casos = data.cases;
@@ -57,19 +57,56 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     };
 
     $scope.aceitarCaso = function (idcase) {
-        // so fazer essa parada quando tiver contas de teste
         // rota: /cases/accept, metodo PUT, params: idseller, idcase, idstore
-        console.log(idcase);
-        //criar a sala, passar o id do chat para a tela de chat (?)
-        $state.go("main.dashboardVendedor.casosAbertos");
+        $http({
+            url : config.baseUrl + "/cases/accept",
+            method : 'put',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                //id do chat-dashboard
+                'idstore' : '118',
+                'idseller' :$scope.idVendedor,
+                'idcase' : idcase
+            }
+        }).success(function(data){
+            $scope.chatAtual = data.chat;
+            $state.go("main.dashboardVendedor.casosAbertos");
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + data;
+        });
+
     };
 
     $scope.recusarCaso = function (idcase) {
         // so fazer essa parada quando tiver contas de teste
         // rota: /cases/deny, metodo PUT, params: idseller, idcase, idstore
-        console.log(idcase);
+        $http({
+            url : config.baseUrl + "/cases/deny",
+            method : 'put',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                //id do chat-dashboard
+                'idstore' : '118',
+                'idseller' :$scope.idVendedor,
+                'idcase' : idcase
+            }
+        }).success(function(data){
+            $state.reload();
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + data;
+        });
+
+
         //apenas recarregar a pagina
-        $state.reload();
+
     };
 
     $scope.clickChat = function (nome) {

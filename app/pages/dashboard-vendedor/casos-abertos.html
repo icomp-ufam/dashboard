@@ -6,7 +6,7 @@
         <!-- START CONTENT FRAME TOP -->
         <div class="content-frame-top">
             <div class="page-title">
-                <h2><span class="fa fa-comments"></span> {{chatAtual}}</h2>
+                <h2><span class="fa fa-comments"></span> {{chatAtual.case.name}}</h2>
             </div>
 
         </div>
@@ -55,7 +55,7 @@
             </div>
 
             <div class="panel-body list-group list-group-contacts scroll" style="height: 200px;">
-                <a ng-click="clickChat(chat.case.name)" class="list-group-item" ng-repeat="chat in chats">
+                <a ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats">
                     <div class="list-group-status status-offline"></div>
                     <img  ng-show="chat.userTo.photo" ng-src="{{urlPhotos}}{{chat.userTo.photo}}"  alt="User"/>
                     <span class="contacts-title">{{chat.userTo.name}}</span>
