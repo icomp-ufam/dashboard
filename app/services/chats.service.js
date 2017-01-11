@@ -98,7 +98,6 @@ angular.module('teewa').factory('Chats', ['sharedConn', '$rootScope', '$state', 
     }
 
 
-
     ChatsObj.removeRoster = function(chat) {
         ChatsObj.roster.splice(ChatsObj.roster.indexOf(chat), 1);
     }
@@ -111,7 +110,6 @@ angular.module('teewa').factory('Chats', ['sharedConn', '$rootScope', '$state', 
         }
     }
 
-
     ChatsObj.addNewRosterContact = function(to_id) {
         console.log(to_id);
         connection.send($pres({
@@ -119,7 +117,6 @@ angular.module('teewa').factory('Chats', ['sharedConn', '$rootScope', '$state', 
             type: "subscribe"
         }));
     }
-
 
     return ChatsObj;
 

@@ -1,7 +1,7 @@
 /**
  * Created by lgpbentes on 09/01/17.
  */
-angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $http, config, $state) {
+angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $http, config, $state , sharedConn, Chats, ChatDetails) {
     $scope.app = "Dashboard Vendedor";
     $scope.chats = [];
     $scope.casos = [];
@@ -76,13 +76,110 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         $scope.chatAtual = nome;
     };
 
-    $scope.login = function () {
-        if((user.username == config.user) && (user.password == config.password)){
-            window.location.replace('index.html');
-        }
-    };
 
     $scope.carregarCasosAbertos();
     $scope.carregarCasosNovos();
+
+
+    //realizando conversa
+
+    var XMPP_DOMAIN = 'myserver'; // Servidor de conexão
+
+    $scope.login = function(user) {
+        sharedConn.login(config.user,XMPP_DOMAIN,config.password);
+        $scope.chats = sharedConn.getRoster();
+        $scope.hideTime = true;
+        $scope.data = {};
+        $scope.myId = sharedConn.getConnectObj().jid;
+        $scope.messages = [];
+        $scope.to_id = ChatDetails.getTo();
+    };
+
+    $scope.login(); //registra usuario porem ainda não está online
+
+    $scope.logout = function() {
+        console.log("T");
+        sharedConn.logout();
+        $state.go('login', {}, {
+            location: "replace",
+            reload: true
+        });
+    };
+
+    $scope.remove = function(chat) {
+        Chats.removeRoster(chat);
+    };
+
+
+    $scope.add = function(add_jid) {
+        Chats.addNewRosterContact(add_jid);
+    };
+
+    // To automate login
+
+    $scope.sendMsg = function(to, body) {
+        console.log(to);
+        var to_jid = Strophe.getBareJidFromJid(to);
+        var timestamp = new Date().getTime();
+        var reqChannelsItems = $msg({
+            id: timestamp,
+            to: to_jid,
+            type: 'chat'
+        })
+            .c("body").t(body);
+        sharedConn.getConnectObj().send(reqChannelsItems.tree());
+    };
+
+    $scope.showSendMessage = function() {
+
+        $scope.sendMsg($scope.to_id, $scope.data.message);
+
+        var d = new Date();
+        d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
+
+        $scope.messages.push({
+            userId: $scope.myId,
+            text: $scope.data.message,
+            time: d
+        });
+
+        delete $scope.data.message;
+
+    };
+
+    $scope.messageRecieve = function(msg) {
+
+        //  var to = msg.getAttribute('to');
+        var from = msg.getAttribute('from');
+        var type = msg.getAttribute('type');
+        var elems = msg.getElementsByTagName('body');
+
+        var d = new Date();
+        d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
+
+        if (type == "chat" && elems.length > 0) {
+
+            var body = elems[0];
+            var textMsg = Strophe.getText(body);
+
+
+            $scope.messages.push({
+                userId: from,
+                text: textMsg,
+                time: d
+            });
+
+
+            $scope.$apply();
+
+            console.log($scope.messages);
+            console.log('Message recieved from ' + from + ': ' + textMsg);
+        }
+
+    };
+
+    $scope.$on('msgRecievedBroadcast', function(event, data) {
+        $scope.messageRecieve(data);
+    })
 
 });

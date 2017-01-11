@@ -1,4 +1,4 @@
-angular.module('teewa').controller('chatCtrl', function($scope, $state, sharedConn, Chats, ChatDetails) {
+angular.module('teewa').controller('chatCtrl', function($scope, $state, sharedConn, Chats, ChatDetails, config) {
 
     /*$scope.goToLogin = function() {
         $state.go('login', {}, {
@@ -37,10 +37,10 @@ angular.module('teewa').controller('chatCtrl', function($scope, $state, sharedCo
     // sharedConn.login("leo32",XMPP_DOMAIN,"pandora561500");
 
     //var XMPP_DOMAIN = 'chatme.community'; // Domain we are going to be connected to.
-    var XMPP_DOMAIN = 'myserver'; // vai conectar aqui!
+    var XMPP_DOMAIN = 'myserver'; // Servidor de conexão
     
     $scope.login = function(user) {
-        sharedConn.login("teewa01",XMPP_DOMAIN,"12345678");
+        sharedConn.login(config.user,XMPP_DOMAIN,config.password);
         $scope.chats = sharedConn.getRoster();
         $scope.hideTime = true;
         $scope.data = {};
@@ -49,7 +49,7 @@ angular.module('teewa').controller('chatCtrl', function($scope, $state, sharedCo
         $scope.to_id = ChatDetails.getTo();
     };
     
-    $scope.login();
+    $scope.login(); //registra usuario porem ainda não está online
 
     $scope.logout = function() {
         console.log("T");

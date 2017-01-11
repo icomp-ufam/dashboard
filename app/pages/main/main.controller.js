@@ -1,10 +1,10 @@
 /**
- * Created by Larissa Fabíola on 30/11/16.
+ * Created by Marcos Soares on 10/01/17.
  */
 angular.module("teewa").controller("mainCtrl", function ($scope, $state, config) {
 	$scope.state = $state;
 	$scope.vendedor = false;
-
+    //stub de login
 	$scope.login = function () {
 		$scope.vendedor = true;
     }
