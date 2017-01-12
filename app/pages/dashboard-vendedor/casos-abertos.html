@@ -6,8 +6,20 @@
         <!-- START CONTENT FRAME TOP -->
         <div class="content-frame-top">
             <div class="page-title">
-                <h2><span class="fa fa-comments"></span> {{chatAtual.case.name}}</h2>
+                <h2><span class="fa fa-comments"></span> {{chatAtual.case.name || 'Chat'}}</h2>
             </div>
+            <ul ng-show="chatAtual.id" class="panel-controls">
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-click="encerrarCaso(chatAtual.id)" ><a><span class="fa fa-times"></span> Encerrar caso </a></li>
+                        <li><a><span class="fa fa-exclamation-triangle"></span> Denunciar cliente </a></li>
+
+                    </ul>
+                </li>
+
+            </ul>
 
         </div>
 
@@ -15,6 +27,7 @@
     <div class="content-frame-body-right">
 
         <div class="messages messages-img">
+            <img ng-show="chatAtual.case.file" ng-src="{{urlFiles}}{{chatAtual.case.file}}" width="200" height="200">
             <div  ng-repeat="message in messages" ng-class="{in: message.userId == myId}" class="item item-visible">
                 <div class="image">
                     <img src="app/assets/images/users/no-image.jpg" alt="John Doe">
@@ -50,17 +63,19 @@
 
         <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
             <div class="panel-heading">
-                <h3 class="panel-title"><span class="fa fa-comments"></span> Chat </h3>
+                <h3 class="panel-title"><span class="fa fa-comments"></span> Conversas </h3>
 
             </div>
 
             <div class="panel-body list-group list-group-contacts scroll" style="height: 200px;">
                 <a ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats">
-                    <div class="list-group-status status-offline"></div>
-                    <img  ng-show="chat.userTo.photo" ng-src="{{urlPhotos}}{{chat.userTo.photo}}"  alt="User"/>
-                    <span class="contacts-title">{{chat.userTo.name}}</span>
+                    <div class="list-group-status status-online"></div>
+                    <img  ng-show="chat.userTo.photo" ng-src="{{urlPhotos}}{{chat.userTo.photo}}" ng-class="(!chat.iduser_close || 'greyscale')"  alt="User"/>
+                    <span class="contacts-title">{{(chat.iduser_close && 'Usuário encerrou o caso' ) || chat.userTo.name}}</span>
                     <p>{{chat.created_at | date:'dd/MM/yyyy - HH:mm'}}</p>
                     <span class="contacts-title">{{chat.case.name}}</span>
+                    <!--<span class="contacts-title">{{ (chat.iduser_close && 'Você não pode mais enviar mensagens pois esta conversa foi encerrada pelo cliente.' ) || chat.case.name}}</span>-->
+
                 </a>
                 <div class="panel-footer text-center">
                     <a>Mostrar tudo</a>
@@ -71,3 +86,13 @@
         </div>
     </div>
 </div>
+
+<style>
+    img.greyscale{
+        -o-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+
+</style>

@@ -27,6 +27,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         }).success(function(data){
             $scope.chats = data.chats;
             $scope.qteChats = $scope.chats.length;
+            console.log($scope.chats);
 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + data;
@@ -98,15 +99,34 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
                 'idcase' : idcase
             }
         }).success(function(data){
+            // recarregar a página
             $state.reload();
 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + data;
         });
+    };
 
-
-        //apenas recarregar a pagina
-
+    $scope.encerrarCaso = function (idchat) {
+        $http({
+            url : config.baseUrl + "/chats/close",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'iduser' : $scope.idVendedor,
+                'isseller' : 'true',
+                'idschats' : "["+idchat+"]"
+            }
+        }).success(function(data){
+            $scope.chatAtual = "";
+            $state.reload();
+        }).error(function(error){
+            console.log(error);
+            $scope.message = "Aconteceu um problema: " + error;
+        });
     };
 
     $scope.clickChat = function (nome) {
