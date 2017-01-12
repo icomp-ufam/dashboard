@@ -251,7 +251,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
 
     };
     $scope.carregarAtendimentosPorDate = function (date_start, date_end) {
-         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
         console.log(NovaDate_start);
         console.log(NovaDate_end);
@@ -331,10 +331,10 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
 
     };
     $scope.carregarAtendimentosPorDiaMes = function (date_start, date_end) {
-         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
-        console.log(NovaDate_start);
-        console.log(NovaDate_end);
+        // console.log(NovaDate_start);
+        // console.log(NovaDate_end);
         //console.log(date_start);
         //console.log(date_end);
 
@@ -351,42 +351,45 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 'date_end' : NovaDate_end,
             }
         }).success(function(data,date){
-            $scope.atendimentosPorDiaMess = data;
-            // console.log(data)
-            // var temp = [];
-            // var novojsong = [];
-            // temp = angular.fromJson(data);
-            // var j = 0;
-           
-            // var novo = '{';
-            // for (i = 1; i<= 31; i++){
-            //     if(i == 31){
-            //         if(i == temp[j]['day_of_month']) {
-            //             novo += '"'+i+'":{"day_of_month":'+i+',"ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"}';
-            //             //novojsong[i] = Array(i, Array(temp[j]['ate'],temp[j]['neg'],temp[j]['nat'],temp[j]['tot']));
-            //             j++;
-            //         }else{
-            //             novo += '"'+i+'":{"day_of_month":'+i+',"ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"}';
-            //             //novojsong[i] = Array(i, Array(0, 0, 0, 0));
-            //             j = j;
-            //         }
-            //     }else{
-            //         console.log(temp[i]);
-            //         if(i == temp[j]['day_of_month']) {
-            //             novo += '"'+i+'":{"day_of_month":'+i+',"ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"},';
-            //             //novojsong[i] = Array(i, Array(temp[j]['ate'],temp[j]['neg'],temp[j]['nat'],temp[j]['tot']));
-            //             j++;
-            //         }else{
-            //             novo += '"'+i+'":{"day_of_month":'+i+',"ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"},';
-            //             //novojsong[i] = Array(i, Array(0, 0, 0, 0));
-            //             j = j;
-            //         }
-            //     }
+            var temp = [];
 
-            // }
-            // novo += '}';
-            // $scope.atendimentosPorDiaMesCompleto = JSON.parse(novo);
-            // console.log( "Dia Mes: " + $scope.atendimentosPorDiaMesCompleto);
+            for (i = 1; i<= 31; i++){
+                let objetosTemp = { //Objeto igual ao 'data', que é inicializado com 0s, pra facilitar a copia de data pra ele 
+                    ate: 0,
+                    nat: 0,
+                    neg: 0,
+                    tot: 0,
+                    day_of_month: 0,
+                }
+
+                /**** O objeto temporário em forma de Vetor pra possivelmente facilitar a comparação vetor-vetor ****
+                  var objetosTemp = [
+                    ate= 0,
+                    nat= 0,
+                    neg= 0, 
+                    tot= 0,
+                    day_of_month= 0,
+                ];
+                */
+
+                objetosTemp.day_of_month = i; 
+
+                if (data[i] != null) {
+                    //if (data[i].day_of_month == objetosTemp[i].day_of_month) { 
+                    console.log("DOM de Data:"+data[i].day_of_month);
+                    console.log("DOM do Objeto Temporario:"+objetosTemp.day_of_month);
+                    //objetosTemp[i] = data[i]; ***  Se os 'day_of_month' forem iguais, copio data para o objeto temporario ***
+                    
+                    /* Como comparar? */
+
+                }
+                temp.push(objetosTemp);
+            }
+
+           
+
+            $scope.atendimentosPorDiaMess = temp;
+
             graficoAtendimentoPorDiaMesTOT(data);
             graficoAtendimentoPorDiaMesNEG(data);
             graficoAtendimentoPorDiaMesNAT(data);
@@ -1566,13 +1569,12 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
      var novaData = {
         value: new Date(d.value.getTime() - 10080*60000),
     }
-    $scope.carregarAtendimentos(novaData, d);
-    $scope.carregarAtendimentosPorHora($scope.data_startParam, $scope.data_endParam);
-    $scope.carregarAtendimentosPorDiaSemana($scope.data_startParam, $scope.data_endParam);
+    //$scope.carregarAtendimentos(novaData, d);
+    //$scope.carregarAtendimentosPorHora($scope.data_startParam, $scope.data_endParam);
+    //$scope.carregarAtendimentosPorDiaSemana($scope.data_startParam, $scope.data_endParam);
     $scope.carregarAtendimentosPorDiaMes($scope.data_startParam, $scope.data_endParam);
-    $scope.carregarAtendimentosPorCategoria($scope.data_startParam, $scope.data_endParam);
-    $scope.carregarAtendimentosPorDate($scope.data_startParam, $scope.data_endParam);
-    $scope.carregaConsultasPorHora();
-    $scope.carregaConsultasPorHoraContagem();
-
+    //$scope.carregarAtendimentosPorCategoria($scope.data_startParam, $scope.data_endParam);
+    //$scope.carregarAtendimentosPorDate($scope.data_startParam, $scope.data_endParam);
+    //$scope.carregaConsultasPorHora();
+    //$scope.carregaConsultasPorHoraContagem();
 });
