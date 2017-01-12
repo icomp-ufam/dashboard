@@ -28,7 +28,7 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
         });
     };
     $scope.clickThisClientesGraphic=function(date_start, date_end) {
-        // console.log("teste date_start : " + date_start.value);
+         //console.log("teste date_start : " + date_start.value);
         // console.log("teste date_end : " + date_end );
          $state.go("main.clientes.graphic", 
             {
@@ -41,8 +41,8 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
     $scope.carregarClientesPorData = function (date_start, date_end) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
-        // console.log(NovaDate_start);
-        // console.log(NovaDate_end);
+         console.log(NovaDate_start);
+         console.log(NovaDate_end);
 
             $http({
 
@@ -54,7 +54,7 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
                 },
                 data: {
                     'date_start' : NovaDate_start,
-                'date_end' : NovaDate_end,
+					'date_end' : NovaDate_end,
                 }
             }).success(function(data){
                 $scope.clientes = data;
@@ -80,12 +80,12 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
     $scope.carregarClientesPorData2 = function (date_start, date_end) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
-        //console.log(NovaDate_start);
-        // console.log(NovaDate_end);
+        console.log(NovaDate_start);
+         console.log(NovaDate_end);
 
             $http({
 
-                url : config.baseUrl + "/dash/users/",
+                url : config.baseUrl + "/dash/users",
                 method : 'post',
                 headers : {
                     'Content-Type': 'application/json',
@@ -93,7 +93,7 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
                 },
                 data: {
                     'date_start' : NovaDate_start,
-                'date_end' : NovaDate_end,
+					'date_end' : NovaDate_end,
                 }
             }).success(function(data){
                 $scope.clientesGraphic = data;
@@ -149,8 +149,8 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
     }
 
     $scope.carregarClientesPorData(novaData, d);
-   $scope.carregarClientesPorData2($scope.data_startParam, $scope.data_endParam);
-
+	$scope.carregarClientesPorData2(novaData, d);
+    //$scope.carregarClientesPorData2($scope.data_startParam, $scope.data_endParam);
 
     function grafico(dado){
         var nome = [];
@@ -160,7 +160,8 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
             nome[dt] = dado[dt].nome.toString();
             qtd[dt] = parseInt(dado[dt].qtde_casos);
         }
-        console.log("foi")
+		console.log(nome);
+		console.log(qtd);
         // //tamanho minimo do grafico
         // if(nome.length < 5)
         //     for (i = 0; i < 3; i++){
@@ -170,6 +171,7 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
+		
         function drawStuff() {
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Cliente');
