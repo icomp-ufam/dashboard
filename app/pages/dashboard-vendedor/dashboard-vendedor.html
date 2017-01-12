@@ -1,0 +1,58 @@
+<ul class="breadcrumb">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#">Dashboard Vendedor</a> </li>
+</ul>
+<div class="page-title">
+    <h2><span class="fa fa-users"></span> Dashboard Vendedor</h2>
+</div>
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-content-wrap">
+    <div class="page-container-boxed" >
+        <div class="row">
+            <div class="col-md-3">
+                <!-- START WIDGET REGISTRED -->
+                <div class="widget widget-default widget-item-icon" ui-sref="main.dashboardVendedor.casosNovos">
+                    <div class="widget-item-left">
+                        <span class="fa fa-bell-o"></span>
+                    </div>
+                    <div class="widget-data">
+                        <div class="widget-int num-count">{{qteCasos}}</div>
+
+                        <div class="widget-title">Casos não atendidos</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <!-- START WIDGET REGISTRED -->
+                <div class="widget widget-default widget-item-icon" ui-sref="main.dashboardVendedor.casosAbertos">
+                    <div class="widget-item-left">
+                        <span class="fa fa-comment-o"></span>
+                    </div>
+                    <div class="widget-data">
+                        <div class="widget-int num-count">{{qteChats}}</div>
+
+                        <div class="widget-title">Casos abertos</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    panelActions();
+</script>
+<script type="text/javascript" src="/dashboard/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/dashboard/lib/jquery/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="/dashboard/lib/bootstrap/js/bootstrap.js"></script>
+
+<script type='text/javascript' src='/dashboard/app/assets/js/icheck/icheck.min.js'></script>
+
+<script type="text/javascript" src="/dashboard/app/assets/js/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+
+<script type="text/javascript" src="/dashboard/app/assets/js/plugins.js"></script>
+
+<script type="text/javascript" src="/dashboard/app/assets/js/actions.js"></script>

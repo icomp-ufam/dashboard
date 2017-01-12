@@ -13,6 +13,9 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         $urlRouterProvider.when('/pacotes-escolher', '/pacotes/escolha');
         $urlRouterProvider.when('/analisesCasos', '/analises/lista');
 
+        $urlRouterProvider.when('dashboard-vendedor', 'dashboard-vendedor/index');
+
+
         $stateProvider.state('main', {
             url: '/',
             templateUrl: 'app/pages/main/main.html',
@@ -27,11 +30,9 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             activetab: 'vendedores'
         }).state('main.clientes', {
             url: 'clientes',
-         
             template: '<ui-view></ui-view>'
         }).state('main.clientes.listar', {
             url: '/lista',
-            
             templateUrl: 'app/pages/clientes/clientes.html',
             controller: 'clientesCtrl',
             activetab: 'clientes'
@@ -126,7 +127,30 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/dashboard/dashboard.html',
             controller: 'dashboardCtrl',
             activetab: 'dashboard'
-        }).state('main.pacotes', {
+        })
+
+        .state('main.dashboardVendedor', {
+                url: 'dashboard-vendedor',
+                template: '<ui-view></ui-view>'
+            }).state('main.dashboardVendedor.index', {
+            url: '/index',
+            templateUrl: 'app/pages/dashboard-vendedor/dashboard-vendedor.html',
+            controller: 'dashboardVendedorCtrl',
+            activetab: 'dashboardVendedor'
+        }).state('main.dashboardVendedor.casosAbertos', {
+            url: '/casos-abertos',
+            templateUrl: 'app/pages/dashboard-vendedor/casos-abertos.html',
+            controller: 'dashboardVendedorCtrl',
+            activetab: 'chat'
+        }).state('main.dashboardVendedor.casosNovos', {
+            url: '/casos-novos',
+            templateUrl: 'app/pages/dashboard-vendedor/casos-novos.html',
+            controller: 'dashboardVendedorCtrl',
+            activetab: 'chat'
+        })
+
+
+        .state('main.pacotes', {
             url: 'pacotes',
             template: '<ui-view></ui-view>'
         }).state('main.pacotes.listar', {
@@ -184,4 +208,5 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             controller: 'analiseCtrl',
             activetab: 'estabelecimentos'
         })
+
     });

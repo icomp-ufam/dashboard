@@ -46,7 +46,7 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
 
             $http({
 
-                url : config.baseUrl + "/dash/users/",
+                url : config.baseUrl + "/dash/users",
                 method : 'post',
                 headers : {
                     'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
 
             }).error(function(error){
                 $scope.message = "Aconteceu um problema: " + error;
-                console.log("login error");
+                //console.log("login error");
             });
         
 

@@ -8,7 +8,6 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
     SharedConnObj.loggedIn = false;
     SharedConnObj.roster = [];
 
-
     //------------------------------------------HELPER FUNCTIONS---------------------------------------------------------------
     SharedConnObj.getConnectObj = function() {
         return SharedConnObj.connection;
@@ -17,7 +16,6 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
     SharedConnObj.getRoster = function() {
         return SharedConnObj.roster;
     };
-
 
     SharedConnObj.isLoggedIn = function() {
         return SharedConnObj.loggedIn;
@@ -28,8 +26,6 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
         str = str.substring(0, str.indexOf('/'));
         return str;
     };
-
-
 
     //--------------------------------------***END HELPER FUNCTIONS***----------------------------------------------------------
 
@@ -77,8 +73,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
 
                 if (!iq || iq.length == 0)
                     return;
-
-                //jquery load data after loading the page.This function updates data after jQuery loading
+                // jquery carregar dados depois de carregar a página. Esta função atualiza dados após o carregamento de jQuery
                 $rootScope.$apply(function() {
 
                     $(iq).find("item").each(function() {
@@ -102,13 +97,14 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
 
     //When a new message is recieved
     SharedConnObj.onMessage = function(msg) {
+        console.log(msg)
         $rootScope.$broadcast('msgRecievedBroadcast', msg);
         return true;
     };
 
     SharedConnObj.register = function(jid, pass, domain) {
         //to add register function
-        SharedConnObj.connection = new Strophe.Connection("https://conversejs.org/http-bind/");
+        SharedConnObj.connection = new Strophe.Connection("https://localhost:7070/http-bind/");
 
         var callback = function(status) {
             if (status === Strophe.Status.REGISTER) {
@@ -143,7 +139,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
 
     SharedConnObj.logout = function() {
         console.log("reached");
-        SharedConnObj.connection.options.sync = true; // Switch to using synchronous requests since this is typically called onUnload.
+        SharedConnObj.connection.options.sync = true;// Alternar para usar solicitações síncronas, uma vez que isso normalmente é chamado onUnload.
         SharedConnObj.connection.flush();
         SharedConnObj.connection.disconnect();
     };
