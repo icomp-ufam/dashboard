@@ -24,8 +24,8 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     $scope.data_endParam = {
         value: new Date($stateParams.data_endParametro)
     }
-    console.log(" $stateParams1 = " + $scope.data_startParam.value.getDate() );
-     console.log(" $stateParams2 = " + $scope.data_endParam.value );
+    //console.log(" $stateParams1 = " + $scope.data_startParam.value.getDate() );
+    //console.log(" $stateParams2 = " + $scope.data_endParam.value );
 
 
     $scope.clickThisAtendimentosPorHora=function(date_start, date_end) {
@@ -91,10 +91,10 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     $scope.carregarAtendimentos = function (date_start, date_end) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
-        console.log(NovaDate_start);
-        console.log(NovaDate_end);
+        //console.log(NovaDate_start);
+        //console.log(NovaDate_end);
 
-        console.log("teste data");
+        //console.log("teste data");
 
         $http({
 
@@ -139,7 +139,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             },
         }).success(function(data){
             $scope.consultasPorHora = data;
-            console.log(data);
+            //console.log(data);
             graficoConsultasPorHora(data);
 
         }).error(function(error){
@@ -333,11 +333,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     $scope.carregarAtendimentosPorDiaMes = function (date_start, date_end) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
-        // console.log(NovaDate_start);
-        // console.log(NovaDate_end);
-        //console.log(date_start);
-        //console.log(date_end);
-
+         
         $http({
 
             url : config.baseUrl + "/dash/calls/day_month",
@@ -376,6 +372,8 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             }
 			
             $scope.atendimentosPorDiaMess = temp;
+			
+			console.log(temp);
 
             graficoAtendimentoPorDiaMesTOT(data);
             graficoAtendimentoPorDiaMesNEG(data);
@@ -396,6 +394,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
         });
 
     };
+	
     $scope.carregarAtendimentosPorCategoria = function (date_start, date_end) {
         
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
@@ -1556,12 +1555,12 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
      var novaData = {
         value: new Date(d.value.getTime() - 10080*60000),
     }
-    //$scope.carregarAtendimentos(novaData, d);
-    //$scope.carregarAtendimentosPorHora($scope.data_startParam, $scope.data_endParam);
-    //$scope.carregarAtendimentosPorDiaSemana($scope.data_startParam, $scope.data_endParam);
+    $scope.carregarAtendimentos(novaData, d);
+    $scope.carregarAtendimentosPorHora($scope.data_startParam, $scope.data_endParam);
+    $scope.carregarAtendimentosPorDiaSemana($scope.data_startParam, $scope.data_endParam);
     $scope.carregarAtendimentosPorDiaMes($scope.data_startParam, $scope.data_endParam);
-    //$scope.carregarAtendimentosPorCategoria($scope.data_startParam, $scope.data_endParam);
-    //$scope.carregarAtendimentosPorDate($scope.data_startParam, $scope.data_endParam);
-    //$scope.carregaConsultasPorHora();
-    //$scope.carregaConsultasPorHoraContagem();
+    $scope.carregarAtendimentosPorCategoria($scope.data_startParam, $scope.data_endParam);
+    $scope.carregarAtendimentosPorDate($scope.data_startParam, $scope.data_endParam);
+    $scope.carregaConsultasPorHora();
+    $scope.carregaConsultasPorHoraContagem();
 });
