@@ -87,6 +87,10 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     $scope.orderByF2 = function(f){
         return parseInt(f.date_trunc);
     };
+	
+	//$scope.sorterHora = function(atendimentosPorHora){
+		//return parseInt(atendimentosPorHora.case_hour);
+	//};
 
     $scope.carregarAtendimentos = function (date_start, date_end) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
@@ -190,32 +194,30 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var temp = [];
             var novojsong = [];
             temp = angular.fromJson(data);
+			console.log(temp);
             var j = 0;
-            var pets = '{"pets":[' +
-                '               {"name":"jack"},' +
-                '               {"name":"john"},' +
-                '               {"name":"joe"}]' +
-                '        }';
-            var arr = JSON.parse(pets);
+			var numero;
+			
             var novo = '{';
             for (i = 0; i<= 23; i++){
                 if(i == 23){
                     if(i == temp[j]['case_hour']) {
-                        novo += '"'+i+'":{"case_hour":'+i+',"ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"}';
+                        novo += '"'+temp[j]['case_hour']+'":{"case_hour":"'+temp[j]['case_hour']+'","ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"}';
                         //novojsong[i] = Array(i, Array(temp[j]['ate'],temp[j]['neg'],temp[j]['nat'],temp[j]['tot']));
                         j++;
                     }else{
-                        novo += '"'+i+'":{"case_hour":'+i+',"ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"}';
+                        novo += '"'+i+'":{"case_hour":"'+i+'","ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"}';
                         //novojsong[i] = Array(i, Array(0, 0, 0, 0));
                         j = j;
                     }
                 }else{
                     if(i == temp[j]['case_hour']) {
-                        novo += '"'+i+'":{"case_hour":'+i+',"ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"},';
+                        novo += '"'+temp[j]['case_hour']+'":{"case_hour":"'+temp[j]['case_hour']+'","ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"},';
                         //novojsong[i] = Array(i, Array(temp[j]['ate'],temp[j]['neg'],temp[j]['nat'],temp[j]['tot']));
                         j++;
                     }else{
-                        novo += '"'+i+'":{"case_hour":'+i+',"ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"},';
+						numero = i >= 10 ? i.toString() : "0"+i.toString();
+                        novo += '"'+numero+'":{"case_hour":"'+numero+'","ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"},';
                         //novojsong[i] = Array(i, Array(0, 0, 0, 0));
                         j = j;
                     }
@@ -223,8 +225,10 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
 
             }
             novo += '}';
+			
+			console.log(novo);
             $scope.atendimentosPorHorasCompleto = JSON.parse(novo);
-            console.log($scope.atendimentosPorHorasCompleto);
+            //console.log($scope.atendimentosPorHorasCompleto);
             graficoAtendimentoPorHoraTOT(data);
             graficoAtendimentoPorHoraNEG(data);
             graficoAtendimentoPorHoraNAT(data);
@@ -310,11 +314,41 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 'date_end' : NovaDate_end,
             }
         }).success(function(data,date){
-            $scope.atendimentosPorDiaSemanas = data;
-            graficoAtendimentoPorDiaSemanaTOT(data);
-            graficoAtendimentoPorDiaSemanaNEG(data);
-            graficoAtendimentoPorDiaSemanaNAT(data);
-            graficoAtendimentoPorDiaSemanaATE(data);
+            console.log(data);
+			
+			var temp = [];
+			
+			for (i = 0; i< 7; i++){
+                let objetosTemp = { //Objeto igual ao 'data', que é inicializado com 0s, pra facilitar a copia de data pra ele 
+                    ate: 0,
+                    nat: 0,
+                    neg: 0,
+                    tot: 0,
+                    day_of_week: i,
+                }
+				
+				for(contData = 0; contData < data.length; contData++){
+					
+					if(i == data[contData].day_of_week){
+						objetosTemp.ate = data[contData].ate;
+						objetosTemp.nat = data[contData].nat;
+						objetosTemp.neg = data[contData].neg;
+						objetosTemp.tot = data[contData].tot;
+					}
+				}
+
+                temp.push(objetosTemp);
+            }
+			
+            $scope.atendimentosPorDiaSemanas = temp;
+			
+			//console.log(temp);
+			
+			//$scope.atendimentosPorDiaSemanas = data;
+            graficoAtendimentoPorDiaSemanaTOT(temp);
+            graficoAtendimentoPorDiaSemanaNEG(temp);
+            graficoAtendimentoPorDiaSemanaNAT(temp);
+            graficoAtendimentoPorDiaSemanaATE(temp);
 
             $scope.data_start = {
                         value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
@@ -373,12 +407,12 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
 			
             $scope.atendimentosPorDiaMess = temp;
 			
-			console.log(temp);
+			//console.log(temp);
 
-            graficoAtendimentoPorDiaMesTOT(data);
-            graficoAtendimentoPorDiaMesNEG(data);
-            graficoAtendimentoPorDiaMesNAT(data);
-            graficoAtendimentoPorDiaMesATE(data);
+            graficoAtendimentoPorDiaMesTOT(temp);
+            graficoAtendimentoPorDiaMesNEG(temp);
+            graficoAtendimentoPorDiaMesNAT(temp);
+            graficoAtendimentoPorDiaMesATE(temp);
 
             $scope.data_start = {
                         value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
