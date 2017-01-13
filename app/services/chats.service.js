@@ -91,7 +91,6 @@ angular.module('teewa').factory('Chats', ['sharedConn', '$rootScope', '$state', 
     }
 
 
-
     ChatsObj.allRoster = function() {
         loadRoster();
         return ChatsObj.roster;

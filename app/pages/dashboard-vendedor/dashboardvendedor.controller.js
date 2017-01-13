@@ -28,9 +28,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             $scope.chats = data.chats;
             $scope.qteChats = $scope.chats.length;
             console.log($scope.chats);
+            sharedConn.joinChats($scope.chats);
 
         }).error(function(error){
-            $scope.message = "Aconteceu um problema: " + data;
+            $scope.message = "Aconteceu um problema: " + error;
         });
     };
 
@@ -53,7 +54,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             $scope.qteCasos = $scope.casos.length;
 
         }).error(function(error){
-            $scope.message = "Aconteceu um problema: " + data;
+            $scope.message = "Aconteceu um problema: " + error;
         });
     };
 
@@ -77,7 +78,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             $state.go("main.dashboardVendedor.casosAbertos");
 
         }).error(function(error){
-            $scope.message = "Aconteceu um problema: " + data;
+            $scope.message = "Aconteceu um problema: " + error;
         });
 
     };
@@ -103,7 +104,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             $state.reload();
 
         }).error(function(error){
-            $scope.message = "Aconteceu um problema: " + data;
+            $scope.message = "Aconteceu um problema: " + error;
         });
     };
 
@@ -150,6 +151,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         $scope.myId = sharedConn.getConnectObj().jid;
         $scope.messages = [];
         $scope.to_id = ChatDetails.getTo();
+        //$scope.to_id = "chat"+$scope.chatAtual.id+"@conference.myserver";
     };
 
     $scope.login(); //registra usuario porem ainda não está online
@@ -174,7 +176,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     // To automate login
 
-    $scope.sendMsg = function(to, body) {
+    $scope.sendMsg_old = function(to, body) {
         console.log(to);
         var to_jid = Strophe.getBareJidFromJid(to);
         var timestamp = new Date().getTime();
@@ -186,6 +188,24 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             .c("body").t(body);
         sharedConn.getConnectObj().send(reqChannelsItems.tree());
     };
+
+    $scope.sendMsg = function (to, message) {
+        var messagetype = 'groupchat';
+        var timestamp = new Date().getTime();
+        var reply;
+
+        reply = $msg({
+            to: to,
+            from: $scope.myId,
+            type: messagetype,
+            id: timestamp
+        }).c("body").t(message);
+
+        sharedConn.getConnectObj().send(reply.tree());
+        console.log('I sent ' + to + ': ' + message, reply.tree());
+
+    };
+
 
     $scope.showSendMessage = function() {
 
@@ -214,7 +234,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         var d = new Date();
         d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
 
-        if (type == "chat" && elems.length > 0) {
+        if (type == "groupchat" && elems.length > 0) {
 
             var body = elems[0];
             var textMsg = Strophe.getText(body);
@@ -229,8 +249,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
             $scope.$apply();
 
-            console.log($scope.messages);
-            console.log('Message recieved from ' + from + ': ' + textMsg);
+            //console.log($scope.messages);
+            //console.log('Message recieved from ' + from + ': ' + textMsg);
         }
 
     };
