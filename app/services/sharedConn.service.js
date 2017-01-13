@@ -27,6 +27,16 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
         return str;
     };
 
+    //funcao para entrar em todas as salas de chat do vendedor logado
+    //logando como teewa01
+    SharedConnObj.joinChats = function (chats) {
+        for(i = 0; i < chats.length; i++){
+            SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.myserver","teewa01");
+        }
+
+        console.log('consegui :)');
+    };
+
     //--------------------------------------***END HELPER FUNCTIONS***----------------------------------------------------------
 
     //Login Function
@@ -53,6 +63,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
         } else if (status == Strophe.Status.DISCONNECTED) {
             console.log('Strophe is disconnected.');
         } else if (status == Strophe.Status.CONNECTED) {
+
             SharedConnObj.connection.addHandler(SharedConnObj.onMessage, null, 'message', null, null, null);
             SharedConnObj.connection.send($pres().tree());
             SharedConnObj.loggedIn = true;
@@ -60,6 +71,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
             SharedConnObj.connection.addHandler(SharedConnObj.on_subscription_request, null, "presence", "subscribe");
 
             console.log('Conectou!');
+
             var iq = $iq({
             type: 'get'
         }).c('query', {
@@ -97,7 +109,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
 
     //When a new message is recieved
     SharedConnObj.onMessage = function(msg) {
-        console.log(msg)
+        console.log(msg);
         $rootScope.$broadcast('msgRecievedBroadcast', msg);
         return true;
     };
