@@ -24,8 +24,8 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     $scope.data_endParam = {
         value: new Date($stateParams.data_endParametro)
     }
-    console.log(" $stateParams1 = " + $scope.data_startParam.value.getDate() );
-     console.log(" $stateParams2 = " + $scope.data_endParam.value );
+    //console.log(" $stateParams1 = " + $scope.data_startParam.value.getDate() );
+    //console.log(" $stateParams2 = " + $scope.data_endParam.value );
 
 
     $scope.clickThisAtendimentosPorHora=function(date_start, date_end) {
@@ -87,14 +87,18 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     $scope.orderByF2 = function(f){
         return parseInt(f.date_trunc);
     };
+	
+	//$scope.sorterHora = function(atendimentosPorHora){
+		//return parseInt(atendimentosPorHora.case_hour);
+	//};
 
     $scope.carregarAtendimentos = function (date_start, date_end) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
-        console.log(NovaDate_start);
-        console.log(NovaDate_end);
+        //console.log(NovaDate_start);
+        //console.log(NovaDate_end);
 
-        console.log("teste data");
+        //console.log("teste data");
 
         $http({
 
@@ -139,7 +143,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             },
         }).success(function(data){
             $scope.consultasPorHora = data;
-            console.log(data);
+            //console.log(data);
             graficoConsultasPorHora(data);
 
         }).error(function(error){
@@ -190,32 +194,30 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var temp = [];
             var novojsong = [];
             temp = angular.fromJson(data);
+			console.log(temp);
             var j = 0;
-            var pets = '{"pets":[' +
-                '               {"name":"jack"},' +
-                '               {"name":"john"},' +
-                '               {"name":"joe"}]' +
-                '        }';
-            var arr = JSON.parse(pets);
+			var numero;
+			
             var novo = '{';
             for (i = 0; i<= 23; i++){
                 if(i == 23){
                     if(i == temp[j]['case_hour']) {
-                        novo += '"'+i+'":{"case_hour":'+i+',"ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"}';
+                        novo += '"'+temp[j]['case_hour']+'":{"case_hour":"'+temp[j]['case_hour']+'","ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"}';
                         //novojsong[i] = Array(i, Array(temp[j]['ate'],temp[j]['neg'],temp[j]['nat'],temp[j]['tot']));
                         j++;
                     }else{
-                        novo += '"'+i+'":{"case_hour":'+i+',"ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"}';
+                        novo += '"'+i+'":{"case_hour":"'+i+'","ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"}';
                         //novojsong[i] = Array(i, Array(0, 0, 0, 0));
                         j = j;
                     }
                 }else{
                     if(i == temp[j]['case_hour']) {
-                        novo += '"'+i+'":{"case_hour":'+i+',"ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"},';
+                        novo += '"'+temp[j]['case_hour']+'":{"case_hour":"'+temp[j]['case_hour']+'","ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"},';
                         //novojsong[i] = Array(i, Array(temp[j]['ate'],temp[j]['neg'],temp[j]['nat'],temp[j]['tot']));
                         j++;
                     }else{
-                        novo += '"'+i+'":{"case_hour":'+i+',"ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"},';
+						numero = i >= 10 ? i.toString() : "0"+i.toString();
+                        novo += '"'+numero+'":{"case_hour":"'+numero+'","ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"},';
                         //novojsong[i] = Array(i, Array(0, 0, 0, 0));
                         j = j;
                     }
@@ -223,8 +225,10 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
 
             }
             novo += '}';
+			
+			console.log(novo);
             $scope.atendimentosPorHorasCompleto = JSON.parse(novo);
-            console.log($scope.atendimentosPorHorasCompleto);
+            //console.log($scope.atendimentosPorHorasCompleto);
             graficoAtendimentoPorHoraTOT(data);
             graficoAtendimentoPorHoraNEG(data);
             graficoAtendimentoPorHoraNAT(data);
@@ -251,7 +255,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
 
     };
     $scope.carregarAtendimentosPorDate = function (date_start, date_end) {
-         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
         console.log(NovaDate_start);
         console.log(NovaDate_end);
@@ -310,11 +314,41 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 'date_end' : NovaDate_end,
             }
         }).success(function(data,date){
-            $scope.atendimentosPorDiaSemanas = data;
-            graficoAtendimentoPorDiaSemanaTOT(data);
-            graficoAtendimentoPorDiaSemanaNEG(data);
-            graficoAtendimentoPorDiaSemanaNAT(data);
-            graficoAtendimentoPorDiaSemanaATE(data);
+            console.log(data);
+			
+			var temp = [];
+			
+			for (i = 0; i< 7; i++){
+                let objetosTemp = { //Objeto igual ao 'data', que é inicializado com 0s, pra facilitar a copia de data pra ele 
+                    ate: 0,
+                    nat: 0,
+                    neg: 0,
+                    tot: 0,
+                    day_of_week: i,
+                }
+				
+				for(contData = 0; contData < data.length; contData++){
+					
+					if(i == data[contData].day_of_week){
+						objetosTemp.ate = data[contData].ate;
+						objetosTemp.nat = data[contData].nat;
+						objetosTemp.neg = data[contData].neg;
+						objetosTemp.tot = data[contData].tot;
+					}
+				}
+
+                temp.push(objetosTemp);
+            }
+			
+            $scope.atendimentosPorDiaSemanas = temp;
+			
+			//console.log(temp);
+			
+			//$scope.atendimentosPorDiaSemanas = data;
+            graficoAtendimentoPorDiaSemanaTOT(temp);
+            graficoAtendimentoPorDiaSemanaNEG(temp);
+            graficoAtendimentoPorDiaSemanaNAT(temp);
+            graficoAtendimentoPorDiaSemanaATE(temp);
 
             $scope.data_start = {
                         value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
@@ -331,13 +365,9 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
 
     };
     $scope.carregarAtendimentosPorDiaMes = function (date_start, date_end) {
-         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
-        console.log(NovaDate_start);
-        console.log(NovaDate_end);
-        //console.log(date_start);
-        //console.log(date_end);
-
+         
         $http({
 
             url : config.baseUrl + "/dash/calls/day_month",
@@ -351,46 +381,38 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 'date_end' : NovaDate_end,
             }
         }).success(function(data,date){
-            $scope.atendimentosPorDiaMess = data;
-            // console.log(data)
-            // var temp = [];
-            // var novojsong = [];
-            // temp = angular.fromJson(data);
-            // var j = 0;
-           
-            // var novo = '{';
-            // for (i = 1; i<= 31; i++){
-            //     if(i == 31){
-            //         if(i == temp[j]['day_of_month']) {
-            //             novo += '"'+i+'":{"day_of_month":'+i+',"ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"}';
-            //             //novojsong[i] = Array(i, Array(temp[j]['ate'],temp[j]['neg'],temp[j]['nat'],temp[j]['tot']));
-            //             j++;
-            //         }else{
-            //             novo += '"'+i+'":{"day_of_month":'+i+',"ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"}';
-            //             //novojsong[i] = Array(i, Array(0, 0, 0, 0));
-            //             j = j;
-            //         }
-            //     }else{
-            //         console.log(temp[i]);
-            //         if(i == temp[j]['day_of_month']) {
-            //             novo += '"'+i+'":{"day_of_month":'+i+',"ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"},';
-            //             //novojsong[i] = Array(i, Array(temp[j]['ate'],temp[j]['neg'],temp[j]['nat'],temp[j]['tot']));
-            //             j++;
-            //         }else{
-            //             novo += '"'+i+'":{"day_of_month":'+i+',"ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"},';
-            //             //novojsong[i] = Array(i, Array(0, 0, 0, 0));
-            //             j = j;
-            //         }
-            //     }
+            var temp = [];
+			
+			for (i = 1; i<= 31; i++){
+                let objetosTemp = { //Objeto igual ao 'data', que é inicializado com 0s, pra facilitar a copia de data pra ele 
+                    ate: 0,
+                    nat: 0,
+                    neg: 0,
+                    tot: 0,
+                    day_of_month: i,
+                }
+				
+				for(contData = 0; contData < data.length; contData++){
+					
+					if(i == data[contData].day_of_month){
+						objetosTemp.ate = data[contData].ate;
+						objetosTemp.nat = data[contData].nat;
+						objetosTemp.neg = data[contData].neg;
+						objetosTemp.tot = data[contData].tot;
+					}
+				}
 
-            // }
-            // novo += '}';
-            // $scope.atendimentosPorDiaMesCompleto = JSON.parse(novo);
-            // console.log( "Dia Mes: " + $scope.atendimentosPorDiaMesCompleto);
-            graficoAtendimentoPorDiaMesTOT(data);
-            graficoAtendimentoPorDiaMesNEG(data);
-            graficoAtendimentoPorDiaMesNAT(data);
-            graficoAtendimentoPorDiaMesATE(data);
+                temp.push(objetosTemp);
+            }
+			
+            $scope.atendimentosPorDiaMess = temp;
+			
+			//console.log(temp);
+
+            graficoAtendimentoPorDiaMesTOT(temp);
+            graficoAtendimentoPorDiaMesNEG(temp);
+            graficoAtendimentoPorDiaMesNAT(temp);
+            graficoAtendimentoPorDiaMesATE(temp);
 
             $scope.data_start = {
                         value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
@@ -406,6 +428,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
         });
 
     };
+	
     $scope.carregarAtendimentosPorCategoria = function (date_start, date_end) {
         
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
@@ -1574,5 +1597,4 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     $scope.carregarAtendimentosPorDate($scope.data_startParam, $scope.data_endParam);
     $scope.carregaConsultasPorHora();
     $scope.carregaConsultasPorHoraContagem();
-
 });
