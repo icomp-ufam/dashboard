@@ -26,7 +26,7 @@
                 <!--<img ng-show="chatAtual.case.file" ng-src="{{urlFiles}}{{chatAtual.case.file}}" width="200" height="200">-->
                 <div  ng-repeat="message in messages | filter:chatAtual.id" ng-class="{in: message.userId == myId}" class="item item-visible">
                     <div class="image">
-                        <img src="app/assets/images/users/no-image.jpg" alt="John Doe">
+                        <img ng-src="{{(message.userId == 'chat'+chatAtual.id+'@conference.myserver/teewa02') && urlPhotos+chatAtual.userTo.photo|| 'app/assets/images/users/no-image.jpg'}}" alt="user">
 
                         <!--{{chatAtual.userTo.photo}}-->
                     </div>
@@ -34,7 +34,7 @@
                         <div class="heading">
                             <!--TODO: usuário teewa02 estático-->
                             <a>{{(message.userId == 'chat'+chatAtual.id+'@conference.myserver/teewa02') && chatAtual.userTo.name + ' (teewa02)'|| 'Você (teewa01)'}} </a>
-
+                            <span class="date">{{message.time | date:'dd/MM/yyyy - HH:mm'}}</span>
                         </div>
                         {{message.text}}
                     </div>

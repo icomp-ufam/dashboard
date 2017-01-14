@@ -270,8 +270,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         var type = msg.getAttribute('type');
         var elems = msg.getElementsByTagName('body');
 
-        var d = new Date();
-        d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
+        //var d = new Date();
+        //d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
+        var d = msg.getAttribute('id');
+
         if (type == "groupchat" && elems.length > 0) {
 
             var body = elems[0];
