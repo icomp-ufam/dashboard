@@ -8,8 +8,9 @@
             <div class="page-title">
                 <h2><span class="fa fa-comments"></span> {{chatAtual.case.name || 'Chat'}}</h2>
             </div>
-            <ul ng-show="chatAtual.id" class="panel-controls">
-                <li class="dropdown">
+            <ul class="panel-controls">
+                <li ng-click="joinChats()"><a ><span class="fa fa-check"></span></a></li>
+                <li ng-show="chatAtual.id" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>
                     <ul class="dropdown-menu">
                         <li ng-click="encerrarCaso(chatAtual.id)" ><a><span class="fa fa-times"></span> Encerrar caso </a></li>
@@ -22,15 +23,18 @@
         <!-- START CONTENT FRAME BODY -->
         <div id="msg"  class="content-frame-body-right" style="overflow:auto;height:430px; width:730px">
             <div class="messages messages-img">
-                <img ng-show="chatAtual.case.file" ng-src="{{urlFiles}}{{chatAtual.case.file}}" width="200" height="200">
-                <div  ng-repeat="message in messages" ng-class="{in: message.userId == myId}" class="item item-visible">
+                <!--<img ng-show="chatAtual.case.file" ng-src="{{urlFiles}}{{chatAtual.case.file}}" width="200" height="200">-->
+                <div  ng-repeat="message in messages | filter:chatAtual.id" ng-class="{in: message.userId == myId}" class="item item-visible">
                     <div class="image">
                         <img src="app/assets/images/users/no-image.jpg" alt="John Doe">
+
+                        <!--{{chatAtual.userTo.photo}}-->
                     </div>
                     <div class="text">
                         <div class="heading">
-                            <a href="#">{{message.userId}}</a>
-                            <span class="date">{{message.time}}</span>
+                            <!--TODO: usuário teewa02 estático-->
+                            <a>{{(message.userId == 'chat'+chatAtual.id+'@conference.myserver/teewa02') && chatAtual.userTo.name + ' (teewa02)'|| 'Você (teewa01)'}} </a>
+
                         </div>
                         {{message.text}}
                     </div>

@@ -71,6 +71,8 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
             SharedConnObj.connection.addHandler(SharedConnObj.on_subscription_request, null, "presence", "subscribe");
 
             console.log('Conectou!');
+            //SharedConnObj.connection.muc.join("chat1090@conference.myserver","teewa01");
+
 
             var iq = $iq({
             type: 'get'
@@ -109,7 +111,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
 
     //When a new message is recieved
     SharedConnObj.onMessage = function(msg) {
-        console.log(msg);
+        //console.log(msg);
         $rootScope.$broadcast('msgRecievedBroadcast', msg);
         return true;
     };

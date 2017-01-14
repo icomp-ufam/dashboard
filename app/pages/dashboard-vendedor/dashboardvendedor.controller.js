@@ -26,13 +26,27 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             }
         }).success(function(data){
             $scope.chats = data.chats;
+
+            //quantidade de casos abertos que é exibida no dashboard
             $scope.qteChats = $scope.chats.length;
-            console.log($scope.chats);
-            sharedConn.joinChats($scope.chats);
+
+            //ao carregar pagina, abre primeiro chat da lista de casos
+            $scope.chatAtual = $scope.chats[0];
+            console.log($scope.chatAtual);
+
+            //configurando qual sala de chat esta sendo escutada
+            ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference.myserver");
+
+            //atualiza id da sala de chat
+            $scope.to_id = ChatDetails.getTo();
 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
+    };
+
+    $scope.joinChats = function(){
+        sharedConn.joinChats($scope.chats);
     };
 
     $scope.carregarCasosNovos = function () {
@@ -74,7 +88,16 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
                 'idcase' : idcase
             }
         }).success(function(data){
+            //carrega informacoes do chat aceito
             $scope.chatAtual = data.chat;
+
+            //configurando qual sala de chat esta sendo escutada
+            ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference.myserver");
+
+            //atualiza id da sala de chat
+            $scope.to_id = ChatDetails.getTo();
+
+            //abre view de casos abertos
             $state.go("main.dashboardVendedor.casosAbertos");
 
         }).error(function(error){
@@ -122,7 +145,16 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
                 'idschats' : "["+idchat+"]"
             }
         }).success(function(data){
-            $scope.chatAtual = "";
+            //ao carregar pagina, abre primeiro chat da lista de casos
+            $scope.chatAtual = $scope.chats[0];
+
+            //configurando qual sala de chat esta sendo escutada
+            ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference.myserver");
+
+            //atualiza id da sala de chat
+            $scope.to_id = ChatDetails.getTo();
+
+            //recarrega página
             $state.reload();
         }).error(function(error){
             console.log(error);
@@ -130,8 +162,14 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         });
     };
 
-    $scope.clickChat = function (nome) {
-        $scope.chatAtual = nome;
+    //recebe informacoes da caixa de chat que foi selecionada
+    $scope.clickChat = function (chat) {
+        //recebe chat clicado
+        $scope.chatAtual = chat;
+        //configurando qual sala de chat esta sendo escutada
+        ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference.myserver");
+        //atualiza id da sala de chat
+        $scope.to_id = ChatDetails.getTo();
     };
 
 
@@ -149,9 +187,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         $scope.hideTime = true;
         $scope.data = {};
         $scope.myId = sharedConn.getConnectObj().jid;
+
         $scope.messages = [];
         $scope.to_id = ChatDetails.getTo();
-        //$scope.to_id = "chat"+$scope.chatAtual.id+"@conference.myserver";
+
     };
 
     $scope.login(); //registra usuario porem ainda não está online
@@ -233,12 +272,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
         var d = new Date();
         d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
-
         if (type == "groupchat" && elems.length > 0) {
 
             var body = elems[0];
             var textMsg = Strophe.getText(body);
-
 
             $scope.messages.push({
                 userId: from,
@@ -246,11 +283,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
                 time: d
             });
 
-
             $scope.$apply();
 
-            //console.log($scope.messages);
-            //console.log('Message recieved from ' + from + ': ' + textMsg);
         }
 
     };
