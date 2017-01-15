@@ -3,6 +3,6 @@
  */
 angular.module("teewa").value("config",  {
     baseUrl: "http://api.teewa.com.br:8081",
-    user: 'teewa01',
+    user: '672',
     password: '12345678'
 });
