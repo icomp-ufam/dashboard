@@ -32,7 +32,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
             //ao carregar pagina, abre primeiro chat da lista de casos
             $scope.chatAtual = $scope.chats[0];
-            console.log($scope.chatAtual);
+            console.log($scope.chats);
 
             //configurando qual sala de chat esta sendo escutada
             ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference.myserver");
@@ -164,6 +164,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     //recebe informacoes da caixa de chat que foi selecionada
     $scope.clickChat = function (chat) {
+        console.log(chat);
         //recebe chat clicado
         $scope.chatAtual = chat;
         //configurando qual sala de chat esta sendo escutada
