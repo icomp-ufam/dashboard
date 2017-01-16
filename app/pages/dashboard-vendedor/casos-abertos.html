@@ -1,7 +1,7 @@
 <div class="row">
 <!-- MESSAGES -->
 
-<div class="col-md-8" >
+<div class="col-md-8">
     <div class="content-frame" >
         <!-- START CONTENT FRAME TOP -->
         <div class="content-frame-top">
@@ -42,8 +42,6 @@
                     </div>
                 </div>
 
-
-
                 <div  ng-repeat="message in messages | filter:chatAtual.id" ng-class="{in: message.userId == myId}" class="item item-visible">
                     <div class="image">
                         <img ng-src="{{(message.userId == 'chat'+chatAtual.id+'@conference.myserver/'+chatAtual.userTo.id) && urlPhotos+chatAtual.userTo.photo|| 'app/assets/images/users/no-image.jpg'}}" alt="user">
@@ -53,7 +51,10 @@
                             <a>{{(message.userId == 'chat'+chatAtual.id+'@conference.myserver/'+chatAtual.userTo.id) && chatAtual.userTo.name|| 'Você'}} </a>
                             <span class="date">{{message.time | date:'dd/MM/yyyy - HH:mm'}}</span>
                         </div>
-                        {{message.text}}
+                        {{message.text}} <div class="pull-right" >
+                                            <span ng-show="message.status == 0" class="fa fa-clock-o"></span>
+                                             <span ng-show="message.status == 1" class="fa fa-check"></span>
+                                            </div>
                     </div>
                 </div>
             </div>

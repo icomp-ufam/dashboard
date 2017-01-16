@@ -197,7 +197,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.login(); //registra usuario porem ainda não está online
 
     $scope.logout = function() {
-        console.log("T");
+        console.log("desconectou!!");
         sharedConn.logout();
         $state.go('login', {}, {
             location: "replace",
@@ -208,7 +208,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.remove = function(chat) {
         Chats.removeRoster(chat);
     };
-
 
     $scope.add = function(add_jid) {
         Chats.addNewRosterContact(add_jid);
@@ -233,7 +232,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         var messagetype = 'groupchat';
         var timestamp = new Date().getTime();
         var reply;
-
         reply = $msg({
             to: to,
             from: $scope.myId,
@@ -257,7 +255,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         $scope.messages.push({
             userId: $scope.myId,
             text: $scope.data.message,
-            time: d
+            time: d,
+            status: 0
         });
 
         delete $scope.data.message;
@@ -280,14 +279,23 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             var body = elems[0];
             var textMsg = Strophe.getText(body);
 
-            $scope.messages.push({
-                userId: from,
-                text: textMsg,
-                time: d
-            });
+            if(from.includes('671')){
+                $scope.messages[$scope.messages.length - 1].status = 1;
+            }else {
+                $scope.messages.push({
+                    userId: from,
+                    text: textMsg,
+                    time: d,
+                    status: 1
+                });
+            }
 
             $scope.$apply();
-
+            document.getElementById(
+                "msg"
+            ).scrollTop = document.getElementById(
+                "msg"
+            ).scrollHeight;
         }
 
     };
