@@ -37,6 +37,7 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
             }
             }).success(function(data){
                     $scope.cases = data;
+					
                     $scope.data_start = {
                         value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
 
@@ -137,7 +138,7 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
         $scope.criterioDeOrdenacao = campo;
         $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
     };
-
+	
 
     /*$scope.adicionarEstabelecimento = function (estabelecimento) {
         estabelecimento.data = new Date();

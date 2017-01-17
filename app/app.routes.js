@@ -147,7 +147,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             url: '/casos-novos',
             templateUrl: 'app/pages/dashboard-vendedor/casos-novos.html',
             controller: 'dashboardVendedorCtrl',
-            activetab: 'chat'
+            activetab: 'dashboardVendedor'
         })
 
 

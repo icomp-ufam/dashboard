@@ -1,15 +1,17 @@
 <div class="row">
 <!-- MESSAGES -->
 
-<div class="col-md-8" >
+<div class="col-md-8">
     <div class="content-frame" >
         <!-- START CONTENT FRAME TOP -->
         <div class="content-frame-top">
             <div class="page-title">
                 <h2><span class="fa fa-comments"></span> {{chatAtual.case.name || 'Chat'}}</h2>
+                <br><span>Caso aceito em:  {{chatAtual.created_at | date:'dd/MM/yyyy - HH:mm'}}</span>
             </div>
-            <ul ng-show="chatAtual.id" class="panel-controls">
-                <li class="dropdown">
+            <ul class="panel-controls">
+                <li ng-click="joinChats()"><a ><span class="fa fa-check"></span></a></li>
+                <li ng-show="chatAtual.id" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>
                     <ul class="dropdown-menu">
                         <li ng-click="encerrarCaso(chatAtual.id)" ><a><span class="fa fa-times"></span> Encerrar caso </a></li>
@@ -22,17 +24,37 @@
         <!-- START CONTENT FRAME BODY -->
         <div id="msg"  class="content-frame-body-right" style="overflow:auto;height:430px; width:730px">
             <div class="messages messages-img">
-                <img ng-show="chatAtual.case.file" ng-src="{{urlFiles}}{{chatAtual.case.file}}" width="200" height="200">
-                <div  ng-repeat="message in messages" ng-class="{in: message.userId == myId}" class="item item-visible">
+                <!--<img ng-show="chatAtual.case.file" ng-src="{{urlFiles}}{{chatAtual.case.file}}" width="200" height="200">-->
+
+                <div class="item item-visible">
                     <div class="image">
-                        <img src="app/assets/images/users/no-image.jpg" alt="John Doe">
+                        <img ng-src="{{urlPhotos+chatAtual.userTo.photo}}" alt="user">
                     </div>
                     <div class="text">
                         <div class="heading">
-                            <a href="#">{{message.userId}}</a>
-                            <span class="date">{{message.time}}</span>
+                            <a>{{chatAtual.userTo.name}} </a>
+                            <span class="date">{{chatAtual.case.created_at | date:'dd/MM/yyyy - HH:mm'}}</span>
                         </div>
-                        {{message.text}}
+                        {{chatAtual.case.name}}
+                        <br>
+                        <br>
+                        <img ng-show="chatAtual.case.file" ng-src="{{urlFiles}}{{chatAtual.case.file}}" width="200" height="200">
+                    </div>
+                </div>
+
+                <div  ng-repeat="message in messages | filter:chatAtual.id" ng-class="{in: message.userId == myId}" class="item item-visible">
+                    <div class="image">
+                        <img ng-src="{{(message.userId == 'chat'+chatAtual.id+'@conference.myserver/'+chatAtual.userTo.id) && urlPhotos+chatAtual.userTo.photo|| 'app/assets/images/users/no-image.jpg'}}" alt="user">
+                    </div>
+                    <div class="text">
+                        <div class="heading">
+                            <a>{{(message.userId == 'chat'+chatAtual.id+'@conference.myserver/'+chatAtual.userTo.id) && chatAtual.userTo.name|| 'Você'}} </a>
+                            <span class="date">{{message.time | date:'dd/MM/yyyy - HH:mm'}}</span>
+                        </div>
+                        {{message.text}} <div class="pull-right" >
+                                            <span ng-show="message.status == 0" class="fa fa-clock-o"></span>
+                                             <span ng-show="message.status == 1" class="fa fa-check"></span>
+                                            </div>
                     </div>
                 </div>
             </div>

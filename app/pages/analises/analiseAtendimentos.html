@@ -41,9 +41,9 @@
                             <thead>
                                 <tr>
                                     <th ><input class="form-control" type="text" ng-model="criterioDeBusca.idcase" placeholder="Id..."></th>
-                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.case_name" placeholder="Consulta..."></th>
-                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Solicitante..."></th>
                                     <th ><input class="form-control" type="text" ng-model="criterioDeBusca.date_trunc" placeholder="Data..."></th>
+									<th ><input class="form-control" type="text" ng-model="criterioDeBusca.case_name" placeholder="Consulta..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Solicitante..."></th>
                                     <th ><input class="form-control" type="text" ng-model="criterioDeBusca.ate" placeholder="ATE..."></th>
                                     <th ><input class="form-control" type="text" ng-model="criterioDeBusca.neg" placeholder="NEG..."></th>
                                     <th ><input class="form-control" type="text" ng-model="criterioDeBusca.nat" placeholder="NAT..."></th>
@@ -51,9 +51,9 @@
                                 </tr>
                                 <tr>
                                     <th ng-click="ordenarPor('idcase')" >Caso</th>
-                                    <th ng-click="ordenarPor('case_name')"  >Nome do Caso</th>
-                                    <th ng-click="ordenarPor('name')" >Nome Solicitante</th>
                                     <th ng-click="ordenarPor('date_trunc')" >Data/hora</th>
+									<th ng-click="ordenarPor('case_name')"  >Nome do Caso</th>
+                                    <th ng-click="ordenarPor('name')" >Nome Solicitante</th>
                                     <th ng-click="ordenarPor('ate')"  >ATE</th>
                                     <th ng-click="ordenarPor('neg')" >NEG</th>
                                     <th ng-click="ordenarPor('nat')"  >NAT</th>
@@ -64,9 +64,9 @@
                             <tbody>
                                 <tr ng-repeat="atendimento in atendimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                         <td class="active">{{atendimento.idcase}}</td>
-                                        <td class="active">{{atendimento.case_name}}</td>
-                                        <td class="active">{{atendimento.name}}</td>
                                         <td class="active">{{atendimento.date_trunc}}</td>
+										<td class="active">{{atendimento.case_name}}</td>
+                                        <td class="active">{{atendimento.name}}</td>
                                         <td class="success">{{atendimento.ate}}</td>
                                         <td class="danger">{{atendimento.neg}}</td>
                                         <td  class="warning">{{atendimento.nat}}</td>
