@@ -15,6 +15,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
 
         $urlRouterProvider.when('dashboard-vendedor', 'dashboard-vendedor/index');
 
+        $urlRouterProvider.when('/perfil', '/perfil/perfil');
 
         $stateProvider.state('main', {
             url: '/',
@@ -207,6 +208,13 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/analises/ratingGeral.html',
             controller: 'analiseCtrl',
             activetab: 'estabelecimentos'
+        }).state('main.perfil', {
+            url: 'perfil',
+            template: '<ui-view></ui-view>'
+        }).state('main.perfil.listar', {
+            url: '/perfil',
+            templateUrl: 'app/pages/perfil/perfil.html',
+            controller: 'estabelecimentosCtrl'
         })
 
     });
