@@ -133,19 +133,20 @@
                 </a>
             </li>
 
-            <li>
-                <li ng-class="{active: state.current.activetab == 'dashboardVendedor'}">
-                <a ui-sref="main.dashboardVendedor.index" ng-click="login()">
-                    <span class="fa fa-info"></span>
-                    <span class="xn-text">DashBoard Estabelecimento</span>
-
             <li  ng-show="verifica()"  ng-class="{active: state.current.activetab == 'casos-novos'}">
                 <a ui-sref="main.dashboardVendedor.casosNovos">
                     <span class="fa fa-comments"></span>
                     <span class="xn-text">Novos Casos</span>
                 </a>
             </li>
-        
+            
+            <li>
+                <li ng-class="{active: state.current.activetab == 'dashboardEstabelecimento'}">
+                <a ui-sref="main.dashboardEstabelecimento.index" >
+                    <span class="fa fa-info"></span>
+                    <span class="xn-text">DashBoard Estabelecimento</span>
+                </a>
+            </li>
         </ul>
         <!-- END X-NAVIGATION -->
     </div>
