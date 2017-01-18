@@ -13,7 +13,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.urlFiles = config.baseUrl + "/case_images/";
 
     // id Larissa
-    $scope.idVendedor = '672';
+    $scope.idVendedor = config.user;
 
     $scope.carregarCasosAbertos = function () {
         $http({
@@ -39,7 +39,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
             //atualiza id da sala de chat
             $scope.to_id = ChatDetails.getTo();
-
+            
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
