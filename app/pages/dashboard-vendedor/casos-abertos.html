@@ -22,7 +22,7 @@
             </ul>
         </div>
         <!-- START CONTENT FRAME BODY -->
-        <div id="msg"  class="content-frame-body-right" style="overflow:auto;height:430px; width:730px">
+        <div id="msg"  class="content-frame-body-right" style="overflow:auto;height:430px; width:530px">
             <div class="messages messages-img">
                 <!--<img ng-show="chatAtual.case.file" ng-src="{{urlFiles}}{{chatAtual.case.file}}" width="200" height="200">-->
 
@@ -48,7 +48,7 @@
                     </div>
                     <div class="text">
                         <div class="heading">
-                            <a>{{(message.userId == 'chat'+chatAtual.id+'@conference.myserver/'+chatAtual.userTo.id) && chatAtual.userTo.name|| 'Você'}} </a>
+                            <a>{{(message.userId == 'chat'+chatAtual.id+'@conference.myserver/'+chatAtual.userTo.id) && chatAtual.userTo.name|| message.userId}} </a>
                             <span class="date">{{message.time | date:'dd/MM/yyyy - HH:mm'}}</span>
                         </div>
                         {{message.text}} <div class="pull-right" >
