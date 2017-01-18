@@ -15,6 +15,8 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
 
         $urlRouterProvider.when('dashboard-vendedor', 'dashboard-vendedor/index');
 
+        $urlRouterProvider.when('dashboard-estabelecimento', 'dashboard-estabelecimento/index');
+
         $urlRouterProvider.when('/perfil', '/perfil/perfil');
 
         $stateProvider.state('main', {
@@ -215,6 +217,16 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             url: '/perfil',
             templateUrl: 'app/pages/perfil/perfil.html',
             controller: 'estabelecimentosCtrl'
+        })
+
+        .state('main.dashboardEstabelecimento', {
+                url: 'dashboard-estabelecimento',
+                template: '<ui-view></ui-view>'
+            }).state('main.dashboardEstabelecimento.index', {
+            url: '/index',
+            templateUrl: 'app/pages/dashboard-estabelecimento/dashboard-estabelecimento.html',
+            controller: 'dashboardVendedorCtrl',
+            activetab: 'dashboardEstabelecimento'
         })
 
     });
