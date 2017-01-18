@@ -256,7 +256,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             userId: $scope.myId,
             text: $scope.data.message,
             time: d,
-            status: 0
         });
 
         delete $scope.data.message;
@@ -278,15 +277,17 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
             var body = elems[0];
             var textMsg = Strophe.getText(body);
-
-            if(from.includes('671')){
-                $scope.messages[$scope.messages.length - 1].status = 1;
-            }else {
+            if(from.includes('672')){
                 $scope.messages.push({
                     userId: from,
                     text: textMsg,
                     time: d,
-                    status: 1
+                });
+            }else{
+                $scope.messages.push({
+                        userId: from,
+                        text: textMsg,
+                        time: d,
                 });
             }
 
