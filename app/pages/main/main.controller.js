@@ -69,4 +69,29 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 		});
 	};
 
+	$scope.carregarCasos = function () {
+		$http({
+			url : config.baseUrl + "/sellers/news/cases",
+			method : 'post',
+			headers : {
+				'Content-Type': 'application/json',
+				'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+			},
+			data: {
+				//id do chat-dashboard estatico (mudar)
+				'idstore' : '118',
+
+				'idseller' :config.user
+			}
+		}).success(function(data){
+			$scope.novos = data.cases;
+			$scope.qteNovos = data.cases.length;
+
+		}).error(function(error){
+			$scope.message = "Aconteceu um problema: " + error;
+		});
+	};
+
+	$scope.carregarCasos();
+
 });
