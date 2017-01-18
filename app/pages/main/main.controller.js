@@ -5,6 +5,10 @@
 angular.module("teewa").controller("mainCtrl", function ($scope, $state, config, $http) {
 	$scope.state = $state;
 
+	$scope.infoVendedorPhoto = localStorage.getItem('vendedor_foto');
+	$scope.infoVendedorNome = localStorage.getItem('vendedor_nome');
+
+	console.log('vendedor: ' + $scope.infoVendedorPhoto + 'nome: ' + $scope.infoVendedorNome);
 	$scope.urlPhotos = config.baseUrl + "/photos/";
 	
 	if(localStorage.getItem('todos')==='true'){
@@ -35,6 +39,8 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
         });*/
         localStorage.setItem('todos', JSON.stringify(false));
 		$scope.vendedor = JSON.parse(localStorage.getItem('todos'));
+        localStorage.setItem('vendedor_foto', '');
+        localStorage.setItem('vendedor_nome', '');
 		$scope.infoVendedor = "";
     };
     $scope.verifica = function () {
@@ -52,9 +58,13 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 			}
 		}).success(function(data){
 			$scope.infoVendedor = data.user;
+			localStorage.setItem('vendedor_foto', $scope.infoVendedor.photo);
+			localStorage.setItem('vendedor_nome', $scope.infoVendedor.name);
+            $scope.infoVendedorPhoto = $scope.infoVendedor.photo;
+            $scope.infoVendedorNome = $scope.infoVendedor.name;
 
 
-		}).error(function(error){
+        }).error(function(error){
 			$scope.message = "Aconteceu um problema: " + error;
 		});
 	};
