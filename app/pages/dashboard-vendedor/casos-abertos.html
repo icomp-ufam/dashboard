@@ -107,7 +107,7 @@
                 <h3 class="panel-title"><span class="fa fa-comments"></span> Conversas </h3>
             </div>
             <div class="panel-body list-group list-group-contacts scroll" style="overflow:auto;height:500px; width:360px">
-                <a ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats">
+                <a id="teste2" ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats">
                     <div class="list-group-status status-online"></div>
                     <img  ng-show="chat.userTo.photo" ng-src="{{urlPhotos}}{{chat.userTo.photo}}" ng-class="(!chat.iduser_close || 'greyscale')"  alt="User"/>
                     <span class="contacts-title">{{(chat.iduser_close && 'Usuário encerrou o caso' ) || chat.userTo.name}}</span>
@@ -119,7 +119,38 @@
 
         </div>
     </div>
+    <button id="teste" style=" visibility: hidden" onclick="notifyMe()">notificação!</button>
+    <script>
+        function notifyMe() {
+            // Let's check if the browser supports notifications
+            if (!("Notification" in window)) {
+                alert("This browser does not support desktop notification");
+            }
+            else if (Notification.permission === "granted") {
+                // If it's okay let's create a notification
+                var notification = new Notification("Nova Mensagem!");
+            }
+            else if (Notification.permission !== 'denied') {
+                Notification.requestPermission(function (permission) {
+                    // If the user accepts, let's create a notification
+                    if (permission === "granted") {
+                        var notification = new Notification("Nova Mensagem!");
+                    }
+                });
+            }
+        }
+        Notification.requestPermission();
+        function spawnNotification(corpo,icone,titulo) {
+            var opcoes = {
+                body: corpo,
+                icon: icone
+            };
+            var n = new Notification(titulo,opcoes);
+        }
+
+    </script>
 </div>
+
 
 <style>
     img.greyscale{

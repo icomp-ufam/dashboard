@@ -171,8 +171,24 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference.myserver");
         //atualiza id da sala de chat
         $scope.to_id = ChatDetails.getTo();
-    };
+        $scope.sc();
 
+    };
+    $scope.flag = false;
+    $scope.sc = function (){
+        if($scope.flag == false) {
+            $("#teste2").trigger('click');
+            $scope.flag = true;
+        }else{
+            $scope.flag = false;
+        }
+        //move a barra de rolagem para a mensagem mais recente
+        document.getElementById(
+            "msg"
+        ).scrollTop = document.getElementById(
+            "msg"
+        ).scrollHeight;
+    };
 
     $scope.carregarCasosAbertos();
     $scope.carregarCasosNovos();
@@ -255,11 +271,18 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         $scope.messages.push({
             userId: $scope.myId,
             text: $scope.data.message,
-            time: d,
+            time: d
         });
 
         delete $scope.data.message;
 
+    };
+    $scope.notificacao = function(from){
+        for(chat in $scope.chats){
+           if (from.includes($scope.chats[chat].case.id)){
+               console.log('nova mensagem de '+ $scope.chats[chat].case.id);
+           }
+        }
     };
 
     $scope.messageRecieve = function(msg) {
@@ -281,14 +304,18 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
                 $scope.messages.push({
                     userId: from,
                     text: textMsg,
-                    time: d,
+                    time: d
                 });
             }else{
                 $scope.messages.push({
                         userId: from,
                         text: textMsg,
-                        time: d,
+                        time: d
                 });
+
+
+                $scope.notificacao(from);
+                $("#teste").trigger('click');
             }
 
             $scope.$apply();
@@ -303,6 +330,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     $scope.$on('msgRecievedBroadcast', function(event, data) {
         $scope.messageRecieve(data);
-    })
+    });
 
 });

@@ -17,7 +17,7 @@
                     <img src="app/assets/images/users/no-image.jpg" alt="Admin"/>
                 </a>
                 <a ng-show="verifica()" class="profile-mini">
-                    <img ng-src="{{urlPhotos+infoVendedor.photo}}" alt="Admin"/>
+                    <img ng-src="{{urlPhotos}}{{infoVendedorPhoto}}" alt="Admin"/>
                 </a>
 
                 <div class="profile">
@@ -26,7 +26,7 @@
                     </div>
 
                     <div ng-show="verifica()" class="profile-image">
-                        <img ng-src="{{urlPhotos+infoVendedor.photo}}" alt="Admin"/>
+                        <img ng-src="{{urlPhotos}}{{infoVendedorPhoto}}" alt="Admin"/>
                     </div>
 
                     <div ng-show="!verifica()" class="profile-data">
@@ -34,7 +34,7 @@
                         <div class="profile-data-title">Admin</div>
                     </div>
                     <div ng-show="verifica()" class="profile-data">
-                        <div  class="profile-data-name">{{infoVendedor.name}}</div>
+                        <div  class="profile-data-name">{{infoVendedorNome}}</div>
                         <div class="profile-data-title">Vendedor</div>
                     </div>
 
@@ -134,11 +134,12 @@
             </li>
 
             <li>
-                <li ng-class="{active: state.current.activetab == 'dashboardVendedor'}">
+            <li ng-show="!verifica()" ng-class="{active: state.current.activetab == 'dashboardVendedor'}">
                 <a ui-sref="main.dashboardVendedor.index" ng-click="login()">
                     <span class="fa fa-info"></span>
                     <span class="xn-text">DashBoard Estabelecimento</span>
-
+                </a>
+            </li>
             <li  ng-show="verifica()"  ng-class="{active: state.current.activetab == 'casos-novos'}">
                 <a ui-sref="main.dashboardVendedor.casosNovos">
                     <span class="fa fa-comments"></span>
