@@ -14,6 +14,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     // id Larissa
     $scope.idVendedor = config.user;
+    //id da loja chat-dashboard
+    $scope.idstore = '118';
 
     $scope.carregarCasosAbertos = function () {
         $http({
@@ -32,14 +34,13 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
             //ao carregar pagina, abre primeiro chat da lista de casos
             $scope.chatAtual = $scope.chats[0];
-            console.log($scope.chats);
 
             //configurando qual sala de chat esta sendo escutada
             ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference.myserver");
 
             //atualiza id da sala de chat
             $scope.to_id = ChatDetails.getTo();
-            
+
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
@@ -59,7 +60,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             },
             data: {
                 //id do chat-dashboard
-                'idstore' : '118',
+                'idstore' : $scope.idstore,
 
                 'idseller' :$scope.idVendedor
             }
@@ -83,7 +84,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             },
             data: {
                 //id do chat-dashboard
-                'idstore' : '118',
+                'idstore' : $scope.idstore,
                 'idseller' :$scope.idVendedor,
                 'idcase' : idcase
             }
@@ -118,7 +119,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             },
             data: {
                 //id do chat-dashboard
-                'idstore' : '118',
+                'idstore' : $scope.idstore,
                 'idseller' :$scope.idVendedor,
                 'idcase' : idcase
             }
