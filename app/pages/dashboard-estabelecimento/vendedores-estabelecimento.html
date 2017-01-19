@@ -1,0 +1,77 @@
+<ul class="breadcrumb">
+    <li><a href="index.html">Dashboard Estabelecimento</a></li>
+    <li ><a href="#">Vendedores</a> </li>
+</ul>
+<div class="page-title">
+    <h2><span class="fa fa-users"></span>Vendedores</h2>
+</div>
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-content-wrap">
+     <div class="page-container-boxed">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- START DEFAULT DATATABLE -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                    <h3 class="panel-title">Listagem de vendedores</h3>
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <p class="text-info"> Filtrar: </p>
+                    <div class="row">
+                        <div class="col-md-2">
+                            Inicio: <input class="form-control col-md3" type="date" ng-model="data_start.value">
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-2">
+                            Termino: <input class="form-control col-md3" type="date" ng-model="data_end.value">
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-2">
+                            <br>
+                            <button type="submit" class=" btn btn-default" ng-click="carregarVendedoresLoja((data_start | date: 'dd/MM/y'), (data_end | date: 'dd/MM/y'), idloja)"> Filtrar </button>
+                        </div>
+                    </div> </br>
+                    <table class="table" >
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome"></th>
+                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.atendimento" placeholder="Quantidade de Atendimentos"></th>
+                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.avg_rating" placeholder="Média das Avaliações"></th>
+                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.sum_rating" placeholder="Quantidade de Avaliações"></th>
+                            </tr>
+                            <tr>
+                                <th ng-click="ordenarPor('id')">ID</th>
+                                <th ng-click="ordenarPor('name')">Nome</th>
+                                <th ng-click="ordenarPor('atendimento')">Quantidade de Atendimentos</th>
+                                <th ng-click="ordenarPor('avg_rating')">Média das Avaliações</th>
+                                <th ng-click="ordenarPor('sum_rating')">Quantidade de Avaliações</th>
+                            </tr>
+                        </thead>
+                       <tbody>
+                            <tr ng-repeat="vendedor in vendedores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+
+                                <td>{{vendedor.id}}</td>
+                                <td>{{vendedor.name}}</td>
+                                <td>{{vendedor.atendimento}}</td>
+                                <td>{{vendedor.avg_rating}}</td>
+                                <td>{{vendedor.sum_rating}}</td>
+                                <td> <button class="btn btn-default" > Detalhes</button> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<script type="text/javascript">
+    panelActions();
+</script>
+<!-- END PAGE CONTENT WRAPPER -->

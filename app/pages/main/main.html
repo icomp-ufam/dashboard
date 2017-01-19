@@ -71,25 +71,6 @@
                     <span class="xn-text">Atendimentos</span>
                 </a>
             </li>
-            <!--<li ng-class="{active: state.current.activetab == 'vendedores'}">
-                <a ui-sref="main.vendedores.listar">
-                    <span class="fa fa-users"></span>
-                    <span class="xn-text">Vendedores</span>
-                </a>
-            </li>-->
-            <!--<li  ng-show="!verifica()"  ng-class="{active: state.current.activetab == 'chat'}">
-                <a ui-sref="main.chat.listar">
-                    <span class="fa fa-comments"></span>
-                    <span class="xn-text">Chat</span>
-                </a>
-            </li>-->
-
-            <!--li ng-class="{active: state.current.activetab == 'avaliacoes'}">
-                <a ui-sref="main.avaliacoes.listar">
-                    <span class="fa fa-bar-chart-o"></span>
-                    <span class="xn-text">Avaliações</span>
-                </a>
-            </li-->
             
             <li ng-show="!verifica()" ng-class="{active: state.current.activetab == 'clientes'}">
                 <a ui-sref="main.clientes.listar">
@@ -112,14 +93,6 @@
             </li>
 
             <li>
-            <li ng-show="!verifica()" ng-class="{active: state.current.activetab == 'escolher-pacote'}">
-                <a ui-sref="main.pacotes.escolher">
-                    <span class="fa fa-money"></span>
-                    <span class="xn-text">Escolher pacotes</span>
-                </a>
-            </li>
-
-            <li>
                 <li ng-class="{active: state.current.activetab == 'dashboardVendedor'}">
                 <a ui-sref="main.dashboardVendedor.index" ng-click="login()">
                     <span class="fa fa-info"></span>
@@ -133,17 +106,49 @@
                 </a>
             </li>
 
-            <li ng-show="!verifica()" ng-class="{active: state.current.activetab == 'dashboardEstabelecimento'}">
-                <a ui-sref="main.dashboardEstabelecimento.index" ng-click="login()">
-                    <span class="fa fa-info"></span>
-                    <span class="xn-text">DashBoard Estabelecimento</span>
-                </a>
-            </li>
-
             <li  ng-show="verifica()"  ng-class="{active: state.current.activetab == 'casos-novos'}">
                 <a ui-sref="main.dashboardVendedor.casosNovos">
                     <span class="fa fa-comments"></span>
                     <span class="xn-text">Novos Casos</span>
+                </a>
+            </li>
+            </li>
+
+             <li>
+                <li ng-class="{active: state.current.activetab == 'dashboardEstabelecimento'}">
+                <a ui-sref="main.dashboardEstabelecimento.index" ng-click="login()">
+                    <span class="fa fa-tachometer fa-3x"></span>
+                    <span class="xn-text">DashBoard Estabelecimento</span>
+                </a>
+            </li>
+            <li ng-show="verifica()" ng-class="{active: state.current.activetab == 'perfilEstabelecimento'}">
+                <a ui-sref="main.dashboardEstabelecimento.perfilEstabelecimento">
+                    <span class="fa fa-user"></span>
+                    <span class="xn-text">Minha Loja</span>
+                </a>
+            </li>
+            <li ng-show="verifica()" ng-class="{active: state.current.activetab == 'vendedoresEstabelecimento'}">
+                <a ui-sref="main.dashboardEstabelecimento.vendedoresEstabelecimento">
+                    <span class="fa fa-user"></span>
+                    <span class="xn-text">Vendedores</span>
+                </a>
+            </li>
+            <li ng-show="verifica()" ng-class="{active: state.current.activetab == 'atendimentosEstabelecimento'}">
+                <a ui-sref="main.dashboardEstabelecimento.atendimentosEstabelecimento">
+                    <span class="fa fa-user"></span>
+                    <span class="xn-text">Atendimentos</span>
+                </a>
+            </li>
+            <li ng-show="verifica()" ng-class="{active: state.current.activetab == 'denunciasEstabelecimento'}">
+                <a ui-sref="main.dashboardEstabelecimento.denunciasEstabelecimento">
+                    <span class="fa fa-exclamation-triangle"></span>
+                    <span class="xn-text">Denuncias</span>
+                </a>
+            </li>
+            <li ng-show="verifica()" ng-class="{active: state.current.activetab == 'anunciosEstabelecimento'}">
+                <a ui-sref="main.dashboardEstabelecimento.anunciosEstabelecimento">
+                    <span class="fa fa-exclamation-triangle"></span>
+                    <span class="xn-text">Anuncios</span>
                 </a>
             </li>
         </ul>
