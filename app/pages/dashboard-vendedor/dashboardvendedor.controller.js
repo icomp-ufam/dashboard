@@ -163,6 +163,33 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         });
     };
 
+    $scope.denunciarCliente = function (idcliente, descricao, tipo) {
+        $http({
+            url : config.baseUrl + "/stores/complaint",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'idstore' :  $scope.idstore,
+                'idaccused' :  idcliente,
+                'idwhistleblower' :  config.user,
+                'description' :  descricao,
+                'type' :  tipo
+            }
+        }).success(function(data){
+            console.log(data);
+            //encerra caso denunciado
+            $scope.encerrarCaso($scope.chatAtual.id);
+
+        }).error(function(error){
+            console.log(error);
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+
+    };
+
     //recebe informacoes da caixa de chat que foi selecionada
     $scope.clickChat = function (chat) {
         console.log(chat);
@@ -243,6 +270,35 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         })
             .c("body").t(body);
         sharedConn.getConnectObj().send(reqChannelsItems.tree());
+    };
+
+    // XEP-0066 - Envio de imagem
+    // monta uma mensagem XML no formato abaixo
+    /*<message from='stpeter@jabber.org/work' to='MaineBoy@jabber.org/home'>
+         <body>Yeah, but do you have a license to Jabber?</body>
+         <x xmlns='jabber:x:oob'>
+            <url>http://www.jabber.org/images/psa-license.jpg</url>
+         </x>
+     </message>*/
+
+    $scope.sendImg = function (to, message, image) {
+        var messagetype = 'groupchat';
+        var timestamp = new Date().getTime();
+        var reply;
+        reply = $msg({
+            to: to,
+            from: $scope.myId,
+            type: messagetype,
+            id: timestamp
+        }).c("subject").t("imgFromSeller").up().c("body").t(message);
+
+        reply.up().c("x", {
+            xmlns: 'jabber:x:oob'
+        //}).c('url').t("https://i.ytimg.com/vi/A8PPa41WUZY/hqdefault.jpg");
+        }).c('url').t(image);
+
+        sharedConn.getConnectObj().send(reply.tree());
+        console.log('I sent image' + to + ': ' + message, reply.tree());
     };
 
     $scope.sendMsg = function (to, message) {

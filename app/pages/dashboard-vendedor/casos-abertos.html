@@ -1,65 +1,111 @@
+<!-- START ROW -->
 <div class="row">
-<!-- MESSAGES -->
 
-<div class="col-md-8">
-    <div class="content-frame" >
-        <!-- START CONTENT FRAME TOP -->
-        <div class="content-frame-top">
-            <div class="page-title">
-                <h2><span class="fa fa-comments"></span> {{chatAtual.case.name || 'Chat'}}</h2>
-                <br><span>Caso aceito em:  {{chatAtual.created_at | date:'dd/MM/yyyy - HH:mm'}}</span>
-            </div>
-            <ul class="panel-controls">
-                <li ng-click="joinChats()"><a ><span class="fa fa-check"></span></a></li>
-                <li ng-show="chatAtual.id" class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>
-                    <ul class="dropdown-menu">
-                        <li ng-click="encerrarCaso(chatAtual.id)" ><a><span class="fa fa-times"></span> Encerrar caso </a></li>
-                        <li><a><span class="fa fa-exclamation-triangle"></span> Denunciar cliente </a></li>
-
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <!-- START CONTENT FRAME BODY -->
-        <div id="msg"  class="content-frame-body-right" style="overflow:auto;height:430px; width:730px">
-            <div class="messages messages-img">
-                <!--<img ng-show="chatAtual.case.file" ng-src="{{urlFiles}}{{chatAtual.case.file}}" width="200" height="200">-->
-
-                <div class="item item-visible">
-                    <div class="image">
-                        <img ng-src="{{urlPhotos+chatAtual.userTo.photo}}" alt="user">
-                    </div>
-                    <div class="text">
-                        <div class="heading">
-                            <a>{{chatAtual.userTo.name}} </a>
-                            <span class="date">{{chatAtual.case.created_at | date:'dd/MM/yyyy - HH:mm'}}</span>
-                        </div>
-                        {{chatAtual.case.name}}
-                        <br>
-                        <br>
-                        <img ng-show="chatAtual.case.file" ng-src="{{urlFiles}}{{chatAtual.case.file}}" width="200" height="200">
-                    </div>
+    <!-- START MESSAGES -->
+    <div class="col-md-8">
+        <div class="content-frame" >
+            <!-- START PAINEL SUPERIOR DO CHAT -->
+            <div class="content-frame-top">
+                <div class="page-title">
+                    <!-- Caso não existam casos carregados, exibe "Chat" -->
+                    <h2><span class="fa fa-comments"></span> {{chatAtual.case.name || 'Chat'}}</h2>
+                    <!--Data em que o caso foi aceito pelo vendedor-->
+                    <br><span>Caso aceito em:  {{chatAtual.created_at | date:'dd/MM/yyyy - HH:mm'}}</span>
                 </div>
 
-                <div  ng-repeat="message in messages | filter:chatAtual.id" ng-class="{in: message.userId == myId}" class="item item-visible">
-                    <div class="image">
-                        <img ng-src="{{(message.userId == 'chat'+chatAtual.id+'@conference.myserver/'+chatAtual.userTo.id) && urlPhotos+chatAtual.userTo.photo|| 'app/assets/images/users/no-image.jpg'}}" alt="user">
-                    </div>
-                    <div class="text">
-                        <div class="heading">
-                            <a>{{(message.userId == 'chat'+chatAtual.id+'@conference.myserver/'+chatAtual.userTo.id) && chatAtual.userTo.name|| message.userId}} </a>
-                            <span class="date">{{message.time | date:'dd/MM/yyyy - HH:mm'}}</span>
+                <!-- Botões de controle do chat -->
+                <ul class="panel-controls">
+                    <!-- botão que inclui o vendedor nas salas de chat do openfire para todos os casos abertos listados -->
+                    <li ng-click="joinChats()"><a ><span class="fa fa-check"></span></a></li>
+
+                    <li ng-show="chatAtual.id" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>
+                        <ul class="dropdown-menu">
+                            <!--Encerra caso aberto atualmente-->
+                            <li ng-click="encerrarCaso(chatAtual.id)" ><a><span class="fa fa-times"></span> Encerrar caso </a></li>
+
+                            <!-- Abre o modal de denúncia do cliente -->
+                            <li  data-toggle="modal" data-target="#modal_denuncia" ><a><span class="fa fa-exclamation-triangle"></span> Denunciar cliente </a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- END PAINEL SUPERIOR DO CHAT-->
+
+            <!-- START MENSAGENS DO CHAT ATUAL -->
+            <div id="msg"  class="content-frame-body-right" style="overflow:auto;height:430px; width:730px">
+                <div class="messages messages-img">
+
+                    <!-- START PRIMEIRA MENSAGEM DA CONSULTA -->
+                    <div class="item item-visible">
+                        <!-- Exibe a descrição do caso/consulta em formato de mensagem e o arquivo(imagem) enviado caso exista -->
+
+                        <div class="image">
+                            <!-- Exibe foto de perfil do usuário ou imagem padrão caso não exista -->
+                            <img ng-if="chatAtual.userTo.photo" ng-src="{{urlPhotos+chatAtual.userTo.photo}}" alt="user">
+                            <img ng-if="!chatAtual.userTo.photo" ng-src="app/assets/images/users/no-image.jpg" alt="user">
                         </div>
-                        {{message.text}} <div class="pull-right" >
-                                            <span ng-show="message.status == 0" class="fa fa-clock-o"></span>
-                                             <span ng-show="message.status == 1" class="fa fa-check"></span>
-                                            </div>
+
+                        <div class="text">
+                            <div class="heading">
+                                <!--Nome do cliente -->
+                                <a>{{chatAtual.userTo.name}} </a>
+                                <!--Data em que o cliente criou o caso/consulta-->
+                                <span class="date">{{chatAtual.case.created_at | date:'dd/MM/yyyy - HH:mm'}}</span>
+                            </div>
+                            <!-- Nome/descrição do caso/consulta -->
+                            {{chatAtual.case.name}}
+                            <br>
+                            <br>
+                            <!--Exibe imagem da consulta, caso exista-->
+                            <img ng-show="chatAtual.case.file" ng-src="{{urlFiles}}{{chatAtual.case.file}}" width="200" height="200">
+                        </div>
+                    </div>
+                    <!-- END PRIMEIRA MENSAGEM DA CONSULTA -->
+
+                    <!-- Carrega mensagem a partir da variavel de escopo messages usando o ng-repeat -->
+                    <div ng-repeat="message in messages | filter:chatAtual.id" ng-class="{in: message.userId == myId}" class="item item-visible">
+                        <div class="image">
+                            <!-- Exibe foto de perfil do usuário ou imagem padrão caso não exista -->
+                            <!--<img ng-src="{{(message.userId == 'chat'+chatAtual.id+'@conference.myserver/'+chatAtual.userTo.id) && urlPhotos+chatAtual.userTo.photo|| 'app/assets/images/users/no-image.jpg'}}" alt="user">-->
+
+                            <!-- caso o usuario seja o vendedor (TODO: Alterar para a foto exibida no menu lateral do dashboard)-->
+                            <img ng-if="message.userId.includes(idVendedor)" ng-src="app/assets/images/users/no-image.jpg" alt="user">
+
+                            <!-- Exibe a foto do cliente, caso ele tenha -->
+                            <img ng-if="!(message.userId.includes(idVendedor)) && chatAtual.userTo.photo" ng-src="{{urlPhotos+chatAtual.userTo.photo}}" alt="user">
+
+                            <!-- caso o usuario nao tenha foto-->
+                            <img ng-if="!chatAtual.userTo.photo" ng-src="app/assets/images/users/no-image.jpg" alt="user">
+                        </div>
+
+                        <div class="text">
+                            <div class="heading">
+                                <!-- Exibe o nome do usuário conforme seu perfil -->
+                                <a ng-if="message.userId.includes(idVendedor)"> Você </a>
+                                <a ng-if="!message.userId.includes(idVendedor)">{{chatAtual.userTo.name}}</a>
+                                <span class="date">{{message.time | date:'dd/MM/yyyy - HH:mm'}}</span>
+                            </div>
+
+                            <!-- Exibe texto da mensagem -->
+                            {{message.text}}
+
+                            <!-- Relatorio de entrega da mensagem -->
+                            <div class="pull-right" >
+                                <span ng-show="message.status == 0" class="fa fa-clock-o"></span>
+                                <span ng-show="message.status == 1" class="fa fa-check"></span>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <!-- END MENSAGENS DO CHAT ATUAL -->
+
+            <!-- START INPUT DE MENSAGENS -->
             <div ng-show="!chatAtual.iduser_close" class="panel panel-default push-up-10">
+                <!-- essa div só é exibida se o usuário não encerrou o caso (!chatAtual.iduser_close) -->
                 <div class="panel-body panel-body-search">
                     <form name="dados">
                         <div class="input-group">
@@ -67,7 +113,7 @@
                                 <button class="btn btn-default"><span class="fa fa-camera"></span></button>
                                 <button class="btn btn-default"><span class="fa fa-chain"></span></button>
                             </div>
-                                <input name="envia" type="text" ng-model="data.message" title="digite sua mensagem" onkeypress="enviarEnter(event)" class="form-control" placeholder="Digite uma mensagem..."/>
+                            <input name="envia" type="text" ng-model="data.message" title="digite sua mensagem" onkeypress="enviarEnter(event)" class="form-control" placeholder="Digite uma mensagem..."/>
                             <div class="input-group-btn">
                                 <button type="submit"  ng-click="showSendMessage()" id="enviar" class="btn btn-default">
                                     <span class="fa fa-send"></span>
@@ -77,80 +123,133 @@
                     </form>
                 </div>
             </div>
-            <script>
-                function enviarEnter(e){ //validação de campo vazio e envio com tecla enter
-                    var tecla=(window.event)?event.keyCode:e.which;
-                    if (tecla == 13) {
-                        if (document.dados.envia.value=="")
-                        {
-                            document.dados.envia.focus();
-                            return false;
-                        }else{
-                        $("#enviar").trigger('click');
-                            document.getElementById(
-                                "msg"
-                            ).scrollTop = document.getElementById(
-                                "msg"
-                            ).scrollHeight;
-                        }
-                    }
-                }
-            </script>
+            <!-- END INPUT DE MENSAGENS -->
 
+        </div>
+    </div>
+    <!-- END MESSAGES -->
 
-</div>
-
-</div>
+    <!-- START LISTA LATERAL DE CASOS ABERTOS -->
     <div class="col-md-4 content-frame-right" >
         <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
             <div class="panel-heading">
                 <h3 class="panel-title"><span class="fa fa-comments"></span> Conversas </h3>
             </div>
             <div class="panel-body list-group list-group-contacts scroll" style="overflow:auto;height:500px; width:360px">
+
+                <!-- carrega casos abertos usando o ng-repeat sobre a variavel de escopo chats -->
                 <a id="teste2" ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats">
                     <div class="list-group-status status-online"></div>
-                    <img  ng-show="chat.userTo.photo" ng-src="{{urlPhotos}}{{chat.userTo.photo}}" ng-class="(!chat.iduser_close || 'greyscale')"  alt="User"/>
+
+                    <!--se o usuário possui uma foto de perfil, exibe a imagem. Se o caso estiver encerrado, exibe essa imagem uma escala de cinza-->
+                    <img  ng-if="chat.userTo.photo" ng-src="{{(urlPhotos+chat.userTo.photo)}}" ng-class="(!chat.iduser_close || 'greyscale')"  alt="User"/>
+                    <!--se o usuário nao possui foto de perfil, exibe uma imagem padrão-->
+                    <img ng-if="!chat.userTo.photo" ng-src='app/assets/images/users/no-image.jpg'  alt="User"/>
+
+                    <!--Exibe o nome do cliente, ou indica que o caso foi encerrado-->
                     <span class="contacts-title">{{(chat.iduser_close && 'Usuário encerrou o caso' ) || chat.userTo.name}}</span>
+
+                    <!--data do chat com filtro-->
                     <p>{{chat.created_at | date:'dd/MM/yyyy - HH:mm'}}</p>
+                    <!--nome do caso/consulta-->
                     <span class="contacts-title">{{chat.case.name}}</span>
                     <!--<span class="contacts-title">{{ (chat.iduser_close && 'Você não pode mais enviar mensagens pois esta conversa foi encerrada pelo cliente.' ) || chat.case.name}}</span>-->
                 </a>
             </div>
-
         </div>
     </div>
+    <!-- END LISTA LATERAL DE CASOS ABERTOS -->
+
+
     <button id="teste" style=" visibility: hidden" onclick="notifyMe()">notificação!</button>
-    <script>
-        function notifyMe() {
-            // Let's check if the browser supports notifications
-            if (!("Notification" in window)) {
-                alert("This browser does not support desktop notification");
-            }
-            else if (Notification.permission === "granted") {
-                // If it's okay let's create a notification
-                var notification = new Notification("Nova Mensagem!");
-            }
-            else if (Notification.permission !== 'denied') {
-                Notification.requestPermission(function (permission) {
-                    // If the user accepts, let's create a notification
-                    if (permission === "granted") {
-                        var notification = new Notification("Nova Mensagem!");
-                    }
-                });
-            }
-        }
-        Notification.requestPermission();
-        function spawnNotification(corpo,icone,titulo) {
-            var opcoes = {
-                body: corpo,
-                icon: icone
-            };
-            var n = new Notification(titulo,opcoes);
-        }
 
-    </script>
+        <!--assedio = 1;
+        conteudo_improprio = 2;
+        estabelecimento_falso = 3;
+        linguagem_impropria = 4;
+        usuario_falso = 5;
+        outros = 6.-->
+    <div class="modal" id="modal_denuncia" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3>O que aconteceu?</h3>
+                    <!--<p>Informe o tipo de ocorrência e descreva o que aconteceu</p>-->
+                    <!--Tipo de denuncia (radio buttons)-->
+                    <label><input type="radio" name="switch-radio1" ng-model="tipo" ng-value="1"/>Assédio</label>
+                    <br>
+                    <label><input type="radio" name="switch-radio1" ng-model="tipo" ng-value="2"/>Conteúdo Impróprio</label>
+                    <br>
+                    <label><input type="radio" name="switch-radio1" ng-model="tipo" ng-value="3"/>Estabelecimento Falso</label>
+                    <br>
+                    <label><input type="radio" name="switch-radio1" ng-model="tipo" ng-value="4"/>Linguagem Imprópria</label>
+                    <br>
+                    <label><input type="radio" name="switch-radio1" ng-model="tipo" ng-value="5">Usuário Falso</label>
+                    <br>
+                    <label><input type="radio" name="switch-radio1" ng-model="tipo" ng-value="6"/>Outros</label>
+                    <br>
+                    <input ng-model="descricao" type="text" class="form-control" placeholder="Descreva a situação...">
+                </div>
+                <div class="modal-footer">
+                    <!--so exibe o botao de denuncia se as informacoes forem preeenchidas-->
+                    <button ng-hide="!tipo || !descricao" ng-click="denunciarCliente(chatAtual.userTo.id, descricao, tipo)" type="button" class="btn btn-default" data-dismiss="modal">Denunciar e Encerrar Caso</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+<!-- END ROW -->
 
+<script>
+    function notifyMe() {
+        // Let's check if the browser supports notifications
+        if (!("Notification" in window)) {
+            alert("This browser does not support desktop notification");
+        }
+        else if (Notification.permission === "granted") {
+            // If it's okay let's create a notification
+            var notification = new Notification("Nova Mensagem!");
+        }
+        else if (Notification.permission !== 'denied') {
+            Notification.requestPermission(function (permission) {
+                // If the user accepts, let's create a notification
+                if (permission === "granted") {
+                    var notification = new Notification("Nova Mensagem!");
+                }
+            });
+        }
+    }
+    Notification.requestPermission();
+    function spawnNotification(corpo,icone,titulo) {
+        var opcoes = {
+            body: corpo,
+            icon: icone
+        };
+        var n = new Notification(titulo,opcoes);
+    }
+
+</script>
+
+<script>
+    function enviarEnter(e){ //validação de campo vazio e envio com tecla enter
+        var tecla=(window.event)?event.keyCode:e.which;
+        if (tecla == 13) {
+            if (document.dados.envia.value=="")
+            {
+                document.dados.envia.focus();
+                return false;
+            }else{
+                $("#enviar").trigger('click');
+                document.getElementById(
+                        "msg"
+                ).scrollTop = document.getElementById(
+                        "msg"
+                ).scrollHeight;
+            }
+        }
+    }
+</script>
 
 <style>
     img.greyscale{
