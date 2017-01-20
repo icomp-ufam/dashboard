@@ -1,0 +1,82 @@
+<ul class="breadcrumb">
+    <li><a href="index.html">Dashboard Estabelecimento</a></li>
+    <li><a href="#">Denúncias</a> </li>
+</ul>
+<div class="page-title">
+    <h2><span class="fa fa-exclamation-triangle"></span>Denúncias</h2>
+</div>
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-content-wrap">
+    <!-- END BREADCRUMB -->
+    <div class="page-container-boxed">
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-12">
+                <!-- START DEFAULT DATATABLE -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Lista de Denúncias</h3>
+                        <ul class="panel-controls">
+                            <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                            <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                            <!--<li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>-->
+                        </ul>
+                    </div>
+                    <div class="panel-body">
+                        <p class="text-info"> filtrar: </p>
+                        <div class="row">
+                            <div class="col-md-2">
+                                Data Inicio: <input class="form-control col-md3" type="date">
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                                Data Fim: <input class="form-control col-md3" type="date">
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                                <br>
+                                <button class=" btn btn-default" ng-click="carregarDenunciasPorData((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))"> filtrar </button>
+                                <br>
+                            </div>
+                        </div> </br>
+                        <table class="table " >
+                            <thead>
+                            <tr>
+                                <th  href="" ng-click="ordenarPor('name')" > Nome </th>
+                                <th> Vendedor Denunciado</th>
+                                <th> Loja Denunciada</th>
+                                <th> Tipo de Ocorrência </th>
+                                <th> Ocorrência </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr  ng-repeat="denuncia in denuncias| filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+                                <td>{{denuncia.cliente}}</td>
+                                <td>{{denuncia.vendedor_denunciado}}</td>
+                                <td>{{denuncia.loja_denunciada}}</td>
+                                <td ng-switch on="{{denuncia.type}}">
+                                    <span ng-switch-when="1"> Assédio </span>
+                                    <span ng-switch-when="2"> Conteúdo Impróprio </span>
+                                    <span ng-switch-when="3"> Estabelecimento Falso </span>
+                                    <span ng-switch-when="4"> Linguagem Imprópria </span>
+                                    <span ng-switch-when="5"> Usuário Falso </span>
+                                    <span ng-switch-when="6"> Outros </span>
+
+                                </td>
+                                <td>{{denuncia.description}}</td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    panelActions();
+</script>

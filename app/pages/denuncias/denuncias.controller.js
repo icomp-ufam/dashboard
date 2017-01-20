@@ -30,5 +30,5 @@ angular.module("teewa").controller("denunciasCtrl", function ($scope, $http, con
     };
 
     //carregarDenuncias();
-    carregarDenunciasPorData("01/01/2015","24/12/2016");
+    carregarDenunciasPorData("01/01/2015","24/12/2019");
 });

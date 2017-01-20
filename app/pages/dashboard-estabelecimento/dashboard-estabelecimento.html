@@ -1,9 +1,9 @@
 <ul class="breadcrumb">
     <li><a href="index.html">Home</a></li>
-    <li><a href="#">Dashboard Vendedor</a> </li>
+    <li><a href="#">Dashboard Estabelecimento</a> </li>
 </ul>
 <div class="page-title">
-    <h2><span class="fa fa-users"></span> Dashboard Vendedor</h2>
+    <h2><span class="fa fa-users"></span>Dashboard Estabelecimento</h2>
 </div>
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">
@@ -13,12 +13,13 @@
                 <!-- START WIDGET REGISTRED -->
                 <div class="widget widget-default widget-item-icon" ui-sref="main.dashboardVendedor.casosNovos">
                     <div class="widget-item-left">
-                        <span class="fa fa-bell-o"></span>
+                         <span class="fa fa-user"></span>
                     </div>
                     <div class="widget-data">
-                        <div class="widget-int num-count">{{qteCasos}}</div>
+                        <!-- <div class="widget-int num-count">{{qteCasos}}</div> -->
 
-                        <div class="widget-title">Casos não atendidos</div>
+                        <div class="widget-title">Vendedores Registrados</div>
+                        <div class="widget-subtitle">na Loja</div>
                     </div>
                 </div>
             </div>
@@ -27,15 +28,32 @@
                 <!-- START WIDGET REGISTRED -->
                 <div class="widget widget-default widget-item-icon" ui-sref="main.dashboardVendedor.casosAbertos">
                     <div class="widget-item-left">
-                        <span class="fa fa-comment-o"></span>
+                        <span class="fa fa-info-circle"></span>
                     </div>
                     <div class="widget-data">
-                        <div class="widget-int num-count">{{qteChats}}</div>
+                        <!-- <div class="widget-int num-count">{{qteChats}}</div> -->
 
-                        <div class="widget-title">Casos abertos</div>
+                        <div class="widget-title">Atendimentos Registrados</div>
+                        <div class="widget-subtitle">na Loja</div>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-3">
+                <!-- START WIDGET REGISTRED -->
+                <div class="widget widget-default widget-item-icon" ui-sref="main.dashboardVendedor.casosAbertos">
+                    <div class="widget-item-left">
+                        <span class="fa fa-bullhorn"></span>
+                    </div>
+                    <div class="widget-data">
+                        <!-- <div class="widget-int num-count">{{qteChats}}</div> -->
+
+                        <div class="widget-title">Denuncias Registradas</div>
+                        <div class="widget-subtitle">na Loja</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

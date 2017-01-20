@@ -28,10 +28,9 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
     };
 
     //funcao para entrar em todas as salas de chat do vendedor logado
-    //logando como teewa01
     SharedConnObj.joinChats = function (chats) {
         for(i = 0; i < chats.length; i++){
-            SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.myserver","teewa01");
+            SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.myserver","672");
         }
 
         console.log('consegui :)');
@@ -102,7 +101,6 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
                 });
 
             });
-  
         }
     };
 
