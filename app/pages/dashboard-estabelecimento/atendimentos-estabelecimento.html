@@ -1,0 +1,95 @@
+<ul class="breadcrumb">
+    <li><a ui-sref="main.dashboard.listar">Dashboard Estabelecimento</a></li>
+    <li ><a ui-sref="main.atendimentos.listar">Atendimentos</a> </li>
+</ul>
+<div class="page-title">
+    <h2><span class="fa fa-info-circle"></span> Atendimentos</h2>
+</div>
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-content-wrap">
+    <!-- END BREADCRUMB -->
+    <div class="page-container-boxed" >
+        <div class="row">
+         
+            <div class="col-md-3">
+
+                <!-- START WIDGET REGISTRED -->
+
+            </div>
+            <div class="col-md-12">
+                <!-- START DEFAULT DATATABLE -->
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"></h3>
+                        <ul class="panel-controls">
+
+                            <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                            <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                            <li><a ui-sref="main.atendimentos.listarPorDataGeral"><span class="fa fa-bar-chart-o"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="panel-body">
+                        <p class="text-info">FILTRAR: </p>
+                        <div class="row">
+                            <div class="col-md-2">
+                                Data Inicio: <input class="form-control col-md3" type="date"  ng-model="data_start.value">
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                                Data Fim: <input class="form-control col-md3" type="date"  ng-model="data_end.value" >
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                            <br>
+                                <button class=" btn btn-default" ng-click="carregarAtendimentos((data_start | date: 'dd/MM/y'), (data_end | date: 'dd/MM/y'))"> filtrar </button>
+                            <br>
+                            </div>
+                        </div> 
+                        </br>
+                        <table class="table" >
+                            <thead>
+                                <tr>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.idcase" placeholder="ID"></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.case_name" placeholder="Consulta"></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.categoria" placeholder="Categoria"></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Cliente"></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.date_trunc" placeholder="Data"></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.hora_trunc" placeholder="Hora"></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.vendedor_name" placeholder="Vendedor"></th>
+        
+                                </tr>
+                                <tr>
+                                    <th ng-click="ordenarPor('idcase')" >ID</th>
+                                    <th ng-click="ordenarPor('case_name')"  >Consulta</th>
+                                    <th ng-click="ordenarPor('categoria')" >Categoria</th>
+                                    <th ng-click="ordenarPor('name')" >Cliente</th>
+                                    <th ng-click="ordenarPor('data')">Data</th>
+                                    <th ng-click="ordenarPor('hora')">Hora</th>
+                                    <th ng-click="ordenarPor('date_trunc')">Vendedor</th>
+                                    <th>Detalhes</th> 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="atendimento in atendimentos | filter:criterioDeBusca |  orderBy:'-idcase'">
+                                    <td class="active">{{atendimento.idcase}}</td>
+                                    <td class="active">{{atendimento.date_trunc | date: 'dd/MM/y hh:mm:ss'}}</td>
+									<td class="active">{{atendimento.case_name}}</td>
+                                    <td class="active">{{atendimento.categoria}}</td>
+                                    <td class="active">{{atendimento.name}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    panelActions();
+    var myFunction = function () {
+        console.log("funfou")
+}
+</script>

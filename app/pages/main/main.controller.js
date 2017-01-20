@@ -4,20 +4,23 @@
  */
 angular.module("teewa").controller("mainCtrl", function ($scope, $state, config, $http) {
 	$scope.state = $state;
+    $scope.urlPhotos = config.baseUrl + "/photos/";
 
+    //Informações do vendedor salvas no navegador
 	$scope.infoVendedorPhoto = localStorage.getItem('vendedor_foto');
 	$scope.infoVendedorNome = localStorage.getItem('vendedor_nome');
 
-	console.log('vendedor: ' + $scope.infoVendedorPhoto + 'nome: ' + $scope.infoVendedorNome);
-	$scope.urlPhotos = config.baseUrl + "/photos/";
-	
-	if(localStorage.getItem('todos')==='true'){
+	if(localStorage.getItem('vendedor')==='true'){ //Verificando se vendedor já fez login
 		$scope.vendedor = true;
 	}else{
 		$scope.vendedor = false;
 	}
-	
-    //stub de login
+
+    $scope.verifica = function () {
+        return $scope.vendedor;
+    };
+
+    //stub de login e logout do vendedor
 	$scope.login = function(user) {
         /*sharedConn.login(config.user,'myserver',config.password);
         $scope.chats = sharedConn.getRoster();
@@ -26,27 +29,24 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
         $scope.myId = sharedConn.getConnectObj().jid;
         $scope.messages = [];
         $scope.to_id = ChatDetails.getTo();*/
-		localStorage.setItem('todos', JSON.stringify(true));
-		$scope.vendedor = JSON.parse(localStorage.getItem('todos'));
+		localStorage.setItem('vendedor', JSON.stringify(true));
+		$scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
 		$scope.carregaVendedor();
     };
 	$scope.logout = function() {
-        /*console.log("T");
-        sharedConn.logout();
-        $state.go('login', {}, {
-            location: "replace",
-            reload: true
-        });*/
-        localStorage.setItem('todos', JSON.stringify(false));
-		$scope.vendedor = JSON.parse(localStorage.getItem('todos'));
+        //Se vendedor
+	    localStorage.setItem('vendedor', JSON.stringify(false));
+		$scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
         localStorage.setItem('vendedor_foto', '');
         localStorage.setItem('vendedor_nome', '');
 		$scope.infoVendedor = "";
-    };
-    $scope.verifica = function () {
-		return $scope.vendedor;
+		//se estabelecimento
+        localStorage.setItem('Estabelecimento', JSON.stringify(false));
+        $scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
     };
 
+
+    //Carregando dados vendedor
     $scope.carregaVendedor = function () {
 		$http({
 
@@ -69,6 +69,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 		});
 	};
 
+    //Carregando casos para a barra de notificações
 	$scope.carregarCasos = function () {
 		$http({
 			url : config.baseUrl + "/sellers/news/cases",
@@ -93,5 +94,27 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 	};
 
 	$scope.carregarCasos();
+
+    if(localStorage.getItem('Estabelecimento')==='true'){ //Verificando se vendedor já fez login
+        $scope.Estabelecimento = true;
+    }else{
+        $scope.Estabelecimento = false;
+    }
+
+    $scope.verificaEstabelecimento = function(){
+        return $scope.Estabelecimento;
+    }
+    //Stub para estabelecimento
+    $scope.loginEstabelecimento = function(user) {
+        //Estabelecimento
+        localStorage.setItem('Estabelecimento', JSON.stringify(true));
+        $scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
+        //Vendedor
+        localStorage.setItem('vendedor', JSON.stringify(false));
+        $scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
+        localStorage.setItem('vendedor_foto', '');
+        localStorage.setItem('vendedor_nome', '');
+        $scope.infoVendedor = "";
+    };
 
 });

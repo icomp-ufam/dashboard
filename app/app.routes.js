@@ -217,13 +217,40 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             url: '/perfil',
             templateUrl: 'app/pages/perfil/perfil.html',
             controller: 'estabelecimentosCtrl'
-        }).state('main.dashboardEstabelecimento', {
-            url: 'dashboard-estabelecimento',
-            template: '<ui-view></ui-view>'
-        }).state('main.dashboardEstabelecimento.index', {
-            url: '/dashboard-estabelecimento',
+        })
+
+        .state('main.dashboardEstabelecimento', {
+                url: 'dashboard-estabelecimento',
+                template: '<ui-view></ui-view>'
+            }).state('main.dashboardEstabelecimento.index', {
+            url: '/index',
             templateUrl: 'app/pages/dashboard-estabelecimento/dashboard-estabelecimento.html',
             controller: 'dashboardEstabelecimentoCtrl',
             activetab: 'dashboardEstabelecimento'
+        }).state('main.dashboardEstabelecimento.perfilEstabelecimento', {
+            url: '/perfil-estabelecimento',
+            templateUrl: 'app/pages/dashboard-estabelecimento/perfil-estabelecimento.html',
+            controller: 'dashboardEstabelecimentoCtrl',
+            activetab: 'perfilEstabelecimento'
+        }).state('main.dashboardEstabelecimento.vendedoresEstabelecimento', {
+            url: '/vendedores-estabelecimento',
+            templateUrl: 'app/pages/dashboard-estabelecimento/vendedores-estabelecimento.html',
+            controller: 'dashboardEstabelecimentoCtrl',
+            activetab: 'vendedoresEstabelecimento'
+        }).state('main.dashboardEstabelecimento.atendimentosEstabelecimento', {
+            url: '/atendimentos-estabelecimento',
+            templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos-estabelecimento.html',
+            controller: 'dashboardEstabelecimentoCtrl',
+            activetab: 'atendimentosEstabelecimento'
+        }).state('main.dashboardEstabelecimento.anunciosEstabelecimento', {
+            url: '/anuncios-estabelecimento',
+            templateUrl: 'app/pages/dashboard-estabelecimento/anuncios-estabelecimento.html',
+            controller: 'dashboardEstabelecimentoCtrl',
+            activetab: 'anunciosEstabelecimento'
+        }).state('main.dashboardEstabelecimento.denunciasEstabelecimento', {
+            url: '/denuncias-estabelecimento',
+            templateUrl: 'app/pages/dashboard-estabelecimento/denuncias-estabelecimento.html',
+            controller: 'dashboardEstabelecimentoCtrl',
+            activetab: 'denunciasEstabelecimento'
         })
     });
