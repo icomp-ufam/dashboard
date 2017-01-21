@@ -69,5 +69,5 @@ angular.module("teewa")
             value: new Date(2014, 12, 01),
         }
 
-    carregarVendedoresLoja(novaData, d, $scope.idloja);
+    carregarVendedoresLoja(novaData, d,$scope.idloja);
 });

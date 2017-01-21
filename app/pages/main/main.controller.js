@@ -10,7 +10,8 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 	$scope.infoVendedorPhoto = localStorage.getItem('vendedor_foto');
 	$scope.infoVendedorNome = localStorage.getItem('vendedor_nome');
 
-	if(localStorage.getItem('vendedor')==='true'){ //Verificando se vendedor já fez login
+    //Verificando login de vendedor
+	if(localStorage.getItem('vendedor')==='true'){
 		$scope.vendedor = true;
 	}else{
 		$scope.vendedor = false;
@@ -94,8 +95,8 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 	};
 
 	$scope.carregarCasos();
-
-    if(localStorage.getItem('Estabelecimento')==='true'){ //Verificando se vendedor já fez login
+    //Verificando Login de Estabelecimento
+    if(localStorage.getItem('Estabelecimento')==='true'){
         $scope.Estabelecimento = true;
     }else{
         $scope.Estabelecimento = false;

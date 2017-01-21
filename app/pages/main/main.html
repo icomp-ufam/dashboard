@@ -122,13 +122,13 @@
                     <span class="xn-text">Pacotes</span>
                 </a>
             </li>
-            <li ng-show="!verificaEstabelecimento() && !verifica()" ng-class="{active: state.current.activetab == 'dashboardVendedor'}">
+            <li ng-show="!verifica() && !verificaEstabelecimento()" ng-class="{active: state.current.activetab == 'dashboardVendedor'}">
                 <a ui-sref="main.dashboardVendedor.index" ng-click="login()">
                     <span class="fa fa-tachometer fa-3x"></span>
                     <span class="xn-text">DashBoard Vendedor</span>
                 </a>
             </li>
-            <li ng-show="!verificaEstabelecimento() && !verifica()" ng-class="{active: state.current.activetab == 'dashboardEstabelecimento'}">
+            <li ng-show="!verifica() && !verificaEstabelecimento()" ng-class="{active: state.current.activetab == 'dashboardEstabelecimento'}">
                 <a ui-sref="main.dashboardEstabelecimento.index" ng-click="loginEstabelecimento()">
                     <span class="fa fa-tachometer fa-3x"></span>
                     <span class="xn-text" style="font-size: 90%">DashBoard Estabelecimento</span>

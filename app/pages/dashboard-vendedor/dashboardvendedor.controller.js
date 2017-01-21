@@ -13,6 +13,9 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.urlFiles = config.baseUrl + "/case_images/";
     $scope.urlChatImages = config.baseUrl + "/chat_images/";
 
+    $scope.carregando = true;
+    $scope.mensagensacarregar = 0;
+
     // id Larissa
     $scope.idVendedor = config.user;
     //id da loja chat-dashboard
@@ -52,7 +55,13 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     $scope.joinChats = function(){
         sharedConn.joinChats($scope.chats);
+        clearTimeout($scope.intervalo);
+        $scope.intervalo = window.setTimeout($scope.carregamentoconcluido(), 10000);
     };
+    $scope.carregamentoconcluido = function () {
+        $scope.carregando = false;
+    }
+
 
     $scope.carregarCasosNovos = function () {
         $http({
@@ -363,11 +372,14 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
         delete $scope.data.message;
     };
-
+    $scope.remetente = 'desconhecido';
+    $scope.fotoR = '';
     $scope.notificacao = function(from){
+        console.log('veridicando de quem é mensagem');
         for(chat in $scope.chats){
-           if (from.includes($scope.chats[chat].case.id)){
-               console.log('nova mensagem de '+ $scope.chats[chat].case.id);
+           if (from.includes($scope.chats[chat].id)){
+               $scope.remetente =$scope.chats[chat].userTo.name;
+               $scope.fotoR =  $scope.urlPhotos + $scope.chats[chat].userTo.photo;
            }
         }
     };
@@ -378,13 +390,19 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         }
         else if (Notification.permission === "granted") {
             // If it's okay let's create a notification
-            var notification = new Notification("Nova Mensagem!");
+            var notification = new Notification("Nova Mensagem de "+$scope.remetente,{
+                icon: $scope.fotoR,
+                body: $scope.messages[$scope.messages.length - 1].text
+            });
         }
         else if (Notification.permission !== 'denied') {
             Notification.requestPermission(function (permission) {
                 // If the user accepts, let's create a notification
                 if (permission === "granted") {
-                    var notification = new Notification("Nova Mensagem!");
+                    var notification = new Notification("Nova Mensagem de "+$scope.remetente,{
+                        icon: $scope.fotoR,
+                        body: $scope.messages[$scope.messages.length - 1].text
+                    });
                 }
             });
         }
@@ -435,9 +453,12 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
                         time: d,
                         image: imagem
                 });
-
-                $scope.notificacao(from);
-                $("#teste").trigger('click');
+                if($scope.carregando){
+                    console.log('não exibi notificação')
+                }else{
+                    $scope.notificacao(from);
+                    $("#teste").trigger('click');
+                }
             }
 
             $scope.$apply();
