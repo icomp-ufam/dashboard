@@ -16,52 +16,35 @@
 </div>
 
 <div class="row">
+    <!-- START NOVO CASO -->
     <div class="col-md-3" ng-repeat="caso in casos" >
-        <!-- CONTACT ITEM -->
+        <!-- Lista os casos novos, usando a diretiva ng-repeat -->
         <div class="panel panel-default">
             <div class="panel-body profile">
                 <div class="profile-image">
-                    <img ng-show="caso.file" ng-src="{{urlFiles}}{{caso.file}}" alt="Caso"/>
+                    <!-- Exibe a imagem do caso/consulta, caso exista -->
+                    <img ng-if="caso.file" ng-src="{{urlFiles+caso.file}}" alt="Caso" width="100" height="100"/>
+                    <img ng-if="!caso.file" ng-src="app/assets/img/teewaTeste.png" width="100" height="100" alt="Caso"/>
                 </div>
                 <div class="profile-data">
+                    <!-- Exibe informações do caso  -->
                     <div class="profile-data-name">{{caso.user.name}}</div>
                     <div class="profile-data-title">{{caso.created_at | date:'dd/MM/yyyy - HH:mm'}}</div>
                 </div>
                 <div class="profile-controls">
+                    <!-- Botões de aceitar e recusar caso -->
                     <a ng-click="recusarCaso(caso.id)" class="profile-control-left"><span class="fa fa-times"></span></a>
                     <a ng-click="aceitarCaso(caso.id)" class="profile-control-right"><span class="fa fa-check"></span></a>
                 </div>
             </div>
+
             <div class="panel-body">
                 <div class="contact-info">
-                    <p><small>Data</small><br/>{{caso.created_at | date:'dd/MM/yyyy - HH:mm'}}</p>
+                    <!-- Descrição/nome do caso/consulta -->
                     <p><small>Descrição</small><br/>{{caso.name}}</p>
                 </div>
             </div>
         </div>
-        <!-- END CONTACT ITEM -->
     </div>
+    <!-- START NOVO CASO -->
 </div>
-
-<!-- MESSAGES -->
-<!--<div class="col-md-3">
-
-    <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
-        <div class="panel-heading">
-            <h3 class="panel-title"><span class="fa fa-comments"></span> Caso </h3>
-
-        </div>
-
-        <div class="panel-body list-group list-group-contacts scroll" style="height: 200px;">
-            <a href="#" class="list-group-item" ng-repeat="caso in casos">
-                <img src="{{urlPhotos}}{{caso.user.photo}}" class="pull-left" alt="User"/>
-                <span class="contacts-title">{{caso.user.name}}</span>
-                <p>{{caso.created_at | date:'dd/MM/yyyy - HH:mm'}}</p>
-                <span class="contacts-title">{{caso.name}}</span>
-            </a>
-        </div>
-        <div class="panel-footer text-center">
-            <a href="pages-messages.html">Show all cases</a>
-        </div>
-    </div>
-</div>-->

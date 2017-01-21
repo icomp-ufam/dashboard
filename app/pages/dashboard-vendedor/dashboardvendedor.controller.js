@@ -18,6 +18,9 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     //id da loja chat-dashboard
     $scope.idstore = '118';
 
+    // imagem pra ser carregada nas mensagens do chat
+    $scope.fotoVendedor = localStorage.getItem('vendedor_foto');
+
     $scope.carregarCasosAbertos = function () {
         $http({
 
@@ -227,7 +230,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     //recebe informacoes da caixa de chat que foi selecionada
     $scope.clickChat = function (chat) {
-        console.log(chat);
+        //console.log(chat);
         //recebe chat clicado
         $scope.chatAtual = chat;
         //configurando qual sala de chat esta sendo escutada
@@ -237,6 +240,12 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         $scope.sc();
 
     };
+
+    $scope.open_image_modal = function(src_img){
+        imagem = document.querySelector("#image-big");
+        imagem.src = src_img;
+    };
+
     $scope.flag = false;
     $scope.sc = function (){
         if($scope.flag == false) {
