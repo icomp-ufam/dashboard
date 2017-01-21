@@ -56,6 +56,7 @@
                             </div>
                             <!-- Nome/descrição do caso/consulta -->
                             {{chatAtual.case.name}}
+
                             <br>
                             <br>
                             <!--Exibe imagem da consulta, caso exista-->
@@ -91,6 +92,11 @@
                             <!-- Exibe texto da mensagem -->
                             {{message.text}}
 
+                            <!--Exibe imagem da mensagem, caso exista-->
+                            <br ng-show="message.image">
+                            <br ng-show="message.image">
+                            <img ng-show="message.image" ng-src="{{message.image}}" width="200" height="200">
+
                             <!-- Relatorio de entrega da mensagem -->
                             <div class="pull-right" >
                                 <span ng-show="message.status == 0" class="fa fa-clock-o"></span>
@@ -110,8 +116,13 @@
                     <form name="dados">
                         <div class="input-group">
                             <div class="input-group-btn">
-                                <button class="btn btn-default"><span class="fa fa-camera"></span></button>
-                                <button class="btn btn-default"><span class="fa fa-chain"></span></button>
+
+                                <!-- START INPUT IMAGEM -->
+                                <button onclick="document.getElementById('file').click()" class="btn btn-default"><span class="fa fa-camera"></span></button>
+                                <input id="file" type="file" style="display: none" accept="image/gif, image/jpeg, image/png, image/jpg" name="file" onchange="angular.element(this).scope().uploadFile(this.files)">
+                                <!-- END INPUT IMAGEM -->
+
+                                <button class="btn btn-default"><span class="fa fa-smile-o"></span></button>
                             </div>
                             <input name="envia" type="text" ng-model="data.message" title="digite sua mensagem" onkeypress="enviarEnter(event)" class="form-control" placeholder="Digite uma mensagem..."/>
                             <div class="input-group-btn">
@@ -169,6 +180,7 @@
         linguagem_impropria = 4;
         usuario_falso = 5;
         outros = 6.-->
+    <!-- START MODAL DE DENÚNCIA -->
     <div class="modal" id="modal_denuncia" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -197,6 +209,7 @@
             </div>
         </div>
     </div>
+    <!-- END MODAL DE DENÚNCIA -->
 
 </div>
 <!-- END ROW -->

@@ -103,7 +103,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 
     $scope.verificaEstabelecimento = function(){
         return $scope.Estabelecimento;
-    }
+    };
     //Stub para estabelecimento
     $scope.loginEstabelecimento = function(user) {
         //Estabelecimento

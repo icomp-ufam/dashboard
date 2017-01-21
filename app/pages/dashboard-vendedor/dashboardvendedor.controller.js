@@ -11,6 +11,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     $scope.urlPhotos = config.baseUrl + "/photos/";
     $scope.urlFiles = config.baseUrl + "/case_images/";
+    $scope.urlChatImages = config.baseUrl + "/chat_images/";
 
     // id Larissa
     $scope.idVendedor = config.user;
@@ -187,8 +188,42 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             console.log(error);
             $scope.message = "Aconteceu um problema: " + error;
         });
-
     };
+
+    $scope.uploadFile = function (files) {
+        // retorna o arquivo passado por parametro decodificado em base64
+        var reader = new FileReader();
+        reader.readAsDataURL(files[0]);
+        reader.onload = function () {
+            // exclui o "data:image/png;base64," do retorno
+            img_base64 =  reader.result.split(',')[1];
+
+            // rota deve receber imagem em base64 para fazer upload para o servidor do teewa
+            $http({
+                url : config.baseUrl + "/chats/send/image",
+                method : 'post',
+                headers : {
+                    'Content-Type': 'application/json',
+                    'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                },
+                data: {
+                    'image' : img_base64,
+                    'id'    : $scope.idVendedor
+                }
+            }).success(function(data){
+                console.log(data);
+                $scope.sendImg($scope.to_id, data.image);
+            }).error(function(error){
+                console.log(error);
+                $scope.message = "Aconteceu um problema: " + error;
+            });
+
+        };
+        reader.onerror = function (error) {
+            console.log('Error: ', error);
+        };
+    };
+
 
     //recebe informacoes da caixa de chat que foi selecionada
     $scope.clickChat = function (chat) {
@@ -259,19 +294,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     // To automate login
 
-    $scope.sendMsg_old = function(to, body) {
-        console.log(to);
-        var to_jid = Strophe.getBareJidFromJid(to);
-        var timestamp = new Date().getTime();
-        var reqChannelsItems = $msg({
-            id: timestamp,
-            to: to_jid,
-            type: 'chat'
-        })
-            .c("body").t(body);
-        sharedConn.getConnectObj().send(reqChannelsItems.tree());
-    };
-
     // XEP-0066 - Envio de imagem
     // monta uma mensagem XML no formato abaixo
     /*<message from='stpeter@jabber.org/work' to='MaineBoy@jabber.org/home'>
@@ -280,11 +302,13 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             <url>http://www.jabber.org/images/psa-license.jpg</url>
          </x>
      </message>*/
-
-    $scope.sendImg = function (to, message, image) {
+    $scope.sendImg = function (to, image) {
+        var message = "Imagem";
         var messagetype = 'groupchat';
         var timestamp = new Date().getTime();
         var reply;
+        image = $scope.urlChatImages+image;
+
         reply = $msg({
             to: to,
             from: $scope.myId,
@@ -314,14 +338,11 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
         sharedConn.getConnectObj().send(reply.tree());
         console.log('I sent ' + to + ': ' + message, reply.tree());
-
     };
 
 
     $scope.showSendMessage = function() {
-
         $scope.sendMsg($scope.to_id, $scope.data.message);
-
         var d = new Date();
         d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
 
@@ -332,8 +353,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         });
 
         delete $scope.data.message;
-
     };
+
     $scope.notificacao = function(from){
         for(chat in $scope.chats){
            if (from.includes($scope.chats[chat].case.id)){
@@ -349,6 +370,14 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         var type = msg.getAttribute('type');
         var elems = msg.getElementsByTagName('body');
 
+        //caso a mensagem contenha imagens
+        var imagem = msg.getElementsByTagName('url');
+        if (imagem.length > 0){
+            imagem = imagem[0].textContent;
+        } else {
+            imagem = "";
+        }
+
         //var d = new Date();
         //d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
         var d = msg.getAttribute('id');
@@ -357,19 +386,20 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
             var body = elems[0];
             var textMsg = Strophe.getText(body);
-            if(from.includes('672')){
+            if(from.includes($scope.idVendedor)){
                 $scope.messages.push({
                     userId: from,
                     text: textMsg,
-                    time: d
+                    time: d,
+                    image: imagem
                 });
             }else{
                 $scope.messages.push({
                         userId: from,
                         text: textMsg,
-                        time: d
+                        time: d,
+                        image: imagem
                 });
-
 
                 $scope.notificacao(from);
                 $("#teste").trigger('click');
