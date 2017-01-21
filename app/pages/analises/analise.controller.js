@@ -9,6 +9,10 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
     $scope.cases = [];
     $scope.atendimentos = [];
     $scope.Natendimentos = [];
+	
+    $scope.data_start = [];
+    $scope.data_end = [];
+
     $scope.data_startParam = {
         value: new Date($stateParams.data_startParametro)
     }
@@ -195,8 +199,8 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
         value: new Date(d.value.getTime() - 10080*60000),
     }
 
-    $scope.carregarCases($scope.data_startParam, $scope.data_endParam);
-    //$scope.carregarCases(novaData, d);
+    //$scope.carregarCases($scope.data_startParam, $scope.data_endParam);
+    $scope.carregarCases(novaData, d);
     $scope.carregarAtendimentos();
     $scope.carregarNatendimentos();
     $scope.carregarEstabelecimentos();
@@ -204,10 +208,9 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
     var curr = new Date; // get current date
     var first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
     var last = first + 6; // last day is the first day + 6
-
-
+	
     var lastday = new Date(curr.setDate(last)).toLocaleDateString();
-
+	
     $scope.carregarPorData('01/01/2015', lastday);
 
 });

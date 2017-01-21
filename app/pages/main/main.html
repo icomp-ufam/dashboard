@@ -96,6 +96,13 @@
                     <span class="xn-text">Atendimentos</span>
                 </a>
             </li>
+			 <li ng-show="!verifica() && !verificaEstabelecimento()" ng-class="{active: state.current.activetab == 'casos'}">
+                <a ui-sref="main.analisesCasos.listar">
+                    <span class="fa fa-users"></span>
+                    <span class="xn-text">Casos</span>
+                </a>
+            </li>
+
             <li ng-show="!verifica() && !verificaEstabelecimento()" ng-class="{active: state.current.activetab == 'clientes'}">
                 <a ui-sref="main.clientes.listar">
                     <span class="fa fa-users"></span>
