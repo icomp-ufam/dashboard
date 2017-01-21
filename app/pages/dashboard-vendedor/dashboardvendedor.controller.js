@@ -362,6 +362,32 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
            }
         }
     };
+    $scope.notifyMe = function () {
+        // Let's check if the browser supports notifications
+        if (!("Notification" in window)) {
+            alert("Seu navegador não suporta o serviço de notificações");
+        }
+        else if (Notification.permission === "granted") {
+            // If it's okay let's create a notification
+            var notification = new Notification("Nova Mensagem!");
+        }
+        else if (Notification.permission !== 'denied') {
+            Notification.requestPermission(function (permission) {
+                // If the user accepts, let's create a notification
+                if (permission === "granted") {
+                    var notification = new Notification("Nova Mensagem!");
+                }
+            });
+        }
+    }
+    Notification.requestPermission();
+    function spawnNotification(corpo,icone,titulo) {
+        var opcoes = {
+            body: corpo,
+            icon: icone
+        };
+        var n = new Notification(titulo,opcoes);
+    }
 
     $scope.messageRecieve = function(msg) {
 

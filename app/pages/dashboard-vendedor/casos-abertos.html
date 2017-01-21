@@ -100,7 +100,7 @@
                             <!-- Relatorio de entrega da mensagem -->
                             <div class="pull-right" >
                                 <span ng-show="message.status == 0" class="fa fa-clock-o"></span>
-                                <span ng-show="message.status == 1" class="fa fa-check"></span>
+                                <span  class="fa fa-check"></span> <!--ng-show="message.status == 1"-->
                             </div>
 
                         </div>
@@ -172,7 +172,7 @@
     <!-- END LISTA LATERAL DE CASOS ABERTOS -->
 
 
-    <button id="teste" style=" visibility: hidden" onclick="notifyMe()">notificação!</button>
+    <button id="teste" style=" visibility: hidden" ng-click="notifyMe()">notificação!</button>
 
         <!--assedio = 1;
         conteudo_improprio = 2;
@@ -209,40 +209,10 @@
             </div>
         </div>
     </div>
+
     <!-- END MODAL DE DENÚNCIA -->
 
 </div>
-<!-- END ROW -->
-
-<script>
-    function notifyMe() {
-        // Let's check if the browser supports notifications
-        if (!("Notification" in window)) {
-            alert("This browser does not support desktop notification");
-        }
-        else if (Notification.permission === "granted") {
-            // If it's okay let's create a notification
-            var notification = new Notification("Nova Mensagem!");
-        }
-        else if (Notification.permission !== 'denied') {
-            Notification.requestPermission(function (permission) {
-                // If the user accepts, let's create a notification
-                if (permission === "granted") {
-                    var notification = new Notification("Nova Mensagem!");
-                }
-            });
-        }
-    }
-    Notification.requestPermission();
-    function spawnNotification(corpo,icone,titulo) {
-        var opcoes = {
-            body: corpo,
-            icon: icone
-        };
-        var n = new Notification(titulo,opcoes);
-    }
-
-</script>
 
 <script>
     function enviarEnter(e){ //validação de campo vazio e envio com tecla enter

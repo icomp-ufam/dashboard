@@ -4,6 +4,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
 
     //SharedConnObj.BOSH_SERVICE = 'https://conversejs.org/http-bind/';
     SharedConnObj.BOSH_SERVICE = 'http://localhost:7070/http-bind/';
+    //SharedConnObj.BOSH_SERVICE = 'http://http://10.208.3.171:7070/http-bind/';
     SharedConnObj.connection = null; // The main Strophe connection object.
     SharedConnObj.loggedIn = false;
     SharedConnObj.roster = [];
@@ -114,7 +115,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
 
     SharedConnObj.register = function(jid, pass, domain) {
         //to add register function
-        SharedConnObj.connection = new Strophe.Connection("https://localhost:7070/http-bind/");
+        SharedConnObj.connection = new Strophe.Connection(SharedConnObj.BOSH_SERVICE);
 
         var callback = function(status) {
             if (status === Strophe.Status.REGISTER) {
