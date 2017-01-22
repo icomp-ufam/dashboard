@@ -229,28 +229,34 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             activetab: 'dashboardEstabelecimento'
         }).state('main.dashboardEstabelecimento.perfilEstabelecimento', {
             url: '/perfil-estabelecimento',
-            templateUrl: 'app/pages/dashboard-estabelecimento/perfil-estabelecimento.html',
+            templateUrl: 'app/pages/dashboard-estabelecimento/perfil/perfil-estabelecimento.html',
             controller: 'dashboardEstabelecimentoCtrl',
             activetab: 'perfilEstabelecimento'
         }).state('main.dashboardEstabelecimento.vendedoresEstabelecimento', {
             url: '/vendedores-estabelecimento',
-            templateUrl: 'app/pages/dashboard-estabelecimento/vendedores-estabelecimento.html',
+            templateUrl: 'app/pages/dashboard-estabelecimento/vendedores/vendedores-estabelecimento.html',
             controller: 'dashboardEstabelecimentoCtrl',
             activetab: 'vendedoresEstabelecimento'
         }).state('main.dashboardEstabelecimento.atendimentosEstabelecimento', {
             url: '/atendimentos-estabelecimento',
-            templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos-estabelecimento.html',
+            templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos/atendimentos-estabelecimento.html',
             controller: 'dashboardEstabelecimentoCtrl',
             activetab: 'atendimentosEstabelecimento'
         }).state('main.dashboardEstabelecimento.anunciosEstabelecimento', {
             url: '/anuncios-estabelecimento',
-            templateUrl: 'app/pages/dashboard-estabelecimento/anuncios-estabelecimento.html',
+            templateUrl: 'app/pages/dashboard-estabelecimento/anuncios/anuncios-estabelecimento.html',
             controller: 'dashboardEstabelecimentoCtrl',
             activetab: 'anunciosEstabelecimento'
         }).state('main.dashboardEstabelecimento.denunciasEstabelecimento', {
             url: '/denuncias-estabelecimento',
-            templateUrl: 'app/pages/dashboard-estabelecimento/denuncias-estabelecimento.html',
+            templateUrl: 'app/pages/dashboard-estabelecimento/denuncias/denuncias-estabelecimento.html',
             controller: 'dashboardEstabelecimentoCtrl',
             activetab: 'denunciasEstabelecimento'
+        })
+
+        .state('main.dashboardEstabelecimento.atendimentos.listarPorHora', {
+            url: '/listarPorHora/:data_startParametro/:data_endParametro',
+            templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos/atendimentosPorHora.html',
+            controller: 'dashboardEstabelecimentoCtrl'
         })
     });

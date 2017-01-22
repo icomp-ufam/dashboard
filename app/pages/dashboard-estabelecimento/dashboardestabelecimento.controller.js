@@ -5,11 +5,11 @@
 angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($scope, $http, config, $state , sharedConn, Chats, ChatDetails) {
     //$scope.app = "Dashboard Estabelecimento";
 
+    $scope.idloja = 1;
+
     //#######Todos os vendedores de uma loja#######
     $scope.app = "Vendedores";
     $scope.vendedores = [];
-
-    $scope.idloja = 1;
 
     var carregarVendedoresLoja = function (date_start, date_end, idstore) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear();
@@ -106,5 +106,142 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
     carregarDenunciasPorData("01/01/2015","24/12/2019", $scope.idloja);
     
     //#######Todos os atendimentos de uma loja#######
+    $scope.app = "Atendimentos";
+    $scope.atendimentos = [];
+
+    $scope.clickThisAtendimentosPorHora=function(date_start, date_end) {
+         $state.go("main.dashboardEstabelecimento.atendimentos.listarPorHora", 
+            {
+            data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+            data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+        });
+    };
+
+    $scope.carregarAtendimentos = function (date_start, date_end, idstore) {
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
+        var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
+
+        $http({
+
+            url : config.baseUrl + "/dash/calls/hour",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'date_start' : NovaDate_start,
+                'date_end' : NovaDate_end,
+                'idstore' : idstore
+            }
+        }).success(function(data,date){
+            $scope.atendimentos = data;
+            
+            console.log(data);
+            
+            $scope.data_start = {
+                        value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+
+                };
+            $scope.data_end = {
+                    value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+                };
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+            console.log("login error");
+        });
+
+    };
+
+    var d = {
+        value: new Date(),
+    }
+     var novaData = {
+        value: new Date(d.value.getTime() - 10080*60000),
+    }
+
+    $scope.carregarAtendimentosPorHora = function (date_start, date_end, idstore) {
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
+        var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
+        //console.log(NovaDate_start);
+        //console.log(NovaDate_end);
+        
+        $http({
+
+            url : config.baseUrl + "/dash/calls/hour/",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'date_start' : NovaDate_start,
+                'date_end' : NovaDate_end,
+                'idstore' : idstore
+            }
+        }).success(function(data){
+            $scope.atendimentosPorHoras = data;
+            var temp = [];
+            var novojsong = [];
+            temp = angular.fromJson(data);
+
+            var j = 0;
+            var numero;
+            
+            var novo = '{';
+            for (i = 0; i<= 23; i++){
+                if(i == 23){
+                    if(i == temp[j]['case_hour']) {
+                        novo += '"'+temp[j]['case_hour']+'":{"case_hour":"'+temp[j]['case_hour']+'","ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"}';
+                        //novojsong[i] = Array(i, Array(temp[j]['ate'],temp[j]['neg'],temp[j]['nat'],temp[j]['tot']));
+                        j++;
+                    }else{
+                        novo += '"'+i+'":{"case_hour":"'+i+'","ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"}';
+                        //novojsong[i] = Array(i, Array(0, 0, 0, 0));
+                        j = j;
+                    }
+                }else{
+                    if(i == temp[j]['case_hour']) {
+                        novo += '"'+temp[j]['case_hour']+'":{"case_hour":"'+temp[j]['case_hour']+'","ate":"'+temp[j]['ate']+'","neg":"'+temp[j]['neg']+'","nat":"'+temp[j]['nat']+'","tot":"'+temp[j]['tot']+'"},';
+                        //novojsong[i] = Array(i, Array(temp[j]['ate'],temp[j]['neg'],temp[j]['nat'],temp[j]['tot']));
+                        j++;
+                    }else{
+                        numero = i >= 10 ? i.toString() : "0"+i.toString();
+                        novo += '"'+numero+'":{"case_hour":"'+numero+'","ate":"'+0+'","neg":"'+0+'","nat":"'+0+'","tot":"'+0+'"},';
+                        //novojsong[i] = Array(i, Array(0, 0, 0, 0));
+                        j = j;
+                    }
+                }
+
+            }
+            novo += '}';
+            
+            $scope.atendimentosPorHorasCompleto = JSON.parse(novo);
+            graficoAtendimentoPorHoraTOT(data);
+            graficoAtendimentoPorHoraNEG(data);
+            graficoAtendimentoPorHoraNAT(data);
+            graficoAtendimentoPorHoraATE(data);
+
+            $scope.data_start = {
+                        value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+
+                };
+                $scope.data_end = {
+                    value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+                };
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+            console.log("login error");
+
+        });
+
+    };
+
+    $scope.carregarAtendimentos(novaData, d, $scope.idloja);
+    $scope.carregarAtendimentosPorHora(novaData, d, $scope.idloja);
 
 });
