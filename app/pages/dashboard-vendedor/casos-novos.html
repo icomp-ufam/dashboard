@@ -12,7 +12,7 @@
 </ul>
 
 <div class="page-title" >
-    <h2><span class="fa fa-bell-o"></span> Casos Novos</h2>
+    <h2><span class="fa fa-bell"></span> Casos Novos</h2>
 </div>
 
 <div class="row">
@@ -23,7 +23,7 @@
             <div class="panel-body profile">
                 <div class="profile-image">
                     <!-- Exibe a imagem do caso/consulta, caso exista -->
-                    <img ng-if="caso.file" ng-src="{{urlFiles+caso.file}}" alt="Caso" width="100" height="100"/>
+                    <img ng-if="caso.file" ng-src="{{urlFiles+caso.file}}" alt="Caso" ng-click="open_image_modal(urlFiles+caso.file, caso.name)" data-toggle="modal" data-target="#modal_open_image" width="100" height="100"/>
                     <img ng-if="!caso.file" ng-src="app/assets/img/teewaTeste.png" width="100" height="100" alt="Caso"/>
                 </div>
                 <div class="profile-data">
@@ -48,3 +48,20 @@
     </div>
     <!-- START NOVO CASO -->
 </div>
+
+<!-- START MODAL DE IMAGEM -->
+<div class="modal" id="modal_open_image" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="defModalHead">Imagem</h4>
+            </div>
+            <div class="modal-body">
+                <p id="text-image-big"></p>
+                <img id="image-big" src="app/assets/img/loaders/default.gif" class="img-responsive" style="display: block; margin: 0 auto; max-width: 550px; max-height: 400px">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MODAL DE IMAGEM -->

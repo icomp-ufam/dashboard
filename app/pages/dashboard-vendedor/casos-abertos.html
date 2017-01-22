@@ -1,6 +1,9 @@
-<!-- START ROW -->
-<div class="row">
+<div ng-if="!chatAtual" class="row">
+    <img src="app/assets/img/loaders/default.gif" class="loading-img">
+</div>
 
+<!-- START ROW -->
+<div ng-if="chatAtual" class="row">
     <!-- START MESSAGES -->
     <div class="col-md-8">
         <div class="content-frame" >
@@ -35,7 +38,7 @@
             <!-- END PAINEL SUPERIOR DO CHAT-->
 
             <!-- START MENSAGENS DO CHAT ATUAL -->
-            <div id="msg"  class="content-frame-body-right" style="overflow:auto;height:430px; width:730px">
+            <div id="msg"  class="content-frame-body-right" style="overflow-y:scroll;height:430px;width:100%;">
                 <div class="messages messages-img">
 
                     <!-- START PRIMEIRA MENSAGEM DA CONSULTA -->
@@ -97,7 +100,7 @@
                             <br ng-show="message.image">
 
                             <!-- O clique na imagem, abre um modal com a imagem em tamanho maior -->
-                            <img ng-click="open_image_modal(message.image, message.text)" data-toggle="modal" data-target="#modal_open_image" ng-show="message.image" ng-src="{{message.image}}" style="width:200px; height:200px" >
+                            <img ng-click="open_image_modal(message.image, message.text)" data-toggle="modal" data-target="#modal_open_image" ng-show="message.image" ng-src="{{message.image}}" style="max-width:500px; max-height:300px" >
 
                             <!-- Relatorio de entrega da mensagem -->
                             <div class="pull-right" >
@@ -146,7 +149,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><span class="fa fa-comments"></span> Conversas </h3>
             </div>
-            <div class="panel-body list-group list-group-contacts scroll" style="overflow:auto;height:500px; width:360px">
+            <div class="panel-body list-group list-group-contacts scroll" style="overflow:auto;height:500px">
 
                 <!-- carrega casos abertos usando o ng-repeat sobre a variavel de escopo chats -->
                 <a id="teste2" ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats">
@@ -222,7 +225,7 @@
                 </div>
                 <div class="modal-body">
                     <p id="text-image-big"></p>
-                    <img id="image-big" src="app/assets/img/loaders/default.gif" class="img-responsive" style="display: block; margin: 0 auto;">
+                    <img id="image-big" src="app/assets/img/loaders/default.gif" class="img-responsive" style="display: block; margin: 0 auto; max-width: 550px; max-height: 400px">
                 </div>
             </div>
         </div>
@@ -247,7 +250,7 @@
                         <img src="" id="img-upload" class="img-responsive" style="max-width: 550px; max-height: 400px;">
                         <br>
                         <!-- Aqui vem o input de texto relacionado a imagem e o botão de enviar -->
-                        <div class="input-group">
+                        <div class="input-group" id="info-img-upload" style="visibility: hidden">
                             <!-- Mensagem relacionada a imagem -->
                             <input ng-model="legenda" type="text" class="form-control" placeholder="Digite uma mensagem..."/>
                             <div class="input-group-btn">
@@ -280,6 +283,7 @@
             reader.onload = function (e) {
                 // carrega o resultado diretamente na tag img #img-upload
                 document.querySelector("#img-upload").src = e.target.result;
+                document.querySelector("#info-img-upload").style.visibility = 'visible';
             };
             reader.readAsDataURL(input.files[0]);
         }
@@ -313,6 +317,14 @@
         -moz-filter: grayscale(100%);
         -webkit-filter: grayscale(100%);
         filter: grayscale(100%);
+    }
+    .loading-img{
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 
 </style>

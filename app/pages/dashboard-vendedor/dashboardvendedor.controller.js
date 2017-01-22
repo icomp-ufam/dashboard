@@ -269,7 +269,9 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     // carrega informacoes da mensagem com imagem no modal
     $scope.open_image_modal = function(src_img, text_img){
         document.querySelector("#image-big").src = src_img;
-        document.querySelector("#text-image-big").innerHTML = text_img;
+        if (text_img){
+            document.querySelector("#text-image-big").innerHTML = text_img;
+        }
 
     };
 
