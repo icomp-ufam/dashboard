@@ -97,7 +97,7 @@
                             <br ng-show="message.image">
 
                             <!-- O clique na imagem, abre um modal com a imagem em tamanho maior -->
-                            <img ng-click="open_image_modal(message.image)" data-toggle="modal" data-target="#modal_open_image" ng-show="message.image" ng-src="{{message.image}}" style="width:200px; height:200px" >
+                            <img ng-click="open_image_modal(message.image, message.text)" data-toggle="modal" data-target="#modal_open_image" ng-show="message.image" ng-src="{{message.image}}" style="width:200px; height:200px" >
 
                             <!-- Relatorio de entrega da mensagem -->
                             <div class="pull-right" >
@@ -119,16 +119,14 @@
                         <div class="input-group">
                             <div class="input-group-btn">
 
-                                <!-- START INPUT IMAGEM -->
-                                <button onclick="document.getElementById('file').click()" class="btn btn-default"><span class="fa fa-camera"></span></button>
-                                <input id="file" type="file" style="display: none" accept="image/gif, image/jpeg, image/png, image/jpg" name="file" onchange="angular.element(this).scope().uploadFile(this.files)">
-                                <!-- END INPUT IMAGEM -->
+                                <!-- Botão que abre o modal de upload de imagem -->
+                                <button data-toggle="modal" data-target="#modal_upload_image" class="btn btn-default"><span class="fa fa-camera"></span></button>
 
                                 <button class="btn btn-default"><span class="fa fa-smile-o"></span></button>
                             </div>
                             <input name="envia" type="text" ng-model="data.message" title="digite sua mensagem" onkeypress="enviarEnter(event)" class="form-control" placeholder="Digite uma mensagem..."/>
                             <div class="input-group-btn">
-                                <button type="submit"  ng-click="showSendMessage()" id="enviar" class="btn btn-default">
+                                <button type="submit" ng-click="showSendMessage()" id="enviar" class="btn btn-default">
                                     <span class="fa fa-send"></span>
                                 </button>
                             </div>
@@ -223,14 +221,71 @@
                     <h4 class="modal-title" id="defModalHead">Imagem</h4>
                 </div>
                 <div class="modal-body">
+                    <p id="text-image-big"></p>
                     <img id="image-big" src="app/assets/img/loaders/default.gif" class="img-responsive" style="display: block; margin: 0 auto;">
                 </div>
             </div>
         </div>
     </div>
-    <!-- END MODAL DE IMAGE -->
+    <!-- END MODAL DE IMAGEM -->
+
+    <!-- START MODAL DE UPLOAD IMAGEM -->
+    <div class="modal" id="modal_upload_image" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" id="close-upload-img" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="defModalUpload">Upload de imagens</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- Exibe input de dados de envio de imagem -->
+                    <div ng-if="!loading">
+                        <!-- input de arquivo de imagem, chama função javascript que carrega prévia da imagem -->
+                        <input type="file" id="file-upload" onchange="readURL(this)" accept="image/gif, image/jpeg, image/png, image/jpg">
+                        <br>
+                        <!-- Previa da imagem -->
+                        <img src="" id="img-upload" class="img-responsive" style="max-width: 550px; max-height: 400px;">
+                        <br>
+                        <!-- Aqui vem o input de texto relacionado a imagem e o botão de enviar -->
+                        <div class="input-group">
+                            <!-- Mensagem relacionada a imagem -->
+                            <input ng-model="legenda" type="text" class="form-control" placeholder="Digite uma mensagem..."/>
+                            <div class="input-group-btn">
+
+                                <!-- funcao uploadFile() envia apenas a legenda, pois o arquivo é tratado no controller usando o id -->
+                                <button type="submit"  class="btn btn-default" ng-click="uploadFile(legenda)">
+                                    <span class="fa fa-send"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Exibe icone de loading, enquanto a imagem é enviada na mensagem, indicado pela variável de escopo loading -->
+                    <div ng-if="loading">
+                        <img src="app/assets/img/loaders/default.gif" class="img-responsive" style="display: block; margin: 0 auto;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MODAL DE UPLOAD DE IMAGEM -->
 
 </div>
+
+<script>
+    // funcao responsavel por carregar a prévia da imagem selecionada no input
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                // carrega o resultado diretamente na tag img #img-upload
+                document.querySelector("#img-upload").src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+</script>
 
 <script>
     function enviarEnter(e){ //validação de campo vazio e envio com tecla enter
@@ -259,4 +314,5 @@
         -webkit-filter: grayscale(100%);
         filter: grayscale(100%);
     }
+
 </style>

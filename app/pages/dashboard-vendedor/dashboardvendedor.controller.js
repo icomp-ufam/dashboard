@@ -16,6 +16,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.carregando = true;
     $scope.mensagensacarregar = 0;
 
+    $scope.loading = false;
+
     // id Larissa
     $scope.idVendedor = config.user;
     //id da loja chat-dashboard
@@ -202,7 +204,19 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         });
     };
 
-    $scope.uploadFile = function (files) {
+    $scope.uploadFile = function (legenda) {
+
+        // indica para a view que a imagem está sendo enviada
+        $scope.loading = true;
+
+        // pega o arquivo do input
+        files = document.querySelector("#file-upload").files;
+
+        // se não foi inserida uma legenda, envia o texto Imagem
+        if (!legenda){
+            legenda = "Imagem";
+        }
+
         // retorna o arquivo passado por parametro decodificado em base64
         var reader = new FileReader();
         reader.readAsDataURL(files[0]);
@@ -223,8 +237,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
                     'id'    : $scope.idVendedor
                 }
             }).success(function(data){
-                console.log(data);
-                $scope.sendImg($scope.to_id, data.image);
+                //console.log(data);
+                // depois de salvar a imagem no servidor, envia a mensagem com a url recebida
+                $scope.sendImg($scope.to_id, legenda, data.image);
+
             }).error(function(error){
                 console.log(error);
                 $scope.message = "Aconteceu um problema: " + error;
@@ -250,9 +266,11 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     };
 
-    $scope.open_image_modal = function(src_img){
-        imagem = document.querySelector("#image-big");
-        imagem.src = src_img;
+    // carrega informacoes da mensagem com imagem no modal
+    $scope.open_image_modal = function(src_img, text_img){
+        document.querySelector("#image-big").src = src_img;
+        document.querySelector("#text-image-big").innerHTML = text_img;
+
     };
 
     $scope.flag = false;
@@ -320,13 +338,15 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             <url>http://www.jabber.org/images/psa-license.jpg</url>
          </x>
      </message>*/
-    $scope.sendImg = function (to, image) {
-        var message = "Imagem";
+    $scope.sendImg = function (to, message, image) {
         var messagetype = 'groupchat';
         var timestamp = new Date().getTime();
         var reply;
+
+        // concatena o endereco do servidor de imagens do teewa
         image = $scope.urlChatImages+image;
 
+        // monta o xml da mensagem
         reply = $msg({
             to: to,
             from: $scope.myId,
@@ -336,10 +356,12 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
         reply.up().c("x", {
             xmlns: 'jabber:x:oob'
-        //}).c('url').t("https://i.ytimg.com/vi/A8PPa41WUZY/hqdefault.jpg");
         }).c('url').t(image);
 
+        // envia a mensagem
         sharedConn.getConnectObj().send(reply.tree());
+        $scope.loading = false;
+        document.querySelector("#close-upload-img").click();
         console.log('I sent image' + to + ': ' + message, reply.tree());
     };
 
