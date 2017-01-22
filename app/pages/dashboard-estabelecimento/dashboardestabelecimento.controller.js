@@ -62,17 +62,48 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
         $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
     };
 
-        var d = {
-            value: new Date(),
-        }
-        var novaData = {
-            value: new Date(2014, 12, 01),
-        }
+    var d = {
+        value: new Date(),
+    }
+    var novaData = {
+        value: new Date(2014, 12, 01),
+    }
 
-    carregarVendedoresLoja(novaData, d,$scope.idloja);
+    carregarVendedoresLoja(novaData, d, $scope.idloja);
 
 
     //#######Todas as denuncias de uma loja#######
+    $scope.app = "Denuncias";
+    $scope.denuncias = [];
+
+    var carregarDenunciasPorData = function (date_start, date_end, idstore) {
+        $http({
+
+            url : config.baseUrl + "/dash/complaints/",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                
+                'date_start' : date_start,
+                'date_end' : date_end,
+                'idstore' : idstore
+            }
+        }).success(function(data){
+            $scope.denuncias = data;
+                        console.log(date_start + " , " + date_end);
+
+            console.log(data);
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+            console.log("login error");
+        });
+
+    };
+
+    carregarDenunciasPorData("01/01/2015","24/12/2019", $scope.idloja);
     
     //#######Todos os atendimentos de uma loja#######
 
