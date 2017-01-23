@@ -109,8 +109,17 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
     $scope.app = "Atendimentos";
     $scope.atendimentos = [];
 
-    $scope.clickThisAtendimentosPorHora=function(date_start, date_end, idstore) {
+    $scope.clickThisAtendimentosPorHora=function(date_start, date_end) {
          $state.go("main.dashboardEstabelecimento.listarPorHora", 
+            {
+            data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+            data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+        });
+    };
+
+    $scope.clickThisAtendimentosPorCategoria=function(date_start, date_end) {
+         $state.go("main.dashboardEstabelecimento.listarPorCategoria", 
             {
             data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
             data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
@@ -241,7 +250,48 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
 
     };
 
+    $scope.carregarAtendimentosPorCategoria = function (date_start, date_end, idstore) {
+        
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
+        var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
+
+        $http({
+
+            url : config.baseUrl + "/dash/calls/category",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'date_start' : NovaDate_start,
+                'date_end' : NovaDate_end,
+                'idstore' : idstore
+            }
+        }).success(function(data,date){
+            $scope.atendimentosPorCategorias = data;
+            graficoAtendimentoPorCategoriaTOT(data);
+            graficoAtendimentoPorCategoriaNEG(data);
+            graficoAtendimentoPorCategoriaNAT(data);
+            graficoAtendimentoPorCategoriaATE(data);
+
+            $scope.data_start = {
+                        value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+
+                };
+                $scope.data_end = {
+                    value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+                };
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+            console.log("login error");
+        });
+
+    };
+
     $scope.carregarAtendimentos(novaData, d, $scope.idloja);
     $scope.carregarAtendimentosPorHora(novaData, d, $scope.idloja);
+    $scope.carregarAtendimentosPorCategoria(novaData, d, $scope.idloja);
 
 });

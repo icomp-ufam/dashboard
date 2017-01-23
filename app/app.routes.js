@@ -262,6 +262,10 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             url: '/listarPorHoraContagemMedia',
             templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos/atendimentosPorHoraContagemMedia.html',
             controller: 'dashboardEstabelecimentoCtrl'
+        }).state('main.dashboardEstabelecimento.listarPorCategoria', {
+            url: '/listarPorCategoria/:data_startParametro/:data_endParametro',
+            templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos/atendimentosPorCategoria.html',
+            controller: 'dashboardEstabelecimentoCtrl'
         })
 
     });
