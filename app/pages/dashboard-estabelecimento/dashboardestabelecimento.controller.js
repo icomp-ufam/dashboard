@@ -1,6 +1,6 @@
 /**
  * Created by lgpbentes on 09/01/17.
- * Alter by duivilly on 21/01/17.
+ * Alter by duivilly on 23/01/17.
  */
 angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($scope, $http, config, $state , sharedConn, Chats, ChatDetails) {
     //$scope.app = "Dashboard Estabelecimento";
@@ -129,6 +129,15 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
 
     $scope.clickThisAtendimentosPorDiaSemana=function(date_start, date_end) {
          $state.go("main.dashboardEstabelecimento.listarPorDiaSemana", 
+            {
+            data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+            data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+        });
+    };
+
+    $scope.clickThisAtendimentosPorDate=function(date_start, date_end) {
+         $state.go("main.dashboardEstabelecimento.listarPorDate", 
             {
             data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
             data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
@@ -366,9 +375,50 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
 
     };
 
+    $scope.carregarAtendimentosPorDate = function (date_start, date_end, idstore) {
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
+        var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
+
+        $http({
+
+            url : config.baseUrl + "/dash/calls/date/",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'date_start' : NovaDate_start,
+                'date_end' : NovaDate_end,
+                'idstore' : idstore
+            }
+        }).success(function(data){
+            $scope.atendimentosPorDates = data;
+            graficoAtendimentoPorDateTOT(data);
+            graficoAtendimentoPorDateNEG(data);
+            graficoAtendimentoPorDateNAT(data);
+            graficoAtendimentoPorDateATE(data);
+
+           $scope.data_start = {
+                        value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+
+                };
+                $scope.data_end = {
+                    value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+                };
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+            console.log("login error");
+        });
+
+    };
+
     $scope.carregarAtendimentos(novaData, d, $scope.idloja);
     $scope.carregarAtendimentosPorHora(novaData, d, $scope.idloja);
     $scope.carregarAtendimentosPorCategoria(novaData, d, $scope.idloja);
     $scope.carregarAtendimentosPorDiaSemana(novaData, d, $scope.idloja);
+    $scope.carregarAtendimentosPorDate(novaData, d, $scope.idloja);
 
 });

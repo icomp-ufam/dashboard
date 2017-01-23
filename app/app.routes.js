@@ -270,6 +270,10 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             url: '/listarPorDiaSemana/:data_startParametro/:data_endParametro',
             templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos/atendimentosPorDiaSemana.html',
             controller: 'dashboardEstabelecimentoCtrl'
+        }).state('main.dashboardEstabelecimento.listarPorDate', {
+            url: '/listarPorDate/:data_startParametro/:data_endParametro',
+            templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos/atendimentosPorData.html',
+            controller: 'dashboardEstabelecimentoCtrl'
         })
 
     });
