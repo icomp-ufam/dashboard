@@ -127,6 +127,15 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
         });
     };
 
+    $scope.clickThisAtendimentosPorDiaSemana=function(date_start, date_end) {
+         $state.go("main.dashboardEstabelecimento.listarPorDiaSemana", 
+            {
+            data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+            data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+        });
+    };
+
     $scope.carregarAtendimentos = function (date_start, date_end, idstore) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
@@ -290,8 +299,76 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
 
     };
 
+    $scope.carregarAtendimentosPorDiaSemana = function (date_start, date_end, idstore) {
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
+        var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
+        
+
+        $http({
+
+            url : config.baseUrl + "/dash/calls/day_week",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            },
+            data: {
+                'date_start' : NovaDate_start,
+                'date_end' : NovaDate_end,
+                'idstore' : idstore
+            }
+        }).success(function(data,date){
+            
+            var temp = [];
+            
+            for (i = 0; i< 7; i++){
+                let objetosTemp = { //Objeto igual ao 'data', que é inicializado com 0s, pra facilitar a copia de data pra ele 
+                    ate: 0,
+                    nat: 0,
+                    neg: 0,
+                    tot: 0,
+                    day_of_week: i,
+                }
+                
+                for(contData = 0; contData < data.length; contData++){
+                    
+                    if(i == data[contData].day_of_week){
+                        objetosTemp.ate = data[contData].ate;
+                        objetosTemp.nat = data[contData].nat;
+                        objetosTemp.neg = data[contData].neg;
+                        objetosTemp.tot = data[contData].tot;
+                    }
+                }
+
+                temp.push(objetosTemp);
+            }
+            
+            $scope.atendimentosPorDiaSemanas = temp;
+            
+            //$scope.atendimentosPorDiaSemanas = data;
+            graficoAtendimentoPorDiaSemanaTOT(temp);
+            graficoAtendimentoPorDiaSemanaNEG(temp);
+            graficoAtendimentoPorDiaSemanaNAT(temp);
+            graficoAtendimentoPorDiaSemanaATE(temp);
+
+            $scope.data_start = {
+                        value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+
+                };
+                $scope.data_end = {
+                    value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+                };
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+            console.log("login error");
+        });
+
+    };
+
     $scope.carregarAtendimentos(novaData, d, $scope.idloja);
     $scope.carregarAtendimentosPorHora(novaData, d, $scope.idloja);
     $scope.carregarAtendimentosPorCategoria(novaData, d, $scope.idloja);
+    $scope.carregarAtendimentosPorDiaSemana(novaData, d, $scope.idloja);
 
 });
