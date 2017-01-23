@@ -1,7 +1,7 @@
 <ul class="breadcrumb">
-    <li><a ui-sref="main.dashboard.listar">Home</a></li>
-    <li ><a ui-sref="main.atendimentos.listar">Atendimentos</a> </li>
-    <li ><a ui-sref="main.atendimentos.listarPorHora">Atendimentos por Hora</a> </li>
+    <li ><a ui-sref="#">Home</a></li>
+    <li ><a ui-sref="#">Atendimentos</a> </li>
+    <li ><a ui-sref="#">Atendimentos por Hora</a> </li>
 </ul>
 <div class="page-title">
     <h2><span class="fa fa-clock-o"></span> ATENDIMENTOS POR HORA</h2>
@@ -11,7 +11,7 @@
 
     <div class="col-md-3">
             <!-- START WIDGET REGISTRED -->
-            <div class="widget widget-default widget-item-icon" ui-sref="main.atendimentos.listarPorHoraContagemMedia" ng-click="carregarAtendimentosPorHora((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))">
+            <div class="widget widget-default widget-item-icon" ui-sref="main.dashboardEstabelecimento.listarPorHoraContagemMedia" ng-click="carregarAtendimentosPorHora((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'), 1)">
                 <div class="widget-item-left">
                     <span class="fa fa-clock-o"></span>
                 </div>

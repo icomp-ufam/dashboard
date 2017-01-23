@@ -254,9 +254,14 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             activetab: 'denunciasEstabelecimento'
         })
 
-        .state('main.dashboardEstabelecimento.atendimentos.listarPorHora', {
+        .state('main.dashboardEstabelecimento.listarPorHora', {
             url: '/listarPorHora/:data_startParametro/:data_endParametro',
             templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos/atendimentosPorHora.html',
             controller: 'dashboardEstabelecimentoCtrl'
+        }).state('main.dashboardEstabelecimento.listarPorHoraContagemMedia', {
+            url: '/listarPorHoraContagemMedia',
+            templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos/atendimentosPorHoraContagemMedia.html',
+            controller: 'dashboardEstabelecimentoCtrl'
         })
+
     });

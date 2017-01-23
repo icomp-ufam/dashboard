@@ -109,8 +109,8 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
     $scope.app = "Atendimentos";
     $scope.atendimentos = [];
 
-    $scope.clickThisAtendimentosPorHora=function(date_start, date_end) {
-         $state.go("main.dashboardEstabelecimento.atendimentos.listarPorHora", 
+    $scope.clickThisAtendimentosPorHora=function(date_start, date_end, idstore) {
+         $state.go("main.dashboardEstabelecimento.listarPorHora", 
             {
             data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
             data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
@@ -228,7 +228,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
                         value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
 
                 };
-                $scope.data_end = {
+            $scope.data_end = {
                     value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
 
                 };
