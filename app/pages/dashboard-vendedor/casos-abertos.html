@@ -65,7 +65,7 @@
                             <br>
                             <!--Exibe imagem da consulta, caso exista-->
                             <!-- O clique na imagem, abre um modal com a imagem em tamanho maior -->
-                            <img ng-click="open_image_modal(urlFiles+chatAtual.case.file)" data-toggle="modal" data-target="#modal_open_image" ng-show="chatAtual.case.file" ng-src="{{ urlFiles+chatAtual.case.file }}" width="200" height="200">
+                            <img ng-click="open_image_modal(urlFiles+chatAtual.case.file, chatAtual.case.name)" data-toggle="modal" data-target="#modal_open_image" ng-show="chatAtual.case.file" ng-src="{{ urlFiles+chatAtual.case.file }}" width="200" height="200">
                         </div>
                     </div>
                     <!-- END PRIMEIRA MENSAGEM DA CONSULTA -->
@@ -121,17 +121,16 @@
                     <form name="dados">
                         <div class="input-group">
                             <div class="input-group-btn">
-
-                                <!-- Botão que abre o modal de upload de imagem -->
-                                <button data-toggle="modal" data-target="#modal_upload_image" class="btn btn-default"><span class="fa fa-camera"></span></button>
-
-                                <button class="btn btn-default"><span class="fa fa-smile-o"></span></button>
-                            </div>
-                            <input name="envia" type="text" ng-model="data.message" title="digite sua mensagem" onkeypress="enviarEnter(event)" class="form-control" placeholder="Digite uma mensagem..."/>
-                            <div class="input-group-btn">
                                 <button type="submit" ng-click="showSendMessage()" id="enviar" class="btn btn-default">
                                     <span class="fa fa-send"></span>
                                 </button>
+                            </div>
+                            <input name="envia" type="text" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..."/>
+                            <div class="input-group-btn">
+
+                                <!-- Botão que abre o modal de upload de imagem -->
+                                <button class="btn btn-default"><span class="fa fa-smile-o"></span></button>
+                                <button data-toggle="modal" data-target="#modal_upload_image" class="btn btn-default"><span class="fa fa-camera"></span></button>
                             </div>
                         </div>
                     </form>
@@ -149,7 +148,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><span class="fa fa-comments"></span> Conversas </h3>
             </div>
-            <div class="panel-body list-group list-group-contacts scroll" style="overflow:auto;height:500px">
+            <div class="panel-body list-group list-group-contacts scroll" style="overflow:auto;height:530px">
 
                 <!-- carrega casos abertos usando o ng-repeat sobre a variavel de escopo chats -->
                 <a id="teste2" ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats">
@@ -173,10 +172,7 @@
         </div>
     </div>
     <!-- END LISTA LATERAL DE CASOS ABERTOS -->
-
-
     <button id="teste" style=" visibility: hidden" ng-click="notifyMe()">notificação!</button>
-
         <!--assedio = 1;
         conteudo_improprio = 2;
         estabelecimento_falso = 3;
@@ -292,15 +288,18 @@
 </script>
 
 <script>
-    function enviarEnter(e){ //validação de campo vazio e envio com tecla enter
+    //funcão que verifica se o campo está vazio e enviar via tecla enter
+    function enviarEnter(e){
         var tecla=(window.event)?event.keyCode:e.which;
         if (tecla == 13) {
-            if (document.dados.envia.value=="")
-            {
+            //campo vazio
+            if (document.dados.envia.value=="") {
                 document.dados.envia.focus();
                 return false;
             }else{
+                //envia mensagem
                 $("#enviar").trigger('click');
+                //desce barra de rolagem das mensagens
                 document.getElementById(
                         "msg"
                 ).scrollTop = document.getElementById(

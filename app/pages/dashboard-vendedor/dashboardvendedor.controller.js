@@ -57,12 +57,12 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     $scope.joinChats = function(){
         sharedConn.joinChats($scope.chats);
-        clearTimeout($scope.intervalo);
-        $scope.intervalo = window.setTimeout($scope.carregamentoconcluido(), 10000);
     };
-    $scope.carregamentoconcluido = function () {
-        $scope.carregando = false;
-    }
+    $.when($scope.joinChats).done(function () {
+        sharedConn.joinChats($scope.chats);
+    });
+
+
 
 
     $scope.carregarCasosNovos = function () {
@@ -255,7 +255,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     //recebe informacoes da caixa de chat que foi selecionada
     $scope.clickChat = function (chat) {
-        //console.log(chat);
+        console.log(chat);
         //recebe chat clicado
         $scope.chatAtual = chat;
         //configurando qual sala de chat esta sendo escutada
@@ -263,7 +263,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         //atualiza id da sala de chat
         $scope.to_id = ChatDetails.getTo();
         $scope.sc();
-
     };
 
     // carrega informacoes da mensagem com imagem no modal
@@ -275,6 +274,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     };
 
+    //move a barra de rolagem para a mensagem mais recente ao clicar sobre a conversa
     $scope.flag = false;
     $scope.sc = function (){
         if($scope.flag == false) {
@@ -283,7 +283,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         }else{
             $scope.flag = false;
         }
-        //move a barra de rolagem para a mensagem mais recente
         document.getElementById(
             "msg"
         ).scrollTop = document.getElementById(
@@ -311,7 +310,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     };
 
-    $scope.login(); //registra usuario porem ainda não está online
+    $scope.login();
 
     $scope.logout = function() {
         console.log("desconectou!!");
@@ -396,41 +395,52 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
         delete $scope.data.message;
     };
+    //verifica de quem foi a última mensagem recebida
     $scope.remetente = 'desconhecido';
     $scope.fotoR = '';
+    $scope.chatR = '';
     $scope.notificacao = function(from){
-        console.log('veridicando de quem é mensagem');
+        console.log('verificando de quem é a mensagem');
         for(chat in $scope.chats){
            if (from.includes($scope.chats[chat].id)){
-               $scope.remetente =$scope.chats[chat].userTo.name;
-               $scope.fotoR =  $scope.urlPhotos + $scope.chats[chat].userTo.photo;
+               $scope.remetente = $scope.chats[chat].userTo.name;
+               $scope.fotoR = $scope.urlPhotos + $scope.chats[chat].userTo.photo;
+               $scope.chatR = $scope.chats[chat];
+               break;
            }
         }
     };
+    //verifica se há permissão e cria notificação
     $scope.notifyMe = function () {
-        // Let's check if the browser supports notifications
         if (!("Notification" in window)) {
             alert("Seu navegador não suporta o serviço de notificações");
         }
         else if (Notification.permission === "granted") {
-            // If it's okay let's create a notification
-            var notification = new Notification("Nova Mensagem de "+$scope.remetente,{
+            var notification = new Notification($scope.remetente,{
                 icon: $scope.fotoR,
                 body: $scope.messages[$scope.messages.length - 1].text
             });
+            notification.onclick = function () {
+                console.log($scope.chatR);
+                $scope.clickChat($scope.chatR);
+            }
         }
         else if (Notification.permission !== 'denied') {
             Notification.requestPermission(function (permission) {
-                // If the user accepts, let's create a notification
                 if (permission === "granted") {
-                    var notification = new Notification("Nova Mensagem de "+$scope.remetente,{
+                    var notification = new Notification($scope.remetente,{
                         icon: $scope.fotoR,
                         body: $scope.messages[$scope.messages.length - 1].text
                     });
+                    notification.onclick = function () {
+                        console.log($scope.chatR);
+                        $scope.clickChat($scope.chatR);
+                    }
                 }
             });
         }
-    }
+    };
+    //solicita permissão para exibir notificações
     Notification.requestPermission();
     function spawnNotification(corpo,icone,titulo) {
         var opcoes = {
