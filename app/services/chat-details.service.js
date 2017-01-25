@@ -5,7 +5,6 @@ angular.module('teewa').factory('ChatDetails', ['sharedConn', '$rootScope', func
         ChatDetailsObj.to = to_id;
     };
     ChatDetailsObj.getTo = function() {
-        //return "chat1096@conference.myserver";
         return ChatDetailsObj.to;
     };
     return ChatDetailsObj;

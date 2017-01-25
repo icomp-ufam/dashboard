@@ -104,8 +104,8 @@
 
                             <!-- Relatorio de entrega da mensagem -->
                             <div class="pull-right" >
-                                <span ng-show="message.status == 0" class="fa fa-clock-o"></span>
-                                <span  class="fa fa-check"></span> <!--ng-show="message.status == 1"-->
+                                <!--<span ng-show="message.status == 0" class="fa fa-clock-o"></span>-->
+                                <span ng-if="message.received" class="fa fa-check"></span>
                             </div>
 
                         </div>

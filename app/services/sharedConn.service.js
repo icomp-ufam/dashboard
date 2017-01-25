@@ -3,7 +3,8 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
     var SharedConnObj = {};
 
     //SharedConnObj.BOSH_SERVICE = 'https://conversejs.org/http-bind/';
-    SharedConnObj.BOSH_SERVICE = 'http://localhost:7070/http-bind/';
+    //SharedConnObj.BOSH_SERVICE = 'http://localhost:7070/http-bind/';
+    SharedConnObj.BOSH_SERVICE = 'http://api.teewa.com.br:7070/http-bind/';
     //SharedConnObj.BOSH_SERVICE = 'http://http://10.208.3.171:7070/http-bind/';
     SharedConnObj.connection = null; // The main Strophe connection object.
     SharedConnObj.loggedIn = false;
@@ -48,7 +49,8 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
     //funcao para entrar em todas as salas de chat do vendedor logado
     SharedConnObj.joinChats = function (chats) {
         for(i = 0; i < chats.length; i++){
-            SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.myserver",config.user);
+            //SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.myserver",config.user);
+            SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.ip-172-31-47-155",config.user);
         }
 
         console.log('consegui :)');
@@ -136,7 +138,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
                 sessionStorage.setItem('rid', RID);
                 sessionStorage.setItem('sid', SID);
                 sessionStorage.setItem('jid', JID);
-                console.log(' XMLOUTPUT INFO - OUTGOING RID=' + RID + ' [SID=' + SID + '] [JID ='+JID+']');
+                //console.log(' XMLOUTPUT INFO - OUTGOING RID=' + RID + ' [SID=' + SID + '] [JID ='+JID+']');
                 //log(' XMLOUTPUT INFO - OUTGOING XML = \n'+e.outerHTML);
                 //set some variables to keep track of our rid and sid
             };
@@ -147,7 +149,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
 
     //When a new message is recieved
     SharedConnObj.onMessage = function(msg) {
-        console.log(msg);
+        //console.log(msg);
         $rootScope.$broadcast('msgRecievedBroadcast', msg);
         return true;
     };
