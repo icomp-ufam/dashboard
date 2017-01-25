@@ -1,4 +1,4 @@
-angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function( $state, $rootScope) {
+angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config', function( $state, $rootScope, config) {
 
     var SharedConnObj = {};
 
@@ -31,7 +31,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
     //funcao para entrar em todas as salas de chat do vendedor logado
     SharedConnObj.joinChats = function (chats) {
         for(i = 0; i < chats.length; i++){
-            SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.myserver","672");
+            SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.myserver",config.user);
         }
 
         console.log('consegui :)');

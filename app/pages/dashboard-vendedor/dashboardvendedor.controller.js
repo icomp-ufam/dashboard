@@ -58,12 +58,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.joinChats = function(){
         sharedConn.joinChats($scope.chats);
     };
-    $.when($scope.joinChats).done(function () {
-        sharedConn.joinChats($scope.chats);
-    });
-
-
-
 
     $scope.carregarCasosNovos = function () {
         $http({
@@ -270,6 +264,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         document.querySelector("#image-big").src = src_img;
         if (text_img){
             document.querySelector("#text-image-big").innerHTML = text_img;
+        } else{
+            document.querySelector("#text-image-big").innerHTML = "Imagem";
         }
 
     };
@@ -353,7 +349,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             from: $scope.myId,
             type: messagetype,
             id: timestamp
-        }).c("subject").t("imgFromSeller").up().c("body").t(message);
+        }).c("body").t(message);
 
         reply.up().c("x", {
             xmlns: 'jabber:x:oob'
@@ -366,6 +362,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         console.log('I sent image' + to + ': ' + message, reply.tree());
     };
 
+    // <request xmlns='urn:xmpp:receipts'/>
     $scope.sendMsg = function (to, message) {
         var messagetype = 'groupchat';
         var timestamp = new Date().getTime();
@@ -376,6 +373,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             type: messagetype,
             id: timestamp
         }).c("body").t(message);
+
+        reply.up().c("request", {
+            xmlns: 'urn:xmpp:receipts'
+        });
 
         sharedConn.getConnectObj().send(reply.tree());
         console.log('I sent ' + to + ': ' + message, reply.tree());
@@ -450,8 +451,16 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         var n = new Notification(titulo,opcoes);
     }
 
-    $scope.messageRecieve = function(msg) {
 
+    /*
+    * <message
+     from='kingrichard@royalty.england.lit/throne'
+     id='bi29sg183b4v'
+     to='northumberland@shakespeare.lit/westminster'>
+     <received xmlns='urn:xmpp:receipts' id='richard2-4.1.247'/>
+     </message>
+    * */
+    $scope.messageRecieve = function(msg) {
         //  var to = msg.getAttribute('to');
         var from = msg.getAttribute('from');
         var type = msg.getAttribute('type');
@@ -464,43 +473,61 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         } else {
             imagem = "";
         }
-
-        //var d = new Date();
-        //d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
         var d = msg.getAttribute('id');
 
-        if (type == "groupchat" && elems.length > 0) {
+        var delivery_receipt = msg.getElementsByTagName('request');
+        if (delivery_receipt.length > 0){
+            var messagetype = 'groupchat';
+            var timestamp = new Date().getTime();
+            var reply;
+            reply = $msg({
+                to: from.split('/')[0],
+                from: $scope.myId,
+                type: messagetype,
+                id: timestamp
+            });
 
-            var body = elems[0];
-            var textMsg = Strophe.getText(body);
-            if(from.includes($scope.idVendedor)){
-                $scope.messages.push({
-                    userId: from,
-                    text: textMsg,
-                    time: d,
-                    image: imagem
-                });
-            }else{
-                $scope.messages.push({
+            reply.c("received", {
+                xmlns: 'urn:xmpp:receipts',
+                id: d
+            });
+
+            //console.log(reply.tree());
+
+            sharedConn.getConnectObj().send(reply.tree());
+
+
+            if (type == "groupchat" && elems.length > 0) {
+
+                var body = elems[0];
+                var textMsg = Strophe.getText(body);
+                if(from.includes($scope.idVendedor)){
+                    $scope.messages.push({
                         userId: from,
                         text: textMsg,
                         time: d,
                         image: imagem
-                });
-                if($scope.carregando){
-                    console.log('não exibi notificação')
+                    });
                 }else{
+                    $scope.messages.push({
+                            userId: from,
+                            text: textMsg,
+                            time: d,
+                            image: imagem
+                    });
+
                     $scope.notificacao(from);
                     $("#teste").trigger('click');
-                }
-            }
 
-            $scope.$apply();
-            document.getElementById(
-                "msg"
-            ).scrollTop = document.getElementById(
-                "msg"
-            ).scrollHeight;
+                }
+
+                $scope.$apply();
+                document.getElementById(
+                    "msg"
+                ).scrollTop = document.getElementById(
+                    "msg"
+                ).scrollHeight;
+            }
         }
 
     };
