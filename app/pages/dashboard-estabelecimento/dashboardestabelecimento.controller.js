@@ -151,7 +151,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
 
         $http({
 
-            url : config.baseUrl + "/dash/calls/hour",
+            url : config.baseUrl + "/dash/calls",
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
