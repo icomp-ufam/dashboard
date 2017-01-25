@@ -65,6 +65,7 @@ angular.module("teewa")
         var d = {
             value: new Date(),
         }
+        //noinspection JSAnnotator
         var novaData = {
             value: new Date(2014, 12, 01),
         }

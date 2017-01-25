@@ -68,7 +68,8 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
     var d = {
         value: new Date(),
     }
-     var novaData = {
+     //noinspection JSAnnotator
+    var novaData = {
         value: new Date(2014, 12, 01),
     }
 

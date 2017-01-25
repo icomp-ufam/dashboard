@@ -2,7 +2,7 @@
  * Created by Marcos Soares on 10/01/17
  * Edited by Luiz Gustavo on 11, 15 and 23/01/17
  */
-angular.module("teewa").controller("mainCtrl", function ($scope, $state, config, $http) {
+angular.module("teewa").controller("mainCtrl", function ($scope, $state, config, $http, sharedConn, Chats, ChatDetails) {
 	$scope.state = $state;
     $scope.urlPhotos = config.baseUrl + "/photos/";
 
@@ -20,21 +20,27 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
     $scope.verifica = function () {
         return $scope.vendedor;
     };
+    XMPP_DOMAIN = 'myserver';
 
     //stub de login e logout do vendedor
 	$scope.login = function(user) {
-        /*sharedConn.login(config.user,'myserver',config.password);
+
+        sharedConn.login(config.user,XMPP_DOMAIN,config.password);
         $scope.chats = sharedConn.getRoster();
         $scope.hideTime = true;
         $scope.data = {};
         $scope.myId = sharedConn.getConnectObj().jid;
+
         $scope.messages = [];
-        $scope.to_id = ChatDetails.getTo();*/
+        $scope.to_id = ChatDetails.getTo();
+
 		sessionStorage.setItem('vendedor', JSON.stringify(true));
 		$scope.vendedor = JSON.parse(sessionStorage.getItem('vendedor'));
 		$scope.carregaVendedor();
     };
+
 	$scope.logout = function() {
+
         //Se vendedor
 	    sessionStorage.setItem('vendedor', JSON.stringify(false));
 		$scope.vendedor = JSON.parse(sessionStorage.getItem('vendedor'));
@@ -44,6 +50,12 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 		//se estabelecimento
         sessionStorage.setItem('Estabelecimento', JSON.stringify(false));
         $scope.Estabelecimento = JSON.parse(sessionStorage.getItem('Estabelecimento'));
+        console.log("desconectou!!");
+        sharedConn.logout();
+        $state.go('login', {}, {
+            location: "replace",
+            reload: true
+        });
     };
 
 

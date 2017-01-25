@@ -276,4 +276,4 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             controller: 'dashboardEstabelecimentoCtrl'
         })
 
-    });
+    }) ;

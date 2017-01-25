@@ -13,7 +13,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.urlFiles = config.baseUrl + "/case_images/";
     $scope.urlChatImages = config.baseUrl + "/chat_images/";
 
-    $scope.carregando = true;
+    $scope.carregando = false;
     $scope.mensagensacarregar = 0;
 
     $scope.loading = false;
@@ -59,7 +59,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         sharedConn.joinChats($scope.chats);
     };
 
-    $scope.carregarCasosNovos = function () {
+   $scope.carregarCasosNovos = function () {
         $http({
             url : config.baseUrl + "/sellers/news/cases",
             method : 'post',
@@ -257,6 +257,11 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         //atualiza id da sala de chat
         $scope.to_id = ChatDetails.getTo();
         $scope.sc();
+        if($scope.carregando == false){
+            $scope.joinChats();
+            $scope.carregando = true;
+        }
+
     };
 
     // carrega informacoes da mensagem com imagem no modal
@@ -295,6 +300,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     var XMPP_DOMAIN = 'myserver'; // Servidor de conexão
 
     $scope.login = function(user) {
+        //sessionStorage.setItem('conectado', JSON.stringify(true));
         sharedConn.login(config.user,XMPP_DOMAIN,config.password);
         $scope.chats = sharedConn.getRoster();
         $scope.hideTime = true;
@@ -305,8 +311,9 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         $scope.to_id = ChatDetails.getTo();
 
     };
-
+    //if(sessionStorage.getItem('conectado') !== 'true')
     $scope.login();
+
 
     $scope.logout = function() {
         console.log("desconectou!!");
@@ -422,7 +429,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
                 body: $scope.messages[$scope.messages.length - 1].text
             });
             notification.onclick = function () {
-                console.log($scope.chatR);
+               // console.log($scope.chatR);
                 $scope.clickChat($scope.chatR);
             }
         }
@@ -434,7 +441,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
                         body: $scope.messages[$scope.messages.length - 1].text
                     });
                     notification.onclick = function () {
-                        console.log($scope.chatR);
+                       // console.log($scope.chatR);
                         $scope.clickChat($scope.chatR);
                     }
                 }
@@ -461,6 +468,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
      </message>
     * */
     $scope.messageRecieve = function(msg) {
+
         //  var to = msg.getAttribute('to');
         var from = msg.getAttribute('from');
         var type = msg.getAttribute('type');
@@ -473,6 +481,9 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         } else {
             imagem = "";
         }
+
+        //var d = new Date();
+        //d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
         var d = msg.getAttribute('id');
 
         var delivery_receipt = msg.getElementsByTagName('request');
@@ -515,10 +526,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
                             time: d,
                             image: imagem
                     });
-
                     $scope.notificacao(from);
                     $("#teste").trigger('click');
-
                 }
 
                 $scope.$apply();
@@ -535,5 +544,24 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.$on('msgRecievedBroadcast', function(event, data) {
         $scope.messageRecieve(data);
     });
+
+    $scope.teste = function () {
+        var d = {
+            value: new Date(),
+        };
+        var novaData = {
+            value: new Date(d.value.getTime() + 2000),
+        };
+        while(d.value.getTime() < novaData.value.getTime()){
+            d = {
+                value: new Date(),
+            };
+            console.log('teste de loop de 2 segundos');
+        }
+        $("#joins").trigger('click');
+    };
+
+    //$scope.teste();
+
 
 });

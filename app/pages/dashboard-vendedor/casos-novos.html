@@ -33,8 +33,8 @@
                 </div>
                 <div class="profile-controls">
                     <!-- Botões de aceitar e recusar caso -->
-                    <a ng-click="recusarCaso(caso.id)" class="profile-control-left"><span class="fa fa-times"></span></a>
-                    <a ng-click="aceitarCaso(caso.id)" class="profile-control-right"><span class="fa fa-check"></span></a>
+                    <a title="Recusar" ng-click="recusarCaso(caso.id)" class="profile-control-left"><span class="fa fa-times"></span></a>
+                    <a title="Aceitar" ng-click="aceitarCaso(caso.id)" class="profile-control-right"><span class="fa fa-check "></span></a>
                 </div>
             </div>
 
@@ -65,3 +65,13 @@
     </div>
 </div>
 <!-- END MODAL DE IMAGEM -->
+<!--aplicando cores em aceitar/recusar-->
+<style>
+    .fa-times:before {
+        color: red
+    }
+    .fa-check:before{
+        color: #3ad900;
+    }
+
+</style>
