@@ -14,7 +14,6 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         $urlRouterProvider.when('/analisesCasos', '/analises/lista');
 
         $urlRouterProvider.when('dashboard-vendedor', 'dashboard-vendedor/index');
-
         $urlRouterProvider.when('dashboard-estabelecimento', 'dashboard-estabelecimento/index');
 
         $urlRouterProvider.when('/perfil', '/perfil/perfil');
@@ -150,6 +149,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/dashboard-vendedor/casos-novos.html',
             controller: 'dashboardVendedorCtrl',
             activetab: 'casos-novos'
+        }).state('main.dashboardVendedor.emoji', {
+            url: '/emoji',
+            templateUrl: 'app/pages/dashboard-vendedor/emojis.html',
+            controller: 'dashboardVendedorCtrl',
+            activetab: 'emoji'
         })
 
 

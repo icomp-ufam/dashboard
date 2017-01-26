@@ -246,8 +246,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         };
     };
 
+
     //recebe informacoes da caixa de chat que foi selecionada
     $scope.clickChat = function (chat) {
+        console.log(chat);
         //recebe chat clicado
         console.log(chat);
         $scope.chatAtual = chat;
@@ -260,6 +262,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             $scope.joinChats();
             $scope.carregando = true;
         }
+
     };
 
     // carrega informacoes da mensagem com imagem no modal
@@ -498,7 +501,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         //caso a mensagem contenha imagens
         var imagem = msg.getElementsByTagName('url');
         if (imagem.length > 0){
-            imagem = imagem[0].textContent;2
+            imagem = imagem[0].textContent;
         } else {
             imagem = "";
         }
@@ -511,6 +514,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             $scope.enviaConfirmacao(from, d);
 
             if (type == "groupchat" && elems.length > 0) {
+
                 var body = elems[0];
                 var textMsg = Strophe.getText(body);
                 if(from.includes($scope.idVendedor)){
