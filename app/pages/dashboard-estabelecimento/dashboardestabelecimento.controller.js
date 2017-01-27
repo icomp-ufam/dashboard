@@ -20,7 +20,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : NovaDate_start,
@@ -80,7 +80,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 
@@ -140,7 +140,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : NovaDate_start,
@@ -179,7 +179,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : NovaDate_start,
@@ -245,7 +245,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : NovaDate_start,
@@ -280,7 +280,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : NovaDate_start,
@@ -338,7 +338,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : NovaDate_start,

@@ -18,6 +18,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
 
         $urlRouterProvider.when('/perfil', '/perfil/perfil');
 
+
         $stateProvider.state('main', {
             url: '/',
             templateUrl: 'app/pages/main/main.html',
@@ -165,6 +166,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/pacotes/form_pacotes.html',
             controller: 'formPacotesCtrl',
             activetab: 'pacotes'
+            //ciar
         }).state('main.denuncias', {
             url: 'denuncias',
             template: '<ui-view></ui-view>'

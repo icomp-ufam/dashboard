@@ -85,7 +85,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : NovaDate_start,
@@ -118,7 +118,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             method : 'get',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
         }).success(function(data){
             $scope.consultasPorHora = data;
@@ -138,7 +138,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             method : 'get',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
         }).success(function(data){
             $scope.consultasPorHora = data;
@@ -161,7 +161,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : NovaDate_start,
@@ -240,7 +240,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : NovaDate_start,
@@ -280,7 +280,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : NovaDate_start,
@@ -344,7 +344,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : NovaDate_start,
@@ -408,7 +408,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                'date_start' : NovaDate_start,

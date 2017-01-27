@@ -18,7 +18,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             }
         }).success(function(data){
             $scope.clientes = data;
@@ -39,7 +39,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : '01/01/2016',
@@ -65,7 +65,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',
-            'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            'Authorization' : config.token
             }
             }).success(function(data){
                     $scope.cases = data;
@@ -96,7 +96,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : '01/01/2016',
@@ -120,7 +120,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : '01/01/2016',

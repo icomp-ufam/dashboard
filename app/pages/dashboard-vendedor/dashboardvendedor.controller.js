@@ -12,10 +12,9 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.urlPhotos = config.baseUrl + "/photos/";
     $scope.urlFiles = config.baseUrl + "/case_images/";
     $scope.urlChatImages = config.baseUrl + "/chat_images/";
+    //flags
 
     $scope.carregando = false;
-    $scope.mensagensacarregar = 0;
-
     $scope.loading = false;
 
     // id Larissa
@@ -23,6 +22,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     //id da loja chat-dashboard
     $scope.idstore = '118';
 
+    var XMPP_DOMAIN = 'ip-172-31-47-155';
     // imagem pra ser carregada nas mensagens do chat
     $scope.fotoVendedor = localStorage.getItem('vendedor_foto');
 
@@ -33,7 +33,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             method : 'get',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             }
         }).success(function(data){
             $scope.chats = data.chats;
@@ -45,7 +45,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             $scope.chatAtual = $scope.chats[0];
 
             //configurando qual sala de chat esta sendo escutada
-            ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference.ip-172-31-47-155");
+            ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
 
             //atualiza id da sala de chat
             $scope.to_id = ChatDetails.getTo();
@@ -65,12 +65,11 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 //id do chat-dashboard
                 'idstore' : $scope.idstore,
-
                 'idseller' :$scope.idVendedor
             }
         }).success(function(data){
@@ -89,7 +88,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             method : 'put',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 //id do chat-dashboard
@@ -102,7 +101,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             $scope.chatAtual = data.chat;
 
             //configurando qual sala de chat esta sendo escutada
-            ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference.ip-172-31-47-155");
+            ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
 
             //atualiza id da sala de chat
             $scope.to_id = ChatDetails.getTo();
@@ -124,7 +123,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             method : 'put',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 //id do chat-dashboard
@@ -147,7 +146,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'iduser' : $scope.idVendedor,
@@ -159,7 +158,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             $scope.chatAtual = $scope.chats[0];
 
             //configurando qual sala de chat esta sendo escutada
-            ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference.ip-172-31-47-155");
+            ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
 
             //atualiza id da sala de chat
             $scope.to_id = ChatDetails.getTo();
@@ -178,7 +177,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'idstore' :  $scope.idstore,
@@ -224,7 +223,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
                 method : 'post',
                 headers : {
                     'Content-Type': 'application/json',
-                    'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                    'Authorization' : config.token
                 },
                 data: {
                     'image' : img_base64,
@@ -245,7 +244,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             console.log('Error: ', error);
         };
     };
-
+    //$scope.joinChats();
 
     //recebe informacoes da caixa de chat que foi selecionada
     $scope.clickChat = function (chat) {
@@ -254,7 +253,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         console.log(chat);
         $scope.chatAtual = chat;
         //configurando qual sala de chat esta sendo escutada
-        ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference.ip-172-31-47-155");
+        ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
         //atualiza id da sala de chat
         $scope.to_id = ChatDetails.getTo();
         $scope.sc();
@@ -298,7 +297,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     //realizando conversa
 
-    var XMPP_DOMAIN = 'ip-172-31-47-155'; // Servidor de conexão
+     // Servidor de conexão
 
     $scope.login = function(user) {
         //sessionStorage.setItem('conectado', JSON.stringify(true));
@@ -574,22 +573,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.$on('msgRecievedBroadcast', function(event, data) {
         $scope.messageRecieve(data);
     });
-
-    $scope.teste = function () {
-        var d = {
-            value: new Date(),
-        };
-        var novaData = {
-            value: new Date(d.value.getTime() + 2000),
-        };
-        while(d.value.getTime() < novaData.value.getTime()){
-            d = {
-                value: new Date(),
-            };
-            console.log('teste de loop de 2 segundos');
-        }
-        $("#joins").trigger('click');
-    };
 
     //$scope.teste();
 
