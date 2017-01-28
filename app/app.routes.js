@@ -147,7 +147,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             url: 'dashboard',
             template: '<ui-view></ui-view>'
         }).state('main.dashboard.listar', {
-            url: '/lista',
+            url: '/index',
             templateUrl: 'app/pages/dashboard/dashboard.html',
             controller: 'dashboardCtrl',
             activetab: 'dashboard'
