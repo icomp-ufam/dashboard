@@ -1,7 +1,11 @@
+<!-- Login nulo -->
+<div ng-show="!controle()" >
+    <ui-view></ui-view>
+</div>
 <!-- START PAGE CONTAINER -->
-<div class="page-container">
+<div ng-show="controle()" class="page-container">
     <!-- START PAGE SIDEBAR -->
-    <div class="page-sidebar">
+    <div  class="page-sidebar">
     <!-- START X-NAVIGATION -->
         <ul class="x-navigation">
             <!-- DashboardAdmin -->
@@ -304,7 +308,7 @@
             </div>
             <div class="mb-footer">
                 <div class="pull-right">
-                    <a ng-click="logout()" href="login.html" class="btn btn-success btn-lg">Yes</a>
+                    <a ng-click="logout()" class="btn btn-success btn-lg mb-control-close">Yes</a>
                     <button class="btn btn-default btn-lg mb-control-close">No</button>
                 </div>
             </div>

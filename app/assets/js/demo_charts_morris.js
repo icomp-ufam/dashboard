@@ -19,12 +19,6 @@ xmlhttp.onload = function() {
         dataJ.push({label: myArr[el].hora+":hrs", value: myArr[el].media_casos});
         
     }
-    /*for (i = 0; i < dataJ.length; i++){
-        if(i == myArr[i].hora)
-            dataJ.push({label: myArr[el].hora+":hrs", value: myArr[el].media_casos});
-        else
-            dataJ.push({label: i+":hrs", value: 0});
-    }*/
     Morris.Donut({
         element: 'morris-donut-example',
         data: dataJ,

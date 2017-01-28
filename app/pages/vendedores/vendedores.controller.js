@@ -2,10 +2,9 @@
  * Created by marcos on 29/11/16.
  */
 
-angular.module("teewa")
-
-    .controller("vendedoresCtrl", function ($scope, $http, config, $stateParams) {
-
+angular.module("teewa").controller("vendedoresCtrl", function ($scope, $http, config, $stateParams) {
+    if(sessionStorage.getItem('loginadmin') === '')
+        $state.go('main.login.indexadmin');
     $scope.app = "Vendedores";
     $scope.vendedores = [];
 

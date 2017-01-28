@@ -9,6 +9,18 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
     //Informações do vendedor salvas no navegador
 	$scope.infoVendedorPhoto = sessionStorage.getItem('vendedor_foto');
 	$scope.infoVendedorNome = sessionStorage.getItem('vendedor_nome');
+    console.log($scope.infoAdmin);
+	$scope.infoAdmin = sessionStorage.getItem('loginadmin');
+    console.log($scope.infoAdmin);
+	$scope.controle = function () {
+		if(sessionStorage.getItem('loginadmin') == ''){
+            console.log('false');
+            return false;
+		}else{
+		    console.log('true');
+            return true;
+		}
+	};
 
     //Verificando login de vendedor
 	if(sessionStorage.getItem('vendedor')==='true'){
@@ -20,6 +32,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
     $scope.verifica = function () {
         return $scope.vendedor;
     };
+
     XMPP_DOMAIN = 'myserver';
 
     //stub de login e logout do vendedor
@@ -42,7 +55,8 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 	$scope.logout = function() {
 
         //Se vendedor
-	    sessionStorage.setItem('vendedor', JSON.stringify(false));
+		sessionStorage.setItem('vendedor', JSON.stringify(false));
+		sessionStorage.setItem('loginadmin', '');
 		$scope.vendedor = JSON.parse(sessionStorage.getItem('vendedor'));
         sessionStorage.setItem('vendedor_foto', '');
         sessionStorage.setItem('vendedor_nome', '');
@@ -51,12 +65,36 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
         sessionStorage.setItem('Estabelecimento', JSON.stringify(false));
         $scope.Estabelecimento = JSON.parse(sessionStorage.getItem('Estabelecimento'));
         console.log("desconectou!!");
-        sharedConn.logout();
-        $state.go('login', {}, {
-            location: "replace",
-            reload: true
-        });
+		$state.go('main.login.indexadmin', {}, {
+			location: "replace",
+			reload: true
+		});
+		sharedConn.logout();
+
     };
+
+	//Verificando Login de Estabelecimento
+	if(sessionStorage.getItem('Estabelecimento')==='true'){
+		$scope.Estabelecimento = true;
+	}else{
+		$scope.Estabelecimento = false;
+	}
+
+	$scope.verificaEstabelecimento = function(){
+		return $scope.Estabelecimento;
+	};
+	//Stub para estabelecimento
+	$scope.loginEstabelecimento = function(user) {
+		//Estabelecimento
+		sessionStorage.setItem('Estabelecimento', JSON.stringify(true));
+		$scope.Estabelecimento = JSON.parse(sessionStorage.getItem('Estabelecimento'));
+		//Vendedor
+		sessionStorage.setItem('vendedor', JSON.stringify(false));
+		$scope.vendedor = JSON.parse(sessionStorage.getItem('vendedor'));
+		sessionStorage.setItem('vendedor_foto', '');
+		sessionStorage.setItem('vendedor_nome', '');
+		$scope.infoVendedor = "";
+	};
 
 
     //Carregando dados vendedor
@@ -71,6 +109,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 			}
 		}).success(function(data){
 			$scope.infoVendedor = data.user;
+			//guardando informações do vendedor
 			sessionStorage.setItem('vendedor_foto', $scope.infoVendedor.photo);
 			sessionStorage.setItem('vendedor_nome', $scope.infoVendedor.name);
             $scope.infoVendedorPhoto = $scope.infoVendedor.photo;
@@ -107,27 +146,6 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 	};
 
 	$scope.carregarCasos();
-    //Verificando Login de Estabelecimento
-    if(sessionStorage.getItem('Estabelecimento')==='true'){
-        $scope.Estabelecimento = true;
-    }else{
-        $scope.Estabelecimento = false;
-    }
 
-    $scope.verificaEstabelecimento = function(){
-        return $scope.Estabelecimento;
-    };
-    //Stub para estabelecimento
-    $scope.loginEstabelecimento = function(user) {
-        //Estabelecimento
-        sessionStorage.setItem('Estabelecimento', JSON.stringify(true));
-        $scope.Estabelecimento = JSON.parse(sessionStorage.getItem('Estabelecimento'));
-        //Vendedor
-        sessionStorage.setItem('vendedor', JSON.stringify(false));
-        $scope.vendedor = JSON.parse(sessionStorage.getItem('vendedor'));
-        sessionStorage.setItem('vendedor_foto', '');
-        sessionStorage.setItem('vendedor_nome', '');
-        $scope.infoVendedor = "";
-    };
 
 });

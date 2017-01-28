@@ -1,8 +1,11 @@
 /**
  * Created by marcos on 29/11/16.
  */
-angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, config) {
+angular.module("teewa").controller("dashboardCtrl", function ($scope, $state, $http, config) {
     //$scope.state = $state;
+    if(sessionStorage.getItem('loginadmin') === '')
+        $state.go('main.login.indexadmin');
+    console.log('tina'+ sessionStorage.getItem('loginadmin'));
     $scope.app = "Dashboard";
     //$scope.estabelecimentos = [];
     $scope.cases = [];
@@ -10,7 +13,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
     $scope.atendimentos = [];
     $scope.estabelecimentos = [];
     $scope.denuncias = [];
-
+    //$scope.teste = $rootScope.usuario;
 
     var carregarClientes = function () {
         $http({

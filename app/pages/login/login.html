@@ -1,0 +1,47 @@
+<div class="login-container" style="background-color: inherit">
+    <div id="login" class="login-box ">
+        <div class="login-body" style="background-color: #1b6d85">
+            <div class="login-title"><strong>Bem Vindo ao Teewa Admin!</strong></div>
+            <form action="../../../index.html" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="check">
+                            <input class="icheckbox" type="checkbox"> <a class="control-label" > Loja </a>
+                            <input class="icheckbox" type="checkbox"> <a class="control-label" > Vendedor </a>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                            <a class="btn btn-link btn-block">Numero:</a> <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <button class="btn btn-info btn-block" ng-click="login()">Log In</button>
+                    </div>
+                    <br>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <p class="text-info"> Ainda não tem sua empresa no Teewa?
+                            <a href="../../../novoEstabelecimento.html" style="color: #fff3f4" >Clique Aqui</a>
+                        </p>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function Ocultar() {
+        var display = document.getElementById('loginadmin').style.display;
+        if(display == "none")
+            document.getElementById('loginadmin').style.display = 'block';
+        else
+            document.getElementById('loginadmin').style.display = 'none';
+    }
+    Ocultar();
+</script>
+</body>

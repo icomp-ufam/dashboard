@@ -1,22 +1,28 @@
 angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
-        $urlRouterProvider.otherwise('/dashboard/lista');
-        $urlRouterProvider.when('/dashboard', '/dashboard/lista');
-        $urlRouterProvider.when('/admin', '/admin/lista');
-        $urlRouterProvider.when('/clientes', '/clientes/lista');
-        $urlRouterProvider.when('/vendedores', '/vendedores/lista');
-        $urlRouterProvider.when('/estabelecimentos', '/estabelecimentos/lista');
-        $urlRouterProvider.when('/atendimentos', '/atendimentos/lista');
-        $urlRouterProvider.when('/chat', '/chat/lista');
-        $urlRouterProvider.when('/pacotes', '/pacotes/lista');
-        $urlRouterProvider.when('/denuncias', '/denuncias/lista');
-        $urlRouterProvider.when('/avaliacoes', '/avaliacoes/lista');
-        $urlRouterProvider.when('/pacotes-escolher', '/pacotes/escolha');
-        $urlRouterProvider.when('/analisesCasos', '/analises/lista');
+        if(sessionStorage.getItem('loginadmin') === 'false'){
+            $urlRouterProvider.when('/login', '/login/login');
+            $urlRouterProvider.otherwise('/login/login');
+        }else{
+            $urlRouterProvider.otherwise('/dashboard/index');
+            $urlRouterProvider.when('/dashboard', '/dashboard/index');
+            $urlRouterProvider.when('/admin', '/admin/lista');
+            $urlRouterProvider.when('/clientes', '/clientes/lista');
+            $urlRouterProvider.when('/vendedores', '/vendedores/lista');
+            $urlRouterProvider.when('/estabelecimentos', '/estabelecimentos/lista');
+            $urlRouterProvider.when('/atendimentos', '/atendimentos/lista');
+            $urlRouterProvider.when('/chat', '/chat/lista');
+            $urlRouterProvider.when('/pacotes', '/pacotes/lista');
+            $urlRouterProvider.when('/denuncias', '/denuncias/lista');
+            $urlRouterProvider.when('/avaliacoes', '/avaliacoes/lista');
+            $urlRouterProvider.when('/pacotes-escolher', '/pacotes/escolha');
+            $urlRouterProvider.when('/analisesCasos', '/analises/lista');
+            $urlRouterProvider.when('dashboard-vendedor', 'dashboard-vendedor/index');
+            $urlRouterProvider.when('dashboard-estabelecimento', 'dashboard-estabelecimento/index');
+            $urlRouterProvider.when('/perfil', '/perfil/perfil');
+        //$urlRouterProvider.when('/login', '/login/login');
+        }
 
-        $urlRouterProvider.when('dashboard-vendedor', 'dashboard-vendedor/index');
-        $urlRouterProvider.when('dashboard-estabelecimento', 'dashboard-estabelecimento/index');
 
-        $urlRouterProvider.when('/perfil', '/perfil/perfil');
 
 
         $stateProvider.state('main', {
@@ -31,6 +37,21 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/vendedores/vendedores.html',
             controller: 'vendedoresCtrl',
             activetab: 'vendedores'
+        }).state('main.login', {
+            url: 'login',
+            template: '<ui-view></ui-view>'
+        }).state('main.login.index', {
+            url: '/login',
+            templateUrl: 'app/pages/login/login.html',
+            controller: 'loginController'
+        }).state('main.login.indexadmin', {
+            url: '/loginadmin',
+            templateUrl: 'app/pages/login/loginadmin.html',
+            controller: 'loginController'
+        }).state('main.login.acessonegado', {
+            url: '/acessonegado',
+            templateUrl: 'app/pages/login/acessonegado.html',
+            controller: 'loginController'
         }).state('main.clientes', {
             url: 'clientes',
             template: '<ui-view></ui-view>'
@@ -166,7 +187,6 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             templateUrl: 'app/pages/pacotes/form_pacotes.html',
             controller: 'formPacotesCtrl',
             activetab: 'pacotes'
-            //ciar
         }).state('main.denuncias', {
             url: 'denuncias',
             template: '<ui-view></ui-view>'

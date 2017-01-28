@@ -2,7 +2,8 @@
  * Created by Larissa Fabíola on 30/11/16.
  */
 angular.module("teewa").controller("analiseCtrl", function ($scope, $http, config, $stateParams, $state) {
-
+    if(sessionStorage.getItem('loginadmin') === '')
+        $state.go('main.login.indexadmin');
    //$scope.state = $state;
     $scope.app = "AnaliseCasos";
     //$scope.estabelecimentos = [];
