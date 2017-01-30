@@ -7,7 +7,9 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
     if(localStorage.getItem('loginV') !== '')
         $state.go('main.dashboardVendedor.index');
 
+    $scope.infoVendedorID = '';
     $scope.app = "Dashboard";
+
     $scope.admins = [
         {nome: 'admin', password: '123' },
         {nome: 'cristina', password: '321' }
@@ -57,10 +59,10 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
         for(vendedor in $scope.vendedores.sellers){
             //console.log($scope.vendedores.sellers[vendedor].mobile);
             if($scope.vendedores.sellers[vendedor].mobile === numero){
-                console.log('true');
                 //aqui solicitação do codigo
-                $scope.loginV = $scope.vendedores.sellers[vendedor].name;
+                $scope.infoVendedorNome = $scope.vendedores.sellers[vendedor].name;
                 localStorage.setItem('userID',$scope.vendedores.sellers[vendedor].id);
+                $scope.infoVendedorID = localStorage.getItem('userID');
                 $scope.mensagem = '';
                 $scope.Proximo();
                 break;
@@ -70,14 +72,16 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
         }
 
     };
+
     //variavel que simula o codigo recebido
     $scope.code = '555012';
 
     $scope.verificaCodigo= function (code) {
         if($scope.code == code){
-            localStorage.setItem('loginV',$scope.loginV);
-                localStorage.setItem('vendedor', JSON.stringify(true));
-                $scope.mensagem = '';
+            localStorage.setItem('loginV', $scope.infoVendedorNome);
+            localStorage.setItem('vendedor', JSON.stringify(true));
+            $scope.login();
+            $scope.mensagem = '';
             $state.go("main.dashboardVendedor.index", {}, {
                 location: "replace",
                 reload: true
@@ -85,6 +89,23 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
         }
         $scope.mensagem = 'Codigo inválido';
     };
+
+    XMPP_DOMAIN = 'myserver';
+
+    $scope.login = function() {
+        sharedConn.login($scope.infoVendedorID,XMPP_DOMAIN,config.password);
+        $scope.chats = sharedConn.getRoster();
+        $scope.hideTime = true;
+        $scope.data = {};
+        $scope.myId = sharedConn.getConnectObj().jid;
+        $scope.messages = [];
+        $scope.to_id = ChatDetails.getTo();
+
+        localStorage.setItem('vendedor', JSON.stringify(true));
+        $scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
+
+    };
+
 
     $scope.Proximo = function() {
         var display = document.getElementById('login2').style.display;
@@ -95,7 +116,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
             document.getElementById('login').style.display = 'block';
             document.getElementById('login2').style.display = 'none';
         }
-    }
+    };
     $scope.voltar = function() {
         $scope.mensagem = '';
         var display = document.getElementById('login').style.display;

@@ -18,7 +18,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.loading = false;
 
     // id Larissa
-    $scope.idVendedor = config.user;
+    $scope.idVendedor = localStorage.getItem('userID');
     //id da loja chat-dashboard
     $scope.idstore = '118';
 
@@ -182,7 +182,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             data: {
                 'idstore' :  $scope.idstore,
                 'idaccused' :  idcliente,
-                'idwhistleblower' :  config.user,
+                'idwhistleblower' :   $scope.idVendedor,
                 'description' :  descricao,
                 'type' :  tipo
             }
@@ -301,7 +301,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     $scope.login = function(user) {
         //localStorage.setItem('conectado', JSON.stringify(true));
-        sharedConn.login(config.user,XMPP_DOMAIN,config.password);
+        sharedConn.login( $scope.idVendedor,XMPP_DOMAIN,config.password);
         $scope.chats = sharedConn.getRoster();
         $scope.hideTime = true;
         $scope.data = {};

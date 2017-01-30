@@ -11,8 +11,8 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 	$scope.infoVendedorNome = localStorage.getItem('vendedor_nome');
 	$scope.infoVendedorID = localStorage.getItem('userID');
 
+	//informações do admin salvas no navegador
 	$scope.infoAdmin = localStorage.getItem('loginadmin');
-    console.log($scope.infoAdmin);
 
 	$scope.controle = function () {
 		if(localStorage.getItem('loginadmin') == '' && localStorage.getItem('loginV') == ''){
@@ -35,30 +35,10 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
         return $scope.vendedor;
     };
 
-    XMPP_DOMAIN = 'myserver';
-
-    //stub de login e logout do vendedor
-	$scope.login = function(user) {
-
-        sharedConn.login(config.user,XMPP_DOMAIN,config.password);
-        $scope.chats = sharedConn.getRoster();
-        $scope.hideTime = true;
-        $scope.data = {};
-        $scope.myId = sharedConn.getConnectObj().jid;
-
-        $scope.messages = [];
-        $scope.to_id = ChatDetails.getTo();
-
-		localStorage.setItem('vendedor', JSON.stringify(true));
-		$scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
-		$scope.carregaVendedor();
-    };
 
 	$scope.logout = function() {
-
         //Se vendedor
 		localStorage.setItem('vendedor', JSON.stringify(false));
-		localStorage.setItem('loginadmin', '');
 		$scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
         localStorage.setItem('vendedor_foto', '');
         localStorage.setItem('vendedor_nome', '');
@@ -67,6 +47,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
         localStorage.setItem('Estabelecimento', JSON.stringify(false));
         $scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
 
+        localStorage.setItem('loginadmin', '');
 		localStorage.setItem('loginV', '');
 		localStorage.setItem('userID', '');
 
@@ -107,7 +88,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
     $scope.carregaVendedor = function () {
 		$http({
 
-			url : config.baseUrl + "/users/"+ config.user,
+			url : config.baseUrl + "/users/"+ $scope.infoVendedorID,
 			method : 'get',
 			headers : {
 				'Content-Type': 'application/json',
@@ -143,7 +124,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 				//id do chat-dashboard estatico (mudar)
 				'idstore' : '118',
 
-				'idseller' :config.user
+				'idseller' :$scope.infoVendedorID
 			}
 		}).success(function(data){
 			$scope.novos = data.cases;
