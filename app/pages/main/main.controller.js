@@ -19,7 +19,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
             //console.log('false');
             return false;
 		}else{
-		    console.log('true');
+		    //console.log('true');
             return true;
 		}
 	};

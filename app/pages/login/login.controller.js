@@ -45,6 +45,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
             },
         }).success(function(data){
             $scope.vendedores = data;
+
             console.log($scope.vendedores);
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
