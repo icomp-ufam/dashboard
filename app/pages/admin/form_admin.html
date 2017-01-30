@@ -23,7 +23,7 @@
                             <div class="col-md-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" class="form-control" ng-model="admin.email"/>
                                 </div>
                                 <span class="help-block">Ex: teewaadmin@gmail.com</span>
                             </div>
@@ -33,7 +33,7 @@
                             <div class="col-md-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" class="form-control" ng-model="admin.nome"/>
                                 </div>
                                 <span class="help-block">Ex: Fulano da Silva</span>
                             </div>
@@ -43,7 +43,7 @@
                             <div class="col-md-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
-                                    <input type="password" class="form-control"/>
+                                    <input type="password" class="form-control" ng-model="admin.senha"/>
                                 </div>
                                 <!--<span class="help-block">aviso</span>-->
                             </div>
@@ -53,7 +53,7 @@
                             <div class="col-md-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
-                                    <input type="password" class="form-control"/>
+                                    <input type="password" class="form-control" ng-model="admin.confirme_senha"/>
                                 </div>
                                 <!--<span class="help-block">aviso</span>-->
                             </div>
@@ -61,14 +61,14 @@
                         <div class="form-group">
                             <label class="col-md-3 col-xs-12 control-label">Foto</label>
                             <div class="col-md-6 col-xs-12">
-                                <input type="file" class="fileinput btn-primary" name="filename" id="filename" title="Escolher arquivo"/>
+                                <input type="file" class="fileinput btn-primary" name="filename" id="filename" title="Escolher arquivo" ng-model="admin.foto"/>
                                 <span class="help-block">Faça upload da sua foto de perfil</span>
                             </div>
                         </div>
                     </div>
                     <div class="panel-footer">
                         <button class="btn btn-default">Limpar formulário</button>
-                        <button class="btn btn-primary pull-right">Cadastrar</button>
+                        <button class="btn btn-primary pull-right" ng-click="adicionarAdministrador(admin)" ng-disabled="!admin.email || !admin.nome || !admin.senha || !admin.confirme_senha">Cadastrar</button>
                     </div>
                 </div>
             </form>
