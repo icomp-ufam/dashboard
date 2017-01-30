@@ -140,7 +140,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
                 sessionStorage.setItem('rid', RID);
                 sessionStorage.setItem('sid', SID);
                 sessionStorage.setItem('jid', JID);
-                //console.log(' XMLOUTPUT INFO - OUTGOING RID=' + RID + ' [SID=' + SID + '] [JID ='+JID+']');
+                console.log(' XMLOUTPUT INFO - OUTGOING RID=' + RID + ' [SID=' + SID + '] [JID ='+JID+']');
                 //log(' XMLOUTPUT INFO - OUTGOING XML = \n'+e.outerHTML);
                 //set some variables to keep track of our rid and sid
             };
