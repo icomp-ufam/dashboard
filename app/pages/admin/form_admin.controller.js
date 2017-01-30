@@ -19,4 +19,10 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http) {
 	}
     if(localStorage.getItem('loginadmin') === '')
         $state.go('main.login.indexadmin');
+	};
+	$scope.isAdminSelecionado = function (admins) {
+		return admins.some(function (admin) {
+			return admin.selecionado;
+		});
+	};
 });

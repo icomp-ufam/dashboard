@@ -18,14 +18,6 @@
 
 <!-- PAGE CONTENT WRAPPER -->
 
-
-
-
-
-<!-- END PAGE CONTENT WRAPPER -->
-
-
-
 <div class="page-content-wrap">
     <!-- END BREADCRUMB -->
     <div class="page-container-boxed">
@@ -38,7 +30,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Administradores</h3>
-                        <button class="btn btn-danger btn-block" ng-click="apagarAdministradores(admins)">Apagar Administradores</button>
+                        <div style="width: 200px; float: right;">
+                            <button class="btn btn-danger btn-block" ng-click="apagarAdministradores(admins)" ng-disabled="!isAdminSelecionado(admins)">Apagar Administradores</button>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <table class="table " >
@@ -78,3 +72,5 @@
 <script type="text/javascript">
     panelActions();
 </script>
+
+<!-- END PAGE CONTENT WRAPPER -->
