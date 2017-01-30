@@ -1,13 +1,28 @@
-angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function( $state, $rootScope) {
+angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config', function( $state, $rootScope, config) {
 
     var SharedConnObj = {};
 
     //SharedConnObj.BOSH_SERVICE = 'https://conversejs.org/http-bind/';
-    SharedConnObj.BOSH_SERVICE = 'http://localhost:7070/http-bind/';
+    //SharedConnObj.BOSH_SERVICE = 'http://localhost:7070/http-bind/';
+    SharedConnObj.BOSH_SERVICE = 'http://api.teewa.com.br:7070/http-bind/';
     //SharedConnObj.BOSH_SERVICE = 'http://http://10.208.3.171:7070/http-bind/';
     SharedConnObj.connection = null; // The main Strophe connection object.
     SharedConnObj.loggedIn = false;
     SharedConnObj.roster = [];
+    //verificando sessão ao recarragar
+    $(window).unload(function() {
+        if( SharedConnObj.connection != null ){
+            SharedConnObj.rid = sessionStorage.getItem('rid');
+            SharedConnObj.sid = sessionStorage.getItem('sid');
+            SharedConnObj.jid = sessionStorage.getItem('jid');
+        }else{
+            sessionStorage.setItem('rid', null );
+            sessionStorage.setItem('sid', null);
+            sessionStorage.setItem('jid', null);
+        }
+    });
+
+    console.log('rid '+SharedConnObj.rid +" sid "+SharedConnObj.sid+'jid '+ SharedConnObj.jid);
 
     //------------------------------------------HELPER FUNCTIONS---------------------------------------------------------------
     SharedConnObj.getConnectObj = function() {
@@ -27,14 +42,19 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
         str = str.substring(0, str.indexOf('/'));
         return str;
     };
+    //------------------------------------------mantendo a conexão---------------------------------------------------------------
 
+
+    //--------------------------------------***END mantendo a conexão***---------------------------------------------------------
     //funcao para entrar em todas as salas de chat do vendedor logado
     SharedConnObj.joinChats = function (chats) {
         for(i = 0; i < chats.length; i++){
-            SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.myserver","672");
+            //SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.myserver",config.user);
+            SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.ip-172-31-47-155",config.user);
         }
 
         console.log('consegui :)');
+
     };
 
     //--------------------------------------***END HELPER FUNCTIONS***----------------------------------------------------------
@@ -43,13 +63,19 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
     SharedConnObj.login = function(jid, host, pass) {
         SharedConnObj.connection = new Strophe.Connection(
             SharedConnObj.BOSH_SERVICE, {
-            'keepalive': true
-        }); // We initialize the Strophe connection.
-        
-        SharedConnObj.connection.connect(
-            jid + '@' + host+"/web",
-            pass, 
-            SharedConnObj.onConnect);
+                'keepalive': true
+            }); // We initialize the Strophe connection.
+        //Se já ouver uma conexão continua conectado, se não, inicia uma nova;
+       if (SharedConnObj.rid != null || SharedConnObj.sid != null || SharedConnObj.jid != null) {
+           //rid + 1 para seguir o fluxo de requisições
+           SharedConnObj.connection.attach(SharedConnObj.jid, SharedConnObj.sid, (parseInt(SharedConnObj.rid) +1), null);
+       } else {
+           SharedConnObj.connection.connect(
+               jid + '@' + host + "/web",
+               pass,
+               SharedConnObj.onConnect);
+       }
+
     };
 
     //On connect XMPP
@@ -95,20 +121,35 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
                             name: $(this).attr("name") || $(this).attr("jid"),
                             lastText: 'Available to Chat',
                             face: 'app/assets/images/users/no-image.jpg'
+
                         });
+                        console.log("roster "+SharedConnObj.roster);
 
                     });
 
                 });
 
             });
+            //guardando parametros da conexão atual
+            SharedConnObj.connection.xmlOutput = function (status) {
+                RID = $(status).attr('rid');
+                SID = $(status).attr('sid');
+                JID = SharedConnObj.connection.jid;
+                sessionStorage.setItem('rid', RID);
+                sessionStorage.setItem('sid', SID);
+                sessionStorage.setItem('jid', JID);
+                console.log(' XMLOUTPUT INFO - OUTGOING RID=' + RID + ' [SID=' + SID + '] [JID ='+JID+']');
+                //log(' XMLOUTPUT INFO - OUTGOING XML = \n'+e.outerHTML);
+                //set some variables to keep track of our rid and sid
+            };
+
         }
     };
 
 
     //When a new message is recieved
     SharedConnObj.onMessage = function(msg) {
-        console.log(msg);
+        //console.log(msg);
         $rootScope.$broadcast('msgRecievedBroadcast', msg);
         return true;
     };
@@ -149,6 +190,10 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
     };
 
     SharedConnObj.logout = function() {
+        //limpando sessão da conexão conectados
+        sessionStorage.setItem('rid', null );
+        sessionStorage.setItem('sid', null);
+        sessionStorage.setItem('jid', null);
         console.log("reached");
         SharedConnObj.connection.options.sync = true;// Alternar para usar solicitações síncronas, uma vez que isso normalmente é chamado onUnload.
         SharedConnObj.connection.flush();
@@ -202,7 +247,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', function(
             return true;
         }
 
-    }
+    };
 
     return SharedConnObj;
-}])
+}]);

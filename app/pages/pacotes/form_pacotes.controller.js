@@ -3,4 +3,6 @@
  */
 angular.module("teewa").controller("formPacotesCtrl", function ($scope, $state) {
 	$scope.state = $state;
+	if(localStorage.getItem('loginadmin') === '')
+		$state.go('main.login.indexadmin');
 });

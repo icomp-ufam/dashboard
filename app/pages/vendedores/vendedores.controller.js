@@ -2,10 +2,9 @@
  * Created by marcos on 29/11/16.
  */
 
-angular.module("teewa")
-
-    .controller("vendedoresCtrl", function ($scope, $http, config, $stateParams) {
-
+angular.module("teewa").controller("vendedoresCtrl", function ($scope, $http, config, $stateParams) {
+    if(localStorage.getItem('loginadmin') === '')
+        $state.go('main.login.indexadmin');
     $scope.app = "Vendedores";
     $scope.vendedores = [];
 
@@ -21,7 +20,7 @@ angular.module("teewa")
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : NovaDate_start,
@@ -65,6 +64,7 @@ angular.module("teewa")
         var d = {
             value: new Date(),
         }
+        //noinspection JSAnnotator
         var novaData = {
             value: new Date(2014, 12, 01),
         }

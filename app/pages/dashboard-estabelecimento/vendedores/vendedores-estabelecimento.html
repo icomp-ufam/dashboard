@@ -13,7 +13,6 @@
             <!-- START DEFAULT DATATABLE -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-
                     <h3 class="panel-title">Listagem de vendedores</h3>
                     <ul class="panel-controls">
                         <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
@@ -35,7 +34,10 @@
                             <br>
                             <button type="submit" class=" btn btn-default" ng-click="carregarVendedoresLoja((data_start | date: 'dd/MM/y'), (data_end | date: 'dd/MM/y'), idloja)"> Filtrar </button>
                         </div>
-                    </div> </br>
+                    </div> 
+
+                    </br>
+                    
                     <table class="table" >
                         <thead>
                             <tr>
@@ -59,8 +61,8 @@
                                 <td>{{vendedor.id}}</td>
                                 <td>{{vendedor.name}}</td>
                                 <td>{{vendedor.atendimento}}</td>
-                                <td>{{vendedor.avg_rating}}</td>
-                                <td>{{vendedor.sum_rating}}</td>
+                                <td>{{vendedor.avg_rating | number:1}}</td>
+                                <td>{{vendedor.sum_rating | number:1}}</td>
                                 <td> <button class="btn btn-default" > Detalhes</button> </td>
                             </tr>
                         </tbody>

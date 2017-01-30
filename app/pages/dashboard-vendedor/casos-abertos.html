@@ -1,7 +1,3 @@
-<div ng-if="!chatAtual" class="row">
-    <img src="app/assets/img/loaders/default.gif" class="loading-img">
-</div>
-
 <!-- START ROW -->
 <div ng-if="chatAtual" class="row">
     <!-- START MESSAGES -->
@@ -20,9 +16,10 @@
                 <!-- Botões de controle do chat -->
                 <ul class="panel-controls">
                     <!-- botão que inclui o vendedor nas salas de chat do openfire para todos os casos abertos listados -->
-                    <li ng-click="joinChats()"><a ><span class="fa fa-check"></span></a></li>
-
-                    <li ng-show="chatAtual.id" class="dropdown">
+                    <!-- li id="joins" ng-click="joinChats()"><a ><span class="fa fa-check"></span></a></li -->
+                    <!-- Botão que abre o modal de upload de imagem -->
+                    <li title="Enviar Imagem" data-toggle="modal" data-target="#modal_upload_image" class="dropdown"><a ><span class="fa fa-camera"></span></a></li>
+                    <li title="Opções" ng-show="chatAtual.id" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>
                         <ul class="dropdown-menu">
                             <!--Encerra caso aberto atualmente-->
@@ -104,8 +101,8 @@
 
                             <!-- Relatorio de entrega da mensagem -->
                             <div class="pull-right" >
-                                <span ng-show="message.status == 0" class="fa fa-clock-o"></span>
-                                <span  class="fa fa-check"></span> <!--ng-show="message.status == 1"-->
+                                <!--<span ng-show="message.status == 0" class="fa fa-clock-o"></span>-->
+                                <span ng-if="message.received" class="fa fa-check"></span>
                             </div>
 
                         </div>
@@ -120,24 +117,19 @@
                 <div class="panel-body panel-body-search">
                     <form name="dados">
                         <div class="input-group">
+                            <input name="envia" type="text" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..." />
                             <div class="input-group-btn">
+
+                                <!-- funcao uploadFile() envia apenas a legenda, pois o arquivo é tratado no controller usando o id -->
                                 <button type="submit" ng-click="showSendMessage()" id="enviar" class="btn btn-default">
                                     <span class="fa fa-send"></span>
                                 </button>
-                            </div>
-                            <input name="envia" type="text" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..."/>
-                            <div class="input-group-btn">
-
-                                <!-- Botão que abre o modal de upload de imagem -->
-                                <button class="btn btn-default"><span class="fa fa-smile-o"></span></button>
-                                <button data-toggle="modal" data-target="#modal_upload_image" class="btn btn-default"><span class="fa fa-camera"></span></button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
             <!-- END INPUT DE MENSAGENS -->
-
         </div>
     </div>
     <!-- END MESSAGES -->
@@ -267,7 +259,6 @@
         </div>
     </div>
     <!-- END MODAL DE UPLOAD DE IMAGEM -->
-
 </div>
 
 <script>
@@ -327,3 +318,4 @@
     }
 
 </style>
+

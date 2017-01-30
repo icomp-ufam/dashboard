@@ -1,8 +1,11 @@
 /**
  * Created by marcos on 29/11/16.
  */
-angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, config) {
+angular.module("teewa").controller("dashboardCtrl", function ($scope, $state, $http, config) {
     //$scope.state = $state;
+    if(localStorage.getItem('loginadmin') === '')
+        $state.go('main.login.indexadmin');
+    console.log('tina'+ localStorage.getItem('loginadmin'));
     $scope.app = "Dashboard";
     //$scope.estabelecimentos = [];
     $scope.cases = [];
@@ -10,7 +13,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
     $scope.atendimentos = [];
     $scope.estabelecimentos = [];
     $scope.denuncias = [];
-
+    //$scope.teste = $rootScope.usuario;
 
     var carregarClientes = function () {
         $http({
@@ -18,7 +21,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             }
         }).success(function(data){
             $scope.clientes = data;
@@ -39,7 +42,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : '01/01/2016',
@@ -65,7 +68,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
             method : 'GET',
             headers : {
                 'Content-Type' : 'application/json',
-            'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+            'Authorization' : config.token
             }
             }).success(function(data){
                     $scope.cases = data;
@@ -96,7 +99,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : '01/01/2016',
@@ -120,7 +123,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $http, con
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : '01/01/2016',

@@ -17,4 +17,6 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http) {
 			if (!admin.selecionado) {return admin;}
 		});
 	}
+    if(localStorage.getItem('loginadmin') === '')
+        $state.go('main.login.indexadmin');
 });

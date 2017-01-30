@@ -2,7 +2,8 @@
  * Created by Larissa Fabíola on 30/11/16.
  */
 angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $http, config, $state) {
-
+    if(localStorage.getItem('loginadmin') === '')
+        $state.go('main.login.indexadmin');
     $scope.app = "Estabelecimentos";
     $scope.estabelecimentos = [];
     $scope.storeID = 0;
@@ -22,7 +23,7 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+                'Authorization' : config.token
             },
             data: {
                 'date_start' : NovaDate_start,
@@ -68,7 +69,8 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
     var d = {
         value: new Date(),
     }
-     var novaData = {
+     //noinspection JSAnnotator
+    var novaData = {
         value: new Date(2014, 12, 01),
     }
 
