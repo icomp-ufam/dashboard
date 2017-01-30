@@ -7,7 +7,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.casos = [];
     $scope.qteChats = 0;
     $scope.qteCasos = 0;
-    $scope.chatAtual = "";
+    $scope.chatAtual = "carregando";
 
     $scope.urlPhotos = config.baseUrl + "/photos/";
     $scope.urlFiles = config.baseUrl + "/case_images/";
@@ -38,11 +38,14 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         }).success(function(data){
             $scope.chats = data.chats;
 
+            if ($scope.chats.length > 0){
+                //ao carregar pagina, abre primeiro chat da lista de casos
+                $scope.chatAtual = $scope.chats[0];
+            } else{
+                $scope.chatAtual = "vazio";
+            }
             //quantidade de casos abertos que é exibida no dashboard
             $scope.qteChats = $scope.chats.length;
-
-            //ao carregar pagina, abre primeiro chat da lista de casos
-            $scope.chatAtual = $scope.chats[0];
 
             //configurando qual sala de chat esta sendo escutada
             ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);

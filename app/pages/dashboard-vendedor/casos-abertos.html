@@ -1,5 +1,13 @@
+<div ng-if="(chatAtual == 'carregando')" class="row">
+    <img src="app/assets/img/loaders/default.gif" class="loading-img">
+</div>
+
+<div ng-if="(chatAtual == 'vazio')">
+    <h1 class="textCenter">Não existem casos abertos! </h1>
+</div>
+
 <!-- START ROW -->
-<div ng-if="chatAtual" class="row">
+<div ng-if="(chatAtual != 'carregando' && chatAtual != 'vazio')" class="row">
     <!-- START MESSAGES -->
     <div class="col-md-8">
         <div class="content-frame" >
@@ -315,6 +323,12 @@
         left: 0;
         right: 0;
         bottom: 0;
+    }
+
+    .textCenter{
+        text-align: center;
+        vertical-align: middle;
+        line-height: 300px;
     }
 
 </style>
