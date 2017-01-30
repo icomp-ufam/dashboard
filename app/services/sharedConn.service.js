@@ -22,7 +22,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
         }
     });
 
-    console.log('rid '+SharedConnObj.rid +" sid "+SharedConnObj.sid+'jid '+ SharedConnObj.jid);
+    //console.log('rid '+SharedConnObj.rid +" sid "+SharedConnObj.sid+'jid '+ SharedConnObj.jid);
 
     //------------------------------------------HELPER FUNCTIONS---------------------------------------------------------------
     SharedConnObj.getConnectObj = function() {
@@ -94,7 +94,9 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
             SharedConnObj.connection.send($pres().tree());
             SharedConnObj.loggedIn = true;
 
-            SharedConnObj.connection.addHandler(SharedConnObj.on_subscription_request, null, "presence", "subscribe");
+            //SharedConnObj.connection.addHandler(SharedConnObj.on_subscription_request, null, "presence", "subscribe");
+            SharedConnObj.connection.addHandler(SharedConnObj.onPresence, null, 'presence', null, null, null);
+
 
             console.log('Conectou!');
 
@@ -151,6 +153,27 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
     SharedConnObj.onMessage = function(msg) {
         //console.log(msg);
         $rootScope.$broadcast('msgRecievedBroadcast', msg);
+        return true;
+    };
+
+    SharedConnObj.onPresence = function(presence){
+        console.log("cheguei aqui");
+        console.log(presence);
+        var presence_type = $(presence).attr('type'); // unavailable, subscribed, etc...
+        var from = $(presence).attr('from'); // the jabber_id of the contact
+        if (presence_type != 'error'){
+            if (presence_type === 'unavailable'){
+                // Mark contact as offline
+            }else{
+                var show = $(presence).find("show").text(); // this is what gives away, dnd, etc.
+                if (show === 'chat' || show === ''){
+                    console.log("oi, to online")
+                }else{
+                    // etc...
+                }
+            }
+        }
+        //RETURN TRUE!!!!!!!!!
         return true;
     };
 

@@ -18,7 +18,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
     $scope.validaadmin = function (username, password) {
         for(admin in $scope.admins){
             if($scope.admins[admin].nome == username && $scope.admins[admin].password == password){
-                console.log('true');
+                //console.log('true');
                 localStorage.setItem('loginadmin',$scope.admins[admin].nome);
                 $scope.mensagem = '';
                 $state.go("main.dashboard.listar", {}, {
@@ -43,7 +43,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
             },
         }).success(function(data){
             $scope.vendedores = data;
-            console.log($scope.vendedores);
+            //console.log($scope.vendedores);
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
@@ -53,11 +53,11 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
     $scope.loginV  = '';
     $scope.verificaNumero = function (numero) {
         var result = '';
-        console.log(numero);
+        //console.log(numero);
         for(vendedor in $scope.vendedores.sellers){
             //console.log($scope.vendedores.sellers[vendedor].mobile);
             if($scope.vendedores.sellers[vendedor].mobile === numero){
-                console.log('true');
+                //console.log('true');
                 //aqui solicitação do codigo
                 $scope.loginV = $scope.vendedores.sellers[vendedor].name;
                 localStorage.setItem('userID',$scope.vendedores.sellers[vendedor].id);

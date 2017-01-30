@@ -248,9 +248,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     //recebe informacoes da caixa de chat que foi selecionada
     $scope.clickChat = function (chat) {
-        console.log(chat);
         //recebe chat clicado
-        console.log(chat);
+        //console.log(chat);
         $scope.chatAtual = chat;
         //configurando qual sala de chat esta sendo escutada
         ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);

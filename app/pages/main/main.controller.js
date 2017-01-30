@@ -11,15 +11,18 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 	$scope.infoVendedorNome = localStorage.getItem('vendedor_nome');
 	$scope.infoVendedorID = localStorage.getItem('userID');
 
+	$scope.infoVendedorAvgRating = localStorage.getItem('vendedor_avaliacao');
+	$scope.infoVendedorSumRating = localStorage.getItem('vendedor_qtdAvaliacoes');
+	$scope.infoVendedorQtdAtd = localStorage.getItem('vendedor_qtdAtendimentos');
+
 	$scope.infoAdmin = localStorage.getItem('loginadmin');
-    console.log($scope.infoAdmin);
+    //console.log($scope.infoAdmin);
 
 	$scope.controle = function () {
 		if(localStorage.getItem('loginadmin') == '' && localStorage.getItem('loginV') == ''){
             //console.log('false');
             return false;
 		}else{
-		    console.log('true');
             return true;
 		}
 	};
@@ -118,8 +121,16 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 			//guardando informações do vendedor
 			localStorage.setItem('vendedor_foto', $scope.infoVendedor.photo);
 			localStorage.setItem('vendedor_nome', $scope.infoVendedor.name);
+			localStorage.setItem('vendedor_avaliacao', $scope.infoVendedor.avg_rating);
+			localStorage.setItem('vendedor_qtdAvalicoes', $scope.infoVendedor.sum_rating);
+			localStorage.setItem('vendedor_qtdAtendimentos', $scope.infoVendedor.ate);
+
             $scope.infoVendedorPhoto = $scope.infoVendedor.photo;
             $scope.infoVendedorNome = $scope.infoVendedor.name;
+			$scope.infoVendedorAvgRating = $scope.infoVendedor.avg_rating;
+			$scope.infoVendedorSumRating = $scope.infoVendedor.sum_rating;
+			$scope.infoVendedorQtdAtd = $scope.infoVendedor.ate;
+
 
 
         }).error(function(error){
