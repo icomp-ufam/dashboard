@@ -4,18 +4,23 @@
 angular.module("teewa").controller("loginController", function ($scope, $state, config, $http, sharedConn, Chats, ChatDetails) {
     if(localStorage.getItem('loginadmin') !== '')
         $state.go('main.dashboard.listar');
+    if(localStorage.getItem('loginV') !== '')
+        $state.go('main.dashboardVendedor.index');
+
     $scope.app = "Dashboard";
-    $scope.clientes = [
+    $scope.admins = [
         {nome: 'admin', password: '123' },
         {nome: 'cristina', password: '321' }
     ];
-    $scope.valida = function (username, password) {
-        var result = '';
-        for(cliente in $scope.clientes){
-            if($scope.clientes[cliente].nome == username && $scope.clientes[cliente].password == password){
+    $scope.mensagem = '';
+
+    //login do admnistrador
+    $scope.validaadmin = function (username, password) {
+        for(admin in $scope.admins){
+            if($scope.admins[admin].nome == username && $scope.admins[admin].password == password){
                 console.log('true');
-                localStorage.setItem('loginadmin',$scope.clientes[cliente].nome);
-                result = '';
+                localStorage.setItem('loginadmin',$scope.admins[admin].nome);
+                $scope.mensagem = '';
                 $state.go("main.dashboard.listar", {}, {
                     location: "replace",
                     reload: true
@@ -23,14 +28,85 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
 
                 break;
             }else{
-                result = 'usuário ou senha incorretos!';
+                $scope.mensagem = 'Usuário ou senha incorretos!';
             }
         }
-        //alerta de usuario ou senha incorreto
-        if(result != ''){
-            alert(result);
-        }
     };
+    //Carregando vendedores para verificar numero
+    $scope.carregaVendedores = function () {
+        $http({
+            url : config.baseUrl + "/sellers",
+            method : 'get',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+        }).success(function(data){
+            $scope.vendedores = data;
+            console.log($scope.vendedores);
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
+    $scope.carregaVendedores();
+    $scope.loginV  = '';
+    $scope.verificaNumero = function (numero) {
+        var result = '';
+        console.log(numero);
+        for(vendedor in $scope.vendedores.sellers){
+            //console.log($scope.vendedores.sellers[vendedor].mobile);
+            if($scope.vendedores.sellers[vendedor].mobile === numero){
+                console.log('true');
+                //aqui solicitação do codigo
+                $scope.loginV = $scope.vendedores.sellers[vendedor].name;
+                localStorage.setItem('userID',$scope.vendedores.sellers[vendedor].id);
+                $scope.mensagem = '';
+                $scope.Proximo();
+                break;
+            }else{
+                $scope.mensagem = 'Numero informado não registrado na base de dados!';
+            }
+        }
+
+    };
+    //variavel que simula o codigo recebido
+    $scope.code = '555012';
+
+    $scope.verificaCodigo= function (code) {
+        if($scope.code == code){
+            localStorage.setItem('loginV',$scope.loginV);
+                localStorage.setItem('vendedor', JSON.stringify(true));
+                $scope.mensagem = '';
+            $state.go("main.dashboardVendedor.index", {}, {
+                location: "replace",
+                reload: true
+            });
+        }
+        $scope.mensagem = 'Codigo inválido';
+    };
+
+    $scope.Proximo = function() {
+        var display = document.getElementById('login2').style.display;
+        if(display == "none") {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('login2').style.display = 'block';
+        }else {
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('login2').style.display = 'none';
+        }
+    }
+    $scope.voltar = function() {
+        $scope.mensagem = '';
+        var display = document.getElementById('login').style.display;
+        if(display == "none") {
+            document.getElementById('login2').style.display = 'none';
+            document.getElementById('login').style.display = 'block';
+        }else {
+            document.getElementById('login2').style.display = 'block';
+            document.getElementById('login').style.display = 'none';
+        }
+    }
 
 
 });

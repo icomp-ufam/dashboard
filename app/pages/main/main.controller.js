@@ -9,12 +9,14 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
     //Informações do vendedor salvas no navegador
 	$scope.infoVendedorPhoto = localStorage.getItem('vendedor_foto');
 	$scope.infoVendedorNome = localStorage.getItem('vendedor_nome');
-    console.log($scope.infoAdmin);
+	$scope.infoVendedorID = localStorage.getItem('userID');
+
 	$scope.infoAdmin = localStorage.getItem('loginadmin');
     console.log($scope.infoAdmin);
+
 	$scope.controle = function () {
-		if(localStorage.getItem('loginadmin') == ''){
-            console.log('false');
+		if(localStorage.getItem('loginadmin') == '' && localStorage.getItem('loginV') == ''){
+            //console.log('false');
             return false;
 		}else{
 		    console.log('true');
@@ -60,11 +62,15 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 		$scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
         localStorage.setItem('vendedor_foto', '');
         localStorage.setItem('vendedor_nome', '');
-		$scope.infoVendedor = "";
+
 		//se estabelecimento
         localStorage.setItem('Estabelecimento', JSON.stringify(false));
         $scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
-        console.log("desconectou!!");
+
+		localStorage.setItem('loginV', '');
+		localStorage.setItem('userID', '');
+
+		console.log("desconectou!!");
 		$state.go('main.login.indexadmin', {}, {
 			location: "replace",
 			reload: true
@@ -120,6 +126,9 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 			$scope.message = "Aconteceu um problema: " + error;
 		});
 	};
+
+	if($scope.infoVendedorID != '')
+		$scope.carregaVendedor();
 
     //Carregando casos para a barra de notificações
 	$scope.carregarCasos = function () {
