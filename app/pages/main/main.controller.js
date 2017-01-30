@@ -7,13 +7,13 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
     $scope.urlPhotos = config.baseUrl + "/photos/";
 
     //Informações do vendedor salvas no navegador
-	$scope.infoVendedorPhoto = sessionStorage.getItem('vendedor_foto');
-	$scope.infoVendedorNome = sessionStorage.getItem('vendedor_nome');
+	$scope.infoVendedorPhoto = localStorage.getItem('vendedor_foto');
+	$scope.infoVendedorNome = localStorage.getItem('vendedor_nome');
     console.log($scope.infoAdmin);
-	$scope.infoAdmin = sessionStorage.getItem('loginadmin');
+	$scope.infoAdmin = localStorage.getItem('loginadmin');
     console.log($scope.infoAdmin);
 	$scope.controle = function () {
-		if(sessionStorage.getItem('loginadmin') == ''){
+		if(localStorage.getItem('loginadmin') == ''){
             console.log('false');
             return false;
 		}else{
@@ -23,7 +23,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 	};
 
     //Verificando login de vendedor
-	if(sessionStorage.getItem('vendedor')==='true'){
+	if(localStorage.getItem('vendedor')==='true'){
 		$scope.vendedor = true;
 	}else{
 		$scope.vendedor = false;
@@ -47,23 +47,23 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
         $scope.messages = [];
         $scope.to_id = ChatDetails.getTo();
 
-		sessionStorage.setItem('vendedor', JSON.stringify(true));
-		$scope.vendedor = JSON.parse(sessionStorage.getItem('vendedor'));
+		localStorage.setItem('vendedor', JSON.stringify(true));
+		$scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
 		$scope.carregaVendedor();
     };
 
 	$scope.logout = function() {
 
         //Se vendedor
-		sessionStorage.setItem('vendedor', JSON.stringify(false));
-		sessionStorage.setItem('loginadmin', '');
-		$scope.vendedor = JSON.parse(sessionStorage.getItem('vendedor'));
-        sessionStorage.setItem('vendedor_foto', '');
-        sessionStorage.setItem('vendedor_nome', '');
+		localStorage.setItem('vendedor', JSON.stringify(false));
+		localStorage.setItem('loginadmin', '');
+		$scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
+        localStorage.setItem('vendedor_foto', '');
+        localStorage.setItem('vendedor_nome', '');
 		$scope.infoVendedor = "";
 		//se estabelecimento
-        sessionStorage.setItem('Estabelecimento', JSON.stringify(false));
-        $scope.Estabelecimento = JSON.parse(sessionStorage.getItem('Estabelecimento'));
+        localStorage.setItem('Estabelecimento', JSON.stringify(false));
+        $scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
         console.log("desconectou!!");
 		$state.go('main.login.indexadmin', {}, {
 			location: "replace",
@@ -74,7 +74,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
     };
 
 	//Verificando Login de Estabelecimento
-	if(sessionStorage.getItem('Estabelecimento')==='true'){
+	if(localStorage.getItem('Estabelecimento')==='true'){
 		$scope.Estabelecimento = true;
 	}else{
 		$scope.Estabelecimento = false;
@@ -86,13 +86,13 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 	//Stub para estabelecimento
 	$scope.loginEstabelecimento = function(user) {
 		//Estabelecimento
-		sessionStorage.setItem('Estabelecimento', JSON.stringify(true));
-		$scope.Estabelecimento = JSON.parse(sessionStorage.getItem('Estabelecimento'));
+		localStorage.setItem('Estabelecimento', JSON.stringify(true));
+		$scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
 		//Vendedor
-		sessionStorage.setItem('vendedor', JSON.stringify(false));
-		$scope.vendedor = JSON.parse(sessionStorage.getItem('vendedor'));
-		sessionStorage.setItem('vendedor_foto', '');
-		sessionStorage.setItem('vendedor_nome', '');
+		localStorage.setItem('vendedor', JSON.stringify(false));
+		$scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
+		localStorage.setItem('vendedor_foto', '');
+		localStorage.setItem('vendedor_nome', '');
 		$scope.infoVendedor = "";
 	};
 
@@ -110,8 +110,8 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 		}).success(function(data){
 			$scope.infoVendedor = data.user;
 			//guardando informações do vendedor
-			sessionStorage.setItem('vendedor_foto', $scope.infoVendedor.photo);
-			sessionStorage.setItem('vendedor_nome', $scope.infoVendedor.name);
+			localStorage.setItem('vendedor_foto', $scope.infoVendedor.photo);
+			localStorage.setItem('vendedor_nome', $scope.infoVendedor.name);
             $scope.infoVendedorPhoto = $scope.infoVendedor.photo;
             $scope.infoVendedorNome = $scope.infoVendedor.name;
 

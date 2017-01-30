@@ -1,5 +1,5 @@
 angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
-        if(sessionStorage.getItem('loginadmin') === 'false'){
+        if(sessionStorage.getItem('loginadmin') === ''){
             $urlRouterProvider.when('/login', '/login/login');
             $urlRouterProvider.otherwise('/login/login');
         }else{

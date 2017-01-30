@@ -2,7 +2,7 @@
  * Created by Larissa Fabíola on 30/11/16.
  */
 angular.module("teewa").controller("clientesCtrl", function ($scope, $http, config, $stateParams, $state) {
-    if(sessionStorage.getItem('loginadmin') === '')
+    if(localStorage.getItem('loginadmin') === '')
         $state.go('main.login.indexadmin');
     $scope.app = "Clientes";
     $scope.clientes = [];

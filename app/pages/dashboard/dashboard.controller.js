@@ -3,9 +3,9 @@
  */
 angular.module("teewa").controller("dashboardCtrl", function ($scope, $state, $http, config) {
     //$scope.state = $state;
-    if(sessionStorage.getItem('loginadmin') === '')
+    if(localStorage.getItem('loginadmin') === '')
         $state.go('main.login.indexadmin');
-    console.log('tina'+ sessionStorage.getItem('loginadmin'));
+    console.log('tina'+ localStorage.getItem('loginadmin'));
     $scope.app = "Dashboard";
     //$scope.estabelecimentos = [];
     $scope.cases = [];

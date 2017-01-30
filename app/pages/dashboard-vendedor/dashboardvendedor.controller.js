@@ -300,7 +300,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
      // Servidor de conexão
 
     $scope.login = function(user) {
-        //sessionStorage.setItem('conectado', JSON.stringify(true));
+        //localStorage.setItem('conectado', JSON.stringify(true));
         sharedConn.login(config.user,XMPP_DOMAIN,config.password);
         $scope.chats = sharedConn.getRoster();
         $scope.hideTime = true;
@@ -311,7 +311,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         $scope.to_id = ChatDetails.getTo();
 
     };
-    //if(sessionStorage.getItem('conectado') !== 'true')
+    //if(localStorage.getItem('conectado') !== 'true')
     $scope.login();
 
 

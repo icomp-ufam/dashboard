@@ -1,47 +1,84 @@
 <div class="login-container" style="background-color: inherit">
     <div id="login" class="login-box ">
-        <div class="login-body" style="background-color: #1b6d85">
-            <div class="login-title"><strong>Bem Vindo ao Teewa Admin!</strong></div>
-            <form action="../../../index.html" class="form-horizontal" method="post">
+        <div class="login-body" style="align-items: center; background-color: #1b6d85">
+            <div class="login-title" ><strong>Informe seu número para acesso a conta Teewa</strong></div>
+            <form class="form-horizontal">
                 <div class="form-group">
-                    <div class="col-md-12">
-                        <label class="check">
-                            <input class="icheckbox" type="checkbox"> <a class="control-label" > Loja </a>
-                            <input class="icheckbox" type="checkbox"> <a class="control-label" > Vendedor </a>
-                        </label>
+                    <div class="col-md-12 col-xs-16">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                            <input title="Formato valido: 5592#########" value="55" pattern="^\d{13}$" type="tel" class="form-control"  ng-model="telefone"/>
+                        </div>
+                        <!--span class="help-block"> Ex: +5592#########</span-->
+                        <br>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-6">
-                            <a class="btn btn-link btn-block">Numero:</a> <input class="form-control" type="text">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-6">
-                        <button class="btn btn-info btn-block" ng-click="login()">Log In</button>
-                    </div>
-                    <br>
-                </div>
-                <div class="form-group">
+
+                <div class="form-group ">
                     <div class="col-md-6">
                         <p class="text-info"> Ainda não tem sua empresa no Teewa?
-                            <a href="../../../novoEstabelecimento.html" style="color: #fff3f4" >Clique Aqui</a>
+                            <a href="novoEstabelecimento.html" style="color: #fff3f4" >Clique Aqui</a>
                         </p>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-info btn-block" onclick="Proximo()">Próxima Etapa</button>
                     </div>
                 </div>
 
             </form>
         </div>
     </div>
+
+    <div id="login2" class="login-box " style=" display: none">
+        <div class="login-body" style="align-items: center; background-color: #1b6d85">
+            <div class="login-title" ><strong>Informe o codigo de Verificação e Validação</strong></div>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-12 col-xs-16">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="fa fa-check"></span></span>
+                            <input  type="text" class="form-control" placeholder="" ng-model="telefone"/>
+                        </div>
+                        <!--span class="help-block"> Ex: +5592#########</span-->
+                        <br>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-md-4">
+                        <button class="btn btn-info btn-block" onclick="voltar()">Reenviar</button>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-info btn-block" ng-click="login()">Conectar</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
 </div>
 <script>
-    function Ocultar() {
-        var display = document.getElementById('loginadmin').style.display;
-        if(display == "none")
-            document.getElementById('loginadmin').style.display = 'block';
-        else
-            document.getElementById('loginadmin').style.display = 'none';
+    function Proximo() {
+        var display = document.getElementById('login2').style.display;
+        if(display == "none") {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('login2').style.display = 'block';
+        }else {
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('login2').style.display = 'none';
+        }
     }
-    Ocultar();
+    function voltar() {
+        var display = document.getElementById('login').style.display;
+        if(display == "none") {
+            document.getElementById('login2').style.display = 'none';
+            document.getElementById('login').style.display = 'block';
+        }else {
+            document.getElementById('login2').style.display = 'block';
+            document.getElementById('login').style.display = 'none';
+        }
+    }
 </script>
 </body>
