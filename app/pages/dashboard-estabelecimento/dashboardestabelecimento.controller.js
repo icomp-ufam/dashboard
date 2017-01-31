@@ -6,6 +6,19 @@
 angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($scope, $http, config, $state , sharedConn, Chats, ChatDetails) {
     $scope.idloja = 1; //1 == Teewa
 
+    //Perfil
+    $scope.nomePerfil= "Minha Loja";
+    $scope.enderecoPerfil= "Rua do pão";
+    $scope.categoriaPerfil= "Informática";
+    $scope.pacotePerfil= "Basic";
+
+    $scope.limparPerfil= function(){
+        $scope.nomePerfil= "";
+        $scope.enderecoPerfil= "";
+        $scope.categoriaPerfil= "";
+        $scope.pacotePerfil= "";
+    };
+
     //#######Todos os vendedores de uma loja#######
     $scope.app = "Vendedores";
     $scope.vendedores = [];

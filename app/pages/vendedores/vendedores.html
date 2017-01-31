@@ -40,14 +40,6 @@
                     <table class="table" >
                         <thead>
                             <tr>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome"></th>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.atendimento" placeholder="Qte Atendimentos"></th>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.avg_rating" placeholder="Avaliação..."></th>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.sum_rating" placeholder="Qte avaliações..."></th>
-                                <th> </th>
-                            </tr>
-                            <tr>
-
                                 <th ng-click="ordenarPor('id')">ID</th>
                                 <th ng-click="ordenarPor('name')">Nome</th>
                                 <th ng-click="ordenarPor('atendimento')">Qte Atendimentos</th>
@@ -56,6 +48,15 @@
 
                                 <th >Ações</th>
                             </tr>
+
+                            <tr>
+                                <th></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome"></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.atendimento" placeholder="Qte Atendimentos"></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.avg_rating" placeholder="Avaliação..."></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.sum_rating" placeholder="Qte avaliações..."></th>
+                                <th> </th>
+                            </tr>
                         </thead>
                        <tbody>
                             <tr ng-repeat="vendedor in vendedores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
@@ -63,9 +64,9 @@
                                 <td>{{vendedor.id}}</td>
                                 <td>{{vendedor.name}}</td>
                                 <td>{{vendedor.atendimento}}</td>
-                                <td>{{vendedor.avg_rating}}</td>
+                                <td>{{vendedor.avg_rating | number:2}}</td>
                                 <td>{{vendedor.sum_rating}}</td>
-                                <td> <button class="btn btn-default" > Detalhes</button> </td>
+                                <td> <button class="btn btn-default" > Chat</button> </td>
                             </tr>
                         </tbody>
                     </table>

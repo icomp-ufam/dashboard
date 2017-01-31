@@ -23,7 +23,7 @@
                             <div class="col-md-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" class="form-control" ng-model="email"/>
                                 </div>
                                 <span class="help-block">Ex: teewaadmin@gmail.com</span>
                             </div>
@@ -33,7 +33,7 @@
                             <div class="col-md-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" class="form-control" ng-model="nome"/>
                                 </div>
                                 <span class="help-block">Ex: Fulano da Silva</span>
                             </div>
@@ -43,7 +43,7 @@
                             <div class="col-md-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
-                                    <input type="password" class="form-control"/>
+                                    <input type="password" class="form-control" ng-model="senha"/>
                                 </div>
                                 <!--<span class="help-block">aviso</span>-->
                             </div>
@@ -53,7 +53,7 @@
                             <div class="col-md-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
-                                    <input type="password" class="form-control"/>
+                                    <input type="password" class="form-control" ng-model="confSenha"/>
                                 </div>
                                 <!--<span class="help-block">aviso</span>-->
                             </div>
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                     <div class="panel-footer">
-                        <button class="btn btn-default">Limpar formulário</button>
+                        <button class="btn btn-default" ng-click="limpar()">Limpar formulário</button>
                         <button class="btn btn-primary pull-right">Cadastrar</button>
                     </div>
                 </div>
