@@ -502,7 +502,7 @@
       <workItem from="1485809586125" duration="709000" />
       <workItem from="1485810386885" duration="3138000" />
       <workItem from="1485821255139" duration="1436000" />
-      <workItem from="1485915706860" duration="765000" />
+      <workItem from="1485915706860" duration="786000" />
     </task>
     <task id="LOCAL-00001" summary="Removidos arquivos desnessários do template.">
       <created>1480378032482</created>
@@ -725,7 +725,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="242241000" />
+    <option name="totallyTimeSpent" value="242262000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -738,7 +738,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="0" width="1346" height="735" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
