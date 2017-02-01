@@ -1,28 +1,63 @@
 /**
  * Created by marcos on 01/12/16.
  */
-angular.module("teewa").controller("form_adminCtrl", function ($scope, $http) {
-	$scope.admins = [
-			{nome: "Pedro", telefone: "9999-8888"},
-			{nome: "Ana", telefone: "9999-8877"},
-			{nome: "Maria", telefone: "9999-8866"}
-	];
+angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, config) {
+	$scope.admins = [];
+
+    var carregarAdministradores = function () {
+        $http({
+            url : config.baseUrl + "/dash/register/admins",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            }
+            /*data: {
+                'name' : admin.nome,
+                'email' : admin.email,
+                'password' : admin.senha,
+                'photo' : admin.foto,
+            }*/
+        }).success(function(data){
+            $scope.admins = data;
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+	});
+
 	$scope.adicionarAdministrador = function (admin) {
-		$scope.admins.push(angular.copy(admin));
-		console.log($scope.admin);
-		delete $scope.admin;
+		$http({
+            url : config.baseUrl + "/dash/register/admin",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            }
+            data: {
+                'name' : admin.nome,
+                'email' : admin.email,
+                'password' : admin.senha,
+                'photo' : admin.foto,
+            }
+        }).success(function(data){
+            $scope.admin = data;
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+		
 	};
+
 	$scope.apagarAdministradores = function (admins) {
 		$scope.admins = admins.filter(function (admin) {
 			if (!admin.selecionado) {return admin;}
 		});
-	}
+	};
+    $scope.isAdminSelecionado = function (admins) {
+        return admins.some(function (admin) {
+            return admin.selecionado;
+        });
+    };
     if(localStorage.getItem('loginadmin') === '')
         $state.go('main.login.indexadmin');
-	};
-	$scope.isAdminSelecionado = function (admins) {
-		return admins.some(function (admin) {
-			return admin.selecionado;
-		});
-	};
+	}
+
+	carregarAdministradores();
 });
