@@ -21,7 +21,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.idVendedor = localStorage.getItem('userID');
     console.log('id vendedor '+$scope.idVendedor);
     //id da loja chat-dashboard
-    $scope.idstore = '118';
+    $scope.idstore = localStorage.getItem('lojaID');//'118';
 
     var XMPP_DOMAIN = config.XMPP_DOMAIN;
     // imagem pra ser carregada nas mensagens do chat

@@ -43,6 +43,11 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 
 	$scope.logout = function() {
         //Se vendedor
+		//false admin, true loja/vendedor
+		var sair = false;
+		if(localStorage.getItem('vendedor') === 'true'){
+			sair = true;
+		}
 		localStorage.setItem('vendedor', JSON.stringify(false));
 		$scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
         localStorage.setItem('vendedor_foto', '');
@@ -57,11 +62,18 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 		localStorage.setItem('userID', '');
 
 		console.log("desconectou!!");
-		$state.go('main.login.indexadmin', {}, {
-			location: "replace",
-			reload: true
-		});
-		sharedConn.logout();
+		if(sair == true){
+			$state.go('main.login.index', {}, {
+				location: "replace",
+				reload: true
+			});
+		}else{
+			$state.go('main.login.indexadmin', {}, {
+				location: "replace",
+				reload: true
+			});
+			sharedConn.logout();
+		}
 
     };
 
