@@ -31,7 +31,7 @@ angular.module("teewa").controller("clientesCtrl", function ($scope, $http, conf
     $scope.clickThisClientesGraphic=function(date_start, date_end) {
          //console.log("teste date_start : " + date_start.value);
         // console.log("teste date_end : " + date_end );
-         $state.go("main.clientes.graphic", 
+         $state.go("main.clientes.graphic",
             {
             data_startParametro: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
             data_endParametro: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),

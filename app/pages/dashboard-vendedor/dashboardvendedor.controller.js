@@ -206,7 +206,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         files = document.querySelector("#file-upload").files;
 
         // se não foi inserida uma legenda, envia o texto Imagem
-        if (!legenda){
+        if (!legenda) {
             legenda = "Imagem";
         }
 

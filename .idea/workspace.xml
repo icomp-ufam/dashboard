@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39fa8f05-15be-41f2-b7f8-1f0df24c357b" name="Default" comment="" />
+    <list default="true" id="39fa8f05-15be-41f2-b7f8-1f0df24c357b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/clientes/clientes.controller.js" afterPath="$PROJECT_DIR$/app/pages/clientes/clientes.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboardvendedor.controller.js" afterPath="$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboardvendedor.controller.js" />
+    </list>
     <ignored path="dashboard.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -15,40 +19,127 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="dashboard" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="casos-abertos.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-abertos.html">
+      <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/admin/admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="72" lean-forward="false" selection-start-line="27" selection-start-column="72" selection-end-line="27" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/pages/main/main.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="184" column="49" lean-forward="false" selection-start-line="184" selection-start-column="49" selection-end-line="184" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/main/main.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2006">
-              <caret line="118" column="23" lean-forward="false" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
+            <state relative-caret-position="300">
+              <caret line="15" column="47" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
               <folding>
-                <marker date="1485809363112" expanded="true" signature="4211:4214" ph="{...}" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form_admin.controller.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/admin/form_admin.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboardvendedor.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboardvendedor.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4600">
+              <caret line="230" column="17" lean-forward="false" selection-start-line="230" selection-start-column="17" selection-end-line="230" selection-end-column="17" />
+              <folding>
+                <marker date="1485824461608" expanded="true" signature="6883:6927" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/app.routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4860">
+              <caret line="244" column="46" lean-forward="false" selection-start-line="244" selection-start-column="46" selection-end-line="244" selection-end-column="46" />
+              <folding>
+                <marker date="1485909780555" expanded="true" signature="4361:4532" ph="{&quot;url&quot;: '/lista'...}" />
+                <marker date="1485909780555" expanded="true" signature="4561:4649" ph="{&quot;url&quot;: 'atendimentos'...}" />
+                <marker date="1485909780555" expanded="true" signature="4685:4874" ph="{&quot;url&quot;: '/lista'...}" />
+                <marker date="1485909780555" expanded="true" signature="4917:5168" ph="{&quot;url&quot;: '/listarPorHora/:data_startParametro/:data_endParametro'...}" />
+                <marker date="1485909780555" expanded="true" signature="5224:5474" ph="{&quot;url&quot;: '/listarPorHoraContagemMedia'...}" />
+                <marker date="1485909780555" expanded="true" signature="5522:5785" ph="{&quot;url&quot;: '/listarPorDiaSemana/:data_startParametro/:data_endParametro'...}" />
+                <marker date="1485909780555" expanded="true" signature="5830:6084" ph="{&quot;url&quot;: '/listarPorDiaMes/:data_startParametro/:data_endParametro'...}" />
+                <marker date="1485909780555" expanded="true" signature="6132:6398" ph="{&quot;url&quot;: '/listarPorCategoria/:data_startParametro/:data_endParametro'...}" />
+                <marker date="1485909780555" expanded="true" signature="6441:6692" ph="{&quot;url&quot;: '/listarPorDate/:data_startParametro/:data_endParametro'...}" />
+                <marker date="1485909780555" expanded="true" signature="6740:6966" ph="{&quot;url&quot;: '/listarPorDataGeral'...}" />
+                <marker date="1485909780555" expanded="true" signature="6987:7067" ph="{&quot;url&quot;: 'chat'...}" />
+                <marker date="1485909780555" expanded="true" signature="7095:7252" ph="{&quot;url&quot;: '/lista'...}" />
+                <marker date="1485909780555" expanded="true" signature="7278:7363" ph="{&quot;url&quot;: 'dashboard'...}" />
+                <marker date="1485909780555" expanded="true" signature="7396:7573" ph="{&quot;url&quot;: '/index'...}" />
+                <marker date="1485909780555" expanded="true" signature="7617:7723" ph="{&quot;url&quot;: 'dashboard-vendedor'...}" />
+                <marker date="1485909780555" expanded="true" signature="7763:7974" ph="{&quot;url&quot;: '/index'...}" />
+                <marker date="1485909780555" expanded="true" signature="8021:8222" ph="{&quot;url&quot;: '/casos-abertos'...}" />
+                <marker date="1485909780555" expanded="true" signature="8267:8471" ph="{&quot;url&quot;: '/casos-novos'...}" />
+                <marker date="1485909780555" expanded="true" signature="8511:8698" ph="{&quot;url&quot;: '/emoji'...}" />
+                <marker date="1485909780555" expanded="true" signature="8733:8816" ph="{&quot;url&quot;: 'pacotes'...}" />
+                <marker date="1485909780555" expanded="true" signature="8847:9025" ph="{&quot;url&quot;: '/lista'...}" />
+                <marker date="1485909780555" expanded="true" signature="9051:9136" ph="{&quot;url&quot;: 'denuncias'...}" />
+                <marker date="1485909780555" expanded="true" signature="9169:9346" ph="{&quot;url&quot;: '/lista'...}" />
+                <marker date="1485909780555" expanded="true" signature="9373:9459" ph="{&quot;url&quot;: 'avaliacoes'...}" />
+                <marker date="1485909780555" expanded="true" signature="9493:9674" ph="{&quot;url&quot;: '/lista'...}" />
+                <marker date="1485909780555" expanded="true" signature="9706:9798" ph="{&quot;url&quot;: '/escolher-pacote'...}" />
+                <marker date="1485909780555" expanded="true" signature="9831:10014" ph="{&quot;url&quot;: '/escolha'...}" />
+                <marker date="1485909780555" expanded="true" signature="10044:10133" ph="{&quot;url&quot;: 'analisesCasos'...}" />
+                <marker date="1485909780555" expanded="true" signature="10170:10443" ph="{&quot;url&quot;: '/listaCasos/:data_startParametro/:data_endParametro'...}" />
+                <marker date="1485909780555" expanded="true" signature="10492:10699" ph="{&quot;url&quot;: '/listaAtendimentos'...}" />
+                <marker date="1485909780555" expanded="true" signature="10749:10958" ph="{&quot;url&quot;: '/listaNatendimentos'...}" />
+                <marker date="1485909780555" expanded="true" signature="11000:11190" ph="{&quot;url&quot;: '/rating-geral'...}" />
+                <marker date="1485909780555" expanded="true" signature="11213:11295" ph="{&quot;url&quot;: 'perfil'...}" />
+                <marker date="1485909780555" expanded="true" signature="11325:11468" ph="{&quot;url&quot;: '/perfil'...}" />
+                <marker date="1485909780555" expanded="true" signature="11519:11632" ph="{&quot;url&quot;: 'dashboard-estabelecimento'...}" />
+                <marker date="1485909780555" expanded="true" signature="11679:11918" ph="{&quot;url&quot;: '/index'...}" />
+                <marker date="1485909780555" expanded="true" signature="11981:12238" ph="{&quot;url&quot;: '/perfil-estabelecimento'...}" />
+                <marker date="1485909780555" expanded="true" signature="12305:12578" ph="{&quot;url&quot;: '/vendedores-estabelecimento'...}" />
+                <marker date="1485909780555" expanded="true" signature="12647:12928" ph="{&quot;url&quot;: '/atendimentos-estabelecimento'...}" />
+                <marker date="1485909780555" expanded="true" signature="12993:13258" ph="{&quot;url&quot;: '/anuncios-estabelecimento'...}" />
+                <marker date="1485909780555" expanded="true" signature="13324:13593" ph="{&quot;url&quot;: '/denuncias-estabelecimento'...}" />
+                <marker date="1485909780555" expanded="true" signature="13658:13901" ph="{&quot;url&quot;: '/listarPorHora/:data_startParametro/:data_endParametro'...}" />
+                <marker date="1485909780555" expanded="true" signature="13969:14198" ph="{&quot;url&quot;: '/listarPorHoraContagemMedia'...}" />
+                <marker date="1485909780555" expanded="true" signature="14258:14511" ph="{&quot;url&quot;: '/listarPorCategoria/:data_startParametro/:data_endParametro'...}" />
+                <marker date="1485909780555" expanded="true" signature="14571:14824" ph="{&quot;url&quot;: '/listarPorDiaSemana/:data_startParametro/:data_endParametro'...}" />
+                <marker date="1485909780555" expanded="true" signature="14879:15122" ph="{&quot;url&quot;: '/listarPorDate/:data_startParametro/:data_endParametro'...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="denuncias.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/denuncias/denuncias.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="580">
+              <caret line="29" column="11" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="29" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="denuncias.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/denuncias/denuncias.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -62,6 +153,12 @@
         <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>denuncias.</find>
+      <find>perfil.</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -88,7 +185,6 @@
         <option value="$PROJECT_DIR$/app/pages/dashboard/dashboard.html" />
         <option value="$PROJECT_DIR$/app/pages/vendedores/vendedores.html" />
         <option value="$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboard-vendedor.html" />
-        <option value="$PROJECT_DIR$/app/pages/clientes/clientes.controller.js" />
         <option value="$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-novos.html" />
         <option value="$PROJECT_DIR$/app/pages/denuncias/denuncias.html" />
         <option value="$PROJECT_DIR$/app/assets/css/estilo.css" />
@@ -103,6 +199,9 @@
         <option value="$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboardvendedor.controller.js" />
         <option value="$PROJECT_DIR$/app/pages/main/main.controller.js" />
         <option value="$PROJECT_DIR$/app/pages/main/main.html" />
+        <option value="$PROJECT_DIR$/app/pages/clientes/clientes.controller.js" />
+        <option value="$PROJECT_DIR$/app/pages/admin/form_admin.controller.js" />
+        <option value="$PROJECT_DIR$/app/pages/denuncias/index.html" />
       </list>
     </option>
   </component>
@@ -121,9 +220,8 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="10" />
-    <option name="y" value="20" />
     <option name="width" value="1346" />
-    <option name="height" value="688" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -140,6 +238,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -206,10 +305,53 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -218,6 +360,8 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="ToolWindowVersion Control.ShowToolbar" value="false" />
     <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -231,184 +375,13 @@
       <recent name="$PROJECT_DIR$/app/pages" />
     </key>
   </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/app.routes.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/assets/js/demo_charts_morris.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/admin/form_admin.controller.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/analises/analise.controller.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/analises/analiseCasos.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/atendimentos/atendimentos.controller.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/clientes/clientes.controller.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard-estabelecimento/anuncios/anuncios-estabelecimento.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard-estabelecimento/atendimentos/atendimentos-estabelecimento.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard-estabelecimento/dashboardestabelecimento.controller.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard-estabelecimento/vendedores/vendedores-estabelecimento.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-abertos.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-novos.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboard-vendedor.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboardvendedor.controller.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard/dashboard.controller.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard/dashboard.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/denuncias/denuncias.controller.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.controller.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/main/main.controller.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/main/main.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/pacotes/form_pacotes.controller.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/vendedores/vendedores.controller.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/services/chat-details.service.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/services/sharedConn.service.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/value/config.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/index.html</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard-vendedor/emojis.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/login/acessonegado.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/login/login.controller.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/login/login.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/login/loginadmin.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/bootstrap/js/bootstrap-select.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/css/bootstrap.min.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/css/cover.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/css/cover.css.map</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/css/cover.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/js/bootstrap.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/css/emoji.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/css/emoji.css.map</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/css/nanoscroller.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/img/IconsetSmiles.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/img/IconsetSmiles_1x.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/img/IconsetW.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/img/IconsetW_1x.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/img/blank.gif</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/img/emoji_spritesheet_0.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/img/emoji_spritesheet_1.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/img/emoji_spritesheet_2.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/img/emoji_spritesheet_3.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/img/emoji_spritesheet_4.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/js/config.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/js/emoji-picker.coffee</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/js/emoji-picker.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/js/emoji-picker.js.map</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/js/jquery.emojiarea.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/js/nanoscroller.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/js/tether.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/emoji/lib/js/util.js</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/copyright/profiles_settings.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/dashboard.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/dictionaries/marcos.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/modules.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/vcs.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/strophe/strophe.outofband.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/strophe/strophe.si-filetransfer.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/login.html</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
-  </component>
   <component name="RunManager">
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
@@ -424,6 +397,10 @@
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
@@ -522,6 +499,10 @@
       <workItem from="1484744984891" duration="19000" />
       <workItem from="1484758556103" duration="11768000" />
       <workItem from="1485809195113" duration="353000" />
+      <workItem from="1485809586125" duration="709000" />
+      <workItem from="1485810386885" duration="3138000" />
+      <workItem from="1485821255139" duration="1436000" />
+      <workItem from="1485915706860" duration="765000" />
     </task>
     <task id="LOCAL-00001" summary="Removidos arquivos desnessários do template.">
       <created>1480378032482</created>
@@ -733,21 +714,37 @@
       <option name="project" value="LOCAL" />
       <updated>1484773681639</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="feitos o cadastrar, excluir e visualizar administradores.">
+      <created>1485809735379</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1485809735379</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236193000" />
+    <option name="totallyTimeSpent" value="242241000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="20" width="1346" height="688" extended-state="0" />
+    <frame x="10" y="0" width="1346" height="735" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2263158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2792208" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.37370244" sideWeight="0.4697428" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37370244" sideWeight="0.4697428" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -816,7 +813,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Listagens do banco (vendedores, clientes e estabelecimentos)" />
     <MESSAGE value="Desenvolvendo gráfico de consultas por hora" />
     <MESSAGE value="Adicionado gráfico de consultas por hora" />
     <MESSAGE value="Adicionado gráfico de média de consultas por hora" />
@@ -841,7 +837,8 @@
     <MESSAGE value="Exibição do arquivo enviado na consulta; Alteração dos usuários no chat para id (conforme servidor do teewa; Exibição da data que o chat foi aceito; Remoção da aba Chat do dashboard do admin;" />
     <MESSAGE value="Adicionada rota de informações do vendedor; Adicionadas libs de envio de imagem" />
     <MESSAGE value="Corrigindo problemas nos commits" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrigindo problemas nos commits" />
+    <MESSAGE value="feitos o cadastrar, excluir e visualizar administradores." />
+    <option name="LAST_COMMIT_MESSAGE" value="feitos o cadastrar, excluir e visualizar administradores." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -850,41 +847,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="996" column="0" lean-forward="false" selection-start-line="996" selection-start-column="0" selection-end-line="996" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/js/demo_charts_morris.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="55" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template-joli/charts-morris.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="356" column="53" lean-forward="false" selection-start-line="356" selection-start-column="53" selection-end-line="356" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template-joli/js/demo_charts_morris.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="38" column="7" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="38" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentosPorCategoria.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -956,20 +918,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/main/mainVendedor.html" />
-    <entry file="file://$PROJECT_DIR$/app/pages/dashboard/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="135" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/dashboard/dashboard.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="140" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="140" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/template-joli/ui-widgets.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1022,13 +970,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/denuncias/denuncias.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="47" lean-forward="false" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/css/estilo.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1068,20 +1009,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/denuncias/denuncias.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1138,27 +1065,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2220">
-          <caret line="148" column="32" lean-forward="false" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboardvendedor.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/main/main.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2006">
-          <caret line="118" column="23" lean-forward="false" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
-          <folding>
-            <marker date="1485809363112" expanded="true" signature="4211:4214" ph="{...}" />
-          </folding>
+        <state relative-caret-position="244">
+          <caret line="96" column="33" lean-forward="false" selection-start-line="96" selection-start-column="33" selection-end-line="96" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/main/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1632">
+          <caret line="160" column="17" lean-forward="true" selection-start-line="160" selection-start-column="17" selection-end-line="160" selection-end-column="17" />
+          <caret line="161" column="0" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
+          <caret line="162" column="46" lean-forward="true" selection-start-line="162" selection-start-column="46" selection-end-line="162" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -1166,14 +1085,146 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="72" lean-forward="false" selection-start-line="27" selection-start-column="72" selection-end-line="27" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/pacotes/pacotes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="30" column="10" lean-forward="true" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/perfil/perfil.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/admin/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="47" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/dashboard/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2528">
+          <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/dashboard/dashboard.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="35" column="52" lean-forward="false" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4860">
+          <caret line="244" column="46" lean-forward="false" selection-start-line="244" selection-start-column="46" selection-end-line="244" selection-end-column="46" />
+          <folding>
+            <marker date="1485909780555" expanded="true" signature="4361:4532" ph="{&quot;url&quot;: '/lista'...}" />
+            <marker date="1485909780555" expanded="true" signature="4561:4649" ph="{&quot;url&quot;: 'atendimentos'...}" />
+            <marker date="1485909780555" expanded="true" signature="4685:4874" ph="{&quot;url&quot;: '/lista'...}" />
+            <marker date="1485909780555" expanded="true" signature="4917:5168" ph="{&quot;url&quot;: '/listarPorHora/:data_startParametro/:data_endParametro'...}" />
+            <marker date="1485909780555" expanded="true" signature="5224:5474" ph="{&quot;url&quot;: '/listarPorHoraContagemMedia'...}" />
+            <marker date="1485909780555" expanded="true" signature="5522:5785" ph="{&quot;url&quot;: '/listarPorDiaSemana/:data_startParametro/:data_endParametro'...}" />
+            <marker date="1485909780555" expanded="true" signature="5830:6084" ph="{&quot;url&quot;: '/listarPorDiaMes/:data_startParametro/:data_endParametro'...}" />
+            <marker date="1485909780555" expanded="true" signature="6132:6398" ph="{&quot;url&quot;: '/listarPorCategoria/:data_startParametro/:data_endParametro'...}" />
+            <marker date="1485909780555" expanded="true" signature="6441:6692" ph="{&quot;url&quot;: '/listarPorDate/:data_startParametro/:data_endParametro'...}" />
+            <marker date="1485909780555" expanded="true" signature="6740:6966" ph="{&quot;url&quot;: '/listarPorDataGeral'...}" />
+            <marker date="1485909780555" expanded="true" signature="6987:7067" ph="{&quot;url&quot;: 'chat'...}" />
+            <marker date="1485909780555" expanded="true" signature="7095:7252" ph="{&quot;url&quot;: '/lista'...}" />
+            <marker date="1485909780555" expanded="true" signature="7278:7363" ph="{&quot;url&quot;: 'dashboard'...}" />
+            <marker date="1485909780555" expanded="true" signature="7396:7573" ph="{&quot;url&quot;: '/index'...}" />
+            <marker date="1485909780555" expanded="true" signature="7617:7723" ph="{&quot;url&quot;: 'dashboard-vendedor'...}" />
+            <marker date="1485909780555" expanded="true" signature="7763:7974" ph="{&quot;url&quot;: '/index'...}" />
+            <marker date="1485909780555" expanded="true" signature="8021:8222" ph="{&quot;url&quot;: '/casos-abertos'...}" />
+            <marker date="1485909780555" expanded="true" signature="8267:8471" ph="{&quot;url&quot;: '/casos-novos'...}" />
+            <marker date="1485909780555" expanded="true" signature="8511:8698" ph="{&quot;url&quot;: '/emoji'...}" />
+            <marker date="1485909780555" expanded="true" signature="8733:8816" ph="{&quot;url&quot;: 'pacotes'...}" />
+            <marker date="1485909780555" expanded="true" signature="8847:9025" ph="{&quot;url&quot;: '/lista'...}" />
+            <marker date="1485909780555" expanded="true" signature="9051:9136" ph="{&quot;url&quot;: 'denuncias'...}" />
+            <marker date="1485909780555" expanded="true" signature="9169:9346" ph="{&quot;url&quot;: '/lista'...}" />
+            <marker date="1485909780555" expanded="true" signature="9373:9459" ph="{&quot;url&quot;: 'avaliacoes'...}" />
+            <marker date="1485909780555" expanded="true" signature="9493:9674" ph="{&quot;url&quot;: '/lista'...}" />
+            <marker date="1485909780555" expanded="true" signature="9706:9798" ph="{&quot;url&quot;: '/escolher-pacote'...}" />
+            <marker date="1485909780555" expanded="true" signature="9831:10014" ph="{&quot;url&quot;: '/escolha'...}" />
+            <marker date="1485909780555" expanded="true" signature="10044:10133" ph="{&quot;url&quot;: 'analisesCasos'...}" />
+            <marker date="1485909780555" expanded="true" signature="10170:10443" ph="{&quot;url&quot;: '/listaCasos/:data_startParametro/:data_endParametro'...}" />
+            <marker date="1485909780555" expanded="true" signature="10492:10699" ph="{&quot;url&quot;: '/listaAtendimentos'...}" />
+            <marker date="1485909780555" expanded="true" signature="10749:10958" ph="{&quot;url&quot;: '/listaNatendimentos'...}" />
+            <marker date="1485909780555" expanded="true" signature="11000:11190" ph="{&quot;url&quot;: '/rating-geral'...}" />
+            <marker date="1485909780555" expanded="true" signature="11213:11295" ph="{&quot;url&quot;: 'perfil'...}" />
+            <marker date="1485909780555" expanded="true" signature="11325:11468" ph="{&quot;url&quot;: '/perfil'...}" />
+            <marker date="1485909780555" expanded="true" signature="11519:11632" ph="{&quot;url&quot;: 'dashboard-estabelecimento'...}" />
+            <marker date="1485909780555" expanded="true" signature="11679:11918" ph="{&quot;url&quot;: '/index'...}" />
+            <marker date="1485909780555" expanded="true" signature="11981:12238" ph="{&quot;url&quot;: '/perfil-estabelecimento'...}" />
+            <marker date="1485909780555" expanded="true" signature="12305:12578" ph="{&quot;url&quot;: '/vendedores-estabelecimento'...}" />
+            <marker date="1485909780555" expanded="true" signature="12647:12928" ph="{&quot;url&quot;: '/atendimentos-estabelecimento'...}" />
+            <marker date="1485909780555" expanded="true" signature="12993:13258" ph="{&quot;url&quot;: '/anuncios-estabelecimento'...}" />
+            <marker date="1485909780555" expanded="true" signature="13324:13593" ph="{&quot;url&quot;: '/denuncias-estabelecimento'...}" />
+            <marker date="1485909780555" expanded="true" signature="13658:13901" ph="{&quot;url&quot;: '/listarPorHora/:data_startParametro/:data_endParametro'...}" />
+            <marker date="1485909780555" expanded="true" signature="13969:14198" ph="{&quot;url&quot;: '/listarPorHoraContagemMedia'...}" />
+            <marker date="1485909780555" expanded="true" signature="14258:14511" ph="{&quot;url&quot;: '/listarPorCategoria/:data_startParametro/:data_endParametro'...}" />
+            <marker date="1485909780555" expanded="true" signature="14571:14824" ph="{&quot;url&quot;: '/listarPorDiaSemana/:data_startParametro/:data_endParametro'...}" />
+            <marker date="1485909780555" expanded="true" signature="14879:15122" ph="{&quot;url&quot;: '/listarPorDate/:data_startParametro/:data_endParametro'...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/denuncias/denuncias.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="29" column="11" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="29" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/main/main.html">
+    <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboardvendedor.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="184" column="49" lean-forward="false" selection-start-line="184" selection-start-column="49" selection-end-line="184" selection-end-column="49" />
+        <state relative-caret-position="4600">
+          <caret line="230" column="17" lean-forward="false" selection-start-line="230" selection-start-column="17" selection-end-line="230" selection-end-column="17" />
+          <folding>
+            <marker date="1485824461608" expanded="true" signature="6883:6927" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/denuncias/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/denuncias/denuncias.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/admin/form_admin.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
