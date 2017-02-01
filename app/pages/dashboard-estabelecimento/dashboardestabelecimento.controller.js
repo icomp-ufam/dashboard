@@ -183,6 +183,12 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
         value: new Date(d.value.getTime() - 10080*60000),
     }
 
+    var carregarAtendimentosDefult = function () {
+        $scope.carregarAtendimentos(novaData, d, $scope.idloja);
+    };
+
+    carregarAtendimentosDefult();
+
     $scope.carregarAtendimentosPorHora = function (date_start, date_end, idstore) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()

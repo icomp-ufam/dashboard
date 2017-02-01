@@ -105,34 +105,34 @@
                         <table class="table" >
                             <thead>
                                 <tr>
-                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.idcase" placeholder="ID"></th>
-                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.case_name" placeholder="Consulta"></th>
-                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.categoria" placeholder="Categoria"></th>
-                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Cliente"></th>
-                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.date_trunc" placeholder="Data"></th>
-                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.hora_trunc" placeholder="Hora"></th>
-                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.vendedor_name" placeholder="Vendedor"></th>
-        
-                                </tr>
-                                <tr>
                                     <th ng-click="ordenarPor('idcase')" >ID</th>
                                     <th ng-click="ordenarPor('case_name')"  >Consulta</th>
                                     <th ng-click="ordenarPor('categoria')" >Categoria</th>
                                     <th ng-click="ordenarPor('name')" >Cliente</th>
                                     <th ng-click="ordenarPor('data')">Data</th>
-                                    <th ng-click="ordenarPor('hora')">Hora</th>
-                                    <th ng-click="ordenarPor('date_trunc')">Vendedor</th>
-                                    <th>Detalhes</th> 
+                                    <!--<th ng-click="ordenarPor('hora')">Hora</th>-->
+                                    <th ng-click="ordenarPor('date_trunc')">Conversa</th>
+                                    <!--<th>Detalhes</th>--> 
+                                </tr>
+
+                                <tr>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.idcase" placeholder="ID"></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.case_name" placeholder="Consulta"></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.categoria" placeholder="Categoria"></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Cliente"></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.date_trunc" placeholder="Data"></th>
+                                    <!--<th ><input class="form-control" type="text" ng-model="criterioDeBusca.hora_trunc" placeholder="Hora"></th>-->
+                                    <!--<th ><input class="form-control" type="text" ng-model="criterioDeBusca.vendedor_name" placeholder="Vendedor"></th>-->
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr ng-repeat="atendimento in atendimentos | filter:criterioDeBusca |  orderBy:'-idcase'">
                                     <td class="active">{{atendimento.idcase}}</td>
-                                    <td class="active">{{atendimento.date_trunc | date: 'dd/MM/y hh:mm:ss'}}</td>
-									<td class="active">{{atendimento.case_name}}</td>
+                                    <td class="active">{{atendimento.case_name}}</td>
                                     <td class="active">{{atendimento.categoria}}</td>
                                     <td class="active">{{atendimento.name}}</td>
-
+                                    <td class="active">{{atendimento.date_trunc | date: 'dd/MM/y hh:mm:ss'}}</td>
+                                    <td> <button class="btn btn-default" >Ver Chat</button> </td>
                                 </tr>
                             </tbody>
                         </table>
