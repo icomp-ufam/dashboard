@@ -13,16 +13,17 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.urlFiles = config.baseUrl + "/case_images/";
     $scope.urlChatImages = config.baseUrl + "/chat_images/";
     //flags
-
+    $scope.precarregamento = true;
     $scope.carregando = false;
     $scope.loading = false;
 
     // id Larissa
     $scope.idVendedor = localStorage.getItem('userID');
+    console.log('id vendedor '+$scope.idVendedor);
     //id da loja chat-dashboard
     $scope.idstore = '118';
 
-    var XMPP_DOMAIN = 'ip-172-31-47-155';
+    var XMPP_DOMAIN = config.XMPP_DOMAIN;
     // imagem pra ser carregada nas mensagens do chat
     $scope.fotoVendedor = localStorage.getItem('vendedor_foto');
 
@@ -252,13 +253,14 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     //recebe informacoes da caixa de chat que foi selecionada
     $scope.clickChat = function (chat) {
         //recebe chat clicado
-        //console.log(chat);
+        console.log(chat);
         $scope.chatAtual = chat;
         //configurando qual sala de chat esta sendo escutada
         ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
         //atualiza id da sala de chat
         $scope.to_id = ChatDetails.getTo();
-        $scope.sc();
+        $scope.precarregamento = false;
+        //$scope.sc();
         if($scope.carregando == false){
             $scope.joinChats();
             $scope.carregando = true;
@@ -303,7 +305,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     $scope.login = function(user) {
         //localStorage.setItem('conectado', JSON.stringify(true));
-        sharedConn.login( $scope.idVendedor,XMPP_DOMAIN,config.password);
+        console.log($scope.idVendedor);
+        sharedConn.login($scope.idVendedor,XMPP_DOMAIN,config.password);
         $scope.chats = sharedConn.getRoster();
         $scope.hideTime = true;
         $scope.data = {};
@@ -534,6 +537,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
                             time: d,
                             image: imagem
                     });
+                    $scope.precarregamento = true;
                     $scope.notificacao(from);
                     $("#teste").trigger('click');
                 }

@@ -91,7 +91,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
         $scope.mensagem = 'Codigo inválido';
     };
 
-    XMPP_DOMAIN = 'myserver';
+    XMPP_DOMAIN = config.XMPP_DOMAIN;
 
     $scope.login = function() {
         sharedConn.login($scope.infoVendedorID,XMPP_DOMAIN,config.password);

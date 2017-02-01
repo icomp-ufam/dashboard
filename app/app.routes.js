@@ -22,9 +22,6 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         //$urlRouterProvider.when('/login', '/login/login');
         }
 
-
-
-
         $stateProvider.state('main', {
             url: '/',
             templateUrl: 'app/pages/main/main.html',

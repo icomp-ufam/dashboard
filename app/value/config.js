@@ -4,5 +4,6 @@
 angular.module("teewa").value("config",  {
     baseUrl: "http://api.teewa.com.br:8081",
     token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk',
+    XMPP_DOMAIN:'ip-172-31-47-155',
     password: '123456'
 });
