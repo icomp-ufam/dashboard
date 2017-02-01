@@ -42,22 +42,18 @@
                                     <th></th>
                                     <th ng-click="ordenarPor('nome')" > Nome </th>
                                     <th ng-click="ordenarPor('telefone')" >E-mail</th>
-
-                                    <th>Ações</th>
+                                    <th>Editar</th>
+                                    <th>Apagar</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 <tr ng-repeat="admin in admins">
                                     <td><input type="checkbox" ng-model="admin.selecionado"></td>
-                                    <td>{{admin.nome}}</td>
+                                    <td>{{admin.name}}</td>
                                     <td>{{admin.email}}</td>
-                                    <td>
-                                        <!--<button class="btn btn-default" ui-sref="main.vendedores.listar">-->
-                                        <button class="btn btn-default" ng-click="clickVendedores(estabelecimento.id)">
-                                            Ações
-                                        </button>
-                                    </td>
+                                    <td><i class="fa fa-edit" ng-click="editAdministrador(admin)"></i></td>
+                                    <td><i class="fa fa-trash-o" ng-click="apagarAdministrador(admins)"></i></td>
                                 </tr>
                             </tbody>
                         </table>

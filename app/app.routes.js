@@ -89,7 +89,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             template: '<ui-view></ui-view>'
         }).state('main.admin.listar', {
             url: '/lista',
-            templateUrl: 'app/pages/admin/admin.html',
+            templateUrl: 'app/pages/admin/form_admin.html',
             controller: 'form_adminCtrl',
             activetab: 'admin'
         }).state('main.admin.new', {

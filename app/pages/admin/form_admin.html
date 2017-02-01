@@ -25,7 +25,8 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input type="text" class="form-control" ng-model="email" ng-required="true"/>
+                                        <input type="email" class="form-control" name="email" ng-model="email" ng-required="true"/>
+                                        <p ng-show="administradorForm.email.$invalid && administradorForm.email.$pristine" class="help-block" style="margin-left: 10px;">Informe um e-mail válido.</p>
                                     </div>
                                     <span class="help-block">Ex: teewaadmin@gmail.com</span>
                                 </div>
@@ -71,7 +72,7 @@
 
                     </div>
                     <div class="panel-footer">
-                        <button class="btn btn-default">Limpar formulário</button>
+                        <button class="btn btn-default" ng-click="limparFormulario(admin)">Limpar formulário</button>
                         <button class="btn btn-primary pull-right" ng-click="adicionarAdministrador(email, name, senha, foto)" ng-disabled="administradorForm.$invalid">Cadastrar</button>
                     </div>
                 </div>

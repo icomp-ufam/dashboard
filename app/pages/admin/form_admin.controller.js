@@ -6,8 +6,8 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
 
     var carregarAdministradores = function () {
         $http({
-            url : config.baseUrl + "/dash/register/admins",
-            method : 'post',
+            url : config.baseUrl + "/dash/admins",
+            method : 'GET',
             headers : {
                 'Content-Type': 'application/json',
                 'Authorization' : config.token
@@ -44,8 +44,10 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
             $scope.message = "Aconteceu um problema: " + error;
 		
 	};
-
-	$scope.apagarAdministradores = function (admins) {
+    $scope.limparFormulario = function (admin) {
+        delete $scope.admin;
+    }
+	$scope.apagarAdministrador = function (admins) {
 		$scope.admins = admins.filter(function (admin) {
 			if (!admin.selecionado) {return admin;}
 		});
@@ -55,9 +57,17 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
             return admin.selecionado;
         });
     };
+    $scope.editAdministrador =  function (admin){
+        alert(admin.nome);
+        $scope.admins = admin;
+        console.log($scope.admins);
+         alert($scope.package.admin);
+    };
+
+
     if(localStorage.getItem('loginadmin') === '')
         $state.go('main.login.indexadmin');
-	}
+    }
 
 	carregarAdministradores();
 });
