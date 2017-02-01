@@ -1,5 +1,13 @@
+<div ng-if="(chatAtual == 'carregando')" class="row">
+    <img src="app/assets/img/loaders/default.gif" class="loading-img">
+</div>
+
+<div ng-if="(chatAtual == 'vazio')">
+    <h1 class="textCenter">Não existem casos abertos! </h1>
+</div>
+
 <!-- START ROW -->
-<div ng-if="chatAtual" class="row">
+<div ng-if="(chatAtual != 'carregando' && chatAtual != 'vazio')" class="row">
     <!-- START MESSAGES -->
     <div class="col-md-8">
         <div class="content-frame" >
@@ -66,9 +74,13 @@
                         </div>
                     </div>
                     <!-- END PRIMEIRA MENSAGEM DA CONSULTA -->
-
+                    <div ng-show="!precarregamento" class="row">
+                        <img src="app/assets/img/loaders/default.gif" class="loading-img">
+                        <p align="center" > Carregando mensagens...</p>
+                    </div>
                     <!-- Carrega mensagem a partir da variavel de escopo messages usando o ng-repeat -->
                     <div ng-repeat="message in messages | filter:chatAtual.id" ng-class="{in: message.userId == myId}" class="item item-visible">
+
                         <div class="image">
 
                             <!-- caso o usuario seja o vendedor -->
@@ -132,6 +144,7 @@
             <!-- END INPUT DE MENSAGENS -->
         </div>
     </div>
+
     <!-- END MESSAGES -->
 
     <!-- START LISTA LATERAL DE CASOS ABERTOS -->
@@ -315,6 +328,12 @@
         left: 0;
         right: 0;
         bottom: 0;
+    }
+
+    .textCenter{
+        text-align: center;
+        vertical-align: middle;
+        line-height: 300px;
     }
 
 </style>

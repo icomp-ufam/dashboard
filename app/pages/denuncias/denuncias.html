@@ -28,29 +28,41 @@
                         <p class="text-info"> filtrar: </p>
                         <div class="row">
                             <div class="col-md-2">
-                                Data Inicio: <input class="form-control col-md3" type="date">
+                                Data Inicio: <input class="form-control col-md3" type="date"  ng-model="data_start.value">
                             </div>
                             <div class="col-md-1"></div>
                             <div class="col-md-2">
-                                Data Fim: <input class="form-control col-md3" type="date">
+                                Data Fim: <input class="form-control col-md3" type="date"  ng-model="data_end.value" >
                             </div>
                             <div class="col-md-1"></div>
                             <div class="col-md-2">
-                                <br>
-                                <button class=" btn btn-default" ng-click="carregarDenunciasPorData((data.start | date: 'dd/MM/y'), (data.end | date: 'dd/MM/y'))"> filtrar </button>
-                                <br>
+                            <br>
+                                <button class=" btn btn-default" ng-click="carregarDenunciasPorData((data_start | date: 'dd/MM/y'), (data_end | date: 'dd/MM/y'))"> filtrar </button>
+                            <br>
                             </div>
-                        </div> </br>
+                        </div> 
+                        </br>
                         <table class="table " >
                             <thead>
                             <tr>
-                                <th  href="" ng-click="ordenarPor('name')" > Nome </th>
+                                <th  href="" ng-click="ordenarPor('cliente')" > Nome </th>
                                 <th> Vendedor Denunciado</th>
                                 <th> Loja Denunciada</th>
                                 <th> Tipo de Ocorrência </th>
                                 <th> Ocorrência </th>
                             </tr>
                             </thead>
+
+                            <thead>
+                                <tr>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.cliente" placeholder="Nome..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.vendedor_denunciado" placeholder="Vendedor..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.loja_denunciada" placeholder="Loja..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.type" placeholder="Tipo..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.description" placeholder="Descrição..."></th>
+                                </tr>
+                            </thead>
+
                             <tbody>
                             <tr  ng-repeat="denuncia in denuncias| filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                 <td>{{denuncia.cliente}}</td>
@@ -63,7 +75,6 @@
                                     <span ng-switch-when="4"> Linguagem Imprópria </span>
                                     <span ng-switch-when="5"> Usuário Falso </span>
                                     <span ng-switch-when="6"> Outros </span>
-
                                 </td>
                                 <td>{{denuncia.description}}</td>
 

@@ -41,29 +41,29 @@
                     <table class="table" >
                         <thead>
                             <tr>
-                                <th></th>
-                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome"></th>
-                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.atendimento" placeholder="Quantidade de Atendimentos"></th>
-                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.avg_rating" placeholder="Média das Avaliações"></th>
-                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.sum_rating" placeholder="Quantidade de Avaliações"></th>
-                            </tr>
-                            <tr>
-                                <th ng-click="ordenarPor('id')">ID</th>
+                                <!--<th ng-click="ordenarPor('id')">ID</th>-->
                                 <th ng-click="ordenarPor('name')">Nome</th>
                                 <th ng-click="ordenarPor('atendimento')">Quantidade de Atendimentos</th>
                                 <th ng-click="ordenarPor('avg_rating')">Média das Avaliações</th>
                                 <th ng-click="ordenarPor('sum_rating')">Quantidade de Avaliações</th>
                             </tr>
+
+                            <tr>
+                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome"></th>
+                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.atendimento" placeholder="Quantidade de Atendimentos"></th>
+                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.avg_rating" placeholder="Média das Avaliações"></th>
+                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.sum_rating" placeholder="Quantidade de Avaliações"></th>
+                            </tr>
                         </thead>
                        <tbody>
                             <tr ng-repeat="vendedor in vendedores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
 
-                                <td>{{vendedor.id}}</td>
+                                <!--<td>{{vendedor.id}}</td>-->
                                 <td>{{vendedor.name}}</td>
                                 <td>{{vendedor.atendimento}}</td>
                                 <td>{{vendedor.avg_rating | number:1}}</td>
                                 <td>{{vendedor.sum_rating | number:1}}</td>
-                                <td> <button class="btn btn-default" > Detalhes</button> </td>
+                                <td> <button class="btn btn-default" >Chat</button> </td>
                             </tr>
                         </tbody>
                     </table>

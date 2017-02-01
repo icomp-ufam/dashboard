@@ -6,6 +6,19 @@
 angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($scope, $http, config, $state , sharedConn, Chats, ChatDetails) {
     $scope.idloja = 1; //1 == Teewa
 
+    //Perfil
+    $scope.nomePerfil= "Minha Loja";
+    $scope.enderecoPerfil= "Rua do pão";
+    $scope.categoriaPerfil= "Informática";
+    $scope.pacotePerfil= "Basic";
+
+    $scope.limparPerfil= function(){
+        $scope.nomePerfil= "";
+        $scope.enderecoPerfil= "";
+        $scope.categoriaPerfil= "";
+        $scope.pacotePerfil= "";
+    };
+
     //#######Todos os vendedores de uma loja#######
     $scope.app = "Vendedores";
     $scope.vendedores = [];
@@ -169,6 +182,12 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
      var novaData = {
         value: new Date(d.value.getTime() - 10080*60000),
     }
+
+    var carregarAtendimentosDefult = function () {
+        $scope.carregarAtendimentos(novaData, d, $scope.idloja);
+    };
+
+    carregarAtendimentosDefult();
 
     $scope.carregarAtendimentosPorHora = function (date_start, date_end, idstore) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()

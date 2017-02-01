@@ -4,7 +4,7 @@ angular.module('teewa').factory('Chats', ['sharedConn', '$rootScope', '$state', 
 
     connection = sharedConn.getConnectObj();
     ChatsObj.roster = [];
-    console.log(connection);
+    //console.log(connection);
     loadRoster = function() {
 
 

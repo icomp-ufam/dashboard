@@ -22,9 +22,6 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         //$urlRouterProvider.when('/login', '/login/login');
         }
 
-
-
-
         $stateProvider.state('main', {
             url: '/',
             templateUrl: 'app/pages/main/main.html',
@@ -222,7 +219,6 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         }).state('main.analisesCasos.listar', {
             url: '/listaCasos/:data_startParametro/:data_endParametro',
             //url: '/listaCasos',
-            
             templateUrl: 'app/pages/analises/analiseCasos.html',
             controller: 'analiseCtrl',
             activetab: 'analisesCasos'
@@ -247,7 +243,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         }).state('main.perfil.listar', {
             url: '/perfil',
             templateUrl: 'app/pages/perfil/perfil.html',
-            controller: 'estabelecimentosCtrl'
+            controller: 'form_adminCtrl'
         })
 
         .state('main.dashboardEstabelecimento', {

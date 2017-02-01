@@ -10,6 +10,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
     SharedConnObj.loggedIn = false;
     SharedConnObj.roster = [];
     //verificando sessão ao recarragar
+    SharedConnObj.user = localStorage.getItem('userID');
     $(window).unload(function() {
         if( SharedConnObj.connection != null ){
             SharedConnObj.rid = sessionStorage.getItem('rid');
@@ -22,7 +23,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
         }
     });
 
-    console.log('rid '+SharedConnObj.rid +" sid "+SharedConnObj.sid+'jid '+ SharedConnObj.jid);
+    //console.log('rid '+SharedConnObj.rid +" sid "+SharedConnObj.sid+'jid '+ SharedConnObj.jid);
 
     //------------------------------------------HELPER FUNCTIONS---------------------------------------------------------------
     SharedConnObj.getConnectObj = function() {
@@ -49,8 +50,8 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
     //funcao para entrar em todas as salas de chat do vendedor logado
     SharedConnObj.joinChats = function (chats) {
         for(i = 0; i < chats.length; i++){
-            //SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.myserver",config.user);
-            SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.ip-172-31-47-155",config.user);
+            //SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.myserver",SharedConnObj.user);
+            SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.ip-172-31-47-155",SharedConnObj.user);
         }
 
         console.log('consegui :)');
@@ -89,30 +90,32 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
         } else if (status == Strophe.Status.DISCONNECTED) {
             console.log('Strophe is disconnected.');
         } else if (status == Strophe.Status.CONNECTED) {
-
+            //alert('conectou!');
             SharedConnObj.connection.addHandler(SharedConnObj.onMessage, null, 'message', null, null, null);
             SharedConnObj.connection.send($pres().tree());
             SharedConnObj.loggedIn = true;
 
-            SharedConnObj.connection.addHandler(SharedConnObj.on_subscription_request, null, "presence", "subscribe");
+            //SharedConnObj.connection.addHandler(SharedConnObj.on_subscription_request, null, "presence", "subscribe");
+            SharedConnObj.connection.addHandler(SharedConnObj.onPresence, null, 'presence', null, null, null);
+
 
             console.log('Conectou!');
 
             var iq = $iq({
             type: 'get'
-        }).c('query', {
-            xmlns: 'jabber:iq:roster'
-        });
-            SharedConnObj.connection.sendIQ(iq,
-            //On recieve roster iq
-            function(iq) {
+            }).c('query', {
+                xmlns: 'jabber:iq:roster'
+            });
+                SharedConnObj.connection.sendIQ(iq,
+                //On recieve roster iq
+                function(iq) {
 
-                console.log(iq);
+                    console.log(iq);
 
-                if (!iq || iq.length == 0)
-                    return;
-                // jquery carregar dados depois de carregar a página. Esta função atualiza dados após o carregamento de jQuery
-                $rootScope.$apply(function() {
+                    if (!iq || iq.length == 0)
+                        return;
+                    // jquery carregar dados depois de carregar a página. Esta função atualiza dados após o carregamento de jQuery
+                    $rootScope.$apply(function() {
 
                     $(iq).find("item").each(function() {
 
@@ -138,7 +141,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
                 sessionStorage.setItem('rid', RID);
                 sessionStorage.setItem('sid', SID);
                 sessionStorage.setItem('jid', JID);
-                console.log(' XMLOUTPUT INFO - OUTGOING RID=' + RID + ' [SID=' + SID + '] [JID ='+JID+']');
+                //console.log(' XMLOUTPUT INFO - OUTGOING RID=' + RID + ' [SID=' + SID + '] [JID ='+JID+']');
                 //log(' XMLOUTPUT INFO - OUTGOING XML = \n'+e.outerHTML);
                 //set some variables to keep track of our rid and sid
             };
@@ -151,6 +154,27 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
     SharedConnObj.onMessage = function(msg) {
         //console.log(msg);
         $rootScope.$broadcast('msgRecievedBroadcast', msg);
+        return true;
+    };
+
+    SharedConnObj.onPresence = function(presence){
+        console.log("cheguei aqui");
+        console.log(presence);
+        var presence_type = $(presence).attr('type'); // unavailable, subscribed, etc...
+        var from = $(presence).attr('from'); // the jabber_id of the contact
+        if (presence_type != 'error'){
+            if (presence_type === 'unavailable'){
+                // Mark contact as offline
+            }else{
+                var show = $(presence).find("show").text(); // this is what gives away, dnd, etc.
+                if (show === 'chat' || show === ''){
+                    console.log("oi, to online")
+                }else{
+                    // etc...
+                }
+            }
+        }
+        //RETURN TRUE!!!!!!!!!
         return true;
     };
 
