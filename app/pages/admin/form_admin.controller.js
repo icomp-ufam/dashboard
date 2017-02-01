@@ -24,7 +24,7 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
             $scope.message = "Aconteceu um problema: " + error;
 	});
 
-	$scope.adicionarAdministrador = function (admin) {
+	$scope.adicionarAdministrador = function (email, name, senha, foto) {
 		$http({
             url : config.baseUrl + "/dash/register/admin",
             method : 'post',
@@ -33,13 +33,13 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
                 'Authorization' : config.token
             }
             data: {
-                'name' : admin.nome,
-                'email' : admin.email,
-                'password' : admin.senha,
-                'photo' : admin.foto,
+                'name' : name,
+                'email' : email,
+                'password' : senha,
+                'photo' : foto,
             }
         }).success(function(data){
-            $scope.admin = data;
+            carregarAdministradores();
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
 		

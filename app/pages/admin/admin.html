@@ -33,14 +33,15 @@
                         <div style="width: 200px; float: right;">
                             <button class="btn btn-danger btn-block" ng-click="apagarAdministradores(admins)" ng-disabled="!isAdminSelecionado(admins)">Apagar Administradores</button>
                         </div>
+                        <div style="float: right; margin-right: 20px;"><a href="#/admin/new" class="btn btn-success">Novo Administrador</a></div>
                     </div>
                     <div class="panel-body">
                         <table class="table " >
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th href="" ng-click="ordenarPor('nome')" > Nome </th>
-                                    <th ng-click="ordenarPor('telefone')" >Telefone</th>
+                                    <th ng-click="ordenarPor('nome')" > Nome </th>
+                                    <th ng-click="ordenarPor('telefone')" >E-mail</th>
 
                                     <th>Ações</th>
                                 </tr>
@@ -50,7 +51,7 @@
                                 <tr ng-repeat="admin in admins">
                                     <td><input type="checkbox" ng-model="admin.selecionado"></td>
                                     <td>{{admin.nome}}</td>
-                                    <td>{{admin.telefone}}</td>
+                                    <td>{{admin.email}}</td>
                                     <td>
                                         <!--<button class="btn btn-default" ui-sref="main.vendedores.listar">-->
                                         <button class="btn btn-default" ng-click="clickVendedores(estabelecimento.id)">

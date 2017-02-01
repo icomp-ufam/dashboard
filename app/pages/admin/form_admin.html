@@ -25,7 +25,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input type="text" class="form-control" ng-model="admin.email" ng-required="true"/>
+                                        <input type="text" class="form-control" ng-model="email" ng-required="true"/>
                                     </div>
                                     <span class="help-block">Ex: teewaadmin@gmail.com</span>
                                 </div>
@@ -35,7 +35,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input type="text" class="form-control" ng-model="admin.nome" ng-required="true"/>
+                                        <input type="text" class="form-control" ng-model="name" ng-required="true"/>
                                     </div>
                                     <span class="help-block">Ex: Fulano da Silva</span>
                                 </div>
@@ -45,7 +45,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
-                                        <input type="password" class="form-control" ng-model="admin.senha" ng-required="true"/>
+                                        <input type="password" class="form-control" ng-model="senha" ng-required="true"/>
                                     </div>
                                     <!--<span class="help-block">aviso</span>-->
                                 </div>
@@ -55,7 +55,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
-                                        <input type="password" class="form-control" ng-model="admin.confirme_senha" ng-required="true"/>
+                                        <input type="password" class="form-control" ng-model="confirme_senha" ng-required="true"/>
                                     </div>
                                     <!--<span class="help-block">aviso</span>-->
                                 </div>
@@ -63,7 +63,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 col-xs-12 control-label">Foto</label>
                                 <div class="col-md-6 col-xs-12">
-                                    <input type="file" class="fileinput btn-primary" name="filename" id="filename" title="Escolher arquivo" ng-model="admin.foto"/>
+                                    <input type="file" class="fileinput btn-primary" name="filename" id="filename" title="Escolher arquivo" ng-model="foto"/>
                                     <span class="help-block">Faça upload da sua foto de perfil</span>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                     </div>
                     <div class="panel-footer">
                         <button class="btn btn-default">Limpar formulário</button>
-                        <button class="btn btn-primary pull-right" ng-click="adicionarAdministrador(admin)" ng-disabled="administradorForm.$invalid">Cadastrar</button>
+                        <button class="btn btn-primary pull-right" ng-click="adicionarAdministrador(email, name, senha, foto)" ng-disabled="administradorForm.$invalid">Cadastrar</button>
                     </div>
                 </div>
             </form>
