@@ -1,3 +1,7 @@
+<ul class="breadcrumb push-down-0">
+    <li><a href="index.html">Dashboard Vendedor</a></li>
+    <li class="active">Casos Abertos</li>
+</ul>
 <div ng-if="(chatAtual == 'carregando')" class="row">
     <img src="app/assets/img/loaders/default.gif" class="loading-img">
 </div>
@@ -12,13 +16,16 @@
     <div class="col-md-8">
         <div class="content-frame" >
             <!-- START PAINEL SUPERIOR DO CHAT -->
-            <div class="content-frame-top">
+            <div class="content-frame-top" style="background-color: #f2f2f2; padding-top:4px; padding-bottom: 0px;">
                 <div class="page-title">
                     <!--Data em que o caso foi aceito pelo vendedor-->
                     <p>Caso aceito em:  {{chatAtual.created_at | date:'dd/MM/yyyy - HH:mm'}}</p>
+
                     <!-- Caso não existam casos carregados, exibe "Chat" -->
-                    <h2><span class="fa fa-comments"></span> {{chatAtual.case.name || 'Chat'}}</h2>
-                    <br><p>{{presencaAtual}}</p>
+                    <h4><span class="fa fa-search"></span> {{chatAtual.case.name+'      ' || 'Chat     '}}</h4>
+                    <span ng-if="(presencaAtual == 'online')"><i class="fa fa-user pull-left" style="color:green; padding: 0px;  margin: 0">{{'  cliente '+presencaAtual}}</i></span>
+                    <span ng-if="(presencaAtual == 'offline')"><i class="fa fa-user-times pull-left" style="color:red; padding:0; margin:0">{{'    cliente '+presencaAtual}}</i></span>
+
                 </div>
 
                 <!-- Botões de controle do chat -->
@@ -38,12 +45,12 @@
                         </ul>
                     </li>
                 </ul>
-
             </div>
             <!-- END PAINEL SUPERIOR DO CHAT-->
 
             <!-- START MENSAGENS DO CHAT ATUAL -->
             <div id="msg"  class="content-frame-body-right" style="overflow-y:scroll;height:430px;width:100%;">
+
                 <div class="messages messages-img">
 
                     <!-- START PRIMEIRA MENSAGEM DA CONSULTA -->
@@ -157,7 +164,8 @@
 
                 <!-- carrega casos abertos usando o ng-repeat sobre a variavel de escopo chats -->
                 <a id="teste2" ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats">
-                    <div class="list-group-status status-online"></div>
+                    <div ng-if="(roster[chat.userTo.id] == 'online')" class="list-group-status status-online"></div>
+                    <div ng-if="(!roster[chat.userTo.id] || roster[chat.userTo.id] == 'offline')" class="list-group-status status-offline"></div>
 
                     <!--se o usuário possui uma foto de perfil, exibe a imagem. Se o caso estiver encerrado, exibe essa imagem uma escala de cinza-->
                     <img  ng-if="chat.userTo.photo" ng-src="{{(urlPhotos+chat.userTo.photo)}}" ng-class="(!chat.iduser_close || 'greyscale')"  alt="User"/>
@@ -272,6 +280,8 @@
         </div>
     </div>
     <!-- END MODAL DE UPLOAD DE IMAGEM -->
+</div>
+
 </div>
 
 <script>

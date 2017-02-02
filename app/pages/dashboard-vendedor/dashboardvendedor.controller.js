@@ -554,10 +554,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         // tratando a confirmação de entrega (duplo check)
         if (delivery_ok.length > 0 && !from.includes($scope.idVendedor)){
             idMensagem = delivery_ok[0].id;
-            //var idMsg = msg.getAttribute('id');
-            //console.log("----",from);
-            //console.log("----",idMensagem);
-
             $scope.findMsgById(idMensagem);
 
         }
@@ -566,13 +562,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     $scope.findMsgById = function (idMsg) {
         console.log(idMsg);
-
         for (i = 0; i < $scope.messages.length; i++){
-
                 if($scope.messages[i].id == idMsg){
                     $scope.messages[i].received = true;
                 }
-
         }
     };
 
