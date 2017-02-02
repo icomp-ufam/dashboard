@@ -17,9 +17,11 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.carregando = false;
     $scope.loading = false;
 
+    $scope.presencaAtual = "";
+    $scope.roster = [];
+
     // id Larissa
     $scope.idVendedor = localStorage.getItem('userID');
-    console.log('id vendedor '+$scope.idVendedor);
     //id da loja chat-dashboard
     $scope.idstore = localStorage.getItem('lojaID');//'118';
 
@@ -252,6 +254,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     //recebe informacoes da caixa de chat que foi selecionada
     $scope.clickChat = function (chat) {
+        console.log($scope.roster);
         //recebe chat clicado
         console.log(chat);
         $scope.chatAtual = chat;
@@ -265,6 +268,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             $scope.joinChats();
             $scope.carregando = true;
         }
+
+        $scope.presencaAtual = $scope.roster[$scope.chatAtual.userTo.id];
 
     };
 
@@ -305,7 +310,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     $scope.login = function(user) {
         //localStorage.setItem('conectado', JSON.stringify(true));
-        console.log($scope.idVendedor);
         sharedConn.login($scope.idVendedor,XMPP_DOMAIN,config.password);
         $scope.chats = sharedConn.getRoster();
         $scope.hideTime = true;
@@ -580,7 +584,16 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         $scope.messageRecieve(data);
     });
 
-    //$scope.teste();
+    $scope.$on('msgPresence', function(event, data) {
+        if(data.jid){
+            jid = data.jid.split('@')[0];
+            $scope.roster[jid] = data.pres;
 
-
+            if(data.jid.includes($scope.chatAtual.userTo.id)){
+                $scope.$apply(function () {
+                    $scope.presencaAtual = data.pres;
+                });
+            }
+        }
+    });
 });

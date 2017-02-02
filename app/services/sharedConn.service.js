@@ -67,15 +67,15 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
                 'keepalive': true
             }); // We initialize the Strophe connection.
         //Se já ouver uma conexão continua conectado, se não, inicia uma nova;
-       if (SharedConnObj.rid != null || SharedConnObj.sid != null || SharedConnObj.jid != null) {
-           //rid + 1 para seguir o fluxo de requisições
-           SharedConnObj.connection.attach(SharedConnObj.jid, SharedConnObj.sid, (parseInt(SharedConnObj.rid) +1), null);
-       } else {
-           SharedConnObj.connection.connect(
-               jid + '@' + host + "/web",
-               pass,
-               SharedConnObj.onConnect);
-       }
+        if (SharedConnObj.rid != null || SharedConnObj.sid != null || SharedConnObj.jid != null) {
+            //rid + 1 para seguir o fluxo de requisições
+            SharedConnObj.connection.attach(SharedConnObj.jid, SharedConnObj.sid, (parseInt(SharedConnObj.rid) +1), null);
+        } else {
+            SharedConnObj.connection.connect(
+                jid + '@' + host + "/web",
+                pass,
+                SharedConnObj.onConnect);
+        }
 
     };
 
@@ -95,18 +95,14 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
             SharedConnObj.connection.send($pres().tree());
             SharedConnObj.loggedIn = true;
 
-            //SharedConnObj.connection.addHandler(SharedConnObj.on_subscription_request, null, "presence", "subscribe");
-            SharedConnObj.connection.addHandler(SharedConnObj.onPresence, null, 'presence', null, null, null);
-
-
             console.log('Conectou!');
 
             var iq = $iq({
-            type: 'get'
+                type: 'get'
             }).c('query', {
                 xmlns: 'jabber:iq:roster'
             });
-                SharedConnObj.connection.sendIQ(iq,
+            SharedConnObj.connection.sendIQ(iq,
                 //On recieve roster iq
                 function(iq) {
 
@@ -117,38 +113,54 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
                     // jquery carregar dados depois de carregar a página. Esta função atualiza dados após o carregamento de jQuery
                     $rootScope.$apply(function() {
 
-                    $(iq).find("item").each(function() {
+                        $(iq).find("item").each(function() {
 
-                        SharedConnObj.roster.push({
-                            id: $(this).attr("jid"),
-                            name: $(this).attr("name") || $(this).attr("jid"),
-                            lastText: 'Available to Chat',
-                            face: 'app/assets/images/users/no-image.jpg'
+                            SharedConnObj.roster.push({
+                                id: $(this).attr("jid"),
+                                name: $(this).attr("name") || $(this).attr("jid"),
+                                lastText: 'Available to Chat',
+                                face: 'app/assets/images/users/no-image.jpg'
+
+                            });
 
                         });
-                        console.log("roster "+SharedConnObj.roster);
 
                     });
 
                 });
 
-            });
-            //guardando parametros da conexão atual
-            SharedConnObj.connection.xmlOutput = function (status) {
-                RID = $(status).attr('rid');
-                SID = $(status).attr('sid');
-                JID = SharedConnObj.connection.jid;
-                sessionStorage.setItem('rid', RID);
-                sessionStorage.setItem('sid', SID);
-                sessionStorage.setItem('jid', JID);
-                //console.log(' XMLOUTPUT INFO - OUTGOING RID=' + RID + ' [SID=' + SID + '] [JID ='+JID+']');
-                //log(' XMLOUTPUT INFO - OUTGOING XML = \n'+e.outerHTML);
-                //set some variables to keep track of our rid and sid
-            };
+            SharedConnObj.loadRoster();
 
         }
     };
 
+    SharedConnObj.loadRoster = function() {
+        // configura o manipulador de presença e envia presença inicial
+        SharedConnObj.connection.addHandler(
+            //on recieve precence iq
+            SharedConnObj.presenca, null, "presence");
+    };
+
+    SharedConnObj.presenca = function(presence) {
+        var presence_type = $(presence).attr('type'); // unavailable, subscribed, etc...
+        var from = $(presence).attr('from'); // the jabber_id of the contact
+        if (presence_type != 'error'){
+            if (presence_type === 'unavailable'){
+                SharedConnObj.onPresenceReceive({jid : from, pres : "offline"});
+            }else{
+                var show = $(presence).find("show").text(); // this is what gives away, dnd, etc.
+                if (show === 'chat' || show === ''){
+                    SharedConnObj.onPresenceReceive({jid : from, pres : "online"});
+                }else{
+                    SharedConnObj.onPresenceReceive({jid : from, pres : "offline"});
+                }
+            }
+        } else {
+            SharedConnObj.onPresenceReceive({jid : from, pres : "error"});
+        }
+
+        return true;
+    };
 
     //When a new message is recieved
     SharedConnObj.onMessage = function(msg) {
@@ -157,24 +169,9 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
         return true;
     };
 
-    SharedConnObj.onPresence = function(presence){
-        console.log("cheguei aqui");
-        console.log(presence);
-        var presence_type = $(presence).attr('type'); // unavailable, subscribed, etc...
-        var from = $(presence).attr('from'); // the jabber_id of the contact
-        if (presence_type != 'error'){
-            if (presence_type === 'unavailable'){
-                // Mark contact as offline
-            }else{
-                var show = $(presence).find("show").text(); // this is what gives away, dnd, etc.
-                if (show === 'chat' || show === ''){
-                    console.log("oi, to online")
-                }else{
-                    // etc...
-                }
-            }
-        }
-        //RETURN TRUE!!!!!!!!!
+
+    SharedConnObj.onPresenceReceive = function(msg) {
+        $rootScope.$broadcast('msgPresence', msg);
         return true;
     };
 
@@ -238,40 +235,6 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
         accepted_map[jid] = true;
     }
     //--------------------------------------------
-
-
-    SharedConnObj.on_subscription_request = function(stanza) {
-
-        console.log(stanza);
-
-        if (stanza.getAttribute("type") == "subscribe" && !is_element_map(stanza.getAttribute("from"))) {
-
-            //the friend request is recieved from Client 2
-            /*var confirmPopup = $ionicPopup.confirm({
-                title: 'Confirm Friend Request!',
-                template: ' ' + stanza.getAttribute("from") + ' wants to be your freind'
-            });*/
-
-            /*confirmPopup.then(function(res) {
-                if (res) {
-                    SharedConnObj.connection.send($pres({
-                        to: stanza.getAttribute("from"),
-                        type: "subscribed"
-                    }));
-
-                    push_map(stanza.getAttribute("from")); //helper
-                } else {
-                    SharedConnObj.connection.send($pres({
-                        to: stanza.getAttribute("from"),
-                        type: "unsubscribed"
-                    }));
-                }
-            });*/
-
-            return true;
-        }
-
-    };
 
     return SharedConnObj;
 }]);

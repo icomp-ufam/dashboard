@@ -31,7 +31,7 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
             headers : {
                 'Content-Type': 'application/json',
                 'Authorization' : config.token
-            }
+            },
             data: {
                 'name' : name,
                 'email' : email,
@@ -43,10 +43,10 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
 		
-	};
+	});
     $scope.limparFormulario = function (admin) {
         delete $scope.admin;
-    }
+    };
 	$scope.apagarAdministrador = function (admins) {
 		$scope.admins = admins.filter(function (admin) {
 			if (!admin.selecionado) {return admin;}
@@ -67,8 +67,7 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
 
     if(localStorage.getItem('loginadmin') === '')
         $state.go('main.login.indexadmin');
-    }
+    };
 
 	carregarAdministradores();
-});
-
+}});
