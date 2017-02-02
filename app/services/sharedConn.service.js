@@ -90,6 +90,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
         } else if (status == Strophe.Status.DISCONNECTED) {
             console.log('Strophe is disconnected.');
         } else if (status == Strophe.Status.CONNECTED) {
+            sessionStorage.setItem('conectou', JSON.stringify(true));
             //alert('conectou!');
             SharedConnObj.connection.addHandler(SharedConnObj.onMessage, null, 'message', null, null, null);
             SharedConnObj.connection.send($pres().tree());

@@ -21,9 +21,9 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.roster = [];
 
     // id Larissa
-    $scope.idVendedor = localStorage.getItem('userID');
+    $scope.idVendedor = localStorage.getItem('userID');//'672';
     //id da loja chat-dashboard
-    $scope.idstore = localStorage.getItem('lojaID');//'118';
+    $scope.idstore =localStorage.getItem('lojaID');//'118';
 
     var XMPP_DOMAIN = config.XMPP_DOMAIN;
     // imagem pra ser carregada nas mensagens do chat
@@ -262,15 +262,13 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
         //atualiza id da sala de chat
         $scope.to_id = ChatDetails.getTo();
-        $scope.precarregamento = false;
-        //$scope.sc();
+        $scope.sc();
         if($scope.carregando == false){
+            $scope.precarregamento = false;
             $scope.joinChats();
             $scope.carregando = true;
         }
-
         $scope.presencaAtual = $scope.roster[$scope.chatAtual.userTo.id];
-
     };
 
     // carrega informacoes da mensagem com imagem no modal
@@ -288,10 +286,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.flag = false;
     $scope.sc = function (){
         if($scope.flag == false) {
-            $("#teste2").trigger('click');
             $scope.flag = true;
-        }else{
-            $scope.flag = false;
+            $scope.sc();
         }
         document.getElementById(
             "msg"
