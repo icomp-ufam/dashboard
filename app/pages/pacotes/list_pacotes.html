@@ -1,0 +1,49 @@
+<ul class="breadcrumb">
+    <li><a href="index.html">Home</a></li>
+    <li ><a href="#/pacotes/list">Pacotes</a> </li>
+</ul>
+<div class="page-title">
+    <h2><span class="fa fa-cubes"></span> Pacotes </h2>
+</div>
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-content-wrap">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"> Lista de Pacotes</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div><a href="#/pacotes/new" class="btn btn-default">Novo Pacote</a></div>
+                        <br>
+                        <table class="table" >
+                            <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Preço</th>
+                                <th>Funcionalidades</th>
+                                <th>Editar</th>
+                                <th>Apagar</th>
+                            </tr>
+                            <tbody>
+                            <tr  ng-repeat="dado in pacotes">
+                                <td>{{dado.nome}}</td>
+                                <td>{{dado.preco}}</td>
+                                <td>
+                                    <span ng-repeat="func in dado.funcionalidades">
+                                        {{func}}<br>
+                                    </span>
+                                </td>
+                                <td><a ng-href="#/pacotes/{{dado.id}}"><i class="fa fa-edit"></i></a></td>
+
+                                <td><i class="fa fa-trash-o" ng-click="deletarPacote(dado.id)"></i></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

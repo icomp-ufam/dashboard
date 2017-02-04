@@ -1,0 +1,84 @@
+<ul class="breadcrumb">
+    <li><a href="index.html">Home</a></li>
+    <li ><a href="#/pacotes/list">Pacotes</a> </li>
+</ul>
+<div class="page-title">
+    <h2><span class="fa fa-cubes"></span> Pacotes </h2>
+</div>
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-content-wrap">
+    <div class="row">
+        <div class="col-md-12">
+            <form name="form.pacote" class="form-horizontal">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Cadastrar Novo Pacote</h3>
+                    </div>
+                    <div class="panel-body">
+
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-12 control-label">Nome</label>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                    <input type="text" ng-required="true" ng-model="pacote.nome"  name="nome" class="form-control"/>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-12 control-label">Preço</label>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fa fa-money"></span></span>
+                                    <input ng-required="true" ng-model="pacote.preco" id="preco" name="preco" ng-required="true" class="form-control"/>
+                                </div>
+
+                            </div>
+                        </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Número de Vendedores</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-group"></span></span>
+                                        <input type="number" ng-model="pacote.vendedores" ng-required="true" name="vendedor" class="form-control" min="1" step="1" />
+                                    </div>
+                                    <!--<span class="help-block">aviso</span>-->
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Funcionalidades:</label>
+                                <div class="col-md-6 col-xs-12">
+
+                                    <div class="input-group" ng-repeat="func in funcionalidades">
+                                        <label class="check" >
+                                            <input
+                                                    type="checkbox"
+                                                    name="funcSel[]"
+                                                    value="{{func}}"
+                                                    ng-checked="funcSel.indexOf(func) > -1"
+                                                    ng-click="funcSelecionado(func)"
+                                            />{{func}}
+                                        </label>
+                                        <br/>
+                                    </div>
+                                    <!--<span class="help-block">aviso</span>-->
+                                </div>
+                            </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default" ng-click="limparFormulario(pacote)">Limpar formulário</button>
+                            <button class="btn btn-primary pull-right" ng-click="novoPacote(pacote)">Cadastrar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>

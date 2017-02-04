@@ -11,16 +11,19 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             $urlRouterProvider.when('/estabelecimentos', '/estabelecimentos/lista');
             $urlRouterProvider.when('/atendimentos', '/atendimentos/lista');
             $urlRouterProvider.when('/chat', '/chat/lista');
-            $urlRouterProvider.when('/pacotes', '/pacotes/lista');
             $urlRouterProvider.when('/denuncias', '/denuncias/lista');
             $urlRouterProvider.when('/avaliacoes', '/avaliacoes/lista');
-            $urlRouterProvider.when('/pacotes-escolher', '/pacotes/escolha');
             $urlRouterProvider.when('/analisesCasos', '/analises/lista');
             $urlRouterProvider.when('dashboard-vendedor', 'dashboard-vendedor/index');
             $urlRouterProvider.when('dashboard-estabelecimento', 'dashboard-estabelecimento/index');
             $urlRouterProvider.when('/perfil', '/perfil/perfil');
-        //$urlRouterProvider.when('/login', '/login/login');
-        }
+
+        $urlRouterProvider.when('/pacotes-escolher', '/pacotes/escolha');
+        $urlRouterProvider.when('/pacotes', '/pacotes/lista');
+        $urlRouterProvider.when('/pacotes-list', '/pacotes/list');
+        $urlRouterProvider.when('/pacotes-new', '/pacotes/new');
+        $urlRouterProvider.when('/pacotes-edit', '/pacotes/edit');
+
 
         $stateProvider.state('main', {
             url: '/',
@@ -180,7 +183,36 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             activetab: 'emoji'
         })
 
-
+    //Listar Pacotes
+        .state('main.pacotes-list', {
+            url: 'pacotes',
+            template: '<ui-view></ui-view>'
+        }).state('main.pacotes.list', {
+            url: '/list',
+            templateUrl: 'app/pages/pacotes/list_pacotes.html',
+            controller: 'formPacotesCtrl',
+            activetab: 'pacotes-list'
+        })
+    //Criar Novo Pacote
+        .state('main.pacotes-new', {
+            url: 'pacotes',
+            template: '<ui-view></ui-view>'
+        }).state('main.pacotes.new', {
+            url: '/new',
+            templateUrl: 'app/pages/pacotes/new_pacotes.html',
+            controller: 'formPacotesCtrl',
+            activetab: 'pacotes-new'
+        })
+         //Editar Novo Pacote
+        .state('main.pacotes-edit', {
+            url: 'pacotes',
+            template: '<ui-view></ui-view>'
+        }).state('main.pacotes.edit', {
+            url: '/:id',
+            templateUrl: 'app/pages/pacotes/edit_pacotes.html',
+            controller: 'formPacotesCtrl',
+            activetab: 'pacotes-edit'
+        })
         .state('main.pacotes', {
             url: 'pacotes',
             template: '<ui-view></ui-view>'
