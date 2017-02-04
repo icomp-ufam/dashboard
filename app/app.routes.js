@@ -18,13 +18,13 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
             $urlRouterProvider.when('dashboard-estabelecimento', 'dashboard-estabelecimento/index');
             $urlRouterProvider.when('/perfil', '/perfil/perfil');
 
-        $urlRouterProvider.when('/pacotes-escolher', '/pacotes/escolha');
-        $urlRouterProvider.when('/pacotes', '/pacotes/lista');
-        $urlRouterProvider.when('/pacotes-list', '/pacotes/list');
-        $urlRouterProvider.when('/pacotes-new', '/pacotes/new');
-        $urlRouterProvider.when('/pacotes-edit', '/pacotes/edit');
+            $urlRouterProvider.when('/pacotes-escolher', '/pacotes/escolha');
+            $urlRouterProvider.when('/pacotes', '/pacotes/lista');
+            $urlRouterProvider.when('/pacotes-list', '/pacotes/list');
+            $urlRouterProvider.when('/pacotes-new', '/pacotes/new');
+            $urlRouterProvider.when('/pacotes-edit', '/pacotes/edit');
 
-
+        }
         $stateProvider.state('main', {
             url: '/',
             templateUrl: 'app/pages/main/main.html',

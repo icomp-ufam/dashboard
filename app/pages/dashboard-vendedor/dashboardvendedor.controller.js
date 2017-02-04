@@ -2,6 +2,8 @@
  * Created by lgpbentes on 09/01/17.
  */
 angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $http, config, $state , sharedConn, Chats, ChatDetails) {
+    if(localStorage.getItem('loginV') === '')
+        $state.go('main.login.index');
     $scope.app = "Dashboard Vendedor";
     $scope.chats = [];
     $scope.casos = [];

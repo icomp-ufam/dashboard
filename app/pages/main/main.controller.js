@@ -10,17 +10,22 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 	$scope.infoVendedorPhoto = localStorage.getItem('vendedor_foto');
 	$scope.infoVendedorNome = localStorage.getItem('vendedor_nome');
 	$scope.infoVendedorID = localStorage.getItem('userID');
+    $scope.infoVendedorAvgRating = localStorage.getItem('vendedor_avaliacao');
+    $scope.infoVendedorSumRating = localStorage.getItem('vendedor_qtdAvaliacoes');
+    $scope.infoVendedorQtdAtd = localStorage.getItem('vendedor_qtdAtendimentos');
 
-	$scope.infoVendedorAvgRating = localStorage.getItem('vendedor_avaliacao');
-	$scope.infoVendedorSumRating = localStorage.getItem('vendedor_qtdAvaliacoes');
-	$scope.infoVendedorQtdAtd = localStorage.getItem('vendedor_qtdAtendimentos');
+    $scope.infoAdminNome = localStorage.getItem('loginadmin');
+
+	$scope.infoLojaName = localStorage.getItem('loginE');
+    $scope.infoLojaID = localStorage.getItem('lojaID');
+
+	$scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
 
 	//informações do admin salvas no navegador
 	$scope.infoAdmin = localStorage.getItem('loginadmin');
-    //console.log($scope.infoAdmin);
-
+	//verifica se ha alguém logado
 	$scope.controle = function () {
-		if(localStorage.getItem('loginadmin') == '' && localStorage.getItem('loginV') == ''){
+		if((localStorage.getItem('loginadmin') == '' && localStorage.getItem('loginV') == '') && localStorage.getItem('loginE') == ''){
             //console.log('false');
             return false;
 		}else{
@@ -52,7 +57,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 		$scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
         localStorage.setItem('vendedor_foto', '');
         localStorage.setItem('vendedor_nome', '');
-
+		localStorage.setItem('loginE', '');
 		//se estabelecimento
         localStorage.setItem('Estabelecimento', JSON.stringify(false));
         $scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
@@ -88,10 +93,9 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 		return $scope.Estabelecimento;
 	};
 	//Stub para estabelecimento
-	$scope.loginEstabelecimento = function(user) {
+	$scope.loginEstabelecimento = function() {
 		//Estabelecimento
-		localStorage.setItem('Estabelecimento', JSON.stringify(true));
-		$scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
+
 		//Vendedor
 		localStorage.setItem('vendedor', JSON.stringify(false));
 		$scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));

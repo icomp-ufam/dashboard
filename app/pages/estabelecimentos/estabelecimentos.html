@@ -40,9 +40,7 @@
 
             </div>
             <div class="col-md-3">
-
                 <!-- START WIDGET REGISTRED -->
-
                 <div class="widget widget-default widget-item-icon" ui-sref="main.analisesCasos.ratingGeral" >
                     <div class="widget-item-left">
                         <span class="fa fa-star-half-o"></span>
@@ -55,10 +53,8 @@
 
                 </div>
                 <!-- END WIDGET REGISTRED -->
-
             </div>
             <div class="col-md-12">
-                
                 <!-- START DEFAULT DATATABLE -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -97,11 +93,8 @@
                                 <th ng-click="ordenarPor('atendimentos')"  >Qtd Atendimentos</th>
                                 <th ng-click="ordenarPor('consultas')" >Qtd Consultas</th>
                                 <th ng-click="ordenarPor('percentual')"  >% Atendimentos</th>
-
-
                                 <th> Detalhes</th>
                             </tr>
-
                             <tr>
                                 <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome..."></th>
                                 <th ><input class="form-control" type="text" ng-model="criterioDeBusca.address" placeholder="Endereço..."></th>
@@ -114,7 +107,6 @@
                                 <th> </th>
                             </tr>
                             </thead>
-
                             <tbody>
                             <tr  ng-repeat="estabelecimento in estabelecimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao | orderBy: 'name'">
                                 <td>{{estabelecimento.name}}</td>

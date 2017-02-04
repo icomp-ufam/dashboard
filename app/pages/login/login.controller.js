@@ -41,8 +41,15 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
-   }
-
+   };
+    /*$scope.validaadmin = function (email, password){
+                localStorage.setItem('loginadmin',email);
+                $scope.mensagem = '';
+                $state.go("main.dashboard.listar", {}, {
+                    location: "replace",
+                    reload: true
+                });
+    };*/
     //Carregando vendedores para verificar numero
     $scope.carregaVendedores = function () {
         $http({
@@ -54,7 +61,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
             },
         }).success(function(data){
             $scope.vendedores = data;
-            //console.log($scope.vendedores);
+            console.log($scope.vendedores);
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
@@ -75,11 +82,11 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
             $scope.usuario = data;
             $scope.infoVendedorNome = $scope.usuario.user.name;
             localStorage.setItem('userID',$scope.usuario.user.id);
+
             $scope.infoVendedorID = localStorage.getItem('userID');
             if($scope.usuario.user.store != null){
                 localStorage.setItem('lojaID',$scope.usuario.user.store.id);
-                localStorage.setItem('lojaName',$scope.usuario.user.store.name);
-
+                $scope.infoLojaName=$scope.usuario.user.store.name;
             }
             console.log("idloja" + localStorage.getItem('lojaID'));
         }).error(function(error){
@@ -93,9 +100,11 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
     $scope.verificaNumero = function (pais,numero) {
         numero = numero.replace(' ', '');
         numero = numero.replace('-', '');
+        if(pais == null) pais = 55;
         numero = pais + numero;
+        console.log(numero);
         for(vendedor in $scope.vendedores.sellers){
-            //console.log($scope.vendedores.sellers[vendedor].mobile);
+           // console.log($scope.vendedores.sellers[vendedor].mobile);
             if($scope.vendedores.sellers[vendedor].mobile === numero){
                 //console.log('true');
                 $scope.solicitacodigo(numero);
@@ -110,10 +119,37 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
 
     };
 
+   /* $scope.solicitacodigo = function (telefone) {
+
+    };
+
+    $scope.verificaNumero = function (pais,numero) {
+        numero = numero.replace(' ', '');
+        numero = numero.replace('-', '');
+        numero = pais + numero;
+                //console.log('true');
+        $scope.solicitacodigo(numero);
+        //aqui solicitação do codigo
+        $scope.mensagem = '';
+        $scope.Proximo();
+
+
+    };
     //variavel que simula o codigo recebido
     //$scope.code = '555012';
-
-    $scope.verificaCodigo= function (code) {
+    $scope.verificaCodigo = function (code) {
+            localStorage.setItem('loginV', 'gisele');
+            localStorage.setItem('vendedor', JSON.stringify(true));
+            localStorage.setItem('loginE', 'loja top');
+            localStorage.setItem('Estabelecimento', JSON.stringify(true));
+            $scope.login();
+            $scope.mensagem = '';
+            $state.go("main.dashboardVendedor.index", {}, {
+                location: "replace",
+                reload: true
+            });
+    };*/
+   $scope.verificaCodigo= function (code) {
         $http({
             url : config.baseUrl + "/dash/login",
             method : 'post',
@@ -130,6 +166,10 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
             if($scope.codigoconfirmacao.code == '200'){
                 localStorage.setItem('loginV', $scope.infoVendedorNome);
                 localStorage.setItem('vendedor', JSON.stringify(true));
+                if($scope.infoLojaName != ''){
+                    localStorage.setItem('loginE', $scope.infoLojaName);
+                    localStorage.setItem('Estabelecimento', JSON.stringify(true));
+                }
                 $scope.login();
                 $scope.mensagem = '';
                 $state.go("main.dashboardVendedor.index", {}, {

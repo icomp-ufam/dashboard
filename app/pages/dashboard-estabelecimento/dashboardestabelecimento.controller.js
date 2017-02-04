@@ -4,8 +4,9 @@
  * Altered by Saymon on 25/01/17. ** Indenta o código e Corrige datas do filtro de atendimentos e vendedores **
  */
 angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($scope, $http, config, $state , sharedConn, Chats, ChatDetails) {
+    if(localStorage.getItem('loginE') === '')
+        $state.go('main.login.index');
     $scope.idloja = 1; //1 == Teewa
-
     //Perfil
     $scope.nomePerfil= "Minha Loja";
     $scope.enderecoPerfil= "Rua do pão";
