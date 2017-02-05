@@ -31,17 +31,21 @@
                     <div class="profile-data-name">{{caso.user.name}}</div>
                     <div class="profile-data-title">{{caso.created_at | date:'dd/MM/yyyy - HH:mm'}}</div>
                 </div>
-                <div class="profile-controls">
-                    <!-- Botões de aceitar e recusar caso -->
-                    <a title="Recusar" ng-click="recusarCaso(caso.id)" class="profile-control-left"><span class="fa fa-times"></span></a>
-                    <a title="Aceitar" ng-click="aceitarCaso(caso.id)" class="profile-control-right"><span class="fa fa-check "></span></a>
-                </div>
+
             </div>
 
-            <div class="panel-body">
+            <div class="panel-body" style="height: 80px; overflow-y: scroll">
                 <div class="contact-info">
                     <!-- Descrição/nome do caso/consulta -->
                     <p><small>Descrição</small><br/>{{caso.name}}</p>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <!-- Botões de aceitar e recusar caso -->
+                <div class="form-group w3-center">
+                    <button ng-click="aceitarCaso(caso.id)" type="button" class="btn btn-success">Aceitar</button>
+                    <button ng-click="naoTenho(caso.id)" type="button" class="btn btn-warning">Não tenho</button>
+                    <button ng-click="recusarCaso(caso.id)"type="button" class="btn btn-danger">Recusar</button>
                 </div>
             </div>
         </div>
@@ -65,13 +69,3 @@
     </div>
 </div>
 <!-- END MODAL DE IMAGEM -->
-<!--aplicando cores em aceitar/recusar-->
-<style>
-    .fa-times:before {
-        color: red
-    }
-    .fa-check:before{
-        color: #3ad900;
-    }
-
-</style>

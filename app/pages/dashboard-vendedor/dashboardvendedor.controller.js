@@ -83,7 +83,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         }).success(function(data){
             $scope.casos = data.cases;
             $scope.qteCasos = $scope.casos.length;
-
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
@@ -120,7 +119,29 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
+    };
 
+    $scope.naoTenho = function (idcase) {
+
+        $http({
+            url : config.baseUrl + "/cases/dont/have",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data: {
+                'idstore' : $scope.idstore,
+                'idseller' :$scope.idVendedor,
+                'idcase' : idcase
+            }
+        }).success(function(data){
+            // recarregar a página
+            $state.reload();
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
     };
 
     $scope.recusarCaso = function (idcase) {
