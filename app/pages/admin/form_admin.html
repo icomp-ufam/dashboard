@@ -1,9 +1,11 @@
 <ul class="breadcrumb">
     <li><a href="index.html">Home</a></li>
-    <li ><a href="#">Administradores</a> </li>
+    <li><a ui-sref="main.admin.listar">Administradores</a> </li>
+    <li class="active">Novo</li>
+
 </ul>
 <div class="page-title">
-    <h2><span class="fa fa-user"></span> Administradores </h2>
+    <h2><span class="fa fa-user"></span>  Administradores </h2>
 </div>
 <!-- PAGE CONTENT WRAPPER -->
 <div class="page-content-wrap">
@@ -12,10 +14,9 @@
             <form class="form-horizontal">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Cadastro de Administradores</h3>
-                    </div>
-                    <div class="panel-body">
-                        <p>Cadastre aqui os dados do novo administrador</p>
+                        <h3 ng-if="(update == 'false')" class="panel-title">Cadastre aqui os dados do novo administrador</h3>
+                        <h3 ng-if="(update == 'true')" class="panel-title">Atualize os dados do administrador "{{admin.name}}"</h3>
+
                     </div>
                     <div class="panel-body">
 
@@ -25,7 +26,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input type="email" class="form-control" name="email" ng-model="email" ng-required="true"/>
+                                        <input type="email" class="form-control" name="email" ng-model="admin.email" ng-required="true"/>
                                         <p ng-show="administradorForm.email.$invalid && administradorForm.email.$pristine" class="help-block" style="margin-left: 10px;">Informe um e-mail válido.</p>
                                     </div>
                                     <span class="help-block">Ex: teewaadmin@gmail.com</span>
@@ -36,7 +37,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input type="text" class="form-control" ng-model="name" ng-required="true"/>
+                                        <input type="text" class="form-control" ng-model="admin.name" ng-required="true"/>
                                     </div>
                                     <span class="help-block">Ex: Fulano da Silva</span>
                                 </div>
@@ -47,7 +48,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
-                                        <input type="password" class="form-control" ng-model="senha" ng-required="true"/>
+                                        <input type="password" class="form-control" ng-model="admin.senha" ng-required="true"/>
                                     </div>
                                     <!--<span class="help-block">aviso</span>-->
                                 </div>
@@ -57,7 +58,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
-                                        <input type="password" class="form-control" ng-model="confirme_senha" ng-required="true"/>
+                                        <input type="password" class="form-control" ng-model="admin.confirme_senha" ng-required="true"/>
                                     </div>
                                     <!--<span class="help-block">aviso</span>-->
                                 </div>
@@ -65,7 +66,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 col-xs-12 control-label">Foto</label>
                                 <div class="col-md-6 col-xs-12">
-                                    <input type="file" class="fileinput btn-primary" name="filename" id="filename" title="Escolher arquivo" ng-model="foto"/>
+                                    <input type="file" class="fileinput btn-primary" name="filename" id="filename" title="Escolher arquivo" ng-model="admin.foto"/>
                                     <span class="help-block">Faça upload da sua foto de perfil</span>
                                 </div>
                             </div>
@@ -74,7 +75,8 @@
                     </div>
                     <div class="panel-footer">
                         <button class="btn btn-default" ng-click="limparFormulario(admin)">Limpar formulário</button>
-                        <button class="btn btn-primary pull-right" ng-click="adicionarAdministrador(email, name, senha, foto)" ng-disabled="administradorForm.$invalid">Cadastrar</button>
+                        <button ng-if="(update == 'false')" class="btn btn-primary pull-right" ng-click="adicionarAdmin(admin)" ng-disabled="administradorForm.$invalid">Cadastrar</button>
+                        <button ng-if="(update == 'true')" class="btn btn-primary pull-right" ng-click="atualizarAdmin(admin)" ng-disabled="administradorForm.$invalid">Atualizar</button>
                     </div>
                 </div>
             </form>

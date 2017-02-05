@@ -9,11 +9,11 @@
 
 <ul class="breadcrumb">
     <li><a href="index.html">Home</a></li>
-    <li><a href="#">Admin</a> </li>
+    <li class="active">Administradores</li>
 </ul>
 
 <div class="page-title" >
-    <h2><span class="fa fa-building"></span>Administradores</h2>
+    <h2><span class="fa fa-user"></span>  Administradores</h2>
 </div>
 
 <!-- PAGE CONTENT WRAPPER -->
@@ -29,36 +29,36 @@
                 <!-- START DEFAULT DATATABLE -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Administradores</h3>
+                        <h3 class="panel-title">Estes são os administradores do Teewa Dashboard</h3>
                         <div style="width: 200px; float: right;">
                             <button class="btn btn-danger btn-block" ng-click="apagarAdministradores(admins)" ng-disabled="!isAdminSelecionado(admins)">Apagar Administradores</button>
                         </div>
-                        <div style="float: right; margin-right: 20px;"><a href="#/admin/new" class="btn btn-success">Novo Administrador</a></div>
+                        <div style="float: right; margin-right: 20px;"><a ui-sref="main.admin.new" class="btn btn-success" ng-click="novoAdmin()">Novo Administrador</a></div>
                     </div>
                     <div class="panel-body">
                         <table class="table " >
                             <thead>
-                                <tr>
-                                    <th></th>
-                                    <th ng-click="ordenarPor('nome')" > Nome </th>
-                                    <th ng-click="ordenarPor('telefone')" >E-mail</th>
-                                    <th>Editar</th>
-                                    <th>Apagar</th>
-                                </tr>
+                            <tr>
+                                <th></th>
+                                <th ng-click="ordenarPor('nome')" > Nome </th>
+                                <th ng-click="ordenarPor('telefone')" >E-mail</th>
+                                <th>Editar</th>
+                                <th>Apagar</th>
+                            </tr>
                             </thead>
 
                             <tbody>
-                                <tr ng-repeat="admin in admins">
-                                    <td><input type="checkbox" ng-model="admin.selecionado"></td>
-                                    <td>{{admin.name}}</td>
-                                    <td>{{admin.email}}</td>
-                                    <td><i class="fa fa-edit" ng-click="editAdministrador(admin)"></i></td>
-                                    <td><i class="fa fa-trash-o" ng-click="apagarAdministrador(admins)"></i></td>
-                                </tr>
+                            <tr ng-repeat="admin in admins">
+                                <td><input type="checkbox" ng-model="admin.selecionado"></td>
+                                <td>{{admin.name}}</td>
+                                <td>{{admin.email}}</td>
+                                <td ng-click="editAdministrador(admin)"><i class="fa fa-edit"></i></td>
+                                <td><i class="fa fa-trash-o" ng-click="apagarAdministrador(admins)"></i></td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
-                    
+
                 </div>
 
             </div>
