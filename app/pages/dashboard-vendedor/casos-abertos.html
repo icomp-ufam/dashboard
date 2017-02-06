@@ -19,7 +19,7 @@
             <div class="content-frame-top" style="background-color: #f2f2f2; padding-top:4px; padding-bottom: 0px;">
                 <div class="page-title">
                     <!--Data em que o caso foi aceito pelo vendedor-->
-                    <p>Caso aceito em:  {{chatAtual.created_at | date:'dd/MM/yyyy - HH:mm'}}</p>
+                    <p>Caso aceito em:  {{chatAtual.created_at | limitTo:19 }}</p>
 
                     <!-- Caso não existam casos carregados, exibe "Chat" -->
                     <h4><span class="fa fa-search"></span> {{chatAtual.case.name+'      ' || 'Chat     '}}</h4>
@@ -68,7 +68,7 @@
                                 <!--Nome do cliente -->
                                 <a>{{chatAtual.userTo.name}} </a>
                                 <!--Data em que o cliente criou o caso/consulta-->
-                                <span class="date">{{chatAtual.case.created_at | date:'dd/MM/yyyy - HH:mm'}}</span>
+                                <span class="date">{{chatAtual.case.created_at | limitTo:19}}</span>
                             </div>
                             <!-- Nome/descrição do caso/consulta -->
                             {{chatAtual.case.name}}
@@ -105,7 +105,7 @@
                                 <!-- Exibe o nome do usuário conforme seu perfil -->
                                 <a ng-if="message.userId.includes(idVendedor)"> Você </a>
                                 <a ng-if="!message.userId.includes(idVendedor)">{{chatAtual.userTo.name}}</a>
-                                <span class="date">{{message.time | date:'dd/MM/yyyy - HH:mm'}}</span>
+                                <span class="date">{{message.time | limitTo:19}}</span>
                             </div>
 
                             <!-- Exibe texto da mensagem -->
@@ -177,7 +177,7 @@
                     <span class="contacts-title">{{(chat.iduser_close && 'Usuário encerrou o caso' ) || chat.userTo.name}}</span>
 
                     <!--data do chat com filtro-->
-                    <p>{{chat.created_at | date:'dd/MM/yyyy - HH:mm'}}</p>
+                    <p>{{chat.created_at | limitTo:19}}</p>
                     <!--nome do caso/consulta-->
                     <span class="contacts-title">{{chat.case.name}}</span>
                     <!--<span class="contacts-title">{{ (chat.iduser_close && 'Você não pode mais enviar mensagens pois esta conversa foi encerrada pelo cliente.' ) || chat.case.name}}</span>-->

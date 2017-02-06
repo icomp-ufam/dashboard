@@ -29,7 +29,7 @@
                 <div class="profile-data">
                     <!-- Exibe informações do caso  -->
                     <div class="profile-data-name">{{caso.user.name}}</div>
-                    <div class="profile-data-title">{{caso.created_at | date:'dd/MM/yyyy - HH:mm'}}</div>
+                    <div class="profile-data-title">{{caso.created_at | limitTo:19}}</div>
                 </div>
 
             </div>
