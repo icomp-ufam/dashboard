@@ -5,7 +5,6 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $state, $h
     //$scope.state = $state;
     if(localStorage.getItem('loginadmin') === '')
         $state.go('main.login.indexadmin');
-    console.log('tina'+ localStorage.getItem('loginadmin'));
     $scope.app = "Dashboard";
     //$scope.estabelecimentos = [];
     $scope.cases = [];
@@ -83,7 +82,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $state, $h
     var carregarUsuariosEcasos = function () {
         $http({
             url : config.baseUrl + "/analytics/cases/by/users",
-            method : 'GET',
+            method : 'GET'
         }).success(function(data){
             $scope.UserbyCases = data;
         }).error(function(error){

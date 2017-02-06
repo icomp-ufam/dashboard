@@ -114,7 +114,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
             }
         }).success(function(data){
             $scope.urlimagemAdmin = data.store.map_frame;
-            console.log($scope.urlimagemAdmin);
+            $scope.infoLojaName = data.store.name;
             
 
         }).error(function(error){
@@ -170,7 +170,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 			},
 			data: {
 				//id do chat-dashboard estatico (mudar)
-				'idstore' : '118',
+				'idstore' : $scope.infoLojaID,
 
 				'idseller' :$scope.infoVendedorID
 			}

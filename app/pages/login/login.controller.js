@@ -111,6 +111,7 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
             $scope.usuario = data;
             $scope.infoVendedorNome = $scope.usuario.user.name;
             localStorage.setItem('userID',$scope.usuario.user.id);
+
             $scope.infoVendedorID = localStorage.getItem('userID');
             //se o usuario for dono de loja
             if($scope.usuario.user.store != null){
