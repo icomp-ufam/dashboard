@@ -15,39 +15,39 @@
                         <h3 class="panel-title">Cadastrar Novo Pacote</h3>
                     </div>
                     <div class="panel-body">
-
+                        <div class="alert alert-success" ng-show="submissionSuccess">Pacote Cadastrado com sucesso!</div>
                     </div>
 
                     <div class="panel-body">
                         <div class="form-group">
-                            <label class="col-md-3 col-xs-12 control-label">Nome</label>
+                            <label class="col-md-3 col-xs-12 control-label">Nome do Pacote</label>
                             <div class="col-md-6 col-xs-12">
-                                <div class="input-group">
+                                <div class="input-group" ng-class="{'has-error' : form.pacote.nome.$invalid && !form.pacote.nome.$pristine}">
                                     <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
                                     <input type="text" ng-required="true" ng-model="pacote.nome"  name="nome" class="form-control"/>
                                 </div>
-
+                                <p ng-show="form.pacote.nome.$invalid" class="help-block">Nome é obrigatório.</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 col-xs-12 control-label">Preço</label>
+                            <label class="col-md-3 col-xs-12 control-label">Preço do Pacote</label>
                             <div class="col-md-6 col-xs-12">
-                                <div class="input-group">
+                                <div class="input-group" ng-class="{'has-error' : form.pacote.preco.$invalid && !form.pacote.preco.$pristine}">
                                     <span class="input-group-addon"><span class="fa fa-money"></span></span>
-                                    <input ng-required="true" ng-model="pacote.preco" id="preco" name="preco" ng-required="true" class="form-control"/>
+                                    <input ng-required="true" ng-model="pacote.preco" id="preco" type="text" name="preco" ng-required="true" class="form-control" only-digits/>
                                 </div>
-
+                                <p ng-show="form.pacote.preco.$invalid" class="help-block">Preço é obrigatório. Ex: 99.99 </p>
                             </div>
                         </div>
 
                             <div class="form-group">
                                 <label class="col-md-3 col-xs-12 control-label">Número de Vendedores</label>
                                 <div class="col-md-6 col-xs-12">
-                                    <div class="input-group">
+                                    <div class="input-group" ng-class="{'has-error' : form.pacote.vendedores.$invalid && !form.pacote.vendedores.$pristine}">
                                         <span class="input-group-addon"><span class="fa fa-group"></span></span>
-                                        <input type="number" ng-model="pacote.vendedores" ng-required="true" name="vendedor" class="form-control" min="1" step="1" />
+                                        <input type="text" ng-model="pacote.vendedores" ng-required="true" name="vendedores" value="1" only-digits class="form-control" min="1" step="1" />
                                     </div>
-                                    <!--<span class="help-block">aviso</span>-->
+                                    <p ng-show="form.pacote.vendedores.$invalid" class="help-block">O número mínimo de vendedores é 1.</p>
 
                                 </div>
                             </div>
@@ -67,18 +67,17 @@
                                         </label>
                                         <br/>
                                     </div>
-                                    <!--<span class="help-block">aviso</span>-->
+                                    <p ng-show="funcSel.length == 0" class="help-block">Deve selecionar pelo menos uma funcionalidades.</p>
                                 </div>
                             </div>
+
                         <div class="panel-footer">
                             <button class="btn btn-default" ng-click="limparFormulario(pacote)">Limpar formulário</button>
-                            <button class="btn btn-primary pull-right" ng-click="novoPacote(pacote)">Cadastrar</button>
+                            <button class="btn btn-primary pull-right" ng-disabled="funcSel.length == 0 || form.pacote.$invalid " ng-click="novoPacote(pacote)">Cadastrar</button>
                         </div>
                     </div>
                 </div>
-            </form>
-
-
+           </form>
         </div>
     </div>
 </div>

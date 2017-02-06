@@ -16,17 +16,22 @@ angular.module("teewa").controller("formPacotesCtrl", function ($scope, $state, 
 
     $scope.funcSel = [];
 
+    $scope.pacotes_aux = [];
+
      $scope.limparFormulario = function(pacote){
+
         $scope.funcSel = [];
         delete $scope.pacote;
+        delete $scope.package;
+        $scope.form.pacote.$setPristine();
      };
 
      $scope.novoPacote = function(pacote){
         pacote.funcionalidades = angular.copy($scope.funcSel);
+        $scope.submissionSuccess=true;
         $scope.pacotes.push(angular.copy(pacote));
+        $scope.limparFormulario(pacote);
 
-        $scope.limparFormulario();
-        $scope.form.contato={};
      };
 
      $scope.funcSelecionado = function (func) {
@@ -64,12 +69,55 @@ angular.module("teewa").controller("formPacotesCtrl", function ($scope, $state, 
          }
      };
 
+    $scope.apagarPacotes = function (pacotes){
+    var aux = [];
+        for(var i = pacotes.length - 1; i >= 0; i--){
+            if(!pacotes[i].selecionado){
+               aux.push(angular.copy($scope.pacotes[i]));
+            }
+        }
+        $scope.pacotes=  angular.copy(aux);
+    };
+
+
      $scope.updatePacote = function (pacote){
-          if (confirm("Você Tem Certeza?")) {
-            $scope.funcSel = [];
-          }
+          $scope.submissionSuccess=true;
       };
 
      $scope.atualizarPacote();
 
- });
+      $scope.submitForm = function() {
+
+         // check to make sure the form is completely valid
+         if ($scope.userForm.$valid) {
+             alert('our form is amazing');
+         }
+
+     };
+
+ })
+ .directive('onlyDigits', function () {
+       return {
+         require: 'ngModel',
+         restrict: 'A',
+         link: function (scope, element, attr, ctrl) {
+           function inputValue(val) {
+             if (val) {
+               var digits = val.replace(/[^0-9.]/g, '');
+
+               if (digits.split('.').length > 2) {
+                 digits = digits.substring(0, digits.length - 1);
+               }
+
+               if (digits !== val) {
+                 ctrl.$setViewValue(digits);
+                 ctrl.$render();
+               }
+               return parseFloat(digits);
+             }
+             return undefined;
+           }
+           ctrl.$parsers.push(inputValue);
+         }
+       };
+    });
