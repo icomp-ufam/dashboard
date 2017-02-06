@@ -125,6 +125,14 @@
             </li>
 
             <!-- Dashbord Vendedor -->
+            <li ng-show="verifica() && !verificaEstabelecimento()" class="xn-title">
+                <!--<div class="col-md-5 col-xs-5">-->
+                <!--<a class="friend">-->
+                <!--<img ng-src="{{urlPhotos}}{{urlimagemAdmin}}"/>-->
+                <!--</a>-->
+                <!--</div> <br>-->
+                Loja: {{infoLojaName}}
+            </li>
             <li ng-show="verifica() && !verificaEstabelecimento()" ng-class="{active: state.current.activetab == 'dashboardVendedor'}">
                 <a ui-sref="main.dashboardVendedor.index" >
                     <span class="fa fa-tachometer fa-3x"></span>
@@ -146,6 +154,14 @@
             </li>
 
             <!-- Dashboard Estabelecimento -->
+            <li class="xn-title">
+                <!--<div class="col-md-5 col-xs-5">-->
+                    <!--<a class="friend">-->
+                        <!--<img ng-src="{{urlPhotos}}{{urlimagemAdmin}}"/>-->
+                    <!--</a>-->
+                <!--</div> <br>-->
+                Loja: {{infoLojaName}}
+            </li>
             <li ng-show="verifica() && verificaEstabelecimento()" class="xn-openable">
                 <a ui-sref="main.dashboardEstabelecimento.index">
                     <span class="fa fa-tachometer fa-3x"></span>

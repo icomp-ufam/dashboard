@@ -1,7 +1,7 @@
 /**
  * Created by gisele on 26/01/17.
  */
-angular.module("teewa").controller("loginController", function ($scope, $state, config, $http, sharedConn, Chats, ChatDetails) {
+angular.module("teewa").controller("loginController", function ($scope, $timeout, $state, config, $http, sharedConn, Chats, ChatDetails) {
     if(localStorage.getItem('loginadmin') !== '')
         $state.go('main.dashboard.listar');
     if(localStorage.getItem('loginV') !== '')
@@ -10,6 +10,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
     $scope.app = "Dashboard";
     $scope.mensagem = '';
 
+    //Autentica o acesso para o usuário administrador.
     $scope.validaadmin = function (email, password){
         $http({
             url : config.baseUrl + "/dash/login/admin",
@@ -24,7 +25,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
             }
         }).success(function(data){
             $scope.admins = data;
-            console.log($scope.admins);
+            //console.log($scope.admins);
             if($scope.admins.code == '200'){
                 localStorage.setItem('loginadmin',$scope.admins.admin.name);
                 $scope.mensagem = '';
@@ -33,7 +34,10 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
                     reload: true
                 });
             }else{
-                $scope.mensagem = 'Codigo inválido';
+                $scope.mensagem = 'Usuário ou senha inválidos';
+                $timeout(function() {
+                    $scope.mensagem = '';
+                }, 2000);
             }
 
         }).error(function(error){
@@ -59,6 +63,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
     };
     $scope.carregaVendedores();
     $scope.loginV  = '';
+
     $scope.verificaNumero = function (pais,numero) {
         numero = numero.replace(' ', '');
         numero = numero.replace('-', '');
@@ -74,11 +79,15 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
                 break;
             }else{
                 $scope.mensagem = 'Número informado não registrado na base de dados!';
+                $timeout(function() {
+                    $scope.mensagem = '';
+                }, 2000);
             }
         }
 
     };
 
+    //Solicita código através do número do usuário vendedor/estabelecimento
     $scope.solicitacodigo = function (telefone) {
         $http({
             url : config.baseUrl + "/dash/mycode",
@@ -94,8 +103,8 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
             $scope.usuario = data;
             $scope.infoVendedorNome = $scope.usuario.user.name;
             localStorage.setItem('userID',$scope.usuario.user.id);
-
             $scope.infoVendedorID = localStorage.getItem('userID');
+            //se o usuario for dono de loja
             if($scope.usuario.user.store != null){
                 localStorage.setItem('lojaID',$scope.usuario.user.store.id);
                 $scope.infoLojaName=$scope.usuario.user.store.name;
@@ -106,6 +115,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
         });
     };
 
+    //Código é verificado a partir da solicitação do usuario
    $scope.verificaCodigo= function (code) {
         $http({
             url : config.baseUrl + "/dash/login",
@@ -123,6 +133,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
             if($scope.codigoconfirmacao.code == '200'){
                 localStorage.setItem('loginV', $scope.infoVendedorNome);
                 localStorage.setItem('vendedor', JSON.stringify(true));
+                //se usuario for dono de loja
                 if($scope.infoLojaName != ''){
                     localStorage.setItem('loginE', $scope.infoLojaName);
                     localStorage.setItem('Estabelecimento', JSON.stringify(true));
@@ -135,10 +146,13 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
                 });
             }else{
                 $scope.mensagem = 'Codigo inválido';
+                $timeout(function() {
+                    $scope.mensagem = '';
+                }, 2000);
             }
 
         }).error(function(error){
-            $scope.mensagem = 'Codigo inválido';
+            $scope.message = "Aconteceu um problema: " + error;
         });
     };
 
@@ -158,6 +172,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
 
     };
 
+    //Transição entre a tela de solicitar e validar código
     $scope.Proximo = function() {
         var display = document.getElementById('login2').style.display;
         if(display == "none") {

@@ -6,7 +6,7 @@
 angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($scope, $http, config, $state , sharedConn, Chats, ChatDetails) {
     if(localStorage.getItem('loginE') === '')
         $state.go('main.login.index');
-    $scope.idloja = 1; //1 == Teewa
+    $scope.idloja = localStorage.getItem('lojaID');//1; //1 == Teewa
     //Perfil
     $scope.nomePerfil= "Minha Loja";
     $scope.enderecoPerfil= "Rua do pão";

@@ -1,5 +1,7 @@
 angular.module("teewa").controller("formPacotesCtrl", function ($scope, $state, $stateParams, $filter) {
-	$scope.state = $state;
+    if(localStorage.getItem('loginadmin') === '')
+        $state.go('main.login.indexadmin');
+    $scope.state = $state;
 	$scope.count=0;
 
 	$scope.package=[];

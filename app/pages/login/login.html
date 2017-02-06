@@ -1,5 +1,7 @@
+
 <div class="login-container" style="background-color: inherit">
     <div id="login" class="login-box ">
+        <!--Solicitacao do numero de telefone-->
         <div class="login-body" style="align-items: center; background-color: #1b6d85">
             <div class="login-title" ><strong>Informe seu número para solicitar acesso a conta Teewa</strong></div>
             <form class="form-horizontal">
@@ -250,7 +252,7 @@
         </div>
         <div class=" col-md-12 text-danger">{{mensagem}}</div>
     </div>
-
+    <!--Solicitacao do código-->
     <div id="login2" class="login-box " style=" display: none">
         <div class="login-body" style="align-items: center; background-color: #1b6d85">
             <div class="login-title" ><strong>Informe o codigo de Verificação</strong></div>
@@ -282,6 +284,7 @@
 </div>
 
 <script>
+    //Define padrão de entrado do telefone e código
     function mascara(t, mask){
         var i = t.value.length;
         var saida = mask.substring(1,0);

@@ -33,7 +33,6 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
             return true;
 		}
 	};
-
     //Verificando login de vendedor
 	if(localStorage.getItem('vendedor')==='true'){
 		$scope.vendedor = true;
@@ -58,6 +57,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
         localStorage.setItem('vendedor_foto', '');
         localStorage.setItem('vendedor_nome', '');
 		localStorage.setItem('loginE', '');
+		localStorage.setItem('lojaID', '');
 		//se estabelecimento
         localStorage.setItem('Estabelecimento', JSON.stringify(false));
         $scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
@@ -103,7 +103,25 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 		localStorage.setItem('vendedor_nome', '');
 		$scope.infoVendedor = "";
 	};
+    $scope.carregaInfoAdmin = function () {
+        $http({
 
+            url : config.baseUrl + "/stores/"+ $scope.infoLojaID,
+            method : 'get',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            }
+        }).success(function(data){
+            $scope.urlimagemAdmin = data.store.map_frame;
+            console.log($scope.urlimagemAdmin);
+            
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+    $scope.carregaInfoAdmin();
 
     //Carregando dados vendedor
     $scope.carregaVendedor = function () {
@@ -113,9 +131,10 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 			method : 'get',
 			headers : {
 				'Content-Type': 'application/json',
-				'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+				'Authorization' : config.token
 			}
 		}).success(function(data){
+		    console.log(data);
 			$scope.infoVendedor = data.user;
 			//guardando informações do vendedor
 			localStorage.setItem('vendedor_foto', $scope.infoVendedor.photo);
@@ -123,7 +142,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 			localStorage.setItem('vendedor_avaliacao', $scope.infoVendedor.avg_rating);
 			localStorage.setItem('vendedor_qtdAvalicoes', $scope.infoVendedor.sum_rating);
 			localStorage.setItem('vendedor_qtdAtendimentos', $scope.infoVendedor.ate);
-
+            localStorage.setItem('vendedor_idLoja', $scope.infoVendedor.idstore);
             $scope.infoVendedorPhoto = $scope.infoVendedor.photo;
             $scope.infoVendedorNome = $scope.infoVendedor.name;
 			$scope.infoVendedorAvgRating = $scope.infoVendedor.avg_rating;
@@ -147,7 +166,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 			method : 'post',
 			headers : {
 				'Content-Type': 'application/json',
-				'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODA2MjA2MjZ9.LL1jFE5Epo22h2usXTIEKySbUTGtSZlBpfWsQEL8nOk'
+				'Authorization' : config.token
 			},
 			data: {
 				//id do chat-dashboard estatico (mudar)
