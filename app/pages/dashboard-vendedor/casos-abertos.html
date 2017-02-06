@@ -36,7 +36,7 @@
                     <li title="Enviar Imagem" data-toggle="modal" data-target="#modal_upload_image" class="dropdown"><a ><span class="fa fa-camera"></span></a></li>
                     <li title="Opções" ng-show="chatAtual.id" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>
-                        <ul class="dropup">
+                        <ul class="dropdown-menu">
                             <!--Encerra caso aberto atualmente-->
                             <li ng-click="encerrarCaso(chatAtual.id)" ><a><span class="fa fa-times"></span> Encerrar caso </a></li>
 
@@ -86,7 +86,7 @@
                         <p align="center" > Carregando mensagens...</p>
                     </div>
                     <!-- Carrega mensagem a partir da variavel de escopo messages usando o ng-repeat -->
-                    <div ng-repeat="message in messages | filter:chatAtual.id" ng-class="{in: message.userId == myId}" class="item item-visible">
+                    <div ng-repeat="message in messages | filter:chatAtual.id" ng-class="{in: message.userId.includes(idVendedor)}" class="item item-visible">
 
                         <div class="image">
 
