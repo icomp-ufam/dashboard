@@ -251,17 +251,6 @@
         <div class=" col-md-12 text-danger">{{mensagem}}</div>
     </div>
 
-    <script>
-        function mascara(t, mask){
-            var i = t.value.length;
-            var saida = mask.substring(1,0);
-            var texto = mask.substring(i)
-            if (texto.substring(0,1) != saida){
-                t.value += texto.substring(0,1);
-            }
-        }
-    </script>
-
     <div id="login2" class="login-box " style=" display: none">
         <div class="login-body" style="align-items: center; background-color: #1b6d85">
             <div class="login-title" ><strong>Informe o codigo de Verificação</strong></div>
@@ -286,13 +275,19 @@
                         <button class="btn btn-info btn-block" ng-click="verificaCodigo(codigo)">Conectar</button>
                     </div>
                 </div>
-
-
             </form>
         </div>
         <div class=" col-md-12 text-danger">{{mensagem}}</div>
     </div>
-
 </div>
 
-</body>
+<script>
+    function mascara(t, mask){
+        var i = t.value.length;
+        var saida = mask.substring(1,0);
+        var texto = mask.substring(i);
+        if (texto.substring(0,1) != saida){
+            t.value += texto.substring(0,1);
+        }
+    }
+</script>

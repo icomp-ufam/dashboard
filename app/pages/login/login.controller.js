@@ -7,12 +7,10 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
     if(localStorage.getItem('loginV') !== '')
         $state.go('main.dashboardVendedor.index');
 
-    $scope.infoVendedorID = '';
     $scope.app = "Dashboard";
-    $scope.usuario = '';
-
     $scope.mensagem = '';
-   $scope.validaadmin = function (email, password){
+
+    $scope.validaadmin = function (email, password){
         $http({
             url : config.baseUrl + "/dash/login/admin",
             method : 'post',
@@ -23,7 +21,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
             data:{
                 'email': email,
                 'password': password
-            },
+            }
         }).success(function(data){
             $scope.admins = data;
             console.log($scope.admins);
@@ -41,15 +39,8 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
-   };
-    /*$scope.validaadmin = function (email, password){
-                localStorage.setItem('loginadmin',email);
-                $scope.mensagem = '';
-                $state.go("main.dashboard.listar", {}, {
-                    location: "replace",
-                    reload: true
-                });
-    };*/
+    };
+
     //Carregando vendedores para verificar numero
     $scope.carregaVendedores = function () {
         $http({
@@ -58,13 +49,34 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
             headers : {
                 'Content-Type': 'application/json',
                 'Authorization' : config.token
-            },
+            }
         }).success(function(data){
             $scope.vendedores = data;
             console.log($scope.vendedores);
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
+    };
+    $scope.carregaVendedores();
+    $scope.loginV  = '';
+    $scope.verificaNumero = function (pais,numero) {
+        numero = numero.replace(' ', '');
+        numero = numero.replace('-', '');
+        if(pais == null) pais = 55;
+        numero = pais + numero;
+        console.log('numero: ' + numero);
+        for(vendedor in $scope.vendedores.sellers){
+           // console.log($scope.vendedores.sellers[vendedor].mobile);
+            if($scope.vendedores.sellers[vendedor].mobile === numero){
+                $scope.solicitacodigo(numero);
+                $scope.mensagem = '';
+                $scope.Proximo();
+                break;
+            }else{
+                $scope.mensagem = 'Número informado não registrado na base de dados!';
+            }
+        }
+
     };
 
     $scope.solicitacodigo = function (telefone) {
@@ -77,7 +89,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
             },
             data:{
                 'mobile':telefone
-            },
+            }
         }).success(function(data){
             $scope.usuario = data;
             $scope.infoVendedorNome = $scope.usuario.user.name;
@@ -88,67 +100,12 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
                 localStorage.setItem('lojaID',$scope.usuario.user.store.id);
                 $scope.infoLojaName=$scope.usuario.user.store.name;
             }
-            console.log("idloja" + localStorage.getItem('lojaID'));
+            console.log("idloja: " + localStorage.getItem('lojaID'));
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
     };
 
-
-    $scope.carregaVendedores();
-    $scope.loginV  = '';
-    $scope.verificaNumero = function (pais,numero) {
-        numero = numero.replace(' ', '');
-        numero = numero.replace('-', '');
-        if(pais == null) pais = 55;
-        numero = pais + numero;
-        console.log(numero);
-        for(vendedor in $scope.vendedores.sellers){
-           // console.log($scope.vendedores.sellers[vendedor].mobile);
-            if($scope.vendedores.sellers[vendedor].mobile === numero){
-                //console.log('true');
-                $scope.solicitacodigo(numero);
-                //aqui solicitação do codigo
-                $scope.mensagem = '';
-                $scope.Proximo();
-                break;
-            }else{
-                $scope.mensagem = 'Número informado não registrado na base de dados!';
-            }
-        }
-
-    };
-
-   /* $scope.solicitacodigo = function (telefone) {
-
-    };
-
-    $scope.verificaNumero = function (pais,numero) {
-        numero = numero.replace(' ', '');
-        numero = numero.replace('-', '');
-        numero = pais + numero;
-                //console.log('true');
-        $scope.solicitacodigo(numero);
-        //aqui solicitação do codigo
-        $scope.mensagem = '';
-        $scope.Proximo();
-
-
-    };
-    //variavel que simula o codigo recebido
-    //$scope.code = '555012';
-    $scope.verificaCodigo = function (code) {
-            localStorage.setItem('loginV', 'gisele');
-            localStorage.setItem('vendedor', JSON.stringify(true));
-            localStorage.setItem('loginE', 'loja top');
-            localStorage.setItem('Estabelecimento', JSON.stringify(true));
-            $scope.login();
-            $scope.mensagem = '';
-            $state.go("main.dashboardVendedor.index", {}, {
-                location: "replace",
-                reload: true
-            });
-    };*/
    $scope.verificaCodigo= function (code) {
         $http({
             url : config.baseUrl + "/dash/login",
@@ -160,7 +117,7 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
             data:{
                 'iduser': localStorage.getItem('userID'),
                 'code': code
-            },
+            }
         }).success(function(data){
             $scope.codigoconfirmacao = data;
             if($scope.codigoconfirmacao.code == '200'){
@@ -183,8 +140,6 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
         }).error(function(error){
             $scope.mensagem = 'Codigo inválido';
         });
-
-
     };
 
     XMPP_DOMAIN = config.XMPP_DOMAIN;
@@ -202,7 +157,6 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
         $scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
 
     };
-
 
     $scope.Proximo = function() {
         var display = document.getElementById('login2').style.display;
@@ -226,52 +180,40 @@ angular.module("teewa").controller("loginController", function ($scope, $state, 
         }
     };
 
+    //Em caso de servidor indisponível
+    /*$scope.validaadmin = function (email, password){
+         localStorage.setItem('loginadmin',email);
+         $scope.mensagem = '';
+         $state.go("main.dashboard.listar", {}, {
+         location: "replace",
+         reload: true
+         });
+     };
 
+     $scope.solicitacodigo = function (telefone) {
+     };
+
+     $scope.verificaNumero = function (pais,numero) {
+         numero = numero.replace(' ', '');
+         numero = numero.replace('-', '');
+         numero = pais + numero;
+         //console.log('true');
+         $scope.solicitacodigo(numero);
+         //aqui solicitação do codigo
+         $scope.mensagem = '';
+         $scope.Proximo();
+     };
+     //$scope.code = '555012';
+     $scope.verificaCodigo = function (code) {
+         localStorage.setItem('loginV', 'gisele');
+         localStorage.setItem('vendedor', JSON.stringify(true));
+         localStorage.setItem('loginE', 'loja top');
+         localStorage.setItem('Estabelecimento', JSON.stringify(true));
+         $scope.login();
+         $scope.mensagem = '';
+         $state.go("main.dashboardVendedor.index", {}, {
+         location: "replace",
+         reload: true
+         });
+     };*/
 });
-
-/*
-Login
-
-Gerar Código:
-    ROTA: http://api.teewa.com.br:8081/dash/mycode	(POST)
-
-        PARAMS: mobile (String) *
-
-        RESPONSE: (JSONObject)
-{
-    "code": 200,
-    "message": "User successfully founded",
-    "user": {
-        "id": "652",
-        "name": "Caio Pinheiro",
-        "mobile": "5592981223874",
-        "photo": null,
-        "store":
-            {      // esse objeto só vem na reposta SE E SOMENTE SE o usuário for dono da loja
-            "id": 1,
-            "name": "Teewa"
-        }
-    }
-}
-
-Conferir código:
-    ROTA: http://api.teewa.com.br:8081/dash/login	(POST)
-
-        PARAMS: iduser (Int)*
-        code (String)*
-
-        RESPONSE: (JSONObject)
-{
-    "code": 200,
-    "message": "It's okay, you can go!"
-}
-
-OR
-
-{
-    "code": 401,
-    "message": "This code is wrong. Please repeat the process"
-}
-
-
-Legenda: * campos obrigatórios.*/
