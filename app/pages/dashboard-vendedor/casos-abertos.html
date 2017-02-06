@@ -161,9 +161,10 @@
                 <h3 class="panel-title"><span class="fa fa-comments"></span> Conversas </h3>
             </div>
             <div class="panel-body list-group list-group-contacts scroll" style="overflow:auto;height:530px">
+                <input class="form-control" type="text" ng-model="criterioDeBusca.userTo.name" placeholder="Procurar chat...">
 
                 <!-- carrega casos abertos usando o ng-repeat sobre a variavel de escopo chats -->
-                <a id="teste2" ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats">
+                <a id="teste2" ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats | filter:criterioDeBusca">
                     <div ng-if="(roster[chat.userTo.id] == 'online')" class="list-group-status status-online"></div>
                     <div ng-if="(!roster[chat.userTo.id] || roster[chat.userTo.id] == 'offline')" class="list-group-status status-offline"></div>
 
