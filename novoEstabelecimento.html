@@ -13,6 +13,7 @@
     <!-- CSS INCLUDE -->
     <link rel="stylesheet" type="text/css" id="theme" href="app/assets/css/theme-brown.css"/>
     <link href="app/assets/css/estilo.css" type="text/css" rel="stylesheet" />
+	<link href="lib/bootstrap/css/bootstrap-slider.css" rel="stylesheet"><!-- precisa -->
     <!-- EOF CSS INCLUDE -->
     <style type="text/css">.thumb-image{float:left;width:100px;position:relative;padding:5px;}</style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -35,12 +36,32 @@
                         <div class="panel-heading" style="background-color: #d9d9d9">
                             <h3 class="panel-title">Cadastro de Estabelecimento</h3>
                         </div>
+							<div class="panel-body">
+								<p>Cadastre aqui os dados seu estabelecimento</p>
+							</div>
                         <div class="panel-body">
-                            <p>Cadastre aqui os dados seu estabelecimento</p>
-                        </div>
-                        <div class="panel-body">
+                           <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">CPF/CNPJ</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input type="text" id="cnpj" name="cnpj" class="form-control"/>
+                                    </div>
+                                    <span class="help-block">Ex: xx.xxx.xxx/xxxx-xx</span>
+                                </div>
+                            </div>   
+                        <!--<div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Email</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input type="text" id="email" name="email" class="form-control"/>
+                                    </div>
+                                    <span class="help-block">Ex: teewaadmin@gmail.com</span>
+                                </div> 
+                            </div> -->
                             <div class="form-group">
-                                <label class="col-md-3 col-xs-12 control-label">Nome</label>
+                                <label class="col-md-3 col-xs-12 control-label">Nome do Estabelecimento </label>
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
@@ -50,80 +71,145 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 col-xs-12 control-label">Email</label>
+                                <label class="col-md-3 col-xs-12 control-label">Telefone geral</label>
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input type="text" id="email" name="email" class="form-control"/>
+                                        <input type="text" id="telefone" name="telefone" class="form-control"/>
                                     </div>
-                                    <span class="help-block">Ex: teewaadmin@gmail.com</span>
+                                    <span class="help-block">Ex: (xx) xxxxx-xxxx</span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 col-xs-12 control-label">CNPJ</label>
+                                <label class="col-md-3 col-xs-12 control-label">Horário de Funcionamento</label>
                                 <div class="col-md-6 col-xs-12">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input type="text" id="cnpj" name="cnpj" class="form-control"/>
-                                    </div>
-                                    <span class="help-block">Ex: xx.xxx.xxx/xxxx-xx</span>
+									<span class="help-block">Deseja definir um horário para receber pedidos?</span>
+									<label class="radio-inline">
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Sim
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Não
+									</label>
+									<div>
+										<div>
+											<label >Domingo</label>
+											<input type="time" name="hora_domingo" id="hora_domingo" >
+											<label >Segunda</label>
+											<input type="time" >
+											<label >Terça</label>
+											<input type="time" >
+											<label >Quarta</label>
+											<input type="time" >
+										</div>
+										<div>
+											
+											<label >Quinta</label>
+											<input type="time" >
+											<label >Sexta</label>
+											<input type="time" >
+											<label >Sábado</label>
+											<input type="time" >
+										</div>
+									</div>   
                                 </div>
                             </div>
-                            <label class="col-md-3 col-xs-12 control-label">Categoria</label>
-                            <div class="col-md-6 col-xs-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                    <input type="text" id="categoria" name="categoria" class="form-control"/>
-                                </div>
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <label class="col-md-3 col-xs-12 control-label">Selecione o logotipo</label>
-                                    <div class="col-md-6">
-                                        <div id="wrapper" style=" margin-top: 20px;">
-                                            <input id="fileUpload" name="fileUpload" multiple="multiple" type="file"/>
-                                                <div id="image-holder" style="height: 200px; width: 200px"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="form-group" >
-                                <label class="col-md-3 col-xs-12 control-label">Endereço</label>
-                                <div class="col-md-6">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input class="form-control" type="text" id="txtEndereco" name="txtEndereco" />
-                                    </div>
-                                    <!--input class="btn btn-default" type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no mapa" /-->
-                                </div>
-                            </div>
-                            <div class="form-group" >
-                                <label class="col-md-3 col-xs-12 control-label">Mapa</label>
-                                <div id="mapa" style="height: 250px; width: 450px" >
-                                </div>
-                                <input type="hidden" id="txtLatitude" name="txtLatitude" />
-                                <input type="hidden" id="txtLongitude" name="txtLongitude" />
-                                <!--input type="submit" value="Enviar" name="btnEnviar" /-->
-                            </div>
-
-                    </div>
-                        <div class="panel-footer">
-                            <button class="btn btn-default">Limpar formulário</button>
-                            <input class="btn btn-primary pull-right" type="submit" value="Cadastrar" name="Enviar">
-                        </div>
-                </form>
-            </div>
+							<div class="form-group">
+								<label class="col-md-3 col-xs-12 control-label"></label>
+								<div class="col-md-6" "checkbox">
+									<span class="help-block">Ao marcar esta opção, nenhum usuário do Teewa conseguirá visualizar sua loja para realizar novas conultas.</span>
+									<label>
+										<input type="checkbox" value="">
+									   Ocultar lojas para consultas
+									</label>
+								</div>
+							</div>	
+                                                      
+					    <!--  <label class="col-md-3 col-xs-12 control-label">Categoria</label>
+						<div class="col-md-6 col-xs-12">
+							<div class="input-group">
+								<span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+								<input type="text" id="categoria" name="categoria" class="form-control"/>
+							</div>
+							<span class="help-block"></span>
+						 </div> -->
+						<label class="col-md-3 col-xs-12 control-label">Distância</label>
+	
+						<div class="col-md-6 col-xs-12">
+							<div class="col-md-6 col-xs-12">
+								<span class="help-block">Você quer limitar os atendimentos por distância?</span>
+							<label class="radio-inline">
+							  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Sim
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Não
+							</label>
+								
+									<input id="ex6" type="range" data-slider-min="1" data-slider-max="50" data-slider-step="1" data-slider-value="10"/>
+									<span id="ex6CurrentSliderValLabel"><span id="ex6SliderVal">10</span>KM</span>
+								
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 col-xs-12 control-label">Descrição</label>
+						<div class="col-md-6">
+							<textarea class="form-control" rows="3" placeholder="Descreva sua loja"></textarea>
+						</div>
+					</div>
+				<!--	<div class="form-group">
+						<div class="row">
+							<label class="col-md-3 col-xs-12 control-label">Selecione o logotipo</label>
+							<div class="col-md-6">
+								<div id="wrapper" style=" margin-top: 20px;">
+									<input id="fileUpload" name="fileUpload" multiple="multiple" type="file"/>
+									<div id="image-holder" style="height: 200px; width: 200px"></div>
+								</div>
+							</div>
+						</div>
+					</div> -->
+					<div class="form-group" >
+						<label class="col-md-3 col-xs-12 control-label">Endereço</label>
+						<div class="col-md-6">
+							<div class="input-group">
+								<span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+								<input class="form-control" type="text" id="txtEndereco" name="txtEndereco" />
+							</div>
+							<!--input class="btn btn-default" type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no mapa" /-->
+						</div>
+					</div>
+					<div class="form-group" >
+						<label class="col-md-3 col-xs-12 control-label">Mapa</label>
+						<div id="mapa" style="height: 250px; width: 450px" >
+						</div>
+						<input type="hidden" id="txtLatitude" name="txtLatitude" />
+						<input type="hidden" id="txtLongitude" name="txtLongitude" />
+						<!--input type="submit" value="Enviar" name="btnEnviar" /-->
+					</div>
+				</form>
+					<!-- form -->
+			</div>
+			<div class="panel-footer">
+				<button class="btn btn-default">Limpar formulário</button>
+				<input class="btn btn-primary pull-right" type="submit" value="Avançar" name="Enviar">
+			</div>                
         </div>
     </div>
+</div>	
 </body>
 
+<!--<script >
+    var slider = new Slider("#ex6");
+    slider.on("slide", function(slideEvt) {
+        $("#ex6SliderVal").text(slideEvt.value);
+    });
+	
+</script> -->
+<script type="text/javascript" src="lib/jquery/jquery.min.js"></script><!-- precisa -->
+<script type="text/javascript" src="lib/bootstrap/js/bootstrap-slider.js.download"></script><!-- precisa -->
 
 <script>
     $(document).ready(function() {
-        $("#fileUpload").on('change', function() {
+	$("#fileUpload").on('change', function() {
             //Get count of selected files
             var countFiles = $(this)[0].files.length;
             var imgPath = $(this)[0].value;
@@ -153,6 +239,11 @@
                 alert("Pls select only images");
             }
         });
+		//Slider de KM
+		$("#ex6").slider();
+				$("#ex6").on('slide', function(slideEvt) {
+					$("#ex6SliderVal").text(slideEvt.value);
+				});
     });
 </script>
 </html>
