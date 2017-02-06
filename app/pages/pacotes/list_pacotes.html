@@ -11,15 +11,26 @@
         <div class="col-md-12">
             <form class="form-horizontal">
                 <div class="panel panel-default">
+
                     <div class="panel-heading">
                         <h3 class="panel-title"> Lista de Pacotes</h3>
+
+                        <div style="float: right; margin-right: 20px;">
+                            <button class="btn btn-danger btn-block" ng-click="apagarPacotes(pacotes)">Apagar Pacotes</button>
+                        </div>
+
+                        <div  style="float: right; margin-right: 20px;">
+                            <a ui-sref="main.pacotes.new" class="btn btn-success right">Novo Pacote</a>
+                        </div>
+
                     </div>
+
                     <div class="panel-body">
-                        <div><a href="#/pacotes/new" class="btn btn-default">Novo Pacote</a></div>
                         <br>
                         <table class="table" >
                             <thead>
                             <tr>
+                                <th></th>
                                 <th>Nome</th>
                                 <th>Preço</th>
                                 <th>Funcionalidades</th>
@@ -27,17 +38,18 @@
                                 <th>Apagar</th>
                             </tr>
                             <tbody>
-                            <tr  ng-repeat="dado in pacotes">
-                                <td>{{dado.nome}}</td>
-                                <td>{{dado.preco}}</td>
+                            <tr  ng-repeat="pacote in pacotes">
+                                <td><input type="checkbox" ng-model="pacote.selecionado"></td>
+                                <td>{{pacote.nome}}</td>
+                                <td>{{pacote.preco}}</td>
                                 <td>
-                                    <span ng-repeat="func in dado.funcionalidades">
+                                    <span ng-repeat="func in pacote.funcionalidades">
                                         {{func}}<br>
                                     </span>
                                 </td>
-                                <td><a ng-href="#/pacotes/{{dado.id}}"><i class="fa fa-edit"></i></a></td>
+                                <td><a ng-href="#/pacotes/{{pacote.id}}"><i class="fa fa-edit"></i></a></td>
 
-                                <td><i class="fa fa-trash-o" ng-click="deletarPacote(dado.id)"></i></td>
+                                <td><i class="fa fa-trash-o" ng-click="deletarPacote(pacote.id)"></i></td>
                             </tr>
                             </tbody>
                         </table>
