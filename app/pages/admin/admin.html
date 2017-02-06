@@ -9,7 +9,7 @@
 
 <ul class="breadcrumb">
     <li><a href="index.html">Home</a></li>
-    <li class="active">Administradores</li>
+    <li class="active"><a ui-sref="main.admin.listar">Administradores</a></li>
 </ul>
 
 <div class="page-title" >
@@ -33,7 +33,8 @@
                         <div style="width: 200px; float: right;">
                             <button class="btn btn-danger btn-block" ng-click="apagarAdministradores(admins)" ng-disabled="!isAdminSelecionado(admins)">Apagar Administradores</button>
                         </div>
-                        <div style="float: right; margin-right: 20px;"><a ui-sref="main.admin.new" class="btn btn-success" ng-click="novoAdmin()">Novo Administrador</a></div>
+                        <div style="margin-right: 20px;float: right;"><a ui-sref="main.admin.new" class="btn btn-success" ng-click="novoAdmin()">Novo Administrador</a></div>
+                        
                     </div>
                     <div class="panel-body">
                         <table class="table " >
@@ -52,8 +53,8 @@
                                 <td><input type="checkbox" ng-model="admin.selecionado"></td>
                                 <td>{{admin.name}}</td>
                                 <td>{{admin.email}}</td>
-                                <td ng-click="editAdministrador(admin)"><i class="fa fa-edit"></i></td>
-                                <td><i class="fa fa-trash-o" ng-click="apagarAdministrador(admins)"></i></td>
+                                <td ng-click="editAdministrador(admin)"><i style="cursor: pointer;" class="fa fa-edit"></i></td>
+                                <td><i style="cursor: pointer;" class="fa fa-trash-o" ng-click="apagarAdministrador(admins)"></i></td>
                             </tr>
                             </tbody>
                         </table>
