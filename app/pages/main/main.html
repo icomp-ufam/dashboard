@@ -1,8 +1,8 @@
 <!-- START PAGE CONTAINER -->
 
-<div  class="page-container">
+<div class="" ng-class="{'page-container': controle()}">
     <!-- START PAGE SIDEBAR ng-show="controle()" -->
-    <div  class="page-sidebar">
+    <div class="" ng-class="{'page-sidebar': controle()}">
     <!-- START X-NAVIGATION -->
         <ul ng-show="controle()" class="x-navigation">
             <!-- DashboardAdmin -->
@@ -216,7 +216,7 @@
     <div class="page-content">
 
         <!-- START X-NAVIGATION VERTICAL -->
-        <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+        <ul ng-show="controle()" class="x-navigation x-navigation-horizontal x-navigation-panel">
             <!-- TOGGLE NAVIGATION -->
             <li class="xn-icon-button">
                 <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
