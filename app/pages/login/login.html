@@ -231,7 +231,7 @@
                     <div class="col-md-12 col-xs-12">
                         <div class="input-group">
                                 <span class="input-group-addon"><span class="fa fa-phone"></span></span>
-                            <input value="55" onkeypress="mascara(this, '## #####-####')" maxlength="13" type="tel" class="form-control"  ng-model="telefone"/>
+                            <input required value="55" onkeypress="mascara(this, '## #####-####')" maxlength="13" type="tel" class="form-control"  ng-model="telefone"/>
                         </div>
                         <br>
                     </div>
@@ -244,7 +244,7 @@
                         </p>
                     </div>
                     <div class="col-md-6">
-                        <button class="btn btn-info btn-block" ng-click="verificaNumero(pais,telefone)">Solicitar</button>
+                        <button class="btn btn-info btn-block" ng-required="telefone > 1" ng-click="verificaNumero(pais,telefone)">Solicitar</button>
                     </div>
                 </div>
 

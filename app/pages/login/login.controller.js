@@ -65,24 +65,32 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
     $scope.loginV  = '';
 
     $scope.verificaNumero = function (pais,numero) {
-        numero = numero.replace(' ', '');
-        numero = numero.replace('-', '');
-        if(pais == null) pais = 55;
-        numero = pais + numero;
-        console.log('numero: ' + numero);
-        for(vendedor in $scope.vendedores.sellers){
-           // console.log($scope.vendedores.sellers[vendedor].mobile);
-            if($scope.vendedores.sellers[vendedor].mobile === numero){
-                $scope.solicitacodigo(numero);
-                $scope.mensagem = '';
-                $scope.Proximo();
-                break;
-            }else{
-                $scope.mensagem = 'Número informado não registrado na base de dados!';
-                $timeout(function() {
+        if(numero == '-') numero = null;
+        if(numero != null){
+            numero = numero.replace(' ', '');
+            numero = numero.replace('-', '');
+            if(pais == null) pais = 55;
+            numero = pais + numero;
+            console.log('numero: ' + numero);
+            for(vendedor in $scope.vendedores.sellers){
+               // console.log($scope.vendedores.sellers[vendedor].mobile);
+                if($scope.vendedores.sellers[vendedor].mobile === numero){
+                    $scope.solicitacodigo(numero);
                     $scope.mensagem = '';
-                }, 2000);
+                    $scope.Proximo();
+                    break;
+                }else{
+                    $scope.mensagem = 'Número informado não registrado na base de dados!';
+                    $timeout(function() {
+                        $scope.mensagem = '';
+                    }, 2000);
+                }
             }
+        }else{
+            $scope.mensagem = 'Informe um número!';
+            $timeout(function() {
+                $scope.mensagem = '';
+            }, 2000);
         }
 
     };
