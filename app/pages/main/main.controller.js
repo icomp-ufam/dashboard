@@ -68,16 +68,18 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 
 		console.log("desconectou!!");
 		if(sair == true){
+            sharedConn.logout();
 			$state.go('main.login.index', {}, {
 				location: "replace",
 				reload: true
 			});
+
 		}else{
+            sharedConn.logout();
 			$state.go('main.login.indexadmin', {}, {
 				location: "replace",
 				reload: true
 			});
-			sharedConn.logout();
 		}
 
     };

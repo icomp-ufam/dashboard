@@ -2,9 +2,8 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
 
     var SharedConnObj = {};
 
-    //SharedConnObj.BOSH_SERVICE = 'https://conversejs.org/http-bind/';
     //SharedConnObj.BOSH_SERVICE = 'http://localhost:7070/http-bind/';
-    SharedConnObj.BOSH_SERVICE = 'http://api.teewa.com.br:7070/http-bind/';
+    SharedConnObj.BOSH_SERVICE = config.BOSH_SERVICE;
     //SharedConnObj.BOSH_SERVICE = 'http://http://10.208.3.171:7070/http-bind/';
     SharedConnObj.connection = null; // The main Strophe connection object.
     SharedConnObj.loggedIn = false;
@@ -43,15 +42,13 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
         str = str.substring(0, str.indexOf('/'));
         return str;
     };
-    //------------------------------------------mantendo a conexão---------------------------------------------------------------
-
-
     //--------------------------------------***END mantendo a conexão***---------------------------------------------------------
+
     //funcao para entrar em todas as salas de chat do vendedor logado
     SharedConnObj.joinChats = function (chats) {
         for(i = 0; i < chats.length; i++){
             //SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.myserver",SharedConnObj.user);
-            SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference.ip-172-31-47-155",SharedConnObj.user);
+            SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference."+config.XMPP_DOMAIN,SharedConnObj.user);
         }
 
         console.log('consegui :)');

@@ -14,6 +14,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.urlPhotos = config.baseUrl + "/photos/";
     $scope.urlFiles = config.baseUrl + "/case_images/";
     $scope.urlChatImages = config.baseUrl + "/chat_images/";
+
     //flags
     $scope.precarregamento = true;
     $scope.carregando = false;
@@ -22,19 +23,26 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.presencaAtual = "";
     $scope.roster = [];
 
-    // id Larissa
+    var XMPP_DOMAIN = config.XMPP_DOMAIN;
     $scope.idVendedor = localStorage.getItem('userID');//'672';
-    //id da loja chat-dashboard
     $scope.idstore =  localStorage.getItem('vendedor_idLoja'); //localStorage.getItem('lojaID');//'118';
 
-    var XMPP_DOMAIN = config.XMPP_DOMAIN;
     // imagem pra ser carregada nas mensagens do chat
     $scope.fotoVendedor = localStorage.getItem('vendedor_foto');
+
+    /*casos_aceitos: "/accepted/cases",
+     novos_casos: "/sellers/news/cases",
+     aceitar_caso: "/cases/accept/xmpp",
+     nao_tenho: "/cases/dont/have",
+     recusar_caso: "/cases/deny",
+     encerra_caso: "/chats/close",
+     denunciar_cliente: "/stores/complaint",
+     envio_de_imagem: "/chats/send/image"*/
 
     $scope.carregarCasosAbertos = function () {
         $http({
 
-            url : config.baseUrl + "/sellers/"+ $scope.idVendedor +"/accepted/cases",
+            url : config.baseUrl + "/sellers/"+ $scope.idVendedor + config.casos_aceitos,
             method : 'get',
             headers : {
                 'Content-Type': 'application/json',
@@ -69,7 +77,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
    $scope.carregarCasosNovos = function () {
         $http({
-            url : config.baseUrl + "/sellers/news/cases",
+            url : config.baseUrl + config.novos_casos,
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
@@ -91,7 +99,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.aceitarCaso = function (idcase) {
         // rota: /cases/accept, metodo PUT, params: idseller, idcase, idstore
         $http({
-            url : config.baseUrl + "/cases/accept/xmpp",
+            url : config.baseUrl + config.aceitar_caso,
             method : 'put',
             headers : {
                 'Content-Type': 'application/json',
@@ -121,10 +129,12 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         });
     };
 
+
+
     $scope.naoTenho = function (idcase) {
 
         $http({
-            url : config.baseUrl + "/cases/dont/have",
+            url : config.baseUrl + config.nao_tenho,
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
@@ -148,7 +158,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
         // so fazer essa parada quando tiver contas de teste
         // rota: /cases/deny, metodo PUT, params: idseller, idcase, idstore
         $http({
-            url : config.baseUrl + "/cases/deny",
+            url : config.baseUrl + config.nao_tenho,
             method : 'put',
             headers : {
                 'Content-Type': 'application/json',
@@ -171,7 +181,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     $scope.encerrarCaso = function (idchat) {
         $http({
-            url : config.baseUrl + "/chats/close",
+            url : config.baseUrl + config.encerra_caso,
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
@@ -202,7 +212,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
     $scope.denunciarCliente = function (idcliente, descricao, tipo) {
         $http({
-            url : config.baseUrl + "/stores/complaint",
+            url : config.baseUrl + config.denunciar_cliente,
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
@@ -248,7 +258,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
 
             // rota deve receber imagem em base64 para fazer upload para o servidor do teewa
             $http({
-                url : config.baseUrl + "/chats/send/image",
+                url : config.baseUrl + config.envio_de_imagem,
                 method : 'post',
                 headers : {
                     'Content-Type': 'application/json',
@@ -322,11 +332,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     $scope.carregarCasosAbertos();
     $scope.carregarCasosNovos();
 
-
-    //realizando conversa
-
-     // Servidor de conexão
-
     $scope.login = function(user) {
         //localStorage.setItem('conectado', JSON.stringify(true));
         sharedConn.login($scope.idVendedor,XMPP_DOMAIN,config.password);
@@ -341,7 +346,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
     };
     //if(localStorage.getItem('conectado') !== 'true')
     $scope.login();
-
 
     $scope.logout = function() {
         console.log("desconectou!!");
@@ -461,7 +465,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             });
             notification.onclick = function () {
                // console.log($scope.chatR);
-                $scope.clickChat($scope.chatR);
+
             }
         }
         else if (Notification.permission !== 'denied') {
@@ -473,7 +477,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
                     });
                     notification.onclick = function () {
                        // console.log($scope.chatR);
-                        $scope.clickChat($scope.chatR);
+
                     }
                 }
             });

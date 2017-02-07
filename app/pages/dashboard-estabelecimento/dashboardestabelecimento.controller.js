@@ -77,10 +77,10 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
 
     var d = {
         value: new Date(),
-    }
+    };
     var novaData = {
         value: new Date(d.value.getTime() - 10080*60000),
-    }
+    };
 
     carregarVendedoresLoja(novaData, d, $scope.idloja);
 
@@ -157,9 +157,9 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
                 'Authorization' : config.token
             },
             data: {
-                'idstore' : '1',
+                'idstore' : idstore,
                 'date_start' : NovaDate_start,
-                'date_end' : NovaDate_end,
+                'date_end' : NovaDate_end
             }
         }).success(function(data,date){
             $scope.atendimentos = data;
@@ -240,10 +240,10 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
             novo += '}';
 
             $scope.atendimentosPorHorasCompleto = JSON.parse(novo);
-            graficoAtendimentoPorHoraTOT(data);
+           /* graficoAtendimentoPorHoraTOT(data);
             graficoAtendimentoPorHoraNEG(data);
             graficoAtendimentoPorHoraNAT(data);
-            graficoAtendimentoPorHoraATE(data);
+            graficoAtendimentoPorHoraATE(data);*/
 
             $scope.data_start = {
                 value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
@@ -275,10 +275,10 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
             }
         }).success(function(data,date){
             $scope.atendimentosPorCategorias = data;
-            graficoAtendimentoPorCategoriaTOT(data);
+            /*graficoAtendimentoPorCategoriaTOT(data);
             graficoAtendimentoPorCategoriaNEG(data);
             graficoAtendimentoPorCategoriaNAT(data);
-            graficoAtendimentoPorCategoriaATE(data);
+            graficoAtendimentoPorCategoriaATE(data);*/
 
             $scope.data_start = {
                 value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
@@ -333,10 +333,10 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
 
             $scope.atendimentosPorDiaSemanas = temp;
 
-            graficoAtendimentoPorDiaSemanaTOT(temp);
+            /*graficoAtendimentoPorDiaSemanaTOT(temp);
             graficoAtendimentoPorDiaSemanaNEG(temp);
             graficoAtendimentoPorDiaSemanaNAT(temp);
-            graficoAtendimentoPorDiaSemanaATE(temp);
+            graficoAtendimentoPorDiaSemanaATE(temp);*/
 
             $scope.data_start = {
                 value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
@@ -369,10 +369,10 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
         }).success(function(data){
             $scope.atendimentosPorDates = data;
 
-            graficoAtendimentoPorDateTOT(data);
+            /*graficoAtendimentoPorDateTOT(data);
             graficoAtendimentoPorDateNEG(data);
             graficoAtendimentoPorDateNAT(data);
-            graficoAtendimentoPorDateATE(data);
+            graficoAtendimentoPorDateATE(data);*/
 
            $scope.data_start = {
                 value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
