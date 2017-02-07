@@ -50,7 +50,7 @@
 
                             <tbody>
                             <tr ng-repeat="admin in admins">
-                                <td><input type="checkbox" ng-model="admin.selecionado"></td>
+                                <td><input style="cursor: pointer;" type="checkbox" ng-model="admin.selecionado"></td>
                                 <td>{{admin.name}}</td>
                                 <td>{{admin.email}}</td>
                                 <td ng-click="editAdministrador(admin)"><i style="cursor: pointer;" class="fa fa-edit"></i></td>
