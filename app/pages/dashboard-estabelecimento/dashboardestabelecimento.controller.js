@@ -97,14 +97,14 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
                 'Authorization' : config.token
             },
             data: {
-                
+
                 'date_start' : date_start,
                 'date_end' : date_end,
                 'idstore' : idstore
             }
         }).success(function(data){
             $scope.denuncias = data;
-                    
+
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
@@ -112,7 +112,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
     };
 
     carregarDenunciasPorData("01/01/2015","24/12/2019", $scope.idloja);
-    
+
     //#######Todos os atendimentos de uma loja#######
     $scope.app = "Atendimentos";
     $scope.atendimentos = [];
@@ -150,21 +150,21 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
 
         $http({
-            url : config.baseUrl + "/dash/calls",
+            url : config.baseUrl + "/dash/calls/store",
             method : 'post',
             headers : {
                 'Content-Type': 'application/json',
                 'Authorization' : config.token
             },
             data: {
+                'idstore' : '1',
                 'date_start' : NovaDate_start,
                 'date_end' : NovaDate_end,
-                'idstore' : idstore
             }
         }).success(function(data,date){
             $scope.atendimentos = data;
             console.log(data);
-            
+
             $scope.data_start = {
                 value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
             };
@@ -184,6 +184,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
         value: new Date(d.value.getTime() - 10080*60000),
     }
 
+    console.log(d);
     var carregarAtendimentosDefult = function () {
         $scope.carregarAtendimentos(novaData, d, $scope.idloja);
     };
@@ -214,7 +215,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
 
             var j = 0;
             var numero;
-            
+
             var novo = '{';
             for (i = 0; i<= 23; i++){
                 if(i == 23){
@@ -237,7 +238,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
                 }
             }
             novo += '}';
-            
+
             $scope.atendimentosPorHorasCompleto = JSON.parse(novo);
             graficoAtendimentoPorHoraTOT(data);
             graficoAtendimentoPorHoraNEG(data);
@@ -294,7 +295,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
     $scope.carregarAtendimentosPorDiaSemana = function (date_start, date_end, idstore) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
-        
+
         $http({
             url : config.baseUrl + "/dash/calls/day_week",
             method : 'post',
@@ -309,7 +310,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
             }
         }).success(function(data,date){
             var temp = [];
-            
+
             for (i = 0; i< 7; i++){
                 let objetosTemp = {
                     ate: 0,
@@ -318,7 +319,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
                     tot: 0,
                     day_of_week: i,
                 }
-                
+
                 for(contData = 0; contData < data.length; contData++){
                     if(i == data[contData].day_of_week){
                         objetosTemp.ate = data[contData].ate;
@@ -329,9 +330,9 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
                 }
                 temp.push(objetosTemp);
             }
-            
+
             $scope.atendimentosPorDiaSemanas = temp;
-            
+
             graficoAtendimentoPorDiaSemanaTOT(temp);
             graficoAtendimentoPorDiaSemanaNEG(temp);
             graficoAtendimentoPorDiaSemanaNAT(temp);
@@ -367,7 +368,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
             }
         }).success(function(data){
             $scope.atendimentosPorDates = data;
-            
+
             graficoAtendimentoPorDateTOT(data);
             graficoAtendimentoPorDateNEG(data);
             graficoAtendimentoPorDateNAT(data);
