@@ -249,8 +249,8 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         url: 'analisesCasos',
         template: '<ui-view></ui-view>'
     }).state('main.analisesCasos.listar', {
-        url: '/listaCasos/:data_startParametro/:data_endParametro',
-        //url: '/listaCasos',
+        //url: '/listaCasos/:data_startParametro/:data_endParametro',
+        url: '/listaCasos',
         templateUrl: 'app/pages/analises/analiseCasos.html',
         controller: 'analiseCtrl',
         activetab: 'analisesCasos'

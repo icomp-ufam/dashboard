@@ -26,7 +26,7 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
     };
 
     $scope.adicionarAdmin = function (admin) {
-        console.log(admin.password);
+        console.log('nome:'+ admin.senha);
         foto = document.querySelector("#filename").files;
         var reader = new FileReader();
         if (foto[0]){
@@ -42,15 +42,15 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
                         'Authorization' : config.token
                     },
                     data: {
-                        'name' : admin.name,
-                        'email' :admin.email,
-                        'password' : admin.password,
-                        'photo' : img_base64
+                        'name' : String(admin.name),
+                        'email' : String(admin.email),
+                        'password' : String(admin.senha),
+                        'photo' : String(img_base64)
                     }
                 }).success(function(data){
                     console.log(data);
                     $scope.carregarAdmins();
-                    $state.go("main.admin.lista")
+                    $state.go("main.admin.lista");
                 }).error(function(error){
                     $scope.message = "Aconteceu um problema: " + error;
                 });
@@ -68,12 +68,14 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
                 },
                 data: {
                     'name' : admin.name,
-                    'email' :admin.email,
-                    'password' : admin.password,
+                    'email' : admin.email,
+                    'password' : admin.senha,
                     'photo' : ""
                 }
             }).success(function(data){
                 console.log(data);
+                $scope.carregarAdmins();
+                $state.go("main.admin.listar");
             }).error(function(error){
                 $scope.message = "Aconteceu um problema: " + error;
             });
@@ -102,13 +104,13 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
                         'idadmin': admin.id,
                         'name': admin.name,
                         'email': admin.email,
-                        'password': admin.password,
+                        'password': admin.senha,
                         'photo' : img_base64
                     }
                 }).success(function(data){
                     console.log(data);
                     $scope.carregarAdmins();
-                    $state.go("main.admin.lista")
+                    $state.go("main.admin.listar");
                 }).error(function(error){
                     $scope.message = "Aconteceu um problema: " + error;
                 });
@@ -130,11 +132,13 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
                     'idadmin': admin.id,
                     'name': admin.name,
                     'email': admin.email,
-                    'password': admin.password,
+                    'password': admin.senha,
                     'photo': ""
                 }
             }).success(function (data) {
                 console.log(data);
+                $scope.carregarAdmins();
+                $state.go("main.admin.listar");
             }).error(function (error) {
                 $scope.message = "Aconteceu um problema: " + error;
             });
