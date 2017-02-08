@@ -2,7 +2,9 @@ angular.module("teewa").controller("formPacotesCtrl", function ($scope, $state, 
     if(localStorage.getItem('loginadmin') === '')
         $state.go('main.login.indexadmin');
     $scope.state = $state;
+
 	$scope.count=0;
+
 
 	$scope.package=[];
 
@@ -30,10 +32,10 @@ angular.module("teewa").controller("formPacotesCtrl", function ($scope, $state, 
 
      $scope.novoPacote = function(pacote){
         pacote.funcionalidades = angular.copy($scope.funcSel);
-        $scope.submissionSuccess=true;
         $scope.pacotes.push(angular.copy(pacote));
         $scope.limparFormulario(pacote);
 
+        $state.go('main.pacotes.list');
      };
 
      $scope.funcSelecionado = function (func) {
@@ -83,7 +85,7 @@ angular.module("teewa").controller("formPacotesCtrl", function ($scope, $state, 
 
 
      $scope.updatePacote = function (pacote){
-          $scope.submissionSuccess=true;
+          $state.go('main.pacotes.list');
       };
 
      $scope.atualizarPacote();
