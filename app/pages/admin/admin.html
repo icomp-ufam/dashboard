@@ -48,8 +48,18 @@
                             </tr>
                             </thead>
 
+                            <thead>
+                                <tr>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.nome" disabled="true"></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.email" placeholder="Email..."></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.nome" disabled="true"></th>
+                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.nome" disabled="true"></th>
+                                </tr>
+                            </thead>
+
                             <tbody>
-                            <tr ng-repeat="admin in admins">
+                            <tr ng-repeat="admin in admins | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
                                 <td><input style="cursor: pointer;" type="checkbox" ng-model="admin.selecionado"></td>
                                 <td>{{admin.name}}</td>
                                 <td>{{admin.email}}</td>
