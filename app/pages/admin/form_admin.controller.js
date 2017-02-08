@@ -2,6 +2,9 @@
  * Created by marcos on 01/12/16.
  */
 angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, config, $state) {
+    if(localStorage.getItem('loginadmin') === ''){
+        $state.go('main.login.indexadmin');
+    }
     $scope.admins = [];
     $scope.admin = [];
 
@@ -143,7 +146,32 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
                 $scope.message = "Aconteceu um problema: " + error;
             });
         }
-    }
+    };
+
+    $scope.apagarAdministrador = function (admin) {
+        var apagar = confirm('Tem certeza que deseja excluir "'+admin.name+'" dos administradores do sistema?');
+        if(apagar == true){
+            $http({
+                url : config.baseUrl + "/dash/remove/admin",
+                method : 'put',
+                headers : {
+                    'Content-Type': 'application/json',
+                    'Authorization' : config.token
+                },
+                data: {
+                    'idadmin': admin.id,
+                }
+            }).success(function(data){
+                $scope.carregarAdmins();
+                
+            }).error(function(error){
+                $scope.message = "Aconteceu um problema: " + error;
+            });
+        }
+
+        $scope.submissionSuccess = "true";
+
+    };
 
     $scope.isAdminSelecionado = function (admins) {
         return admins.some(function (admin) {
@@ -152,9 +180,30 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
     };
 
     $scope.apagarAdministradores = function (admins) {
-        $scope.admins = admins.filter(function (admin) {
-            if (!admin.selecionado) {return admin;}
-        });
+        var apagar = confirm('Tem certeza que deseja excluir os administradores selecionados?');
+        if(apagar == true) {
+            for (admin in admins) {
+                if (admins[admin].selecionado == true) {
+                    $http({
+                        url: config.baseUrl + "/dash/remove/admin",
+                        method: 'put',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': config.token
+                        },
+                        data: {
+                            'idadmin': admins[admin].id,
+                        }
+                    }).success(function (data) {
+                        $scope.carregarAdmins();
+                    }).error(function (error) {
+                        $scope.message = "Aconteceu um problema: " + error;
+                    });
+                }
+            }
+            alert('Os administradores serão excluidos em breve!')
+        }
+
     };
 
     $scope.editAdministrador =  function (admin){
@@ -176,10 +225,14 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
         delete $scope.admin;
     };
 
-    if(localStorage.getItem('loginadmin') === ''){
-        $state.go('main.login.indexadmin');
-    }
+    $scope.ordenarPor = function (campo) {
+        $scope.criterioDeOrdenacao = campo;
+        $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
+    };
+
 
     $scope.carregarAdmins();
 
 });
+
+

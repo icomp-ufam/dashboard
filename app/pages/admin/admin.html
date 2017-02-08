@@ -16,6 +16,8 @@
     <h2><span class="fa fa-user"></span>  Administradores</h2>
 </div>
 
+<div class="alert alert-success" ng-show="submissionSuccess">Excluído com sucesso</div>
+
 <!-- PAGE CONTENT WRAPPER -->
 
 <div class="page-content-wrap">
@@ -30,9 +32,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Estes são os administradores do Teewa Dashboard</h3>
-                        <div style="width: 200px; float: right;">
-                            <button class="btn btn-danger btn-block" ng-click="apagarAdministradores(admins)" ng-disabled="!isAdminSelecionado(admins)">Apagar Administradores</button>
-                        </div>
                         <div style="margin-right: 20px;float: right;"><a ui-sref="main.admin.new" class="btn btn-success" ng-click="novoAdmin()">Novo Administrador</a></div>
                         
                     </div>
@@ -40,31 +39,28 @@
                         <table class="table " >
                             <thead>
                             <tr>
-                                <th></th>
-                                <th ng-click="ordenarPor('nome')" > Nome </th>
-                                <th ng-click="ordenarPor('telefone')" >E-mail</th>
-                                <th>Editar</th>
-                                <th>Apagar</th>
+                                <th ng-click="ordenarPor('name')" > Nome </th>
+                                <th ng-click="ordenarPor('email')" >E-mail</th>
+                                <th style="text-align: center;">Editar / Apagar</th>
                             </tr>
                             </thead>
 
                             <thead>
                                 <tr>
-                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.nome" disabled="true"></th>
                                     <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome..."></th>
                                     <th ><input class="form-control" type="text" ng-model="criterioDeBusca.email" placeholder="Email..."></th>
-                                    <th ><input class="form-control" type="text" ng-model="criterioDeBusca.nome" disabled="true"></th>
                                     <th ><input class="form-control" type="text" ng-model="criterioDeBusca.nome" disabled="true"></th>
                                 </tr>
                             </thead>
 
                             <tbody>
                             <tr ng-repeat="admin in admins | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                <td><input style="cursor: pointer;" type="checkbox" ng-model="admin.selecionado"></td>
                                 <td>{{admin.name}}</td>
                                 <td>{{admin.email}}</td>
-                                <td ng-click="editAdministrador(admin)"><i style="cursor: pointer;" class="fa fa-edit"></i></td>
-                                <td><i style="cursor: pointer;" class="fa fa-trash-o" ng-click="apagarAdministrador(admins)"></i></td>
+                                <td style="text-align: center;">
+                                    <i ng-click="editAdministrador(admin)" style="cursor: pointer;" class="fa fa-edit"></i>
+                                    <i ng-click="apagarAdministrador(admin)" style="cursor: pointer;" class="fa fa-trash-o"></i>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
