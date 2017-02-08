@@ -1,9 +1,6 @@
 angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
-    if(sessionStorage.getItem('loginadmin') === ''){
-        $urlRouterProvider.when('/login', '/login/login');
+
         $urlRouterProvider.otherwise('/login/login');
-    }else{
-        $urlRouterProvider.otherwise('/dashboard/index');
         $urlRouterProvider.when('/dashboard', '/dashboard/index');
         $urlRouterProvider.when('/admin', '/admin/lista');
         $urlRouterProvider.when('/clientes', '/clientes/lista');
@@ -17,14 +14,14 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         $urlRouterProvider.when('dashboard-vendedor', 'dashboard-vendedor/index');
         $urlRouterProvider.when('dashboard-estabelecimento', 'dashboard-estabelecimento/index');
         $urlRouterProvider.when('/perfil', '/perfil/perfil');
-
         $urlRouterProvider.when('/pacotes-escolher', '/pacotes/escolha');
         $urlRouterProvider.when('/pacotes', '/pacotes/lista');
         $urlRouterProvider.when('/pacotes-list', '/pacotes/list');
         $urlRouterProvider.when('/pacotes-new', '/pacotes/new');
         $urlRouterProvider.when('/pacotes-edit', '/pacotes/edit');
+        $urlRouterProvider.when('/login', '/login/login');
 
-    }
+
     $stateProvider.state('main', {
         url: '/',
         templateUrl: 'app/pages/main/main.html',

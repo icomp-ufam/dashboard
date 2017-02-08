@@ -73,9 +73,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 				location: "replace",
 				reload: true
 			});
-
 		}else{
-            sharedConn.logout();
 			$state.go('main.login.indexadmin', {}, {
 				location: "replace",
 				reload: true
