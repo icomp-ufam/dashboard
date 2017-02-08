@@ -50,7 +50,7 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
                 }).success(function(data){
                     console.log(data);
                     $scope.carregarAdmins();
-                    $state.go("main.admin.lista");
+                    $state.go("main.admin.listar");
                 }).error(function(error){
                     $scope.message = "Aconteceu um problema: " + error;
                 });

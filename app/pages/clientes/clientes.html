@@ -1,6 +1,6 @@
 <ul class="breadcrumb">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="#">Clientes</a> </li>
+    <li><a ui-sref="main.dashboard.listar">Home</a></li>
+    <li><a ui-sref="main.clientes.listar">Clientes</a> </li>
 </ul>
 <div class="page-title">
     <h2><span class="fa fa-users"></span> Clientes</h2>
@@ -59,7 +59,7 @@
                         <ul class="panel-controls">
                             <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
                             <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
-                            <li><a  ng-click="clickThisClientesGraphic((data_start | date: 'dd/MM/y'), (data_end | date: 'dd/MM/y'))" ><span title="gráfico" class="fa fa-bar-chart-o"></span></a></li>
+                            <li><a style="cursor: pointer;" ng-click="clickThisClientesGraphic((data_start | date: 'dd/MM/y'), (data_end | date: 'dd/MM/y'))" ><span title="gráfico" class="fa fa-bar-chart-o"></span></a></li>
                             <!--<li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>-->
                         </ul>
                     </div>
