@@ -48,7 +48,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
-                                        <input type="password" class="form-control" ng-model="admin.senha" ng-required="true"/>
+                                        <input type="password" class="form-control" ng-model="admin.senha" name="senha" ng-required="true"/>
                                     </div>
                                     <!--<span class="help-block">aviso</span>-->
                                 </div>
@@ -60,6 +60,7 @@
                                         <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
                                         <input type="password" class="form-control" name="confirme_senha" ng-model="admin.confirme_senha" ng-required="true"/>
                                     </div>
+                                    <p class="btn btn-danger" ng-if="!(admin.senha == admin.confirme_senha) || administradorForm.confirme_senha.$dirty">Senhas não são iguais!</p>
                                     <!--<span class="help-block">aviso</span>-->
                                 </div>
                             </div>
