@@ -84,7 +84,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 
     };
 
-	//Verificando Login de Estabelecimento
+	//Verificando Login de Estabeleciment
 	if(localStorage.getItem('Estabelecimento')==='true'){
 		$scope.Estabelecimento = true;
 	}else{
@@ -94,6 +94,41 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 	$scope.verificaEstabelecimento = function(){
 		return $scope.Estabelecimento;
 	};
+
+	//Carregando dados vendedor
+	$scope.carregaVendedor = function () {
+		$http({
+
+			url : config.baseUrl + "/users/"+ $scope.infoVendedorID,
+			method : 'get',
+			headers : {
+				'Content-Type': 'application/json',
+				'Authorization' : config.token
+			}
+		}).success(function(data){
+			console.log(data);
+			$scope.infoVendedor = data.user;
+			//guardando informações do vendedor
+			localStorage.setItem('vendedor_foto', $scope.infoVendedor.photo);
+			localStorage.setItem('vendedor_nome', $scope.infoVendedor.name);
+			localStorage.setItem('vendedor_avaliacao', $scope.infoVendedor.avg_rating);
+			localStorage.setItem('vendedor_qtdAvalicoes', $scope.infoVendedor.sum_rating);
+			localStorage.setItem('vendedor_qtdAtendimentos', $scope.infoVendedor.ate);
+			localStorage.setItem('vendedor_idLoja', $scope.infoVendedor.idstore);
+			$scope.infoVendedorPhoto = $scope.infoVendedor.photo;
+			$scope.infoVendedorNome = $scope.infoVendedor.name;
+			$scope.infoVendedorAvgRating = $scope.infoVendedor.avg_rating;
+			$scope.infoVendedorSumRating = $scope.infoVendedor.sum_rating;
+			$scope.infoVendedorQtdAtd = $scope.infoVendedor.ate;
+
+		}).error(function(error){
+			$scope.message = "Aconteceu um problema: " + error;
+		});
+	};
+
+	if($scope.infoVendedorID != '')
+		$scope.carregaVendedor();
+
 	//Stub para estabelecimento
 	$scope.loginEstabelecimento = function() {
 		//Estabelecimento
@@ -108,7 +143,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
     $scope.carregaInfoAdmin = function () {
         $http({
 
-            url : config.baseUrl + "/stores/"+ $scope.infoLojaID,
+            url : config.baseUrl + "/stores/"+ localStorage.getItem('vendedor_idLoja'),
             method : 'get',
             headers : {
                 'Content-Type': 'application/json',
@@ -124,42 +159,6 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
         });
     };
     $scope.carregaInfoAdmin();
-
-    //Carregando dados vendedor
-    $scope.carregaVendedor = function () {
-		$http({
-
-			url : config.baseUrl + "/users/"+ $scope.infoVendedorID,
-			method : 'get',
-			headers : {
-				'Content-Type': 'application/json',
-				'Authorization' : config.token
-			}
-		}).success(function(data){
-		    console.log(data);
-			$scope.infoVendedor = data.user;
-			//guardando informações do vendedor
-			localStorage.setItem('vendedor_foto', $scope.infoVendedor.photo);
-			localStorage.setItem('vendedor_nome', $scope.infoVendedor.name);
-			localStorage.setItem('vendedor_avaliacao', $scope.infoVendedor.avg_rating);
-			localStorage.setItem('vendedor_qtdAvalicoes', $scope.infoVendedor.sum_rating);
-			localStorage.setItem('vendedor_qtdAtendimentos', $scope.infoVendedor.ate);
-            localStorage.setItem('vendedor_idLoja', $scope.infoVendedor.idstore);
-            $scope.infoVendedorPhoto = $scope.infoVendedor.photo;
-            $scope.infoVendedorNome = $scope.infoVendedor.name;
-			$scope.infoVendedorAvgRating = $scope.infoVendedor.avg_rating;
-			$scope.infoVendedorSumRating = $scope.infoVendedor.sum_rating;
-			$scope.infoVendedorQtdAtd = $scope.infoVendedor.ate;
-
-
-
-        }).error(function(error){
-			$scope.message = "Aconteceu um problema: " + error;
-		});
-	};
-
-	if($scope.infoVendedorID != '')
-		$scope.carregaVendedor();
 
     //Carregando casos para a barra de notificações
 	$scope.carregarCasos = function () {

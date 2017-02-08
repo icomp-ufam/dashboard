@@ -9,7 +9,7 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
 
     $scope.app = "Dashboard";
     $scope.mensagem = '';
-
+    $scope.infoLojaName = '';
     //Autentica o acesso para o usuário administrador.
     $scope.validaadmin = function (email, password){
         $http({
@@ -110,14 +110,15 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
         }).success(function(data){
             $scope.usuario = data;
             $scope.infoVendedorNome = $scope.usuario.user.name;
+            $scope.infoVendedorID = $scope.usuario.user.id;
             localStorage.setItem('userID',$scope.usuario.user.id);
-
-            $scope.infoVendedorID = localStorage.getItem('userID');
             //se o usuario for dono de loja
             if($scope.usuario.user.store != null){
+                console.log('sou dono de loja!!!')
                 localStorage.setItem('lojaID',$scope.usuario.user.store.id);
                 $scope.infoLojaName=$scope.usuario.user.store.name;
             }
+            console.log($scope.infoLojaName);
             console.log("idloja: " + localStorage.getItem('lojaID'));
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
@@ -143,9 +144,11 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
                 localStorage.setItem('loginV', $scope.infoVendedorNome);
                 localStorage.setItem('vendedor', JSON.stringify(true));
                 //se usuario for dono de loja
+                console.log('Info loja name '+$scope.infoLojaName);
                 if($scope.infoLojaName != ''){
                     localStorage.setItem('loginE', $scope.infoLojaName);
                     localStorage.setItem('Estabelecimento', JSON.stringify(true));
+                    console.log('Entrou!!')
                 }
                 $scope.login();
                 $scope.mensagem = '';
