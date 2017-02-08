@@ -33,7 +33,7 @@
                             <div class="col-md-6 col-xs-12">
                                 <div class="input-group" ng-class="{'has-error' : form.pacote.preco.$invalid && !form.pacote.preco.$pristine}">
                                     <span class="input-group-addon"><span class="fa fa-money"></span></span>
-                                    <input ng-required="true" ng-model="pacote.preco" id="preco" type="text" name="preco" ng-required="true" class="form-control" only-digits/>
+                                    <input type="text" ng-model="pacote.preco" ng-required="true" class="form-control" format="number" />
                                 </div>
                                 <p ng-show="form.pacote.preco.$invalid" class="help-block">Preço é obrigatório. Ex: 99.99 </p>
                             </div>
