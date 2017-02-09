@@ -13,7 +13,7 @@
         <div class="col-md-3">
 
                 <!-- START WIDGET REGISTRED -->
-                <div class="widget widget-default widget-item-icon"  ng-click="clickThisAnaliseCasos((data_start | date: 'dd/MM/y'), (data_end | date: 'dd/MM/y'))">
+                <div style="cursor: pointer;" class="widget widget-default widget-item-icon"  ng-click="clickThisAnaliseCasos((data_start | date: 'dd/MM/y'), (data_end | date: 'dd/MM/y'))">
                     <div class="widget-item-left">
                         <span class="fa fa-search"></span>
                     </div>
@@ -32,7 +32,7 @@
             <div class="col-md-3">
 
                 <!-- START WIDGET REGISTRED -->
-                <div class="widget widget-default widget-item-icon" ui-sref="main.clientes.NDeconsultasGraphic">
+                <div style="cursor: pointer;" class="widget widget-default widget-item-icon" ui-sref="main.clientes.NDeconsultasGraphic">
                     <div class="widget-item-left">
                         <span class="fa fa-user"></span>
                     </div>
@@ -67,12 +67,12 @@
                         <p class="text-info"> filtrar: </p>
                         <div class="row">
                             <div class="col-md-2">
-                                Data Inicio: <input class="form-control col-md3" type="date"  ng-model="data_start.value">
+                                Data Inicio: <input style="cursor: text;" class="form-control col-md3" type="date"  ng-model="data_start.value">
                                 
                             </div>
                             <div class="col-md-1"></div>
                             <div class="col-md-2">
-                                Data Fim: <input class="form-control col-md3" type="date"  ng-model="data_end.value">
+                                Data Fim: <input style="cursor: text;" class="form-control col-md3" type="date"  ng-model="data_end.value">
                             </div>
                             <div class="col-md-1"></div>
                             <div class="col-md-2">
