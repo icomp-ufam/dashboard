@@ -32,29 +32,34 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
         console.log(NovaDate_start);
         console.log(NovaDate_end);
-        $http({
+	    
+	$http({
 
-            url : config.baseUrl + "/analytics/cases",
-            method : 'GET',
-            headers : {
-                'Content-Type' : 'application/json',
-            'Authorization' : config.token
-            }
-            }).success(function(data){
-                    $scope.cases = data;
-					
-                    $scope.data_start = {
-                        value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+		url : config.baseUrl + "/analytics/cases",
+		method : 'post',
+		headers : {
+        	      	'Content-Type' : 'application/json',
+               		'Authorization' : config.token,
+		},
+		data:{
+               		'date_start' : NovaDate_start,
+               		'date_end' : NovaDate_end
+		}
+		}).success(function(data){
+                	$scope.cases = data;
 
-                };
-                $scope.data_end = {
-                    value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
-
-                };
-            }).error(function(error, data){
-                    $scope.message = "Aconteceu um problema: " + data;
-                    console.log("login error");
-        });
+                	$scope.data_start = {
+                       		value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+			};
+				
+			$scope.data_end = {
+                   		value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+			};
+		}).error(function(error, data){
+                $scope.message = "Aconteceu um problema: " + data;
+                console.log("login error");
+       	});	    
+	    
     };
 
     $scope.orderByFunction = function(friend){
