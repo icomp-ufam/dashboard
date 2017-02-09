@@ -67,7 +67,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="case in cases | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao | orderBy:orderByFunction:reverse">
+                            <tr ng-repeat="case in cases | filter:criterioDeBusca"> <!-- estava antes dentro da tag " | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao" | orderBy:orderByFunction:reverse" -->
+                            
 
                                     <td>{{case.caso}}</td>
                                     <td>{{case.consulta}}</td>
