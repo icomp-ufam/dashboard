@@ -28,8 +28,8 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
     $scope.carregarCases = function (date_start, date_end) {
         //console.log(" data_startParamDentroo:" + date_start.value);
 
-        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
-        var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear();
+        var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear();
         console.log(NovaDate_start);
         console.log(NovaDate_end);
 	    
