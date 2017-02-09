@@ -10,15 +10,15 @@
     <h1 class="textCenter">Não existem casos abertos! </h1>
 </div>
 <div class="alert alert-success " ng-if="$root.statusConexao == 'Conectado!'">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Conectado!</strong>
 </div>
-<div class="alert alert-warning" ng-if="$root.statusConexao == 'Conectando!'">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Conectando<span id="alvo">...</span></strong>
+<div class="alert alert-warning" ng-if="$root.statusConexao == 'Conectando!' && (chatAtual != 'carregando')">
+    <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Conectando<span id="alvo">{{ponto}}</span></strong>
 </div>
 <div class="alert alert-danger" ng-if="$root.statusConexao == 'Desconectado, tente recarregar a pagina!'">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Desconectado!</strong>
 </div>
 <!-- START ROW -->
@@ -112,11 +112,12 @@
                         </div>
 
                         <div class="text">
-                            <div class="heading">
+                            <div class="heading pull-right">
                                 <!-- Exibe o nome do usuário conforme seu perfil -->
-                                <a ng-if="message.userId.includes(idVendedor)"> Você </a>
                                 <a ng-if="!message.userId.includes(idVendedor)">{{chatAtual.userTo.name}}</a>
-                                <span class="date">{{message.time | limitTo:19}}</span>
+                                <span ng-if="message.userId.includes(idVendedor)" class="date"> {{message.time | limitTo:19}} </span>
+                                <span ng-if="!message.userId.includes(idVendedor)" class="date">{{message.time | limitTo:19}}</span>
+                                <a ng-if="message.userId.includes(idVendedor)" > Você </a>
                             </div>
 
                             <!-- Exibe texto da mensagem -->
@@ -147,9 +148,9 @@
                 <div class="panel-body panel-body-search">
                     <form name="dados">
                         <div class="input-group">
-                            <input name="envia" type="text" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..." />
+                            <input name="envia" type="text" onkeypress="enviarEnter(event)" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..." />
                             <div class="input-group-btn">
-
+                                <button style=" visibility: hidden"></button>
                                 <!-- funcao uploadFile() envia apenas a legenda, pois o arquivo é tratado no controller usando o id -->
                                 <button type="submit" ng-click="showSendMessage()" id="enviar" class="btn btn-default">
                                     <span class="fa fa-send"></span>
@@ -311,9 +312,6 @@
         }
     }
 
-</script>
-
-<script>
     //funcão que verifica se o campo está vazio e enviar via tecla enter
     function enviarEnter(e){
         var tecla=(window.event)?event.keyCode:e.which;

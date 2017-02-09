@@ -283,7 +283,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             console.log('Error: ', error);
         };
     };
-    //$scope.joinChats();
 
     //recebe informacoes da caixa de chat que foi selecionada
     $scope.clickChat = function (chat) {
@@ -295,13 +294,20 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
         //atualiza id da sala de chat
         $scope.to_id = ChatDetails.getTo();
+        document.getElementById(
+            "msg"
+        ).scrollTop = document.getElementById(
+            "msg"
+        ).scrollHeight;
         $scope.sc();
-        if($scope.carregando == false){
-            $scope.precarregamento = false;
-            $scope.joinChats();
-            $scope.carregando = true;
-        }
         $scope.presencaAtual = $scope.roster[$scope.chatAtual.userTo.id];
+    };
+    $scope.sc = function (){
+        document.getElementById(
+            "msg"
+        ).scrollTop = document.getElementById(
+            "msg"
+        ).scrollHeight;
     };
 
     // carrega informacoes da mensagem com imagem no modal
@@ -312,22 +318,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         } else{
             document.querySelector("#text-image-big").innerHTML = "Imagem";
         }
-
     };
-
     //move a barra de rolagem para a mensagem mais recente ao clicar sobre a conversa
-    $scope.flag = false;
-    $scope.sc = function (){
-        if($scope.flag == false) {
-            $scope.flag = true;
-            $scope.sc();
-        }
-        document.getElementById(
-            "msg"
-        ).scrollTop = document.getElementById(
-            "msg"
-        ).scrollHeight;
-    };
 
     $scope.carregarCasosAbertos();
     $scope.carregarCasosNovos();
@@ -464,7 +456,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
                 body: $scope.messages[$scope.messages.length - 1].text
             });
             notification.onclick = function () {
-               // console.log($scope.chatR);
 
             }
         }
@@ -476,7 +467,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
                         body: $scope.messages[$scope.messages.length - 1].text
                     });
                     notification.onclick = function () {
-                       // console.log($scope.chatR);
 
                     }
                 }
@@ -613,19 +603,25 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         }
     });
 
-    /*var ponto = '.';
-    var timer;
+    $scope.ponto = '.';
     $scope.animaPonto = function() {
-        document.getElementById('alvo').innerHTML = ponto;
-        if( ponto == '...' ) {
-            ponto = '.';
+        if( $scope.ponto == '...' ) {
+            $scope.ponto = '.';
         } else {
-            ponto += '.';
+            $scope.ponto += '.';
+        }
+        if($rootScope.statusConexao != 'Conectado!')
+            $timeout(function () {
+                $scope.animaPonto();
+            }, 300);
+        else{
+            $timeout.cancel();
+            $scope.joinChats();
+            $scope.precarregamento = false;
+            $timeout(function() {
+                $rootScope.statusConexao = '';
+            }, 4000);
         }
     };
-    timer = $timeout(function () {
-        $scope.animaPonto();
-    }, 300);
-    if($rootScope.statusConexao == 'Conectado!')
-        $timeout.cancel(timer);*/
+    $scope.animaPonto();
 });

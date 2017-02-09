@@ -19,6 +19,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
             sessionStorage.setItem('rid', null );
             sessionStorage.setItem('sid', null);
             sessionStorage.setItem('jid', null);
+            sessionStorage.setItem('conection', null);
         }
     });
 
@@ -62,7 +63,9 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
         SharedConnObj.connection = new Strophe.Connection(
             SharedConnObj.BOSH_SERVICE, {
                 'keepalive': true
-            }); // We initialize the Strophe connection.
+            }
+        );// We initialize the Strophe connection.
+
         //Se já ouver uma conexão continua conectado, se não, inicia uma nova;
         if (SharedConnObj.rid != null || SharedConnObj.sid != null || SharedConnObj.jid != null) {
             //rid + 1 para seguir o fluxo de requisições
@@ -73,28 +76,27 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
                 pass,
                 SharedConnObj.onConnect);
         }
-
     };
-
     //On connect XMPP
     SharedConnObj.onConnect = function(status) {
         if (status == Strophe.Status.CONNECTING) {
             $rootScope.statusConexao = 'Conectando!';
             console.log('Strophe is connecting.');
         } else if (status == Strophe.Status.CONNFAIL) {
+            $rootScope.statusConexao = 'Desconectado, tente recarregar a pagina!';
             console.log('Strophe failed to connect.');
         } else if (status == Strophe.Status.DISCONNECTING) {
+            $rootScope.statusConexao = 'Desconectado, tente recarregar a pagina!';
             console.log('Strophe is disconnecting.');
         } else if (status == Strophe.Status.DISCONNECTED) {
             $rootScope.statusConexao = 'Desconectado, tente recarregar a pagina!';
             console.log('Strophe is disconnected.');
         } else if (status == Strophe.Status.CONNECTED) {
-            sessionStorage.setItem('conectou', JSON.stringify(true));
-            //alert('conectou!');
+            $rootScope.statusConexao = 'Conectado!';
+
             SharedConnObj.connection.addHandler(SharedConnObj.onMessage, null, 'message', null, null, null);
             SharedConnObj.connection.send($pres().tree());
             SharedConnObj.loggedIn = true;
-            $rootScope.statusConexao = 'Conectado!';
             console.log('Conectou!');
 
             var iq = $iq({
@@ -128,7 +130,19 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
                     });
 
                 });
-
+            //guardando parametros da conexão atual
+           /* SharedConnObj.connection.xmlOutput = function (status) {
+                RID = $(status).attr('rid');
+                SID = $(status).attr('sid');
+                JID = SharedConnObj.connection.jid;
+                sessionStorage.setItem('rid', RID);
+                sessionStorage.setItem('sid', SID);
+                sessionStorage.setItem('jid', JID);
+                //console.log(' XMLOUTPUT INFO - OUTGOING RID=' + RID + ' [SID=' + SID + '] [JID ='+JID+']');
+                //log(' XMLOUTPUT INFO - OUTGOING XML = \n'+e.outerHTML);
+                 //set some variables to keep track of our rid and sid
+            };
+            sessionStorage.setItem('conection', 'ja tinha conexao');*/
             SharedConnObj.loadRoster();
 
         }
