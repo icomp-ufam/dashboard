@@ -29,7 +29,7 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
     };
 
     $scope.adicionarAdmin = function (admin) {
-        console.log('nome:'+ admin.senha);
+        //console.log('nome:'+ admin.senha);
         foto = document.querySelector("#filename").files;
         var reader = new FileReader();
         if (foto[0]){

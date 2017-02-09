@@ -79,12 +79,14 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
     //On connect XMPP
     SharedConnObj.onConnect = function(status) {
         if (status == Strophe.Status.CONNECTING) {
+            $rootScope.statusConexao = 'Conectando!';
             console.log('Strophe is connecting.');
         } else if (status == Strophe.Status.CONNFAIL) {
             console.log('Strophe failed to connect.');
         } else if (status == Strophe.Status.DISCONNECTING) {
             console.log('Strophe is disconnecting.');
         } else if (status == Strophe.Status.DISCONNECTED) {
+            $rootScope.statusConexao = 'Desconectado, tente recarregar a pagina!';
             console.log('Strophe is disconnected.');
         } else if (status == Strophe.Status.CONNECTED) {
             sessionStorage.setItem('conectou', JSON.stringify(true));
@@ -92,7 +94,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
             SharedConnObj.connection.addHandler(SharedConnObj.onMessage, null, 'message', null, null, null);
             SharedConnObj.connection.send($pres().tree());
             SharedConnObj.loggedIn = true;
-
+            $rootScope.statusConexao = 'Conectado!';
             console.log('Conectou!');
 
             var iq = $iq({

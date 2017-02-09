@@ -9,7 +9,18 @@
 <div ng-if="(chatAtual == 'vazio')">
     <h1 class="textCenter">Não existem casos abertos! </h1>
 </div>
-
+<div class="alert alert-success " ng-if="$root.statusConexao == 'Conectado!'">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Conectado!</strong>
+</div>
+<div class="alert alert-warning" ng-if="$root.statusConexao == 'Conectando!'">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Conectando<span id="alvo">...</span></strong>
+</div>
+<div class="alert alert-danger" ng-if="$root.statusConexao == 'Desconectado, tente recarregar a pagina!'">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Desconectado!</strong>
+</div>
 <!-- START ROW -->
 <div ng-if="(chatAtual != 'carregando' && chatAtual != 'vazio')" class="row">
     <!-- START MESSAGES -->

@@ -23,7 +23,7 @@
             <li class="xn-profile">
                 <!-- Dashbord Admin -->
                 <a ng-show="!verifica() && !verificaEstabelecimento()" class="profile-mini">
-                    <img src="app/assets/images/users/no-image.jpg" alt="Admin"/>
+                    <img ng-src="{{urlPhotos}}{{infoAdminPhoto}}" alt="Admin"/>
                 </a>
                 <!-- Dashbord Vendedor -->
                 <a ng-show="verifica() && !verificaEstabelecimento()" class="profile-mini">

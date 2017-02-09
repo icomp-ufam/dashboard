@@ -2413,12 +2413,12 @@ label.valid {
   border-color: #90b456;
 }
 .alert-info {
-  background-color: #95c243;
+  background-color: #36b7e3;
   color: #FFF;
   border-color: #36b7e3;
 }
 .alert-warning {
-  background-color: #95c243;
+  background-color:  #fe9e19;
   color: #FFF;
   border-color: #fe9e19;
 }

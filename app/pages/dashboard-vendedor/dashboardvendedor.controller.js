@@ -1,7 +1,7 @@
 /**
  * Created by lgpbentes on 09/01/17.
  */
-angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $http, config, $state , sharedConn, Chats, ChatDetails) {
+angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $timeout, $rootScope, $http, config, $state , sharedConn, Chats, ChatDetails) {
     if(localStorage.getItem('loginV') === '')
         $state.go('main.login.index');
     $scope.app = "Dashboard Vendedor";
@@ -612,4 +612,20 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $h
             }
         }
     });
+
+    /*var ponto = '.';
+    var timer;
+    $scope.animaPonto = function() {
+        document.getElementById('alvo').innerHTML = ponto;
+        if( ponto == '...' ) {
+            ponto = '.';
+        } else {
+            ponto += '.';
+        }
+    };
+    timer = $timeout(function () {
+        $scope.animaPonto();
+    }, 300);
+    if($rootScope.statusConexao == 'Conectado!')
+        $timeout.cancel(timer);*/
 });

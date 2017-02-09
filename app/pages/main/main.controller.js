@@ -15,6 +15,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
     $scope.infoVendedorQtdAtd = localStorage.getItem('vendedor_qtdAtendimentos');
 
     $scope.infoAdminNome = localStorage.getItem('loginadmin');
+    $scope.infoAdminPhoto = localStorage.getItem('fotoadmin');
 
 	$scope.infoLojaName = localStorage.getItem('loginE');
     $scope.infoLojaID = localStorage.getItem('lojaID');
