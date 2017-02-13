@@ -83,13 +83,13 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
             $rootScope.statusConexao = 'Conectando!';
             console.log('Strophe is connecting.');
         } else if (status == Strophe.Status.CONNFAIL) {
-            $rootScope.statusConexao = 'Desconectado, tente recarregar a pagina!';
+            $rootScope.statusConexao = 'Desconectado!';
             console.log('Strophe failed to connect.');
         } else if (status == Strophe.Status.DISCONNECTING) {
-            $rootScope.statusConexao = 'Desconectado, tente recarregar a pagina!';
+            $rootScope.statusConexao = 'Desconectado!';
             console.log('Strophe is disconnecting.');
         } else if (status == Strophe.Status.DISCONNECTED) {
-            $rootScope.statusConexao = 'Desconectado, tente recarregar a pagina!';
+            $rootScope.statusConexao = 'Desconectado!';
             console.log('Strophe is disconnected.');
         } else if (status == Strophe.Status.CONNECTED) {
             $rootScope.statusConexao = 'Conectado!';

@@ -17,9 +17,9 @@
     <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Conectando<span id="alvo">{{ponto}}</span></strong>
 </div>
-<div class="alert alert-danger" ng-if="$root.statusConexao == 'Desconectado, tente recarregar a pagina!'">
+<div class="alert alert-danger" ng-if="$root.statusConexao == 'Desconectado!'">
     <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Desconectado!</strong>
+    <strong>Desconectado, recarregue a pagina!</strong>
 </div>
 <!-- START ROW -->
 <div ng-if="(chatAtual != 'carregando' && chatAtual != 'vazio')" class="row">

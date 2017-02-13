@@ -25,6 +25,7 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
             }
         }).success(function(data){
             $scope.admins = data;
+            console.log($scope.admins.admin);
             //console.log($scope.admins);
             if($scope.admins.code == '200'){
                 localStorage.setItem('loginadmin',$scope.admins.admin.name);
@@ -145,11 +146,11 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
                 localStorage.setItem('loginV', $scope.infoVendedorNome);
                 localStorage.setItem('vendedor', JSON.stringify(true));
                 //se usuario for dono de loja
-                console.log('Info loja name '+$scope.infoLojaName);
+                //console.log('Info loja name '+$scope.infoLojaName);
                 if($scope.infoLojaName != ''){
                     localStorage.setItem('loginE', $scope.infoLojaName);
                     localStorage.setItem('Estabelecimento', JSON.stringify(true));
-                    console.log('Entrou!!')
+                    //console.log('Entrou!!')
                 }
                 $scope.login();
                 $scope.mensagem = '';
@@ -172,14 +173,14 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
     XMPP_DOMAIN = config.XMPP_DOMAIN;
 
     $scope.login = function() {
-        sharedConn.login($scope.infoVendedorID,XMPP_DOMAIN,config.password);
+        /*sharedConn.login($scope.infoVendedorID,XMPP_DOMAIN,config.password);
         $scope.chats = sharedConn.getRoster();
         $scope.hideTime = true;
         $scope.data = {};
         $scope.myId = sharedConn.getConnectObj().jid;
         $scope.messages = [];
         $scope.to_id = ChatDetails.getTo();
-
+*/
         localStorage.setItem('vendedor', JSON.stringify(true));
         $scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
 
