@@ -20,7 +20,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     $scope.carregando = false;
     $scope.loading = false;
 
-    $scope.presencaAtual = "";
+    $scope.presencaAtual = "offline";
     $scope.roster = [];
 
     var XMPP_DOMAIN = config.XMPP_DOMAIN;
@@ -295,9 +295,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
     //recebe informacoes da caixa de chat que foi selecionada
     $scope.clickChat = function (chat) {
-        console.log($scope.roster);
         //recebe chat clicado
-        console.log(chat);
         $scope.chatAtual = chat;
         //configurando qual sala de chat esta sendo escutada
         ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
