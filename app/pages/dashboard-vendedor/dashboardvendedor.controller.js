@@ -320,7 +320,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         }
     };
     //move a barra de rolagem para a mensagem mais recente ao clicar sobre a conversa
-
     $scope.carregarCasosAbertos();
     $scope.carregarCasosNovos();
 
@@ -357,7 +356,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     };
 
     // To automate login
-
     // XEP-0066 - Envio de imagem
     // monta uma mensagem XML no formato abaixo
     /*<message from='stpeter@jabber.org/work' to='MaineBoy@jabber.org/home'>
@@ -417,7 +415,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         console.log('I sent ' + to + ': ' + message, reply.tree());
     };
 
-
     $scope.showSendMessage = function() {
         $scope.sendMsg($scope.to_id, $scope.data.message);
         var d = new Date();
@@ -430,6 +427,11 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         });
 
         delete $scope.data.message;
+    };
+    $scope.msgtop = function (from) {
+        return function (chats) {
+            return from.includes($scope.chats[0].id);
+        }
     };
     //verifica de quem foi a última mensagem recebida
     $scope.remetente = 'desconhecido';
