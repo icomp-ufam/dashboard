@@ -189,7 +189,8 @@
                     <img ng-if="!chat.userTo.photo" ng-src='app/assets/images/users/no-image.jpg'  alt="User"/>
 
                     <!--Exibe o nome do cliente, ou indica que o caso foi encerrado-->
-                    <span class="contacts-title">{{(chat.iduser_close && 'Usuário encerrou o caso' ) || chat.userTo.name}}</span>
+                    <span class="contacts-title">{{(chat.iduser_close && 'Usuário encerrou o caso ' ) || chat.userTo.name +' '}}<span ng-if="qteMsgsChats['chat'+chat.id] > 0" class="label label-danger">{{qteMsgsChats['chat'+chat.id]}}</span></span>
+
 
                     <!--data do chat com filtro-->
                     <p>{{chat.created_at | limitTo:19}}</p>

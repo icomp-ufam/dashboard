@@ -106,7 +106,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 				'Authorization' : config.token
 			}
 		}).success(function(data){
-			console.log(data);
+			//console.log(data);
 			$scope.infoVendedor = data.user;
 			//guardando informações do vendedor
 			localStorage.setItem('vendedor_foto', $scope.infoVendedor.photo);
