@@ -1,60 +1,56 @@
 <ul class="breadcrumb">
-    <li><a ui-sref="main.dashboardEstabelecimento.index">Home</a></li>
-    <li><a ui-sref="main.dashboardEstabelecimento.anunciosEstabelecimento">Anúncios</a> </li>
+    <li><a ui-sref="main.dashboard.listar">Home</a></li>
+    <li class="active"><a ui-sref="main.dashboardEstabelecimento.anunciosEstabelecimento">Anúncios</a></li>
 </ul>
-<div class="page-title">
-    <h2><span class="fa fa-cubes"></span> Anúncios </h2>
+<div class="page-title" >
+    <h2><span class="fa fa-window-restore"></span>Anúncios</h2>
 </div>
+
 <!-- PAGE CONTENT WRAPPER -->
+
 <div class="page-content-wrap">
-    <div class="row">
-        <div class="col-md-12">
-            <form class="form-horizontal">
+    <!-- END BREADCRUMB -->
+    <div class="page-container-boxed">
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-12">
+                <!-- START DEFAULT DATATABLE -->
                 <div class="panel panel-default">
-
                     <div class="panel-heading">
-                        <h3 class="panel-title"> Lista de Anúncios</h3>
-
-                        <div style="float: right; margin-right: 20px;">
-                            <button class="btn btn-danger btn-block" ng-click="apagarPacotes(pacotes)">Apagar Anuncios</button>
-                        </div>
-
-                        <div  style="float: right; margin-right: 20px;">
-                            <a ui-sref="main.pacotes.new" class="btn btn-success right">Novo Anuncio</a>
+                        <h3 class="panel-title">Estes são os anúncios do Teewa Dashboard</h3>
+                        <div style="margin-right: 20px;float: right;">
+                            <span ng-click="goAnuncioForm()" class="btn btn-success">Novo Anúncio</span>
                         </div>
                     </div>
-
                     <div class="panel-body">
-                        <br>
-                        <table class="table" >
+                        <table class="table " >
                             <thead>
                             <tr>
-                                <th></th>
-                                <th>Nome</th>
-                                <th>Preço</th>
-                                <th>Funcionalidades</th>
+                                <th>Título</th>
+                                <th>Descriçao</th>
+                                <th>Data</th>
+                                <th>Publicado</th>
                                 <th>Editar</th>
-                                <th>Apagar</th>
                             </tr>
-                            <tbody>
-                            <tr  ng-repeat="pacote in pacotes">
-                                <td><input type="checkbox" ng-model="pacote.selecionado"></td>
-                                <td>{{pacote.nome}}</td>
-                                <td>{{pacote.preco}}</td>
-                                <td>
-                                    <span ng-repeat="func in pacote.funcionalidades">
-                                        {{func}}<br>
-                                    </span>
-                                </td>
-                                <td><a ng-href="#/pacotes/{{pacote.id}}"><i class="fa fa-edit"></i></a></td>
+                            </thead>
 
-                                <td><i class="fa fa-trash-o" ng-click="deletarPacote(pacote.id)"></i></td>
+                            <tbody>
+                            <tr ng-repeat="anuncio in anuncios">
+                                <td>{{anuncio.title}}</td>
+                                <td>{{anuncio.description}}</td>
+                                <td>{{anuncio.created_at}}</td>
+                                <td><i class="{{anuncio.isActive ? 'fa fa-check' : 'fa fa-ban'}}" ></i></td>
+                                <td ng-click="goAnuncioForm(anuncio)"><i style="cursor: pointer;" class="fa fa-edit"></i></td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
+
                 </div>
-            </form>
+
+            </div>
         </div>
     </div>
 </div>

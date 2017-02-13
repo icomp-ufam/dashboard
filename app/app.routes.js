@@ -303,6 +303,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         templateUrl: 'app/pages/dashboard-estabelecimento/anuncios/anuncios-estabelecimento.html',
         controller: 'dashboardEstabelecimentoCtrl',
         activetab: 'anunciosEstabelecimento'
+    }).state('main.dashboardEstabelecimento.anunciosEstabelecimentoForm', {
+        url: '/anuncios-estabelecimento-form',
+        templateUrl: 'app/pages/dashboard-estabelecimento/anuncios/anuncio-estabelecimento-form.html',
+        controller: 'dashboardEstabelecimentoCtrl',
+        activetab: 'anunciosEstabelecimentoForm'
     }).state('main.dashboardEstabelecimento.denunciasEstabelecimento', {
         url: '/denuncias-estabelecimento',
         templateUrl: 'app/pages/dashboard-estabelecimento/denuncias/denuncias-estabelecimento.html',
