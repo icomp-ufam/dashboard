@@ -153,6 +153,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             $scope.message = "Aconteceu um problema: " + error;
         });
     };
+    
+    
 
     $scope.recusarCaso = function (idcase) {
         // so fazer essa parada quando tiver contas de teste
@@ -177,6 +179,13 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
+    };
+    
+    $scope.deixarEstabelecimento = function (){
+        var deixar = confirm('Tem certeza que deseja deixar o estabelecimento?');
+        if (deixar == true){
+
+        }
     };
 
     $scope.encerrarCaso = function (idchat) {
