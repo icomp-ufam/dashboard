@@ -59,6 +59,7 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
         localStorage.setItem('vendedor_nome', '');
 		localStorage.setItem('loginE', '');
 		localStorage.setItem('lojaID', '');
+		localStorage.setItem('lojaIDvendedor', '');
 		//se estabelecimento
         localStorage.setItem('Estabelecimento', JSON.stringify(false));
         $scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));

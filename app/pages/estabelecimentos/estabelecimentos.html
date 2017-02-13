@@ -96,27 +96,27 @@
                                 <th> Detalhes</th>
                             </tr>
                             <tr>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome..."></th>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.address" placeholder="Endereço..."></th>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.n_vendedores" placeholder="Qtd Vendedores..."></th>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.qtd_avaliacoes" placeholder="Qtd Avaliações..."></th>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.media" placeholder="Média..."></th>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.atendimentos" placeholder="Qtd Atendimentos..."></th>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.consultas" placeholder="Qtd Consultas..."></th>
-                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.percentual" placeholder="% Atendimentos..."></th>
+                                <th> <input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome..."></th>
+                                <th> <input class="form-control" type="text" ng-model="criterioDeBusca.address" placeholder="Endereço..."></th>
+                                <th> <input class="form-control" type="text" ng-model="criterioDeBusca.n_vendedores" placeholder="Qtd Vendedores..."></th>
+                                <th> <input class="form-control" type="text" ng-model="criterioDeBusca.qtd_avaliacoes" placeholder="Qtd Avaliações..."></th>
+                                <th> <input class="form-control" type="text" ng-model="criterioDeBusca.media" placeholder="Média..."></th>
+                                <th> <input class="form-control" type="text" ng-model="criterioDeBusca.atendimentos" placeholder="Qtd Atendimentos..."></th>
+                                <th> <input class="form-control" type="text" ng-model="criterioDeBusca.consultas" placeholder="Qtd Consultas..."></th>
+                                <th> <input class="form-control" type="text" ng-model="criterioDeBusca.percentual" placeholder="% Atendimentos..."></th>
                                 <th> </th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr  ng-repeat="estabelecimento in estabelecimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao | orderBy: 'name'">
-                                <td>{{estabelecimento.name}}</td>
-                                <td>{{estabelecimento.address}}</td>
-                                <td>{{estabelecimento.n_vendedores}}</td>
-                                <td>{{estabelecimento.qtd_avaliacoes}}</td>
-                                <td>{{estabelecimento.media | number:1}}</td>
-                                <td>{{estabelecimento.atendimentos}}</td>
-                                <td>{{estabelecimento.consultas}}</td>
-                                <td>{{estabelecimento.percentual}}</td>
+                            <tr ng-repeat="estabelecimento in estabelecimentos | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao | orderBy: 'name'">
+                                <td> {{estabelecimento.name}}</td>
+                                <td> {{estabelecimento.address}}</td>
+                                <td> {{estabelecimento.n_vendedores}}</td>
+                                <td> {{estabelecimento.qtd_avaliacoes}}</td>
+                                <td> {{estabelecimento.media | number:1}}</td>
+                                <td> {{estabelecimento.atendimentos}}</td>
+                                <td> {{estabelecimento.consultas}}</td>
+                                <td> {{estabelecimento.percentual}}</td>
                                 <td>
                                     <!--<button class="btn btn-default" ui-sref="main.vendedores.listar">-->
                                     <button class="btn btn-default" ng-click="clickVendedores(estabelecimento.id)">

@@ -3,14 +3,12 @@
  * Alter by duivilly on 23/01/17.
  * Altered by Saymon on 25/01/17. ** Indenta o código e Corrige datas do filtro de atendimentos e vendedores **
  */
-
-
-// /var/www/html/dashboard/lib/angular/angular-md5.js
-angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($filter, $scope, $http, config, $state , sharedConn, Chats, ChatDetails) {
-    if(localStorage.getItem('loginE') === '')
-        $state.go('main.login.index');
-    $scope.idloja = localStorage.getItem('lojaID');//1; //1 == Teewa
+angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($scope, $http, config, $state, $stateParams, sharedConn, Chats, ChatDetails) {
+    $scope.idloja = localStorage.getItem('lojaID');
     //Perfil
+    /*if(localStorage.getItem('loginE') === '')
+        $state.go('main.login.index');*/
+    console.log('teste '+ $scope.idloja);
     $scope.nomePerfil= "Minha Loja";
     $scope.enderecoPerfil= "Rua do pão";
     $scope.categoriaPerfil= "Informática";
@@ -166,7 +164,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($fi
             }
         }).success(function(data,date){
             $scope.atendimentos = data;
-           //console.log(data);
+            console.log(data);
 
             $scope.data_start = {
                 value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),

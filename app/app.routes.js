@@ -273,16 +273,14 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         url: '/perfil',
         templateUrl: 'app/pages/perfil/perfil.html',
         controller: 'form_adminCtrl'
-    })
-
-    .state('main.dashboardEstabelecimento', {
+    }).state('main.dashboardEstabelecimento', {
         url: 'dashboard-estabelecimento',
         template: '<ui-view></ui-view>'
     }).state('main.dashboardEstabelecimento.index', {
-    url: '/index',
-    templateUrl: 'app/pages/dashboard-estabelecimento/dashboard-estabelecimento.html',
-    controller: 'dashboardEstabelecimentoCtrl',
-    activetab: 'dashboardEstabelecimento'
+        url: '/index/:idstore',
+        templateUrl: 'app/pages/dashboard-estabelecimento/dashboard-estabelecimento.html',
+        controller: 'dashboardEstabelecimentoCtrl',
+        activetab: 'dashboardEstabelecimento'
     }).state('main.dashboardEstabelecimento.perfilEstabelecimento', {
         url: '/perfil-estabelecimento',
         templateUrl: 'app/pages/dashboard-estabelecimento/perfil/perfil-estabelecimento.html',
