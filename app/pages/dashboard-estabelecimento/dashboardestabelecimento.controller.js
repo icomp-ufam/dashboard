@@ -7,8 +7,8 @@
 
 // /var/www/html/dashboard/lib/angular/angular-md5.js
 angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($filter, $scope, $http, config, $state , sharedConn, Chats, ChatDetails) {
-  //  if(localStorage.getItem('loginE') === '')
-    //    $state.go('main.login.index');
+    if(localStorage.getItem('loginE') === '')
+        $state.go('main.login.index');
     $scope.idloja = localStorage.getItem('lojaID');//1; //1 == Teewa
     //Perfil
     $scope.nomePerfil= "Minha Loja";
@@ -417,6 +417,10 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($fi
         $scope.anuncio;
     }
 
+    $scope.goAnuncioForm = function(anuncio){
+        $state.go('main.dashboardEstabelecimento.anunciosEstabelecimentoForm');
+        localStorage.setItem('anuncio', JSON.stringify(anuncio));
+    };
 
     $scope.saveAnuncioForm = function(anuncio, novo){
         $.getScript("app/assets/js/md5.js", function(){
@@ -502,6 +506,10 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($fi
 
 
          });
+    };
+
+    $scope.limparFormulario = function (anuncio) {
+            delete $scope.anuncio;
     };
 
     $scope.imageUpload = function(event){
