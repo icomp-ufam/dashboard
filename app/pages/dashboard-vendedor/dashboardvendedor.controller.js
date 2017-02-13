@@ -602,15 +602,15 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     });
 
     $scope.$on('msgPresence', function(event, data) {
+        console.log(data);
         if(data.jid){
             jid = data.jid.split('@')[0];
             $scope.roster[jid] = data.pres;
 
             if(data.jid.includes($scope.chatAtual.userTo.id)){
-                $scope.$apply(function () {
-                    $scope.presencaAtual = data.pres;
-                });
+                $scope.presencaAtual = data.pres;
             }
+            $scope.$apply();
         }
     });
 
