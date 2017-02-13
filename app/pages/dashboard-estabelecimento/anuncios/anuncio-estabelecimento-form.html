@@ -1,0 +1,116 @@
+<style>
+    .thumb{
+        width:100px;
+        margin:5px;
+        float:left;
+    }
+
+    .uploader{
+        clear:both;
+    }
+
+    .imageForm{
+        height:100px;
+    }
+</style>
+
+<ul class="breadcrumb">
+    <li><a ui-sref="main.dashboard.listar">Home</a></li>
+    <li class="active"><a ui-sref="main.dashboardEstabelecimento.anunciosEstabelecimento">Anúncios</a></li>
+
+</ul>
+<div class="page-title">
+    <h2><span class="fa fa-window-restore"></span>Anúncios</h2>
+</div>
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-content-wrap">
+    <div class="row">
+        <div class="col-md-12">
+            <form ng-model="anuncio" class="form-horizontal">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"> {{anuncio.id ? 'Atualize aqui seu anúncio!' : 'Cadastre aqui seu anúncio!'}}</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-12 control-label">Título</label>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="input-group" >
+                                    <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                    <input type="text" ng-required="true" ng-model="anuncio.title" class="form-control"/>
+                                </div>
+                                <p ng-show="form.anuncio.titulo.$invalid" class="help-block"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-12 control-label">Descrição</label>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="input-group" >
+                                    <span class="input-group-addon"></span></span>
+                                    <textarea ng-required="true" ng-model="anuncio.description" class="form-control" name="comment" ></textarea>
+                                </div>
+                                <p ng-show="form.anuncio.descricao.$invalid" class="help-block"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="col-md-3 col-xs-12 control-label">Consultas via postagem</label>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox"  ng-model="anuncio.case_enabled" class="form-check-input">
+                                        Desejo aceitar Consultas via este post.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Criar -->
+                        <div ng-if="anuncio.id ? false : true" class="form-group">
+                            <label class="col-md-3 col-xs-12 control-label">Adicionar uma imagem</label>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="imageForm">
+                                    <div ng-repeat="step in stepsModel">
+                                        <img class="thumb" ng-src="{{step}}" />
+                                    </div>
+                                    <div>
+                                        <input ng-model-instant onchange="angular.element(this).scope().imageUpload(event)" type="file" id="filename" class="fileinput btn-primary" title="Escolher arquivo" ng-model="anuncio.imagem"/>
+                                        <span class="help-block">Faça upload da imagem</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Editar -->
+                        <span ng-if="anuncio.id ? true : false">
+                            <div class="form-group">
+                                 <label class="col-md-3 col-xs-12 control-label"></label>
+                                <div class="col-md-6 col-xs-12">
+                                    <span class="fa fa-thumbs-o-up">&nbsp;{{anuncio.count_like}}</span>
+                                    <span class="fa fa-thumbs-o-down">&nbsp;{{anuncio.count_dislike}}</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                 <label class="col-md-3 col-xs-12 control-label"></label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <button class="{{anuncio.isActive ? 'btn btn-success btn-sm' : 'btn btn-danger btn-sm'}}" ng-click="changeCheck()">{{anuncio.isActive ? 'Publicar' : 'Suspender'}}</button>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default" ng-click="limparFormulario(anuncio)">Limpar formulário</button>
+                        <button class="btn btn-primary pull-right" ng-click="saveAnuncioForm(anuncio, anuncio.id ? false : true)">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

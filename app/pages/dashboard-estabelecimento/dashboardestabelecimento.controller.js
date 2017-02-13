@@ -3,11 +3,12 @@
  * Alter by duivilly on 23/01/17.
  * Altered by Saymon on 25/01/17. ** Indenta o código e Corrige datas do filtro de atendimentos e vendedores **
  */
-angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($scope, $http, config, $state , sharedConn, Chats, ChatDetails) {
-    if(localStorage.getItem('loginE') === '')
-        $state.go('main.login.index');
-    $scope.idloja = localStorage.getItem('lojaID');//1; //1 == Teewa
+angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($scope, $http, config, $state, $stateParams, sharedConn, Chats, ChatDetails) {
+    $scope.idloja = localStorage.getItem('lojaID');
     //Perfil
+    /*if(localStorage.getItem('loginE') === '')
+        $state.go('main.login.index');*/
+    console.log('teste '+ $scope.idloja);
     $scope.nomePerfil= "Minha Loja";
     $scope.enderecoPerfil= "Rua do pão";
     $scope.categoriaPerfil= "Informática";
@@ -385,6 +386,155 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
             console.log("login error");
         });
     };
+
+    $scope.anuncios;
+    $scope.stepsModel = [];
+
+    $scope.carregarAnunciosEstabelecimento = function(){
+        $http({
+            url : config.baseUrl + "/promos/stores/"+$scope.idloja,
+            method : 'get',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+             data: {
+                    'id': $scope.idloja
+             }
+        }).success(function(data){
+           $scope.anuncios = data.promos;
+        }).error(function(error){
+           $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
+
+    if (typeof localStorage.getItem('anuncio') !== "undefined"  && localStorage.getItem('anuncio') !== "undefined") {
+        $scope.anuncio = angular.fromJson(localStorage.getItem('anuncio'));
+    }else{
+        $scope.anuncio;
+    }
+
+    $scope.goAnuncioForm = function(anuncio){
+        $state.go('main.dashboardEstabelecimento.anunciosEstabelecimentoForm');
+        localStorage.setItem('anuncio', JSON.stringify(anuncio));
+    };
+
+    $scope.saveAnuncioForm = function(anuncio, novo){
+        $.getScript("app/assets/js/md5.js", function(){
+            var data, url, method;
+             if(novo){
+                foto = document.querySelector("#filename").files;
+                var reader = new FileReader();
+                if (foto[0]){
+                    reader.readAsDataURL(foto[0]);
+                    var file;
+                    reader.onload = function () {
+                        img_base64 = String(reader.result.split(',')[1]);
+                        $http({
+                           url : config.baseUrl + '/promos/create',
+                           method : 'post',
+                           headers : {
+                               'Content-Type': 'application/json',
+                               'Authorization' : config.token
+                           },
+                           data : {'title' : anuncio.title,
+                                   'description' : anuncio.description,
+                                   'image' : img_base64,
+                                   'hash':  CryptoJS.MD5(String($filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss')+$scope.idloja)),
+                                   'expires_at': $filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss -0400'),
+                                   'idstore': $scope.idloja,
+                                   'case_enabled': String(anuncio.case_enabled),
+                                   'url':  null,
+                           }
+                        }).success(function(data){
+                            console.log(data);
+                            $state.go("main.dashboardEstabelecimento.anunciosEstabelecimento");
+                        }).error(function(error){
+                            $scope.message = "Aconteceu um problema: " + error;
+                        });
+
+                    };
+                }else{
+                    $http({
+                       url : config.baseUrl + '/promos/create',
+                       method : 'post',
+                       headers : {
+                           'Content-Type': 'application/json',
+                           'Authorization' : config.token
+                       },
+                       data : {'title' : anuncio.title,
+                               'description' : anuncio.description,
+                               'image' :  null,
+                               'hash':  CryptoJS.MD5(String($filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss')+$scope.idloja)),
+                               'expires_at': $filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss -0400'),
+                               'idstore': $scope.idloja,
+                               'case_enabled': String(anuncio.case_enabled),
+                               'url':  null,
+                       }
+                    }).success(function(data){
+                        console.log(data);
+                        $state.go("main.dashboardEstabelecimento.anunciosEstabelecimento");
+                    }).error(function(error){
+                        $scope.message = "Aconteceu um problema: " + error;
+                    });
+                }
+            }else{
+                $http({
+                   url : config.baseUrl + '/promos/stores',
+                   method : 'put',
+                   headers : {
+                       'Content-Type': 'application/json',
+                       'Authorization' : config.token
+                   },
+                   data : {'idpromo':anuncio.id,
+                          'title' : anuncio.title,
+                          'description' : anuncio.description,
+                          'idstore': $scope.idloja,
+                          'isActive': String(anuncio.isActive),
+                          'case_enabled': String(anuncio.case_enabled)
+                    }
+                }).success(function(data){
+                    console.log(data);
+                    $state.go("main.dashboardEstabelecimento.anunciosEstabelecimento");
+                }).error(function(error){
+                    $scope.message = "Aconteceu um problema: " + error;
+                });
+            }
+
+
+         });
+    };
+
+    $scope.limparFormulario = function (anuncio) {
+            delete $scope.anuncio;
+    };
+
+    $scope.imageUpload = function(event){
+         $scope.stepsModel = [];
+         var files = event.target.files;
+
+         for (var i = 0; i < files.length; i++) {
+             var file = files[i];
+                 var reader = new FileReader();
+                 reader.onload = $scope.imageIsLoaded;
+                 reader.readAsDataURL(file);
+         }
+    };
+
+    $scope.imageIsLoaded = function(e){
+        $scope.$apply(function() {
+            $scope.stepsModel.push(e.target.result);
+        });
+    };
+
+    $scope.changeCheck = function(){
+        if($scope.anuncio.isActive==true) $scope.anuncio.isActive=false;
+        else $scope.anuncio.isActive=true;
+    };
+
+
+    $scope.carregarAnunciosEstabelecimento();
 
     $scope.carregarAtendimentos(novaData, d, $scope.idloja);
     $scope.carregarAtendimentosPorHora(novaData, d, $scope.idloja);

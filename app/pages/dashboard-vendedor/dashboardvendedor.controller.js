@@ -20,7 +20,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     $scope.carregando = false;
     $scope.loading = false;
 
-    $scope.presencaAtual = "";
+    $scope.presencaAtual = "offline";
+    $scope.qteMsgsChats = [];
     $scope.roster = [];
 
     var XMPP_DOMAIN = config.XMPP_DOMAIN;
@@ -65,6 +66,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
             //atualiza id da sala de chat
             $scope.to_id = ChatDetails.getTo();
+            $scope.initQteMsg();
 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
@@ -153,6 +155,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             $scope.message = "Aconteceu um problema: " + error;
         });
     };
+    
+    
 
     $scope.recusarCaso = function (idcase) {
         // so fazer essa parada quando tiver contas de teste
@@ -177,6 +181,13 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
+    };
+    
+    $scope.deixarEstabelecimento = function (){
+        var deixar = confirm('Tem certeza que deseja deixar o estabelecimento?');
+        if (deixar == true){
+
+        }
     };
 
     $scope.encerrarCaso = function (idchat) {
@@ -286,9 +297,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
     //recebe informacoes da caixa de chat que foi selecionada
     $scope.clickChat = function (chat) {
-        console.log($scope.roster);
         //recebe chat clicado
-        console.log(chat);
         $scope.chatAtual = chat;
         //configurando qual sala de chat esta sendo escutada
         ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
@@ -299,9 +308,12 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         ).scrollTop = document.getElementById(
             "msg"
         ).scrollHeight;
+        $scope.qteMsgsChats['chat'+$scope.chatAtual.id] = 0;
+        //console.log($scope.qteMsgsChats);
         $scope.sc();
         $scope.presencaAtual = $scope.roster[$scope.chatAtual.userTo.id];
     };
+
     $scope.sc = function (){
         document.getElementById(
             "msg"
@@ -320,7 +332,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         }
     };
     //move a barra de rolagem para a mensagem mais recente ao clicar sobre a conversa
-
     $scope.carregarCasosAbertos();
     $scope.carregarCasosNovos();
 
@@ -357,7 +368,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     };
 
     // To automate login
-
     // XEP-0066 - Envio de imagem
     // monta uma mensagem XML no formato abaixo
     /*<message from='stpeter@jabber.org/work' to='MaineBoy@jabber.org/home'>
@@ -417,7 +427,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         console.log('I sent ' + to + ': ' + message, reply.tree());
     };
 
-
     $scope.showSendMessage = function() {
         $scope.sendMsg($scope.to_id, $scope.data.message);
         var d = new Date();
@@ -430,6 +439,11 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         });
 
         delete $scope.data.message;
+    };
+    $scope.msgtop = function (from) {
+        return function (chats) {
+            return from.includes($scope.chats[0].id);
+        }
     };
     //verifica de quem foi a última mensagem recebida
     $scope.remetente = 'desconhecido';
@@ -548,6 +562,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
                         received: false
                     });
                 }else{
+                    $scope.qteMsgsChats[from.split('@')[0]]++;
                     $scope.messages.push({
                             userId: from,
                             text: textMsg,
@@ -558,6 +573,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
                     $scope.notificacao(from);
                     $("#teste").trigger('click');
                 }
+
 
                 $scope.$apply();
                 document.getElementById(
@@ -578,7 +594,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     };
 
     $scope.findMsgById = function (idMsg) {
-        console.log(idMsg);
         for (i = 0; i < $scope.messages.length; i++){
                 if($scope.messages[i].id == idMsg){
                     $scope.messages[i].received = true;
@@ -591,15 +606,15 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     });
 
     $scope.$on('msgPresence', function(event, data) {
+        //console.log(data);
         if(data.jid){
             jid = data.jid.split('@')[0];
             $scope.roster[jid] = data.pres;
 
             if(data.jid.includes($scope.chatAtual.userTo.id)){
-                $scope.$apply(function () {
-                    $scope.presencaAtual = data.pres;
-                });
+                $scope.presencaAtual = data.pres;
             }
+            $scope.$apply();
         }
     });
 
@@ -624,4 +639,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         }
     };
     $scope.animaPonto();
+
+    $scope.initQteMsg = function (){
+        $scope.chats.forEach(function (value) {
+            $scope.qteMsgsChats['chat'+value.id] = 0
+        });
+    }
 });

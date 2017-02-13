@@ -31,13 +31,13 @@
                 </a>
                 <!-- Dashbord Estabelecimento -->
                 <a  ng-show="verificaEstabelecimento() && verifica()" class="profile-mini">
-                    <img src="app/assets/images/users/no-image.jpg" alt="Admin"/>
+                    <img ng-src="{{urlPhotos}}{{infoVendedorPhoto}}" alt="Admin"/>
                 </a>
 
                 <div class="profile">
                     <!-- Dashbord Admin -->
                     <div ng-show="!verifica() && !verificaEstabelecimento()" class="profile-image">
-                        <img src="app/assets/images/users/no-image.jpg" alt="Admin"/>
+                        <img ng-src="{{urlPhotos}}{{infoAdminPhoto}}" alt="Admin"/>
                     </div>
                     <!-- Dashbord Vendedor -->
                     <div ng-show="verifica() && !verificaEstabelecimento()" class="profile-image">
@@ -55,13 +55,13 @@
                     <!-- Dashbord Vendedor -->
                     <div ng-show="verifica() && !verificaEstabelecimento()" class="profile-data">
                         <div  class="profile-data-name">{{infoVendedorNome}}</div>
-                        Loja: {{infoLojaName}}
-                        <div class="profile-data-title">Vendedor</div>
+                        <div class="profile-data-title">Vendedor de {{infoLojaName}} </div>
+
                     </div>
                     <!-- Dashbord Estabelecimento -->
                     <div ng-show="verificaEstabelecimento()  && verifica()" class="profile-data">
                         <div  class="profile-data-name">{{infoVendedorNome}}</div>
-                        <div class="profile-data-title">Dono de Estabelecimento</div>
+                        <div class="profile-data-title">Dono de {{infoLojaName}}</div>
                     </div>
                 </div>
             </li>

@@ -11,7 +11,8 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
     $scope.rating = [];
 
     $scope.clickVendedores=function(idloja) {
-        $state.go("main.vendedores.listar", { idloja: idloja });
+        localStorage.setItem('lojaID', idloja);
+        $state.go('main.dashboardEstabelecimento.index');
     };
 
     $scope.carregarPorData = function (date_start, date_end) {

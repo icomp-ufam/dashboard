@@ -17,9 +17,9 @@
     <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Conectando<span id="alvo">{{ponto}}</span></strong>
 </div>
-<div class="alert alert-danger" ng-if="$root.statusConexao == 'Desconectado, tente recarregar a pagina!'">
+<div class="alert alert-danger" ng-if="$root.statusConexao == 'Desconectado!'">
     <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Desconectado!</strong>
+    <strong>Desconectado, recarregue a pagina!</strong>
 </div>
 <!-- START ROW -->
 <div ng-if="(chatAtual != 'carregando' && chatAtual != 'vazio')" class="row">
@@ -34,8 +34,6 @@
 
                     <!-- Caso não existam casos carregados, exibe "Chat" -->
                     <h4><span class="fa fa-search"></span> {{chatAtual.case.name+'      ' || 'Chat     '}}</h4>
-                    <span ng-if="(presencaAtual == 'online')"><i class="fa fa-user pull-left" style="color:green; padding: 0px;  margin: 0">{{'  cliente '+presencaAtual}}</i></span>
-                    <span ng-if="(presencaAtual == 'offline')"><i class="fa fa-user-times pull-left" style="color:red; padding:0; margin:0">{{'    cliente '+presencaAtual}}</i></span>
 
                 </div>
 
@@ -58,6 +56,11 @@
                 </ul>
             </div>
             <!-- END PAINEL SUPERIOR DO CHAT-->
+            <p style="background-color: #F6F6F6">
+                <span ng-if="(presencaAtual == 'online')"><i class="fa fa-user pull-left" ></i></span>
+                <span ng-if="(presencaAtual == 'offline')"><i class="fa fa-user-times pull-left"></i></span>
+                Cliente {{presencaAtual}}
+            </p>
 
             <!-- START MENSAGENS DO CHAT ATUAL -->
             <div id="msg"  class="content-frame-body-right" style="overflow-y:scroll;height:430px;width:100%;">
@@ -88,7 +91,7 @@
                             <br>
                             <!--Exibe imagem da consulta, caso exista-->
                             <!-- O clique na imagem, abre um modal com a imagem em tamanho maior -->
-                            <img ng-click="open_image_modal(urlFiles+chatAtual.case.file, chatAtual.case.name)" data-toggle="modal" data-target="#modal_open_image" ng-show="chatAtual.case.file" ng-src="{{ urlFiles+chatAtual.case.file }}" width="200" height="200">
+                            <img ng-click="open_image_modal(urlFiles+chatAtual.case.file, chatAtual.case.name)" data-toggle="modal" data-target="#modal_open_image" ng-show="chatAtual.case.file" ng-src="{{ urlFiles+chatAtual.case.file }}" style="max-width: 70%; max-height:50%">
                         </div>
                     </div>
                     <!-- END PRIMEIRA MENSAGEM DA CONSULTA -->
@@ -128,7 +131,7 @@
                             <br ng-show="message.image">
 
                             <!-- O clique na imagem, abre um modal com a imagem em tamanho maior -->
-                            <img ng-click="open_image_modal(message.image, message.text)" data-toggle="modal" data-target="#modal_open_image" ng-show="message.image" ng-src="{{message.image}}" style="max-width:500px; max-height:300px" >
+                            <img ng-click="open_image_modal(message.image, message.text)" data-toggle="modal" data-target="#modal_open_image" ng-show="message.image" ng-src="{{message.image}}" style="max-width:70%; max-height:50%" >
 
                             <!-- Relatorio de entrega da mensagem -->
                             <div class="pull-right" >
@@ -186,7 +189,8 @@
                     <img ng-if="!chat.userTo.photo" ng-src='app/assets/images/users/no-image.jpg'  alt="User"/>
 
                     <!--Exibe o nome do cliente, ou indica que o caso foi encerrado-->
-                    <span class="contacts-title">{{(chat.iduser_close && 'Usuário encerrou o caso' ) || chat.userTo.name}}</span>
+                    <span class="contacts-title">{{(chat.iduser_close && 'Usuário encerrou o caso ' ) || chat.userTo.name +' '}}<span ng-if="qteMsgsChats['chat'+chat.id] > 0" class="label label-danger">{{qteMsgsChats['chat'+chat.id]}}</span></span>
+
 
                     <!--data do chat com filtro-->
                     <p>{{chat.created_at | limitTo:19}}</p>
