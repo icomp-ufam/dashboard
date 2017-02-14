@@ -181,7 +181,7 @@
                 <input class="form-control" type="text" ng-model="criterioDeBusca.userTo.name" placeholder="Procurar chat...">
 
                 <!-- carrega casos abertos usando o ng-repeat sobre a variavel de escopo chats -->
-                <a id="teste2" ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats | filter:criterioDeBusca">
+                <a id="teste2" ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats | filter:criterioDeBusca |orderBy: '-time'">
                     <div ng-if="(roster[chat.userTo.id] == 'online')" class="list-group-status status-online"></div>
                     <div ng-if="(!roster[chat.userTo.id] || roster[chat.userTo.id] == 'offline')" class="list-group-status status-offline"></div>
 
@@ -198,6 +198,7 @@
 
                     <!--data do chat com filtro-->
                     <p>{{chat.created_at | limitTo:19}}</p>
+                    <p>{{chat.time}}</p>
                     <!--nome do caso/consulta-->
                     <span class="contacts-title">{{chat.case.name}}</span>
                     <!--<span class="contacts-title">{{ (chat.iduser_close && 'Você não pode mais enviar mensagens pois esta conversa foi encerrada pelo cliente.' ) || chat.case.name}}</span>-->

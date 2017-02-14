@@ -52,7 +52,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             }
         }).success(function(data){
             $scope.chats = data.chats;
-
             if ($scope.chats.length > 0){
                 //ao carregar pagina, abre primeiro chat da lista de casos
                 $scope.chatAtual = $scope.chats[0];
@@ -68,17 +67,18 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             //atualiza id da sala de chat
             $scope.to_id = ChatDetails.getTo();
             $scope.initChats();
-
+            $scope.addtime();
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
     };
 
+
     $scope.joinChats = function(){
         sharedConn.joinChats($scope.chats);
     };
 
-   $scope.carregarCasosNovos = function () {
+    $scope.carregarCasosNovos = function () {
         $http({
             url : config.baseUrl + config.novos_casos,
             method : 'post',
@@ -100,7 +100,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     };
 
     $scope.aceitarCaso = function (idcase) {
-        // rota: /cases/accept, metodo PUT, params: idseller, idcase, idstore
         $http({
             url : config.baseUrl + config.aceitar_caso,
             method : 'put',
@@ -133,7 +132,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     };
 
     $scope.naoTenho = function (idcase) {
-
         $http({
             url : config.baseUrl + config.nao_tenho,
             method : 'post',
@@ -356,11 +354,13 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
         //atualiza id da sala de chat
         $scope.to_id = ChatDetails.getTo();
+
         document.getElementById(
             "msg"
         ).scrollTop = document.getElementById(
             "msg"
         ).scrollHeight;
+
         $scope.qteMsgsChats['chat'+$scope.chatAtual.id] = 0;
         //console.log($scope.qteMsgsChats);
         $scope.sc();
@@ -493,11 +493,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
         delete $scope.data.message;
     };
-    $scope.msgtop = function (from) {
-        return function (chats) {
-            return from.includes($scope.chats[0].id);
-        }
-    };
+
     //verifica de quem foi a última mensagem recebida
     $scope.remetente = 'desconhecido';
     $scope.fotoR = '';
@@ -523,7 +519,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
                 body: $scope.messages[$scope.messages.length - 1].text
             });
             notification.onclick = function () {
-
+                $scope.clickChat($scope.chatR);
             }
         }
         else if (Notification.permission !== 'denied') {
@@ -534,7 +530,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
                         body: $scope.messages[$scope.messages.length - 1].text
                     });
                     notification.onclick = function () {
-
+                        $scope.clickChat($scope.chatR);
                     }
                 }
             });
@@ -568,7 +564,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
         sharedConn.getConnectObj().send(reply.tree());
     };
-
 
     /*
     * <message
@@ -620,6 +615,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
                         id: d,
                         received: false
                     });
+                    //atualiza time em caso de envio de nova mensagem
+                    $scope.msgtop(from);
                 }else{
                     $scope.qteMsgsChats[from.split('@')[0]]++;
                     $scope.messages.push({
@@ -629,7 +626,11 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
                             image: imagem
                     });
                     $scope.precarregamento = true;
+                    //passa os dados da ultima mensagem para a notificação.
                     $scope.notificacao(from);
+                    //atualiza time caso ao receber nova mensagem
+                    $scope.msgtop(from);
+                    //chama notificação
                     $("#teste").trigger('click');
                 }
 
@@ -689,20 +690,24 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     });
 
     $scope.ponto = '.';
+    //animação de ponto durante o carregamento
     $scope.animaPonto = function() {
         if( $scope.ponto == '...' ) {
             $scope.ponto = '.';
         } else {
             $scope.ponto += '.';
         }
+        //enquanto não conectar, anima ponto
         if($rootScope.statusConexao != 'Conectado!')
             $timeout(function () {
                 $scope.animaPonto();
             }, 300);
+        //se conectar carrega chats
         else{
             $timeout.cancel();
             $scope.joinChats();
             $scope.precarregamento = false;
+            //Exibe conectou! por 4 segundos
             $timeout(function() {
                 $rootScope.statusConexao = '';
             }, 4000);
@@ -715,5 +720,23 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             $scope.qteMsgsChats['chat'+value.id] = 0;
             $scope.composing['chat'+value.id] = false;
         });
-    }
+    };
+
+    //adiciona time a lista de casos
+    $scope.addtime = function () {
+        i = 0;
+        for(chat in $scope.chats){
+            $scope.chats[chat].time = new Date().getTime() - i;
+            i++;
+        }
+    };
+    //atualiza time de caso ao receber ou enviar nova mensagem
+    $scope.msgtop = function (from) {
+        for(chat in $scope.chats){
+            if (from.includes($scope.chats[chat].id)){
+                $scope.chats[chat].time = new Date().getTime();
+            }
+        }
+    };
+
 });
