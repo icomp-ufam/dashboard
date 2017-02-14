@@ -20,7 +20,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     $scope.carregando = false;
     $scope.loading = false;
 
-    $scope.presencaAtual = "offline";
     $scope.qteMsgsChats = [];
     $scope.composing = [];
     $scope.roster = [];
@@ -364,7 +363,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         $scope.qteMsgsChats['chat'+$scope.chatAtual.id] = 0;
         //console.log($scope.qteMsgsChats);
         $scope.sc();
-        $scope.presencaAtual = $scope.roster[$scope.chatAtual.userTo.id];
     };
 
     $scope.sc = function (){
@@ -682,9 +680,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             jid = data.jid.split('@')[0];
             $scope.roster[jid] = data.pres;
 
-            if(data.jid.includes($scope.chatAtual.userTo.id)){
-                $scope.presencaAtual = data.pres;
-            }
             $scope.$apply();
         }
     });

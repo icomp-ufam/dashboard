@@ -57,10 +57,10 @@
             </div>
             <!-- END PAINEL SUPERIOR DO CHAT-->
             <p style="background-color: #F6F6F6">
-                <span ng-if="(presencaAtual == 'online')"><i class="fa fa-user pull-left" ></i></span>
-                <span ng-if="(presencaAtual == 'offline')"><i class="fa fa-user-times pull-left"></i></span>
+                <span ng-if="(roster[chatAtual.userTo.id] == 'online')"><i class="fa fa-user pull-left" ></i></span>
+                <span ng-if="(roster[chatAtual.userTo.id] == 'offline')"><i class="fa fa-user-times pull-left"></i></span>
                 <span ng-if="composing['chat'+chatAtual.id]"> digitando...</span>
-                <span ng-if="!composing['chat'+chatAtual.id]">{{presencaAtual}}</span>
+                <span ng-if="!composing['chat'+chatAtual.id]">{{roster[chatAtual.userTo.id]}}</span>
 
             </p>
 
