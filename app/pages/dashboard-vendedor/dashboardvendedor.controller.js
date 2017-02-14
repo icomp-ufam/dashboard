@@ -183,8 +183,64 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     $scope.deixarEstabelecimento = function (){
         var deixar = confirm('Tem certeza que deseja deixar o estabelecimento?');
         if (deixar == true){
+            $http({
+                url : config.baseUrl + config.remove_vendedor,
+                method : 'put',
+                headers : {
+                    'Content-Type': 'application/json',
+                    'Authorization' : config.token
+                },
+                data: {
+                    'idstore' : $scope.idstore,
+                    'idseller' : $scope.idVendedor,
+                    'notify' : 'true'
+                }
+            }).success(function(data){
+                console.log(data);
+                $scope.limparSessao();
+                $state.go('main.login.index');
+            }).error(function(error){
+                console.log(error);
+                $scope.message = "Aconteceu um problema: " + error;
+            });
 
         }
+    };
+
+    $scope.limparSessao = function() {
+        var sair = false;
+        if(localStorage.getItem('vendedor') === 'true'){
+            sair = true;
+        }
+        localStorage.setItem('vendedor', JSON.stringify(false));
+        $scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
+        localStorage.setItem('vendedor_foto', '');
+        localStorage.setItem('vendedor_nome', '');
+        localStorage.setItem('loginE', '');
+        localStorage.setItem('lojaID', '');
+        localStorage.setItem('lojaIDvendedor', '');
+        //se estabelecimento
+        localStorage.setItem('Estabelecimento', JSON.stringify(false));
+        $scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
+
+        localStorage.setItem('loginadmin', '');
+        localStorage.setItem('loginV', '');
+        localStorage.setItem('userID', '');
+
+        console.log("desconectou!!");
+        if(sair == true){
+            sharedConn.logout();
+            $state.go('main.login.index', {}, {
+                location: "replace",
+                reload: true
+            });
+        }else{
+            $state.go('main.login.indexadmin', {}, {
+                location: "replace",
+                reload: true
+            });
+        }
+
     };
 
     $scope.encerrarCaso = function (idchat) {

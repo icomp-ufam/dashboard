@@ -1549,11 +1549,11 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     //carregarNatendimentos();
 
     var d = {
-        value: new Date(),
-    }
+        value: new Date()
+    };
      var novaData = {
-        value: new Date(d.value.getTime() - 10080*60000),
-    }
+        value: new Date(d.value.getTime() - 10080*60000)
+    };
 
 	$scope.carregarAtendimentos(novaData, d);
 	$scope.carregarAtendimentosPorHora($scope.data_startParam, $scope.data_endParam);
