@@ -96,7 +96,6 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
             reader.readAsDataURL(foto[0]);
             reader.onload = function () {
                 img_base64 = reader.result.split(',')[1];
-                img_base64 = img_base64.split('/')[0];
                 console.log(img_base64);
                 $http({
                     url: config.baseUrl + "/dash/update/admin",
@@ -110,7 +109,7 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
                         'name': admin.name,
                         'email': admin.email,
                         'password': admin.senha,
-                        'photo' : img_base64
+                        'photo' : String(img_base64)
                     }
                 }).success(function(data){
                     console.log(data);
