@@ -178,7 +178,6 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
 
     //When a new message is recieved
     SharedConnObj.onMessage = function(msg) {
-        //console.log(msg);
         $rootScope.$broadcast('msgRecievedBroadcast', msg);
         return true;
     };

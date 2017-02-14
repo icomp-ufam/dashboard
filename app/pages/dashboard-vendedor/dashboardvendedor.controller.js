@@ -22,6 +22,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
     $scope.presencaAtual = "offline";
     $scope.qteMsgsChats = [];
+    $scope.composing = [];
     $scope.roster = [];
 
     var XMPP_DOMAIN = config.XMPP_DOMAIN;
@@ -66,7 +67,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
             //atualiza id da sala de chat
             $scope.to_id = ChatDetails.getTo();
-            $scope.initQteMsg();
+            $scope.initChats();
 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
@@ -131,8 +132,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         });
     };
 
-
-
     $scope.naoTenho = function (idcase) {
 
         $http({
@@ -155,8 +154,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             $scope.message = "Aconteceu um problema: " + error;
         });
     };
-    
-    
 
     $scope.recusarCaso = function (idcase) {
         // so fazer essa parada quando tiver contas de teste
@@ -580,7 +577,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
                     $("#teste").trigger('click');
                 }
 
-                $scope.$apply();
                 document.getElementById(
                     "msg"
                 ).scrollTop = document.getElementById(
@@ -589,13 +585,26 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             }
         }
 
+        // evento de digitando
+        var composing = msg.getElementsByTagName('composing')[0];
+        if (composing){
+            $scope.composing[from.split('@')[0]] = true;
+        }
+
+        //evento de parou de digitar
+        var paused = msg.getElementsByTagName('paused')[0];
+        if(paused){
+            $scope.composing[from.split('@')[0]] = false;
+        }
+
+
         // tratando a confirmação de entrega (duplo check)
         if (delivery_ok.length > 0 && !from.includes($scope.idVendedor)){
             idMensagem = delivery_ok[0].id;
             $scope.findMsgById(idMensagem);
-
         }
 
+        $scope.$apply();
     };
 
     $scope.findMsgById = function (idMsg) {
@@ -645,9 +654,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     };
     $scope.animaPonto();
 
-    $scope.initQteMsg = function (){
+    $scope.initChats = function (){
         $scope.chats.forEach(function (value) {
-            $scope.qteMsgsChats['chat'+value.id] = 0
+            $scope.qteMsgsChats['chat'+value.id] = 0;
+            $scope.composing['chat'+value.id] = false;
         });
     }
 });

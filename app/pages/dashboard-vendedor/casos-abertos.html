@@ -59,7 +59,9 @@
             <p style="background-color: #F6F6F6">
                 <span ng-if="(presencaAtual == 'online')"><i class="fa fa-user pull-left" ></i></span>
                 <span ng-if="(presencaAtual == 'offline')"><i class="fa fa-user-times pull-left"></i></span>
-                Cliente {{presencaAtual}}
+                <span ng-if="composing['chat'+chatAtual.id]"> digitando...</span>
+                <span ng-if="!composing['chat'+chatAtual.id]">{{presencaAtual}}</span>
+
             </p>
 
             <!-- START MENSAGENS DO CHAT ATUAL -->
@@ -189,7 +191,9 @@
                     <img ng-if="!chat.userTo.photo" ng-src='app/assets/images/users/no-image.jpg'  alt="User"/>
 
                     <!--Exibe o nome do cliente, ou indica que o caso foi encerrado-->
-                    <span class="contacts-title">{{(chat.iduser_close && 'Usuário encerrou o caso ' ) || chat.userTo.name +' '}}<span ng-if="qteMsgsChats['chat'+chat.id] > 0" class="label label-danger">{{qteMsgsChats['chat'+chat.id]}}</span></span>
+                    <span class="contacts-title">{{(chat.iduser_close && 'Usuário encerrou o caso ' ) || chat.userTo.name}} <span ng-if="composing['chat'+chat.id]">...</span></span>
+
+                    <span ng-if="qteMsgsChats['chat'+chat.id] > 0" class="pull-right label label-success">{{qteMsgsChats['chat'+chat.id]}}</span>
 
 
                     <!--data do chat com filtro-->
