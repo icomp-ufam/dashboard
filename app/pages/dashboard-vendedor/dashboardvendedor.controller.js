@@ -404,7 +404,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         sharedConn.getConnectObj().send(reply.tree());
         $scope.loading = false;
         document.querySelector("#close-upload-img").click();
-        console.log('I sent image' + to + ': ' + message, reply.tree());
+        //console.log('I sent image' + to + ': ' + message, reply.tree());
     };
 
     // <request xmlns='urn:xmpp:receipts'/>
@@ -424,7 +424,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         });
 
         sharedConn.getConnectObj().send(reply.tree());
-        console.log('I sent ' + to + ': ' + message, reply.tree());
+        //console.log('I sent ' + to + ': ' + message, reply.tree());
     };
 
     $scope.showSendMessage = function() {
@@ -526,7 +526,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
      </message>
     * */
     $scope.messageRecieve = function(msg) {
-
         //  var to = msg.getAttribute('to');
         var from = msg.getAttribute('from');
         var type = msg.getAttribute('type');
@@ -552,11 +551,18 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
                 var body = elems[0];
                 var textMsg = Strophe.getText(body);
+
+                //tratando a tag delay
+                var time  = $(msg).find('delay').attr('stamp');
+                if (!time) {
+                    time = Date.now();
+                }
+
                 if(from.includes($scope.idVendedor)){
                     $scope.messages.push({
                         userId: from,
                         text: textMsg,
-                        time: d,
+                        time: time,
                         image: imagem,
                         id: d,
                         received: false
@@ -566,14 +572,13 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
                     $scope.messages.push({
                             userId: from,
                             text: textMsg,
-                            time: d,
+                            time: time,
                             image: imagem
                     });
                     $scope.precarregamento = true;
                     $scope.notificacao(from);
                     $("#teste").trigger('click');
                 }
-
 
                 $scope.$apply();
                 document.getElementById(
