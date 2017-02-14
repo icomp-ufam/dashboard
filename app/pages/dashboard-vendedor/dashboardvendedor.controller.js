@@ -20,7 +20,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     $scope.carregando = false;
     $scope.loading = false;
 
-    $scope.presencaAtual = "";
+    $scope.presencaAtual = "offline";
+    $scope.qteMsgsChats = [];
     $scope.roster = [];
 
     var XMPP_DOMAIN = config.XMPP_DOMAIN;
@@ -65,6 +66,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
             //atualiza id da sala de chat
             $scope.to_id = ChatDetails.getTo();
+            $scope.initQteMsg();
 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
@@ -351,9 +353,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
     //recebe informacoes da caixa de chat que foi selecionada
     $scope.clickChat = function (chat) {
-        console.log($scope.roster);
         //recebe chat clicado
-        console.log(chat);
         $scope.chatAtual = chat;
         //configurando qual sala de chat esta sendo escutada
         ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
@@ -364,9 +364,12 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         ).scrollTop = document.getElementById(
             "msg"
         ).scrollHeight;
+        $scope.qteMsgsChats['chat'+$scope.chatAtual.id] = 0;
+        //console.log($scope.qteMsgsChats);
         $scope.sc();
         $scope.presencaAtual = $scope.roster[$scope.chatAtual.userTo.id];
     };
+
     $scope.sc = function (){
         document.getElementById(
             "msg"
@@ -457,7 +460,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         sharedConn.getConnectObj().send(reply.tree());
         $scope.loading = false;
         document.querySelector("#close-upload-img").click();
-        console.log('I sent image' + to + ': ' + message, reply.tree());
+        //console.log('I sent image' + to + ': ' + message, reply.tree());
     };
 
     // <request xmlns='urn:xmpp:receipts'/>
@@ -477,7 +480,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         });
 
         sharedConn.getConnectObj().send(reply.tree());
-        console.log('I sent ' + to + ': ' + message, reply.tree());
+        //console.log('I sent ' + to + ': ' + message, reply.tree());
     };
 
     $scope.showSendMessage = function() {
@@ -579,7 +582,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
      </message>
     * */
     $scope.messageRecieve = function(msg) {
-
         //  var to = msg.getAttribute('to');
         var from = msg.getAttribute('from');
         var type = msg.getAttribute('type');
@@ -605,20 +607,28 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
                 var body = elems[0];
                 var textMsg = Strophe.getText(body);
+
+                //tratando a tag delay
+                var time  = $(msg).find('delay').attr('stamp');
+                if (!time) {
+                    time = Date.now();
+                }
+
                 if(from.includes($scope.idVendedor)){
                     $scope.messages.push({
                         userId: from,
                         text: textMsg,
-                        time: d,
+                        time: time,
                         image: imagem,
                         id: d,
                         received: false
                     });
                 }else{
+                    $scope.qteMsgsChats[from.split('@')[0]]++;
                     $scope.messages.push({
                             userId: from,
                             text: textMsg,
-                            time: d,
+                            time: time,
                             image: imagem
                     });
                     $scope.precarregamento = true;
@@ -645,7 +655,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     };
 
     $scope.findMsgById = function (idMsg) {
-        console.log(idMsg);
         for (i = 0; i < $scope.messages.length; i++){
                 if($scope.messages[i].id == idMsg){
                     $scope.messages[i].received = true;
@@ -658,7 +667,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     });
 
     $scope.$on('msgPresence', function(event, data) {
-        console.log(data);
+        //console.log(data);
         if(data.jid){
             jid = data.jid.split('@')[0];
             $scope.roster[jid] = data.pres;
@@ -691,4 +700,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         }
     };
     $scope.animaPonto();
+
+    $scope.initQteMsg = function (){
+        $scope.chats.forEach(function (value) {
+            $scope.qteMsgsChats['chat'+value.id] = 0
+        });
+    }
 });

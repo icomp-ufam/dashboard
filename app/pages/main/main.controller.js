@@ -120,6 +120,21 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
 				$scope.infoVendedorAvgRating = $scope.infoVendedor.avg_rating;
 				$scope.infoVendedorSumRating = $scope.infoVendedor.sum_rating;
 				$scope.infoVendedorQtdAtd = $scope.infoVendedor.ate;
+		}).success(function(data){
+			//console.log(data);
+			$scope.infoVendedor = data.user;
+			//guardando informações do vendedor
+			localStorage.setItem('vendedor_foto', $scope.infoVendedor.photo);
+			localStorage.setItem('vendedor_nome', $scope.infoVendedor.name);
+			localStorage.setItem('vendedor_avaliacao', $scope.infoVendedor.avg_rating);
+			localStorage.setItem('vendedor_qtdAvalicoes', $scope.infoVendedor.sum_rating);
+			localStorage.setItem('vendedor_qtdAtendimentos', $scope.infoVendedor.ate);
+			localStorage.setItem('vendedor_idLoja', $scope.infoVendedor.idstore);
+			$scope.infoVendedorPhoto = $scope.infoVendedor.photo;
+			$scope.infoVendedorNome = $scope.infoVendedor.name;
+			$scope.infoVendedorAvgRating = $scope.infoVendedor.avg_rating;
+			$scope.infoVendedorSumRating = $scope.infoVendedor.sum_rating;
+			$scope.infoVendedorQtdAtd = $scope.infoVendedor.ate;
 
 			}).error(function(error){
 				$scope.message = "Aconteceu um problema: " + error;
