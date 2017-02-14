@@ -2,6 +2,9 @@
  * Created by lgpbentes on 09/01/17.
  */
 angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $timeout, $rootScope, $http, config, $state , sharedConn, Chats, ChatDetails) {
+    //console.log(localStorage.getItem('expired'));
+    localStorage.setItem('expired', new Date().getTime());
+
     if(localStorage.getItem('loginV') === '')
         $state.go('main.login.index');
     $scope.app = "Dashboard Vendedor";
@@ -658,6 +661,9 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             idMensagem = delivery_ok[0].id;
             $scope.findMsgById(idMensagem);
         }
+
+        console.log(localStorage.getItem('expired'));
+        localStorage.setItem('expired', new Date().getTime());
 
         $scope.$apply();
     };

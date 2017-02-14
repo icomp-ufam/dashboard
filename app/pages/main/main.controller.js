@@ -2,7 +2,105 @@
  * Created by Marcos Soares on 10/01/17
  * Edited by Luiz Gustavo on 11, 15 and 23/01/17
  */
-angular.module("teewa").controller("mainCtrl", function ($scope, $state, config, $http, sharedConn, Chats, ChatDetails) {
+angular.module("teewa").controller("mainCtrl", function ($scope, $timeout, $state, config, $http, sharedConn, Chats, ChatDetails) {
+
+	//Verificando login de vendedor
+	if(localStorage.getItem('vendedor')==='true'){
+		$scope.vendedor = true;
+	}else{
+		$scope.vendedor = false;
+	}
+
+	$scope.logout = function() {
+		//Se vendedor
+		//false admin, true loja/vendedor
+		$scope.flag = false;
+		var sair = false;
+		if(localStorage.getItem('vendedor') === 'true'){
+			sair = true;
+		}
+		localStorage.setItem('vendedor', JSON.stringify(false));
+		$scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
+		localStorage.setItem('vendedor_foto', '');
+		localStorage.setItem('vendedor_nome', '');
+		localStorage.setItem('loginE', '');
+		localStorage.setItem('lojaID', '');
+		localStorage.setItem('lojaIDvendedor', '');
+		//se estabelecimento
+		localStorage.setItem('Estabelecimento', JSON.stringify(false));
+		$scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
+
+		localStorage.setItem('loginadmin', '');
+		localStorage.setItem('loginV', '');
+		localStorage.setItem('userID', '');
+
+		console.log("desconectou!!");
+		if(sair == true){
+			if(sessionStorage.getItem('souvendedor') != '')
+				sharedConn.logout();
+			sessionStorage.setItem('souvendedor', 'sim');
+			$state.go('main.login.index', {}, {
+				location: "replace",
+				reload: true
+			});
+		}else{
+			$state.go('main.login.indexadmin', {}, {
+				location: "replace",
+				reload: true
+			});
+		}
+
+	};
+
+	var ant = localStorage.getItem('expired');
+	//console.log('ant '+ant);
+	var atual = new Date().getTime();
+	//console.log('atual '+atual);
+	var sub = atual - ant;
+	//console.log('sub ' +sub);
+	if(sub > 1800000) {
+		if(sessionStorage.getItem('souvendedor') != ''){
+			localStorage.setItem('vendedor', JSON.stringify(true));
+			sessionStorage.setItem('souvendedor', '');
+			$scope.logout();
+		}else{
+			$scope.logout();
+		}
+	}
+	//console.log(localStorage.getItem('expired'));
+	localStorage.setItem('expired', new Date().getTime());
+
+	//verifica a inatividade do usuario
+	$scope.expired = function() {
+		var ant = localStorage.getItem('expired');
+		//console.log('ant '+ant);
+
+		var atual = new Date().getTime();
+		//console.log('atual '+atual);
+
+		var sub = atual - ant;
+		//console.log('sub ' +sub);
+		if(sub < 1800000) {
+			if (!$scope.flag) {
+				$timeout.cancel();
+			} else {
+				$timeout(function () {
+					$scope.expired();
+				}, 5000);
+			}
+		}else{
+			$timeout.cancel();
+			alert('Você foi desconectado por inatividade!');
+			$scope.logout();
+		}
+		//console.log('expired');
+	};
+
+	//$scope.expired();
+	if(localStorage.getItem('loginadmin') !== '' || localStorage.getItem('loginV') !== ''){
+		$scope.flag = true;
+		$scope.expired();
+	}
 	$scope.state = $state;
     $scope.urlPhotos = config.baseUrl + "/photos/";
 
@@ -34,54 +132,13 @@ angular.module("teewa").controller("mainCtrl", function ($scope, $state, config,
             return true;
 		}
 	};
-    //Verificando login de vendedor
-	if(localStorage.getItem('vendedor')==='true'){
-		$scope.vendedor = true;
-	}else{
-		$scope.vendedor = false;
-	}
+
 
     $scope.verifica = function () {
         return $scope.vendedor;
     };
 
-	$scope.logout = function() {
-        //Se vendedor
-		//false admin, true loja/vendedor
-		var sair = false;
-		if(localStorage.getItem('vendedor') === 'true'){
-			sair = true;
-		}
-		localStorage.setItem('vendedor', JSON.stringify(false));
-		$scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
-        localStorage.setItem('vendedor_foto', '');
-        localStorage.setItem('vendedor_nome', '');
-		localStorage.setItem('loginE', '');
-		localStorage.setItem('lojaID', '');
-		localStorage.setItem('lojaIDvendedor', '');
-		//se estabelecimento
-        localStorage.setItem('Estabelecimento', JSON.stringify(false));
-        $scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
 
-        localStorage.setItem('loginadmin', '');
-		localStorage.setItem('loginV', '');
-		localStorage.setItem('userID', '');
-
-		console.log("desconectou!!");
-		if(sair == true){
-            sharedConn.logout();
-			$state.go('main.login.index', {}, {
-				location: "replace",
-				reload: true
-			});
-		}else{
-			$state.go('main.login.indexadmin', {}, {
-				location: "replace",
-				reload: true
-			});
-		}
-
-    };
 
 	//Verificando Login de Estabeleciment
 	if(localStorage.getItem('Estabelecimento')==='true'){

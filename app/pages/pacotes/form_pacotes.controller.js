@@ -1,5 +1,8 @@
 var teewamodule = angular.module('teewa');
 angular.module("teewa").controller("formPacotesCtrl", function ($scope, $state, $stateParams, $filter) {
+    //console.log(localStorage.getItem('expired'));
+    localStorage.setItem('expired', new Date().getTime());
+
     if(localStorage.getItem('loginadmin') === '')
         $state.go('main.login.indexadmin');
     $scope.state = $state;

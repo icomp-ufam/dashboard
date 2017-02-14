@@ -2,6 +2,9 @@
  * Created by marcos on 29/11/16.
  */
 angular.module("teewa").controller("dashboardCtrl", function ($scope, $state, $http, config) {
+    //console.log(localStorage.getItem('expired'));
+    localStorage.setItem('expired', new Date().getTime());
+
     //$scope.state = $state;
     if(localStorage.getItem('loginadmin') === '')
         $state.go('main.login.indexadmin');
