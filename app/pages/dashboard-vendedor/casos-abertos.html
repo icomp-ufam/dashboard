@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>emoji-picker Demo</title>
+    <!--link href="lib/emoji/css/bootstrap.min.css" rel="stylesheet"-->
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"-->
+
+    <!-- Begin emoji-picker Stylesheets -->
+    <link href="lib/emoji/lib/css/nanoscroller.css" rel="stylesheet">
+    <link href="lib/emoji/lib/css/emoji.css" rel="stylesheet">
+    <!-- End emoji-picker Stylesheets -->
+</head>
+
+
 <ul class="breadcrumb push-down-0">
     <li><a ui-sref="main.dashboardVendedor.index">Dashboard Vendedor</a></li>
     <li class="active">Casos Abertos</li>
@@ -22,7 +41,8 @@
     <strong>Desconectado, recarregue a pagina!</strong>
 </div>
 <!-- START ROW -->
-<div ng-if="(chatAtual != 'carregando' && chatAtual != 'vazio')" class="row">
+
+<div class="cover-container">
     <!-- START MESSAGES -->
     <div class="col-md-8">
         <div class="content-frame" >
@@ -116,7 +136,7 @@
                             <img ng-if="!chatAtual.userTo.photo" ng-src="app/assets/images/users/no-image.jpg" alt="user">
                         </div>
 
-                        <div class="text">
+                        <div class="text" >
                             <div class="heading pull-right">
                                 <!-- Exibe o nome do usuário conforme seu perfil -->
                                 <a ng-if="!message.userId.includes(idVendedor)">{{chatAtual.userTo.name}}</a>
@@ -153,7 +173,12 @@
                 <div class="panel-body panel-body-search">
                     <form name="dados">
                         <div class="input-group">
-                            <input name="envia" type="text" onkeypress="enviarEnter(event)" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..." />
+                            <div class="inner cover">
+                                <p class="lead emoji-picker-container">
+                                    <!--para exibir os emojis usar: data-emojiable="true" na tag abaixo /-->
+                                    <input name="envia" type="text" onkeypress="enviarEnter(event)" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..."/>
+                                </p>
+                            </div>
                             <div class="input-group-btn">
                                 <button style=" visibility: hidden"></button>
                                 <!-- funcao uploadFile() envia apenas a legenda, pois o arquivo é tratado no controller usando o id -->
@@ -165,6 +190,7 @@
                     </form>
                 </div>
             </div>
+
             <!-- END INPUT DE MENSAGENS -->
         </div>
     </div>
@@ -181,7 +207,7 @@
                 <input class="form-control" type="text" ng-model="criterioDeBusca.userTo.name" placeholder="Procurar chat...">
 
                 <!-- carrega casos abertos usando o ng-repeat sobre a variavel de escopo chats -->
-                <a id="teste2" ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats | filter:criterioDeBusca |orderBy: '-time'">
+                <a id="teste2" ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats | filter:criterioDeBusca |orderBy:'-time'">
                     <div ng-if="(roster[chat.userTo.id] == 'online')" class="list-group-status status-online"></div>
                     <div ng-if="(!roster[chat.userTo.id] || roster[chat.userTo.id] == 'offline')" class="list-group-status status-offline"></div>
 
@@ -195,10 +221,9 @@
 
                     <span ng-if="qteMsgsChats['chat'+chat.id] > 0" class="pull-right label label-success">{{qteMsgsChats['chat'+chat.id]}}</span>
 
-
                     <!--data do chat com filtro-->
                     <p>{{chat.created_at | limitTo:19}}</p>
-                    <p>{{chat.time}}</p>
+                    <!--p>{{chat.time}}</p-->
                     <!--nome do caso/consulta-->
                     <span class="contacts-title">{{chat.case.name}}</span>
                     <!--<span class="contacts-title">{{ (chat.iduser_close && 'Você não pode mais enviar mensagens pois esta conversa foi encerrada pelo cliente.' ) || chat.case.name}}</span>-->
@@ -301,10 +326,17 @@
             </div>
         </div>
     </div>
+
     <!-- END MODAL DE UPLOAD DE IMAGEM -->
 </div>
-
-</div>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- Begin emoji-picker JavaScript -->
+<script src="lib/emoji/lib/js/nanoscroller.min.js"></script>
+<script src="lib/emoji/lib/js/tether.min.js"></script>
+<script src="lib/emoji/lib/js/config.js"></script>
+<script src="lib/emoji/lib/js/util.js"></script>
+<script src="lib/emoji/lib/js/jquery.emojiarea.js"></script>
+<script src="lib/emoji/lib/js/emoji-picker.js"></script>
 
 <script>
     // funcao responsavel por carregar a prévia da imagem selecionada no input
@@ -332,6 +364,7 @@
             }else{
                 //envia mensagem
                 $("#enviar").trigger('click');
+                document.dados.envia.value="";
                 //desce barra de rolagem das mensagens
                 document.getElementById(
                         "msg"
@@ -366,4 +399,37 @@
     }
 
 </style>
+
+
+<!-- End emoji-picker JavaScript -->
+
+<script>
+    $(function() {
+        // Initializes and creates emoji set from sprite sheet
+        window.emojiPicker = new EmojiPicker({
+            emojiable_selector: '[data-emojiable=true]',
+            assetsPath: 'lib/emoji/lib/img/',
+            popupButtonClasses: 'fa fa-smile-o'
+        });
+        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+        // It can be called as many times as necessary; previously converted input fields will not be converted again
+        window.emojiPicker.discover();
+    });
+</script>
+
+
+<script>
+    // Google Analytics
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-49610253-3', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</html>
 

@@ -617,7 +617,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
                         received: false
                     });
                     //atualiza time em caso de envio de nova mensagem
-                    $scope.msgtop(from);
+                    $scope.msgtop(from, time);
                 }else{
                     $scope.qteMsgsChats[from.split('@')[0]]++;
                     $scope.messages.push({
@@ -630,7 +630,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
                     //passa os dados da ultima mensagem para a notificação.
                     $scope.notificacao(from);
                     //atualiza time caso ao receber nova mensagem
-                    $scope.msgtop(from);
+                    $scope.msgtop(from, time);
                     //chama notificação
                     $("#teste").trigger('click');
                 }
@@ -661,8 +661,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             idMensagem = delivery_ok[0].id;
             $scope.findMsgById(idMensagem);
         }
-
-        console.log(localStorage.getItem('expired'));
+        //Salva atividade do usuário
+        //console.log(localStorage.getItem('expired'));
         localStorage.setItem('expired', new Date().getTime());
 
         $scope.$apply();
@@ -732,10 +732,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         }
     };
     //atualiza time de caso ao receber ou enviar nova mensagem
-    $scope.msgtop = function (from) {
+    $scope.msgtop = function (from, time) {
         for(chat in $scope.chats){
             if (from.includes($scope.chats[chat].id)){
-                $scope.chats[chat].time = new Date().getTime();
+                $scope.chats[chat].time =  new Date(time).getTime() ;
             }
         }
     };
