@@ -56,7 +56,6 @@
                         </div>
 
                         <div class="form-group">
-
                             <label class="col-md-3 col-xs-12 control-label">Consultas via postagem</label>
                             <div class="col-md-6 col-xs-12">
                                 <div class="form-check">
@@ -68,6 +67,17 @@
                             </div>
                         </div>
                         <!-- Criar -->
+                        <div ng-if="anuncio.id ? false : true" class="form-group">
+                            <label class="col-md-3 col-xs-12 control-label">Data de Validade</label>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="input-group" >
+                                    <span class="input-group-addon"><span class="fa fa-calendar-o"></span></span>
+                                    <input type="datetime-local" ng-required="true" ng-model="anuncio.date" class="form-control"/>
+                                </div>
+                                <p ng-show="form.anuncio.date.$invalid" class="help-block"></p>
+                            </div>
+                        </div>
+
                         <div ng-if="anuncio.id ? false : true" class="form-group">
                             <label class="col-md-3 col-xs-12 control-label">Adicionar uma imagem</label>
                             <div class="col-md-6 col-xs-12">
@@ -82,6 +92,8 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Fim  Criar -->
+
                         <!-- Editar -->
                         <span ng-if="anuncio.id ? true : false">
                             <div class="form-group">
@@ -103,6 +115,7 @@
                                 </div>
                             </div>
                         </span>
+                        <!-- Fim Editar -->
 
                     </div>
                     <div class="panel-footer">

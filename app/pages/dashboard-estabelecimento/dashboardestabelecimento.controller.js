@@ -3,11 +3,11 @@
  * Alter by duivilly on 23/01/17.
  * Altered by Saymon on 25/01/17. ** Indenta o código e Corrige datas do filtro de atendimentos e vendedores **
  */
-angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($scope, $http, config, $state, $stateParams, sharedConn, Chats, ChatDetails) {
+angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($filter ,$scope, $http, config, $state, $stateParams, sharedConn, Chats, ChatDetails) {
     //console.log(localStorage.getItem('expired'));
     localStorage.setItem('expired', new Date().getTime());
 
-    $scope.idloja =localStorage.getItem('lojaID');
+    $scope.idloja = localStorage.getItem('lojaID');
     //Perfil
     if(localStorage.getItem('loginE') === '')
         $state.go('main.login.index');
@@ -441,19 +441,21 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
                                'Content-Type': 'application/json',
                                'Authorization' : config.token
                            },
-                           data : {'title' : anuncio.title,
-                                   'description' : anuncio.description,
-                                   'image' : img_base64,
-                                   'hash':  CryptoJS.MD5(String($filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss')+$scope.idloja)),
-                                   'expires_at': $filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss -0400'),
-                                   'idstore': $scope.idloja,
-                                   'case_enabled': String(anuncio.case_enabled),
-                                   'url':  null,
+                           data : {
+                                 'title' : anuncio.title,
+                                 'description' : anuncio.description,
+                                 'image' : img_base64,
+                                 'hash':  CryptoJS.MD5(String($filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss')+$scope.idloja)),
+                                 'expires_at': $filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss'),
+                                 'url': null,
+                                 'idstore': $scope.idloja,
+                                 'case_enabled': String(anuncio.case_enabled)
                            }
                         }).success(function(data){
                             console.log(data);
                             $state.go("main.dashboardEstabelecimento.anunciosEstabelecimento");
                         }).error(function(error){
+                            console.log(error);
                             $scope.message = "Aconteceu um problema: " + error;
                         });
 
@@ -470,7 +472,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
                                'description' : anuncio.description,
                                'image' :  null,
                                'hash':  CryptoJS.MD5(String($filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss')+$scope.idloja)),
-                               'expires_at': $filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss -0400'),
+                               'expires_at': $filter('date')(anuncio.date ,'yyyy-MM-dd HH:mm:ss'),
                                'idstore': $scope.idloja,
                                'case_enabled': String(anuncio.case_enabled),
                                'url':  null,
@@ -479,6 +481,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
                         console.log(data);
                         $state.go("main.dashboardEstabelecimento.anunciosEstabelecimento");
                     }).error(function(error){
+                        console.log(error);
                         $scope.message = "Aconteceu um problema: " + error;
                     });
                 }
