@@ -443,7 +443,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             to: to,
             from: $scope.myId,
             type: messagetype,
-            id: timestamp
+            id: 'dashboard'+$scope.chatAtual.id+timestamp
         }).c("body").t(message);
 
         reply.up().c("x", {
@@ -470,7 +470,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             to: to,
             from: $scope.myId,
             type: messagetype,
-            id: timestamp
+            id: 'dashboard'+$scope.chatAtual.id+timestamp
         }).c("body").t(message);
 
         reply.up().c("request", {
@@ -555,7 +555,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             to: from.split('/')[0],
             from: $scope.myId,
             type: messagetype,
-            id: timestamp
+            id: 'dashboard'+$scope.chatAtual.id+timestamp
         });
 
         reply.c("received", {
