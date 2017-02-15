@@ -373,8 +373,8 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
         }).success(function(data){
             $scope.atendimentosPorDates = data;
 
-            /*graficoAtendimentoPorDateTOT(data);
-            graficoAtendimentoPorDateNEG(data);
+            graficoDenunciaPorDateTOT(data);
+            /*graficoAtendimentoPorDateNEG(data);
             graficoAtendimentoPorDateNAT(data);
             graficoAtendimentoPorDateATE(data);*/
 
@@ -570,7 +570,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
                 bars: 'horizontal', //orientação do gráfico
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'TOTAL DE LOJAS'} // Top x-axis.
+                        0: { side: 'top', label: 'TOTAL DE DENÚNCIAS'} // Top x-axis.
                     }
                 },
                 bar: { groupWidth: 20 }
