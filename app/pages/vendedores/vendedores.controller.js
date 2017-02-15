@@ -3,6 +3,9 @@
  */
 
 angular.module("teewa").controller("vendedoresCtrl", function ($scope, $http, config, $stateParams) {
+    //console.log(localStorage.getItem('expired'));
+    localStorage.setItem('expired', new Date().getTime());
+
     if(localStorage.getItem('loginadmin') === '')
         $state.go('main.login.indexadmin');
     $scope.app = "Vendedores";

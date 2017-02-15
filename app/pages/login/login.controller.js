@@ -2,6 +2,9 @@
  * Created by gisele on 26/01/17.
  */
 angular.module("teewa").controller("loginController", function ($scope, $timeout, $state, config, $http, sharedConn, Chats, ChatDetails) {
+    //console.log(localStorage.getItem('expired'));
+    localStorage.setItem('expired', new Date().getTime());
+
     if(localStorage.getItem('loginadmin') !== '')
         $state.go('main.dashboard.listar');
     if(localStorage.getItem('loginV') !== '')

@@ -1,4 +1,7 @@
 angular.module("teewa").controller("denunciasCtrl", function ($scope, $http, config) {
+
+    localStorage.setItem('expired', new Date().getTime());
+
     if(localStorage.getItem('loginadmin') === '')
         $state.go('main.login.indexadmin');
     $scope.app = "Denuncias";

@@ -2,6 +2,9 @@
  * Created by Larissa Fabíola on 30/11/16.
  */
 angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, config, $state, $stateParams) {
+    //console.log(localStorage.getItem('expired'));
+    localStorage.setItem('expired', new Date().getTime());
+
     if(localStorage.getItem('loginadmin') === '')
         $state.go('main.login.indexadmin');
     $scope.app = "Atendimentos";
@@ -1549,11 +1552,11 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     //carregarNatendimentos();
 
     var d = {
-        value: new Date(),
-    }
+        value: new Date()
+    };
      var novaData = {
-        value: new Date(d.value.getTime() - 10080*60000),
-    }
+        value: new Date(d.value.getTime() - 10080*60000)
+    };
 
 	$scope.carregarAtendimentos(novaData, d);
 	$scope.carregarAtendimentosPorHora($scope.data_startParam, $scope.data_endParam);

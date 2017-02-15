@@ -4,10 +4,13 @@
  * Altered by Saymon on 25/01/17. ** Indenta o código e Corrige datas do filtro de atendimentos e vendedores **
  */
 angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($scope, $http, config, $state, $stateParams, sharedConn, Chats, ChatDetails) {
-    $scope.idloja = localStorage.getItem('lojaID');
+    //console.log(localStorage.getItem('expired'));
+    localStorage.setItem('expired', new Date().getTime());
+
+    $scope.idloja =localStorage.getItem('lojaID');
     //Perfil
-    /*if(localStorage.getItem('loginE') === '')
-        $state.go('main.login.index');*/
+    if(localStorage.getItem('loginE') === '')
+        $state.go('main.login.index');
     console.log('teste '+ $scope.idloja);
     $scope.nomePerfil= "Minha Loja";
     $scope.enderecoPerfil= "Rua do pão";
@@ -421,7 +424,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
     };
 
     $scope.saveAnuncioForm = function(anuncio, novo){
-        $.getScript("app/assets/js/md5.js", function(){
+            $.getScript("app/assets/js/md5.js", function(){
             var data, url, method;
              if(novo){
                 foto = document.querySelector("#filename").files;
