@@ -52,6 +52,10 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
             SharedConnObj.connection.muc.join("chat"+chats[i].id+"@conference."+config.XMPP_DOMAIN,SharedConnObj.user);
         }
 
+        /*var iqMigs = $iq({type: "set"}).c("query", {xmlns: "jabber:iq:roster"}).c("item", {jid:"671@ip-172-31-47-155",name:"Marcos"});
+        SharedConnObj.connection.sendIQ(iqMigs);*/
+
+
         console.log('consegui :)');
 
     };
@@ -95,6 +99,7 @@ angular.module('teewa').factory('sharedConn', ['$state', '$rootScope', 'config',
             $rootScope.statusConexao = 'Conectado!';
 
             SharedConnObj.connection.addHandler(SharedConnObj.onMessage, null, 'message', null, null, null);
+
             SharedConnObj.connection.send($pres().tree());
             SharedConnObj.loggedIn = true;
             console.log('Conectou!');
