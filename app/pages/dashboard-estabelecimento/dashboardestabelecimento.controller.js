@@ -533,6 +533,52 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
         else $scope.anuncio.isActive=true;
     };
 
+    function graficoDenunciaPorDateTOT(dado){
+        var date = [];
+        var qtd = [];
+        //dados para o grafico
+        for(dt in dado) {
+            date[dt] = dado[dt].case_date.substring(0, 10);
+            qtd[dt] = parseInt(dado[dt].tot);
+        }
+        //tamanho minimo do grafico
+        if(date.length < 5)
+            for (i = 0; i < 3; i++){
+                date[i + (date.length)] = "";
+                qtd[i+ (date.length)] = 0;
+            }
+
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'date');
+            data.addColumn('number', 'TOTAL');
+            //Povondo o grafico
+            for(i = 0; i < date.length; i++){
+                data.addRow([date[i], qtd[i]]);
+            }
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 950,
+                height: data.getNumberOfRows() * 65,
+                legend: { position: 'none' },
+                bars: 'horizontal', //orientação do gráfico
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'TOTAL DE LOJAS'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: 20 }
+            };
+            //Construindo o gráfico
+            var chart = new google.charts.Bar(document.getElementById('graficoDenunciaPorDateTOT'));
+            chart.draw(data, options);
+        };
+    }
+
+
 
     $scope.carregarAnunciosEstabelecimento();
 
