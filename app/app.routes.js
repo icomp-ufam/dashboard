@@ -153,9 +153,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         templateUrl: 'app/pages/dashboard/dashboard.html',
         controller: 'dashboardCtrl',
         activetab: 'dashboard'
-    })
-
-        .state('main.dashboardVendedor', {
+    }).state('main.dashboardVendedor', {
             url: 'dashboard-vendedor',
             template: '<ui-view></ui-view>'
         }).state('main.dashboardVendedor.index', {
@@ -289,6 +287,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
     }).state('main.dashboardEstabelecimento.vendedoresEstabelecimento', {
         url: '/vendedores-estabelecimento',
         templateUrl: 'app/pages/dashboard-estabelecimento/vendedores/vendedores-estabelecimento.html',
+        controller: 'dashboardEstabelecimentoCtrl',
+        activetab: 'vendedoresEstabelecimento'
+    }).state('main.dashboardEstabelecimento.solicitacoes', {
+        url: '/vendedores-solicitacoes',
+        templateUrl: 'app/pages/dashboard-estabelecimento/vendedores/vendedores-solicitacoes.html',
         controller: 'dashboardEstabelecimentoCtrl',
         activetab: 'vendedoresEstabelecimento'
     }).state('main.dashboardEstabelecimento.atendimentosEstabelecimento', {

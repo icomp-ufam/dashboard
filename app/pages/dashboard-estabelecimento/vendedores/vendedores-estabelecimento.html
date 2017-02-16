@@ -9,6 +9,18 @@
 <div class="page-content-wrap">
      <div class="page-container-boxed">
     <div class="row">
+        <div class="col-md-3">
+            <!-- START WIDGET REGISTRED -->
+            <div style="cursor: pointer;" class="widget widget-default widget-item-icon" ui-sref="main.dashboardEstabelecimento.solicitacoes">
+                <div class="widget-item-left">
+                    <span class="fa fa-info-circle"></span>
+                </div>
+                <div class="widget-data">
+                    <br>
+                    <div class="widget-title">Solicitações de Vendedores</div>
+                </div>
+            </div>
+        </div>
         <div class="col-md-12">
             <!-- START DEFAULT DATATABLE -->
             <div class="panel panel-default">
@@ -20,50 +32,51 @@
                     </ul>
                 </div>
                 <div class="panel-body">
-                    <p class="text-info"> Filtrar: </p>
-                    <div class="row">
-                        <div class="col-md-2">
-                            Inicio: <input style="cursor: text;" class="form-control col-md3" type="date" ng-model="data_start.value">
-                        </div>
-                        <div class="col-md-1"></div>
-                        <div class="col-md-2">
-                            Termino: <input style="cursor: text;" class="form-control col-md3" type="date" ng-model="data_end.value">
-                        </div>
-                        <div class="col-md-1"></div>
-                        <div class="col-md-2">
-                            <br>
-                            <button type="submit" class=" btn btn-default" ng-click="carregarVendedoresLoja((data_start | date: 'dd/MM/y'), (data_end | date: 'dd/MM/y'), idloja)"> Filtrar </button>
-                        </div>
-                    </div> 
-
-                    </br>
-                    
                     <table class="table" >
                         <thead>
                             <tr>
                                 <!--<th ng-click="ordenarPor('id')">ID</th>-->
+                                <th >Imagem</th>
                                 <th ng-click="ordenarPor('name')">Nome</th>
-                                <th ng-click="ordenarPor('atendimento')">Quantidade de Atendimentos</th>
-                                <th ng-click="ordenarPor('avg_rating')">Média das Avaliações</th>
-                                <th ng-click="ordenarPor('sum_rating')">Quantidade de Avaliações</th>
+                                <th ng-click="ordenarPor('mobile')">Telefone</th>
+                                <th ng-click="ordenarPor('created_at')">Data de ingresso</th>
+                                <th ng-click="ordenarPor('status')">Status</th>
+                                <th> Opções </th>
                             </tr>
-
                             <tr>
-                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome"></th>
-                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.atendimento" placeholder="Quantidade de Atendimentos"></th>
-                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.avg_rating" placeholder="Média das Avaliações"></th>
-                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.sum_rating" placeholder="Quantidade de Avaliações"></th>
+                                <th></th>
+                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome..."></th>
+                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.mobile" placeholder="Telefone..."></th>
+                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.created_at" placeholder="Data de ingresso..."></th>
+                                <th><input class="form-control" type="text" ng-model="criterioDeBusca.status" placeholder="Status..."></th>
+                                <th></th>
                             </tr>
                         </thead>
                        <tbody>
                             <tr ng-repeat="vendedor in vendedores | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
 
                                 <!--<td>{{vendedor.id}}</td>-->
+                                <td> <a class="image"><img  ng-src="{{urlPhotos}}{{vendedor.photo}}" width="50" height="50" > </a></td>
                                 <td>{{vendedor.name}}</td>
-                                <td>{{vendedor.atendimento}}</td>
-                                <td>{{vendedor.avg_rating | number:1}}</td>
-                                <td>{{vendedor.sum_rating | number:1}}</td>
-                                <td> <button class="btn btn-default" >Chat</button> </td>
+                                <td>{{vendedor.mobile}}</td>
+                                <td>{{vendedor.created_at | limitTo:19}}</td>
+                                <td ng-switch on="{{vendedor.status }}">
+                                    <span ng-switch-when="1">Ativo</span>
+                                </td>
+                                <td>
+                                    <!-- Botões de opções -->
+                                    <ul class="panel-controls">
+                                        <li style="cursor: pointer;" title="Opções" class="dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li ng-click="desvincularVendedor(vendedor.id)" ><a><span class="fa fa-times"></span> Desvincular </a></li>
+                                                <li ng-click="mudarAdminLoja(vendedor.id)" ><a><span class="fa fa fa-user"></span> Tornar Administrador </a></li>
+                                                <li ng-click="" ><a><span class="fa fa-comments-o"></span> Chat </a></li>
+
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

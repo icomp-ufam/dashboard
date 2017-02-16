@@ -35,6 +35,7 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
             }
         }).success(function(data){
             $scope.estabelecimentos = data;
+            console.log(data);
             $scope.data_start = {
                         value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
 
