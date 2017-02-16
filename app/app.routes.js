@@ -153,9 +153,9 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         controller: 'dashboardCtrl',
         activetab: 'dashboard'
     }).state('main.dashboardVendedor', {
-        url: 'dashboard-vendedor',
-        template: '<ui-view></ui-view>'
-    }).state('main.dashboardVendedor.index', {
+            url: 'dashboard-vendedor',
+            template: '<ui-view></ui-view>'
+        }).state('main.dashboardVendedor.index', {
         url: '/index',
         templateUrl: 'app/pages/dashboard-vendedor/dashboard-vendedor.html',
         controller: 'dashboardVendedorCtrl',
@@ -205,8 +205,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         templateUrl: 'app/pages/pacotes/edit_pacotes.html',
         controller: 'formPacotesCtrl',
         activetab: 'pacotes-edit'
-    })
-    .state('main.pacotes', {
+    }).state('main.pacotes', {
         url: 'pacotes',
         template: '<ui-view></ui-view>'
     }).state('main.pacotes.listar', {
@@ -285,6 +284,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
     }).state('main.dashboardEstabelecimento.vendedoresEstabelecimento', {
         url: '/vendedores-estabelecimento',
         templateUrl: 'app/pages/dashboard-estabelecimento/vendedores/vendedores-estabelecimento.html',
+        controller: 'dashboardEstabelecimentoCtrl',
+        activetab: 'vendedoresEstabelecimento'
+    }).state('main.dashboardEstabelecimento.solicitacoes', {
+        url: '/vendedores-solicitacoes',
+        templateUrl: 'app/pages/dashboard-estabelecimento/vendedores/vendedores-solicitacoes.html',
         controller: 'dashboardEstabelecimentoCtrl',
         activetab: 'vendedoresEstabelecimento'
     }).state('main.dashboardEstabelecimento.atendimentosEstabelecimento', {
