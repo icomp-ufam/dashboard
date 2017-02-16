@@ -59,7 +59,6 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         activetab: 'clientes'
     }).state('main.clientes.graphic', {
         url: '/graphic/:data_startParametro/:data_endParametro',
-
         templateUrl: 'app/pages/clientes/clienteGraphic.html',
         controller: 'clientesCtrl',
         activetab: 'clientes'
@@ -153,12 +152,10 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         templateUrl: 'app/pages/dashboard/dashboard.html',
         controller: 'dashboardCtrl',
         activetab: 'dashboard'
-    })
-
-        .state('main.dashboardVendedor', {
-            url: 'dashboard-vendedor',
-            template: '<ui-view></ui-view>'
-        }).state('main.dashboardVendedor.index', {
+    }).state('main.dashboardVendedor', {
+        url: 'dashboard-vendedor',
+        template: '<ui-view></ui-view>'
+    }).state('main.dashboardVendedor.index', {
         url: '/index',
         templateUrl: 'app/pages/dashboard-vendedor/dashboard-vendedor.html',
         controller: 'dashboardVendedorCtrl',
@@ -179,7 +176,6 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         controller: 'dashboardVendedorCtrl',
         activetab: 'emoji'
     })
-
     //Listar Pacotes
         .state('main.pacotes-list', {
             url: 'pacotes',
@@ -210,10 +206,10 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         controller: 'formPacotesCtrl',
         activetab: 'pacotes-edit'
     })
-        .state('main.pacotes', {
-            url: 'pacotes',
-            template: '<ui-view></ui-view>'
-        }).state('main.pacotes.listar', {
+    .state('main.pacotes', {
+        url: 'pacotes',
+        template: '<ui-view></ui-view>'
+    }).state('main.pacotes.listar', {
         url: '/lista',
         templateUrl: 'app/pages/pacotes/form_pacotes.html',
         controller: 'formPacotesCtrl',
@@ -311,13 +307,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         templateUrl: 'app/pages/dashboard-estabelecimento/denuncias/denuncias-estabelecimento.html',
         controller: 'dashboardEstabelecimentoCtrl',
         activetab: 'denunciasEstabelecimento'
-    })
-
-        .state('main.dashboardEstabelecimento.listarPorHora', {
-            url: '/listarPorHora/:data_startParametro/:data_endParametro',
-            templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos/atendimentosPorHora.html',
-            controller: 'dashboardEstabelecimentoCtrl'
-        }).state('main.dashboardEstabelecimento.listarPorHoraContagemMedia', {
+    }).state('main.dashboardEstabelecimento.listarPorHora', {
+        url: '/listarPorHora/:data_startParametro/:data_endParametro',
+        templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos/atendimentosPorHora.html',
+        controller: 'dashboardEstabelecimentoCtrl'
+    }).state('main.dashboardEstabelecimento.listarPorHoraContagemMedia', {
         url: '/listarPorHoraContagemMedia',
         templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos/atendimentosPorHoraContagemMedia.html',
         controller: 'dashboardEstabelecimentoCtrl'
@@ -333,6 +327,19 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         url: '/listarPorDate/:data_startParametro/:data_endParametro',
         templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos/atendimentosPorData.html',
         controller: 'dashboardEstabelecimentoCtrl'
+    }).state('main.store', {
+        url: 'store',
+        template: '<ui-view></ui-view>'
+    }).state('main.store.lojaList', {
+        url: '/loja-list',
+        templateUrl: 'app/pages/store/store.html',
+        controller: 'storesCtrl',
+        activetab: 'lojaList'
+    }).state('main.store.lojaForm', {
+        url: '/loja-form',
+        templateUrl: 'app/pages/store/store-form.html',
+        controller: 'storesCtrl',
+        activetab: 'lojaForm'
     })
 
-}) ;
+});
