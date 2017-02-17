@@ -1,8 +1,70 @@
-{{app}}
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-content-wrap">
+    <!-- END BREADCRUMB -->
+    <div class="page-container-boxed">
+        <div class="row">
+            <div class="col-md-3">
+                <style>
+                    p.painel{
+                        color: #FFFFFF;
+                        font-weight: bold;
+                        font-size:200%;
+                    }
 
-<div ng-repeat="estabelecimento in estabelecimentos">
+                    a.painel:hover {
+                        color:#95c243;
+                       font-weight: bold;
+                       text-decoration: none;
+                       font-size:150%;
+                    }
+                    a.painel{
+                        color:#FFFFFF;
+                       font-weight: bold;
+                    }
+                    </style>
+
+            </div>
+            <div class="col-md-12">
+                <!-- START DEFAULT DATATABLE -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="align-items: center; background-color: #1b6d85">
+                        <p class="painel title" >Em qual loja você trabalha?</p>
+                        <div  style="float: right; margin-right: 20px;">
+                            <a class="painel" ui-sref="main.store.lojaForm" class="right"> NOVA LOJA</a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th  href="" ng-click="" > Nome </th>
+                                <th> Endereço </th>
+                                <th></th>
+                            </tr>
+                            </thead>
 
 
+                            <thead>
+                            <tr>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.name" placeholder="Nome..."></th>
+                                <th ><input class="form-control" type="text" ng-model="criterioDeBusca.address" placeholder="Endereço..."></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr  ng-repeat="store in stores | filter:criterioDeBusca">
+                                <td>{{store.name}}</td>
+                                <td>{{store.address}}</td>
+                                <td><a href="" ng-click="vincularLoja(store)"  data-toggle="tooltip" data-placement="left" title="Vincula-se à loja"><i class="fa fa-users" alt="Ser um vendedor."></i></a></td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
-{{stores}}
-
