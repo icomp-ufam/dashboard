@@ -90,6 +90,9 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
 
     $scope.salvarLoja =  function(store){
 
+        store.lng = document.getElementById('txtLongitude').value;
+        store.lat = document.getElementById('txtLatitude').value;
+
        store.banner = document.getElementById("filebanner"+'hidden').value;
        store.brand  = document.getElementById("filebrand"+'hidden').value;
 
@@ -115,10 +118,10 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
                 'zipcode':'',
                 'is24' :  store.is24,
                 'work_days' : $scope.work_days,
-                'tzone':'',
+                'tzone': (new Date()).getTimezoneOffset(),
                 'brand': store.brand,
                 'banner': store.banner,
-                'map_frame':'',
+                'map_frame':store.brand,
                 'subcategories':$scope.subcategories,
                 'description':store.description,
                 'phone':store.phone,
