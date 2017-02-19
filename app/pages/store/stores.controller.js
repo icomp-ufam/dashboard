@@ -90,51 +90,59 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
 
     $scope.salvarLoja =  function(store){
 
-        store.lng = document.getElementById('txtLongitude').value;
-        store.lat = document.getElementById('txtLatitude').value;
+        html2canvas($("#mapa"), {
+            useCORS: true,
+            onrendered: function(canvas) {
+                theCanvas = canvas;
+              //  document.body.appendChild(canvas);
+                store.map_frame = (canvas.toDataURL()).slice(22);
 
-       store.banner = document.getElementById("filebanner"+'hidden').value;
-       store.brand  = document.getElementById("filebrand"+'hidden').value;
+                store.lng = document.getElementById('txtLongitude').value;
+                store.lat = document.getElementById('txtLatitude').value;
 
-        if(store.isDays) store.is24=false;
-        else             store.is24=true;
+                store.banner = document.getElementById("filebanner"+'hidden').value;
+                store.brand  = document.getElementById("filebrand"+'hidden').value;
 
-        console.log(store);
+                if(store.isDays) store.is24=false;
+                else             store.is24=true;
 
-        $http({
-            url : config.baseUrl + "sellers/create/withnewstore",
-            method : 'post',
-            headers : {
-                'Content-Type': 'application/json',
-                'Authorization' : config.token
-            },
-            data: {
-                'iduser':$scope.idUser,
-                'name':store.name,
-                'cnpj':store.cnpj,
-                'lat': store.lat,
-                'lng': store.lng,
-                'address': store.address,
-                'zipcode':'',
-                'is24' :  store.is24,
-                'work_days' : $scope.work_days,
-                'tzone': (new Date()).getTimezoneOffset(),
-                'brand': store.brand,
-                'banner': store.banner,
-                'map_frame':store.brand,
-                'subcategories':$scope.subcategories,
-                'description':store.description,
-                'phone':store.phone,
-                'is_max_radius': store.is_max_radius,
-                'max_radius': store.max_radius
+                $http({
+                    url : config.baseUrl + "sellers/create/withnewstore",
+                    method : 'post',
+                    headers : {
+                        'Content-Type': 'application/json',
+                        'Authorization' : config.token
+                    },
+                    data: {
+                        'iduser':$scope.idUser,
+                        'name':store.name,
+                        'cnpj':store.cnpj,
+                        'lat': store.lat,
+                        'lng': store.lng,
+                        'address': store.address,
+                        'zipcode':'',
+                        'is24' :  store.is24,
+                        'work_days' : $scope.work_days,
+                        'tzone': (new Date()).getTimezoneOffset(),
+                        'brand': store.brand,
+                        'banner': store.banner,
+                        'map_frame':store.map_frame,
+                        'subcategories':$scope.subcategories,
+                        'description':store.description,
+                        'phone':store.phone,
+                        'is_max_radius': store.is_max_radius,
+                        'max_radius': store.max_radius
 
+                    }
+                }).success(function(data){
+                    console.log(data);
+                }).error(function(error){
+                    console.log(error);
+                    $scope.message = "Aconteceu um problema: " + error;
+                });
             }
-        }).success(function(data){
-            console.log(data);
-        }).error(function(error){
-            console.log(error);
-            $scope.message = "Aconteceu um problema: " + error;
         });
+
     };
 
     $scope.listarCategorias = function(){
