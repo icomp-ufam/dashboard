@@ -40,7 +40,7 @@
                             <tr ng-repeat="anuncio in anuncios">
                                 <td>{{anuncio.title}}</td>
                                 <td>{{anuncio.description}}</td>
-                                <td>{{anuncio.created_at.substring(0, 19)}}</td>
+                                <td>{{anuncio.expires_at.substring(0, 19)}}</td>
                                 <td><i class="{{anuncio.isActive ? 'fa fa-check' : 'fa fa-ban'}}" ></i></td>
                                 <td ng-click="goAnuncioForm(anuncio)"><i style="cursor: pointer;" class="fa fa-edit"></i></td>
                             </tr>

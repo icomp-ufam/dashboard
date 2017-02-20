@@ -176,7 +176,7 @@
                             <div class="inner cover">
                                 <p class="lead emoji-picker-container">
                                     <!--para exibir os emojis usar: data-emojiable="true" na tag abaixo /-->
-                                    <input name="envia" type="text" onkeypress="enviarEnter(event)" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..."/>
+                                    <input id="txtMsg" name="envia" type="text" onkeypress="enviarEnter(event)" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..."/>
                                 </p>
                             </div>
                             <div class="input-group-btn">
@@ -374,6 +374,7 @@
             }
         }
     }
+
 </script>
 
 <style>
@@ -416,19 +417,6 @@
         // It can be called as many times as necessary; previously converted input fields will not be converted again
         window.emojiPicker.discover();
     });
-</script>
-
-
-<script>
-    // Google Analytics
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-49610253-3', 'auto');
-    ga('send', 'pageview');
-
 </script>
 
 </html>

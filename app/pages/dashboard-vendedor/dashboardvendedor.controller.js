@@ -159,7 +159,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         // so fazer essa parada quando tiver contas de teste
         // rota: /cases/deny, metodo PUT, params: idseller, idcase, idstore
         $http({
-            url : config.baseUrl + config.nao_tenho,
+            url : config.baseUrl + config.recusar_caso,
             method : 'put',
             headers : {
                 'Content-Type': 'application/json',
@@ -643,15 +643,24 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             }
         }
 
+        // quando o cliente está na tela do chat
+        var active = msg.getElementsByTagName('active')[0];
+        if(active){
+            //console.log(msg);
+            $scope.roster[from.split('@')[0]] = "online";
+        }
+
         // evento de digitando
         var composing = msg.getElementsByTagName('composing')[0];
         if (composing){
+            //console.log(msg);
             $scope.composing[from.split('@')[0]] = true;
         }
 
         //evento de parou de digitar
         var paused = msg.getElementsByTagName('paused')[0];
         if(paused){
+            //console.log(msg);
             $scope.composing[from.split('@')[0]] = false;
         }
 
@@ -739,5 +748,68 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             }
         }
     };
+
+    /*modelo
+     <message xmlns="jabber:client" to="672@ip-172-31-47-155/web" id="yUei3-1292" type="groupchat">
+        <composing xmlns="http://jabber.org/protocol/chatstates"/>
+     </message>
+     */
+    $scope.sendComposing = function () {
+        var timestamp = new Date().getTime();
+        var msgComposing = $msg({
+            xmlns: 'jabber:client',
+            to:'chat'+$scope.chatAtual.id+'@conference.ip-172-31-47-155',
+            id:$scope.chatAtual.id+"composing"+timestamp,
+            type: "groupchat",
+        }).c("composing", {xmlns: 'http://jabber.org/protocol/chatstates'});
+
+        sharedConn.getConnectObj().send(msgComposing.tree());
+    };
+
+    /*modelo
+     <message xmlns="jabber:client" to="672@ip-172-31-47-155/web" id="yUei3-1294" type="groupchat">
+        <paused xmlns="http://jabber.org/protocol/chatstates"/>
+     </message>
+     */
+    $scope.sendPaused = function () {
+        var timestamp = new Date().getTime();
+        var msgPaused = $msg({
+            xmlns: 'jabber:client',
+            to:'chat'+$scope.chatAtual.id+'@conference.ip-172-31-47-155',
+            id:$scope.chatAtual.id+"paused"+timestamp,
+            type: "groupchat",
+        }).c("paused", {xmlns: 'http://jabber.org/protocol/chatstates'});
+
+        sharedConn.getConnectObj().send(msgPaused.tree());
+    };
+
+
+    // digitando
+    var textarea = $('#txtMsg');
+    var lastTypedTime = new Date(0); // it's 01/01/1970
+    var typingDelayMillis = 3000;
+    var typingStatus = false;
+
+    function refreshTypingStatus() {
+        if (!textarea.is(':focus') || textarea.val() == '' || new Date().getTime() - lastTypedTime.getTime() > typingDelayMillis) {
+            if (typingStatus == true){
+                typingStatus = false;
+                $scope.sendPaused();
+            }
+
+        } else {
+            if (typingStatus == false){
+                typingStatus = true;
+                $scope.sendComposing();
+            }
+        }
+    }
+    function updateLastTypedTime() {
+        lastTypedTime = new Date();
+    }
+
+    setInterval(refreshTypingStatus, 100);
+    textarea.keypress(updateLastTypedTime);
+    textarea.blur(refreshTypingStatus);
 
 });

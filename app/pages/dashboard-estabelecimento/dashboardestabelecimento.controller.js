@@ -3,15 +3,18 @@
  * Alter by duivilly on 23/01/17.
  * Altered by Saymon on 25/01/17. ** Indenta o código e Corrige datas do filtro de atendimentos e vendedores **
  */
-angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($scope, $http, config, $state, $stateParams, sharedConn, Chats, ChatDetails) {
+angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($filter ,$scope, $http, config, $state, $stateParams, sharedConn, Chats, ChatDetails) {
     //console.log(localStorage.getItem('expired'));
     localStorage.setItem('expired', new Date().getTime());
 
-    $scope.idloja =localStorage.getItem('lojaID');
+    $scope.idloja = localStorage.getItem('lojaID');
+    $scope.iduser = localStorage.getItem('userID');
+    //console.log('usseeerrrrQ!!'+ $scope.iduser);
+    $scope.urlPhotos = config.baseUrl + "/photos/";
     //Perfil
-    if(localStorage.getItem('loginE') === '')
+    if(localStorage.getItem('loginE') === '' && localStorage.getItem('loginadmin') === '')
         $state.go('main.login.index');
-    console.log('teste '+ $scope.idloja);
+    //console.log('idloja'+ $scope.idloja);
     $scope.nomePerfil= "Minha Loja";
     $scope.enderecoPerfil= "Rua do pão";
     $scope.categoriaPerfil= "Informática";
@@ -28,41 +31,143 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
     $scope.app = "Vendedores";
     $scope.vendedores = [];
 
-     var carregarVendedoresLoja = function (date_start, date_end, idstore) {
-        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear();
-        var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear();
-
+    //carrega vendedores ativos
+     var carregarVendedoresLoja = function () {
         $http({
-
-            url : config.baseUrl + "/dash/store/seller",
-            method : 'post',
+            url : config.baseUrl + "/stores/"+$scope.idloja+ "/sellers/enabled/dash",
+            method : 'get',
             headers : {
                 'Content-Type': 'application/json',
                 'Authorization' : config.token
-            },
-            data: {
-                'date_start' : NovaDate_start,
-                'date_end' : NovaDate_end,
-                'idstore'  : idstore
             }
         }).success(function(data){
-            $scope.vendedores = data;
-            //console.log($scope.vendedores);
-
-            $scope.data_start = {
-                value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
-
-            };
-            $scope.data_end = {
-                value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
-
-            };
+            $scope.vendedores = data.sellers;
+            console.log($scope.vendedores);
 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + data;
             console.log("login error");
         });
     };
+
+    var carregarVendedoresPendentes = function () {
+        $http({
+            url : config.baseUrl + "/stores/" + $scope.idloja + "/sellers/disabled/"+$scope.iduser,
+            method : 'get',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            }
+        }).success(function(data){
+            $scope.solicitacoes = data.sellers;
+            console.log('oi pendentes');
+            console.log($scope.solicitacoes);
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + data;
+            console.log("login error");
+        });
+    };
+    carregarVendedoresPendentes();
+
+    $scope.mudarAdminLoja = function (id) {
+        console.log(id);
+        var deixar = confirm('Tem certeza que deseja tornar esse usuário um administrador?');
+        if(deixar==true) {
+            console.log('oi de novo');
+            $http({
+                url: config.baseUrl + "/stores/owner/update",
+                method: 'put',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': config.token
+                },
+                data: {
+                    'idstore': $scope.idstore,
+                    'idowner': id
+                }
+            }).success(function (data) {
+                console.log(data);
+            }).error(function (error) {
+                $scope.message = "Aconteceu um problema: " + error;
+            });
+
+        }
+    };
+
+
+    $scope.desvincularVendedor = function (id){
+        var deixar = confirm('Tem certeza que deseja desvincular esse vendedor?');
+        if (deixar == true){
+            $http({
+                url : config.baseUrl + config.remove_vendedor,
+                method : 'put',
+                headers : {
+                    'Content-Type': 'application/json',
+                    'Authorization' : config.token
+                },
+                data: {
+                    'idstore' : $scope.idstore,
+                    'idseller' : id,
+                    'notify' : 'true'
+                }
+            }).success(function(data){
+                console.log(data);
+                carregarVendedoresLoja();
+            }).error(function(error){
+                console.log(error);
+                $scope.message = "Aconteceu um problema: " + error;
+            });
+
+        }
+    };
+
+    $scope.aceitarVendedor = function (id) {
+        $http({
+            url : config.baseUrl + config.aceitar_vendedor,
+            method : 'put',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data: {
+
+                'idstore' : $scope.idstore,
+                'idseller':id,
+
+            }
+        }).success(function(data){
+            // recarregar a página
+            $state.reload();
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
+    $scope.recusarVendedor = function (id) {
+
+        $http({
+            url : config.baseUrl + config.recusar_vendedor,
+            method : 'put',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data: {
+
+                'idstore' : $scope.idstore,
+                'idseller' :id,
+
+            }
+        }).success(function(data){
+            // recarregar a página
+            $state.reload();
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
 
     $scope.apagarVendedores = function (vendedores) {
         $scope.vendedores = vendedores.filter(function (vendedor) {
@@ -86,7 +191,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
         value: new Date(d.value.getTime() - 10080*60000),
     };
 
-    carregarVendedoresLoja(novaData, d, $scope.idloja);
+    carregarVendedoresLoja();
 
     //#######Todas as denuncias de uma loja#######
     $scope.app = "Denuncias";
@@ -183,10 +288,10 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
 
     var d = {
         value: new Date(),
-    }
+    };
      var novaData = {
         value: new Date(d.value.getTime() - 10080*60000),
-    }
+    };
 
     console.log(d);
     var carregarAtendimentosDefult = function () {
@@ -411,7 +516,6 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
         });
     };
 
-
     if (typeof localStorage.getItem('anuncio') !== "undefined"  && localStorage.getItem('anuncio') !== "undefined") {
         $scope.anuncio = angular.fromJson(localStorage.getItem('anuncio'));
     }else{
@@ -441,19 +545,21 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
                                'Content-Type': 'application/json',
                                'Authorization' : config.token
                            },
-                           data : {'title' : anuncio.title,
-                                   'description' : anuncio.description,
-                                   'image' : img_base64,
-                                   'hash':  CryptoJS.MD5(String($filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss')+$scope.idloja)),
-                                   'expires_at': $filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss -0400'),
-                                   'idstore': $scope.idloja,
-                                   'case_enabled': String(anuncio.case_enabled),
-                                   'url':  null,
+                           data : {
+                                 'title' : anuncio.title,
+                                 'description' : anuncio.description,
+                                 'image' : img_base64,
+                                 'hash':  CryptoJS.MD5(String($filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss')+$scope.idloja)),
+                                 'expires_at': $filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss'),
+                                 'url': null,
+                                 'idstore': $scope.idloja,
+                                 'case_enabled': String(anuncio.case_enabled)
                            }
                         }).success(function(data){
                             console.log(data);
                             $state.go("main.dashboardEstabelecimento.anunciosEstabelecimento");
                         }).error(function(error){
+                            console.log(error);
                             $scope.message = "Aconteceu um problema: " + error;
                         });
 
@@ -470,7 +576,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
                                'description' : anuncio.description,
                                'image' :  null,
                                'hash':  CryptoJS.MD5(String($filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss')+$scope.idloja)),
-                               'expires_at': $filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss -0400'),
+                               'expires_at': $filter('date')(anuncio.date ,'yyyy-MM-dd HH:mm:ss'),
                                'idstore': $scope.idloja,
                                'case_enabled': String(anuncio.case_enabled),
                                'url':  null,
@@ -479,6 +585,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
                         console.log(data);
                         $state.go("main.dashboardEstabelecimento.anunciosEstabelecimento");
                     }).error(function(error){
+                        console.log(error);
                         $scope.message = "Aconteceu um problema: " + error;
                     });
                 }
@@ -586,8 +693,44 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($sc
     $scope.carregarAnunciosEstabelecimento();
 
     $scope.carregarAtendimentos(novaData, d, $scope.idloja);
-    $scope.carregarAtendimentosPorHora(novaData, d, $scope.idloja);
+    //$scope.carregarAtendimentosPorHora(novaData, d, $scope.idloja);
     $scope.carregarAtendimentosPorCategoria(novaData, d, $scope.idloja);
     $scope.carregarAtendimentosPorDiaSemana(novaData, d, $scope.idloja);
     $scope.carregarAtendimentosPorDate(novaData, d, $scope.idloja);
+
+    /*var carregarVendedoresLoja = function (date_start, date_end, idstore) {
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear();
+        var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear();
+
+        $http({
+
+            url : config.baseUrl + "/dash/store/seller",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data: {
+                'date_start' : NovaDate_start,
+                'date_end' : NovaDate_end,
+                'idstore'  : idstore
+            }
+        }).success(function(data){
+            $scope.vendedores = data;
+            //console.log($scope.vendedores);
+
+            $scope.data_start = {
+                value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+
+            };
+            $scope.data_end = {
+                value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+
+            };
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + data;
+            console.log("login error");
+        });
+    };*/
 });
