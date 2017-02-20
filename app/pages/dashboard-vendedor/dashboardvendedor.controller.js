@@ -159,7 +159,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         // so fazer essa parada quando tiver contas de teste
         // rota: /cases/deny, metodo PUT, params: idseller, idcase, idstore
         $http({
-            url : config.baseUrl + config.nao_tenho,
+            url : config.baseUrl + config.recusar_caso,
             method : 'put',
             headers : {
                 'Content-Type': 'application/json',

@@ -290,7 +290,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         controller: 'dashboardEstabelecimentoCtrl',
         activetab: 'vendedoresEstabelecimento'
     }).state('main.dashboardEstabelecimento.solicitacoes', {
-        url: '/vendedores-solicitacoes',
+        url: '/vendedores/vendedores-solicitacoes',
         templateUrl: 'app/pages/dashboard-estabelecimento/vendedores/vendedores-solicitacoes.html',
         controller: 'dashboardEstabelecimentoCtrl',
         activetab: 'vendedoresEstabelecimento'
@@ -337,5 +337,6 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         templateUrl: 'app/pages/dashboard-estabelecimento/atendimentos/atendimentosPorData.html',
         controller: 'dashboardEstabelecimentoCtrl'
     })
+
 
 }) ;
