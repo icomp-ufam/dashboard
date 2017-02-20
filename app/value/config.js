@@ -18,5 +18,7 @@ angular.module("teewa").value("config",  {
     encerra_caso: "/chats/close",
     denunciar_cliente: "/stores/complaint",
     envio_de_imagem: "/chats/send/image",
-    remove_vendedor: "/stores/sellers/remove"
+    remove_vendedor: "/stores/sellers/remove",
+    aceitar_vendedor: "/stores/sellers/accept",
+    recusar_vendedor: "/stores/sellers/deny"
 });

@@ -1,21 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>emoji-picker Demo</title>
-    <!--link href="lib/emoji/css/bootstrap.min.css" rel="stylesheet"-->
-    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"-->
-
     <!-- Begin emoji-picker Stylesheets -->
     <link href="lib/emoji/lib/css/nanoscroller.css" rel="stylesheet">
     <link href="lib/emoji/lib/css/emoji.css" rel="stylesheet">
     <!-- End emoji-picker Stylesheets -->
-</head>
+    <style>
+        img.greyscale{
+            -o-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+        .loading-img{
+            position: absolute;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .textCenter{
+            text-align: center;
+            vertical-align: middle;
+            line-height: 300px;
+        }
 
+    </style>
+</head>
 
 <ul class="breadcrumb push-down-0">
     <li><a ui-sref="main.dashboardVendedor.index">Dashboard Vendedor</a></li>
@@ -24,7 +39,7 @@
 <div ng-if="(chatAtual == 'carregando')" class="row">
     <img src="app/assets/img/loaders/default.gif" class="loading-img">
 </div>
-
+<!-- Status de conexão-->
 <div ng-if="(chatAtual == 'vazio')">
     <h1 class="textCenter">Não existem casos abertos! </h1>
 </div>
@@ -52,11 +67,10 @@
                     <!--Data em que o caso foi aceito pelo vendedor-->
                     <p>Caso aceito em:  {{chatAtual.created_at | limitTo:19 }}</p>
 
-                    <!-- Caso não existam casos carregados, exibe "Chat" -->
-                    <h4><span class="fa fa-search"></span> {{chatAtual.case.name+'      ' || 'Chat     '}}</h4>
+                <!-- Caso não existam casos carregados, exibe "Chat" -->
+                <h4><span class="fa fa-search"></span> {{chatAtual.case.name+'      ' || 'Chat     '}}</h4>
 
                 </div>
-
                 <!-- Botões de controle do chat -->
                 <ul class="panel-controls">
                     <!-- botão que inclui o vendedor nas salas de chat do openfire para todos os casos abertos listados -->
@@ -144,10 +158,8 @@
                                 <span ng-if="!message.userId.includes(idVendedor)" class="date">{{message.time | date:'yyyy-MM-dd HH:mm:ss'}}</span>
                                 <a ng-if="message.userId.includes(idVendedor)" > Você </a>
                             </div>
-
                             <!-- Exibe texto da mensagem -->
-                            {{message.text}}
-
+                            <p class="emoji">  {{message.text}}</p>
                             <!--Exibe imagem da mensagem, caso exista-->
                             <br ng-show="message.image">
                             <br ng-show="message.image">
@@ -176,8 +188,10 @@
                             <div class="inner cover">
                                 <p class="lead emoji-picker-container">
                                     <!--para exibir os emojis usar: data-emojiable="true" na tag abaixo /-->
-                                    <input id="txtMsg" name="envia" type="text" onkeypress="enviarEnter(event)" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..."/>
+                                    <input id="env2" name="envia" type="text" ng-keypress="enviarEnter(event)" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..."/>
+                                    <!--input id="env" name="emoji" type="text" ng-model="data.emoji" data-emojiable="true"  /-->
                                 </p>
+                                {{message2}}
                             </div>
                             <div class="input-group-btn">
                                 <button style=" visibility: hidden"></button>
@@ -190,7 +204,6 @@
                     </form>
                 </div>
             </div>
-
             <!-- END INPUT DE MENSAGENS -->
         </div>
     </div>
@@ -326,9 +339,9 @@
             </div>
         </div>
     </div>
-
     <!-- END MODAL DE UPLOAD DE IMAGEM -->
 </div>
+
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <!-- Begin emoji-picker JavaScript -->
 <script src="lib/emoji/lib/js/nanoscroller.min.js"></script>
@@ -337,6 +350,8 @@
 <script src="lib/emoji/lib/js/util.js"></script>
 <script src="lib/emoji/lib/js/jquery.emojiarea.js"></script>
 <script src="lib/emoji/lib/js/emoji-picker.js"></script>
+<!-- End emoji-picker JavaScript -->
+
 
 <script>
     // funcao responsavel por carregar a prévia da imagem selecionada no input
@@ -354,70 +369,19 @@
     }
 
     //funcão que verifica se o campo está vazio e enviar via tecla enter
-    function enviarEnter(e){
-        var tecla=(window.event)?event.keyCode:e.which;
-        if (tecla == 13) {
-            //campo vazio
-            if (document.dados.envia.value=="") {
-                document.dados.envia.focus();
-                return false;
-            }else{
-                //envia mensagem
-                $("#enviar").trigger('click');
-                document.dados.envia.value="";
-                //desce barra de rolagem das mensagens
-                document.getElementById(
-                        "msg"
-                ).scrollTop = document.getElementById(
-                        "msg"
-                ).scrollHeight;
-            }
-        }
-    }
 
-</script>
-
-<style>
-    img.greyscale{
-        -o-filter: grayscale(100%);
-        -moz-filter: grayscale(100%);
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
-    }
-    .loading-img{
-        position: absolute;
-        margin: auto;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
-
-    .textCenter{
-        text-align: center;
-        vertical-align: middle;
-        line-height: 300px;
-    }
-
-</style>
-
-
-<!-- End emoji-picker JavaScript -->
-
-<script>
     $(function() {
-        // Initializes and creates emoji set from sprite sheet
+        // Inicializa e cria emoji set from sprite sheet
         window.emojiPicker = new EmojiPicker({
             emojiable_selector: '[data-emojiable=true]',
             assetsPath: 'lib/emoji/lib/img/',
-            popupButtonClasses: 'fa fa-smile-o'
+            popupButtonClasses: 'fa fa-smile-o',
         });
-        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
-        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
-        // It can be called as many times as necessary; previously converted input fields will not be converted again
+        // Encontra todos os elementos com `emojiable_selector` e os converte em campos de entrada rich emoji
+        // Você pode querer atrasar este passo se você criou dinamicamente campos de entrada que aparecem mais tarde no processo de carregamento
+        // Pode ser chamado quantas vezes for necessário; Campos de entrada previamente convertidos não serão convertidos novamente
         window.emojiPicker.discover();
     });
-</script>
 
-</html>
+</script>
 

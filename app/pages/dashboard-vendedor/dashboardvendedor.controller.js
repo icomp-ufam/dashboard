@@ -159,7 +159,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         // so fazer essa parada quando tiver contas de teste
         // rota: /cases/deny, metodo PUT, params: idseller, idcase, idstore
         $http({
-            url : config.baseUrl + config.nao_tenho,
+            url : config.baseUrl + config.recusar_caso,
             method : 'put',
             headers : {
                 'Content-Type': 'application/json',
@@ -365,15 +365,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
         $scope.qteMsgsChats['chat'+$scope.chatAtual.id] = 0;
         //console.log($scope.qteMsgsChats);
-        $scope.sc();
-    };
-
-    $scope.sc = function (){
-        document.getElementById(
-            "msg"
-        ).scrollTop = document.getElementById(
-            "msg"
-        ).scrollHeight;
     };
 
     // carrega informacoes da mensagem com imagem no modal
@@ -401,7 +392,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         $scope.to_id = ChatDetails.getTo();
 
     };
-    //if(localStorage.getItem('conectado') !== 'true')
+    $scope.teste = function () {
+        $state.go('main.dashboardVendedor.casosAbertos');
+    };
+
     $scope.login();
 
     $scope.logout = function() {
@@ -479,6 +473,31 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
         sharedConn.getConnectObj().send(reply.tree());
         //console.log('I sent ' + to + ': ' + message, reply.tree());
+    };
+    $scope.enviarEnter = function(e){
+        if($scope.data.emoji != null)
+            $scope.message2 = $scope.data.message + '' +  $scope.data.emoji;
+        else
+            $scope.message2 = $scope.data.message;
+        console.log('teclado'+ $scope.message2);
+        //$scope.data.message =  $scope.messagen2;
+        var tecla=(window.event)?event.keyCode:e.which;
+        if (tecla == 13) {
+            //campo vazio
+            if (document.dados.envia.value=="") {
+                document.dados.envia.focus();
+                return false;
+            }else{
+                //envia mensagem
+                $("#enviar").trigger('click');
+                //desce barra de rolagem das mensagens
+                document.getElementById(
+                    "msg"
+                ).scrollTop = document.getElementById(
+                    "msg"
+                ).scrollHeight;
+            }
+        }
     };
 
     $scope.showSendMessage = function() {
@@ -718,6 +737,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             $scope.joinChats();
             $scope.precarregamento = false;
             //Exibe conectou! por 4 segundos
+            if($rootScope.statusConexao == 'Conectado!')
             $timeout(function() {
                 $rootScope.statusConexao = '';
             }, 4000);

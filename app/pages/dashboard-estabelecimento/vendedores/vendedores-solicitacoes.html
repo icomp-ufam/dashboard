@@ -8,6 +8,7 @@
 </head>
 <ul class="breadcrumb">
     <li><a ui-sref="main.dashboardVendedor.index">Dashboard Estabelecimento</a></li>
+    <li><a ui-sref="main.dashboardEstabelecimento.vendedoresEstabelecimento">Vendedor</a></li>
     <li ><a ui-sref=main.dashboardEstabelecimento.solicitacoes">Solicitações</a> </li>
 </ul>
 
@@ -16,38 +17,38 @@
 </div>
 
 <div class="row">
-    <!-- START NOVO CASO -->
+    <!-- START SOICITAÇÕES -->
     <div class="col-md-3" ng-repeat="solicitacao in solicitacoes" >
-        <!-- Lista os casos novos, usando a diretiva ng-repeat -->
+        <!-- Lista os vendedores , usando a diretiva ng-repeat -->
         <div class="panel panel-default">
             <div class="panel-body profile">
                 <div class="profile-image">
-                    <!-- Exibe a imagem do caso/consulta, ng-if="solicitacoes.photo"  caso exista ng-click="open_image_modal(urlFiles+caso.file, caso.name)" -->
+                    <!-- Exibe a imagem do vendedor, ng-if="solicitacoes.photo"  caso exista ng-click="open_image_modal(urlFiles+caso.file, caso.name)" -->
                     <img ng-src="{{urlPhotos+solicitacao.photo}}" alt="Caso"  data-toggle="modal" data-target="#modal_open_image" width="100" height="100"/>
                     <!--img ng-if="!caso.file" ng-src="app/assets/img/teewaTeste.png" width="100" height="100" alt="Caso"/-->
                 </div>
                 <div class="profile-data">
-                    <!-- Exibe informações do caso  -->
+                    <!-- Exibe informações da solicitacao  -->
                     <div class="profile-data-name">{{solicitacao.name}}</div>
                 </div>
 
             </div>
             <div class="panel-body" style="height: 80px; overflow-y: scroll">
                 <div class="contact-info">
-                    <!-- Descrição/nome do caso/consulta -->
+                    <!-- Descrição/nome da solicitacao -->
                     <p><small>Solicitou em:</small><br/>{{solicitacao.created_at | limitTo:19}}</p>
                 </div>
             </div>
             <div class="panel-footer">
-                <!-- Botões de aceitar e recusar caso -->
+                <!-- Botões de aceitar e recusar solicitacao de vendedor -->
                 <div class="form-group w3-center">
-                    <button ng-click="aceitarCaso(caso.id)" type="button" class="btn btn-success">Aceitar</button>
-                    <button ng-click="recusarCaso(caso.id)"type="button" class="btn btn-danger pull-right">Recusar</button>
+                    <button ng-click="aceitarVendedor(solicitacao.id)" type="button" class="btn btn-success">Aceitar</button>
+                    <button ng-click="recusarVendedor(solicitacao.id)"type="button" class="btn btn-danger pull-right">Recusar</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- START NOVO CASO -->
+    <!-- END SOLICITAÇÕES -->
 </div>
 
 <!-- START MODAL DE IMAGEM -->

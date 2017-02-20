@@ -17,6 +17,19 @@
         <link rel="stylesheet" type="text/css" id="theme" href="app/assets/css/theme-teewa.css"/>
         <!--link rel="stylesheet" type="text/css" href="lib/angular/angular-growl.css"-->
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="https://twemoji.maxcdn.com/twemoji.min.js"></script>
+        <script>
+            window.onload = function() {
+                twemoji.size = '16x16';
+                twemoji.parse(document.body);
+            }
+        </script>
+        <style>
+            img.emoji{
+                margin: 0px !important;
+                display: inline !important;
+            }
+        </style>
     </head>
          <ui-view></ui-view>
 
@@ -37,8 +50,8 @@
         <script src="lib/angular/angular-messages.js"></script>
 
 
-        <script src="app/app.module.js"></script>
-        <script src="app/app.routes.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.routes.js"></script>
 
 
         <!-- Controllers -->
@@ -91,5 +104,6 @@
             background-color: #bababa;
             -webkit-border-radius: 3px;
         }
+
     </style>
 </html>

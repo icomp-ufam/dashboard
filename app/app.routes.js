@@ -37,6 +37,10 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
     }).state('main.login', {
         url: 'login',
         template: '<ui-view></ui-view>'
+    }).state('main.login.recuperar', {
+        url: '/recuperar-senha',
+        templateUrl: 'app/pages/login/recuperar-senha.html',
+        controller: 'loginController'
     }).state('main.login.index', {
         url: '/login',
         templateUrl: 'app/pages/login/login.html',
@@ -287,7 +291,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         controller: 'dashboardEstabelecimentoCtrl',
         activetab: 'vendedoresEstabelecimento'
     }).state('main.dashboardEstabelecimento.solicitacoes', {
-        url: '/vendedores-solicitacoes',
+        url: '/vendedores/vendedores-solicitacoes',
         templateUrl: 'app/pages/dashboard-estabelecimento/vendedores/vendedores-solicitacoes.html',
         controller: 'dashboardEstabelecimentoCtrl',
         activetab: 'vendedoresEstabelecimento'

@@ -9,12 +9,12 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($fi
 
     $scope.idloja = localStorage.getItem('lojaID');
     $scope.iduser = localStorage.getItem('userID');
-    console.log('usseeerrrrQ!!'+ $scope.iduser);
+    //console.log('usseeerrrrQ!!'+ $scope.iduser);
     $scope.urlPhotos = config.baseUrl + "/photos/";
     //Perfil
     if(localStorage.getItem('loginE') === '' && localStorage.getItem('loginadmin') === '')
         $state.go('main.login.index');
-    console.log('idloja'+ $scope.idloja);
+    //console.log('idloja'+ $scope.idloja);
     $scope.nomePerfil= "Minha Loja";
     $scope.enderecoPerfil= "Rua do pão";
     $scope.categoriaPerfil= "Informática";
@@ -34,7 +34,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($fi
     //carrega vendedores ativos
      var carregarVendedoresLoja = function () {
         $http({
-            url : config.baseUrl + "/stores/"+$scope.idloja+ "/sellers/enabled/"+$scope.iduser ,
+            url : config.baseUrl + "/stores/"+$scope.idloja+ "/sellers/enabled/dash",
             method : 'get',
             headers : {
                 'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($fi
             }
         }).success(function(data){
             $scope.solicitacoes = data.sellers;
-            console.log('oi pendentes')
+            console.log('oi pendentes');
             console.log($scope.solicitacoes);
 
         }).error(function(error){
@@ -120,6 +120,52 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($fi
             });
 
         }
+    };
+
+    $scope.aceitarVendedor = function (id) {
+        $http({
+            url : config.baseUrl + config.aceitar_vendedor,
+            method : 'put',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data: {
+
+                'idstore' : $scope.idstore,
+                'idseller':id,
+
+            }
+        }).success(function(data){
+            // recarregar a página
+            $state.reload();
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
+    $scope.recusarVendedor = function (id) {
+
+        $http({
+            url : config.baseUrl + config.recusar_vendedor,
+            method : 'put',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data: {
+
+                'idstore' : $scope.idstore,
+                'idseller' :id,
+
+            }
+        }).success(function(data){
+            // recarregar a página
+            $state.reload();
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
     };
 
 
