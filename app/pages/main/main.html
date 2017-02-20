@@ -193,8 +193,8 @@
                     <span class="xn-text" style="font-size: 88%">DashBoard Vendedor</span>
                 </a>
                 <ul>
-                <li  ng-show="verifica() && verificaEstabelecimento()"  ng-class="{active: state.current.activetab == 'chat'}">
-                    <a ui-sref="main.dashboardVendedor.casosAbertos">
+                <li ng-show="verifica() && verificaEstabelecimento()"  ng-class="{active: state.current.activetab == 'chat'}">
+                    <a ui-sref="main.dashboardVendedor.casosAbertos" >
                         <span class="fa fa-comments"></span>
                         <span class="xn-text">Casos Abertos</span>
                     </a>
@@ -228,7 +228,6 @@
             <li class="xn-icon-button pull-right">
                 <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
             </li>
-
 
             <!-- INFOR ATENDIMENTOS CASOS CLIENTES ADMIN-->
             <li ng-show="!verifica() && !verificaEstabelecimento()" class="xn-icon-button pull-right">
