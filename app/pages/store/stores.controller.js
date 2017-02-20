@@ -3,10 +3,11 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
     $scope.stores;
     $scope.store ={"isDays":false, "is_max_radius":false, 'max_radius':10, "banner": '', "brand":''};
 
-    $scope.categories = [];
-    $scope.subCategories;
-    $scope.idUser = '672';//localStorage.getItem('userID');//'672';
+    $scope.urlImg = config.baseUrl + "/images/";
 
+    $scope.categories = [];
+    $scope.subCategories = [];
+    $scope.idUser = localStorage.getItem('userID');
 
     $scope.diasSemana =[{"day": 0,"name":"Sunday", "openhour": "", "closehour":"", "nome":"Domingo"},
                         {"day": 1,"name":"Monday", "openhour": "", "closehour":"",  "nome":"Segunda"},
@@ -17,6 +18,7 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
                         {"day": 6,"name":"Saturday", "openhour": "", "closehour":"",  "nome":"Sábado"}];
 
     $scope.work_days = [];
+
     $scope.diasSelecionado = function (func) {
         var idx = $scope.work_days.indexOf(func);
         if (idx > -1) {
@@ -54,15 +56,13 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
                 'date_end' : '31/12/2016'
             }
         }).success(function(data){
-            console.log(data);
+          //  console.log(data);
             $scope.stores = data;
 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
     };
-
-    $scope.listarLojas();
 
     $("document").ready(function(){
         $("#filebanner").change(function() {
@@ -75,7 +75,6 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
     });
 
     $scope.getImgBase = function(idFile){
-
         foto = document.querySelector("#"+idFile).files;
         var reader = new FileReader();
 
@@ -89,7 +88,6 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
     }
 
     $scope.salvarLoja =  function(store){
-
         html2canvas($("#mapa"), {
             useCORS: true,
             onrendered: function(canvas) {
@@ -132,10 +130,9 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
                         'phone':store.phone,
                         'is_max_radius': store.is_max_radius,
                         'max_radius': store.max_radius
-
                     }
                 }).success(function(data){
-                    console.log(data);
+                   console.log(data);
                 }).error(function(error){
                     console.log(error);
                     $scope.message = "Aconteceu um problema: " + error;
@@ -144,45 +141,6 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
         });
 
     };
-
-    $scope.listarCategorias = function(){
-        $http({
-            url : config.baseUrl + "/categories/all",
-            method : 'get',
-            headers : {
-                'Content-Type': 'application/json',
-                'Authorization' : config.token
-            }
-        }).success(function(data){
-            $scope.categories = data;
-            console.log(data);
-        }).error(function(error){
-            console.log(error);
-        });
-    };
-
-
-
-    $scope.listarSubCategorias = function(id){
-        $http({
-            url : config.baseUrl + "/subcategories/"+id,
-            method : 'get',
-            headers : {
-                'Content-Type': 'application/json',
-                'Authorization' : config.token
-            },
-            data : {
-                'id' : 1
-            }
-        }).success(function(data){
-            console.log(data);
-        }).error(function(error){
-            console.log(error);
-        });
-
-    };
-
-    $scope.listarCategorias();
 
     $scope.vincularLoja = function(loja){
         if(confirm("Você dejesa se tornar vendedor em "+loja.name+
@@ -205,5 +163,48 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
             });
         }
     };
+
+    $scope.listarCategorias = function(){
+        $http({
+            url : config.baseUrl + "/categories/all",
+            method : 'get',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            }
+        }).success(function(data){
+            $scope.categories = data.categories;
+            angular.forEach( $scope.categories, function(cat, key) {
+                $scope.listarSubCategorias(cat.id);
+            });
+        }).error(function(error){
+            console.log(error);
+        });
+    };
+
+    $scope.listarSubCategorias = function(id){
+        $http({
+            url : config.baseUrl + "/subcategories/"+id,
+            method : 'get',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data : {
+                'id' : id
+            }
+        }).success(function(data){
+            $scope.subCategories.push(data.category);
+        }).error(function(error){
+            console.log(error);
+        });
+    };
+
+
+  //  {"id":125,"hasOption":false}
+
+    $scope.listarCategorias();
+    $scope.listarLojas();
+
 
 });
