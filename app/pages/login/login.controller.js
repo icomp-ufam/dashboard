@@ -248,4 +248,30 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
          reload: true
          });
      };*/
+
+     $scope.recuperarSenha = function (email) {
+        $http({
+            url : config.baseUrl + "/dash/admin/password",
+            method : 'put',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data:{
+                'email': email
+            }
+        }).success(function(data){
+            $scope.rec = data;
+            if($scope.rec.code == '200'){
+                $scope.mensagem = 'Uma nova senha foi enviada para o email informado.';
+            }else{
+                $scope.mensagem = 'Email informado não cadastrado!';
+                $timeout(function() {
+                    $scope.mensagem = '';
+                }, 3000);
+            }
+        }).error(function(error){
+            $scope.messagem = "Aconteceu um problema: " + error;
+        });
+    };
 });
