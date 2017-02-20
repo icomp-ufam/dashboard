@@ -34,7 +34,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($fi
     //carrega vendedores ativos
      var carregarVendedoresLoja = function () {
         $http({
-            url : config.baseUrl + "/stores/"+$scope.idloja+ "/sellers/enabled/"+$scope.iduser ,
+            url : config.baseUrl + "/stores/"+$scope.idloja+ "/sellers/enabled/dash",
             method : 'get',
             headers : {
                 'Content-Type': 'application/json',
