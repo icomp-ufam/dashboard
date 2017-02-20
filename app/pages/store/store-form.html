@@ -1,0 +1,206 @@
+<head>
+    <!-- CSS INCLUDE -->
+    <link rel="stylesheet" type="text/css" id="theme" href="app/assets/css/theme-brown.css"/>
+    <link href="app/assets/css/estilo.css" type="text/css" rel="stylesheet" />
+    <!-- EOF CSS INCLUDE -->
+    <style type="text/css">.thumb-image{float:left;width:100px;position:relative;padding:5px;}</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:600" type="text/css" rel="stylesheet" />
+
+   <!--<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>-->
+    <script type="text/javascript" src="lib/jquery/mapa.js"></script>
+    <script type="text/javascript" src="lib/jquery/jquery-ui.custom.min.js"></script>
+
+
+
+</head>
+<body style="background-color: #063a48" >
+<div style="margin: 50px; margin-left: 150px; margin-right: 150px;" class="page-content-wrap">
+    <div class="row">
+        <div class="col-md-12">
+            <form ng-model="store" class="form-horizontal">
+                <div class="panel panel-default ">
+                    <div class="panel-heading" style="background-color: #d9d9d9">
+                        <h3 class="panel-title">Cadastro de Estabelecimento</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Cadastre aqui os dados seu estabelecimento</p>
+                    </div>
+                        <div class="panel-body tab-content">
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">CPF/CNPJ</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input ng-model="store.cnpj" type="text" id="cnpj" name="cnpj" class="form-control"/>
+                                    </div>
+                                    <span class="help-block">Ex: xx.xxx.xxx/xxxx-xx</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Nome do Estabelecimento </label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input ng-model="store.name" type="text" id="nome" name="nome" class="form-control"/>
+                                    </div>
+                                    <span class="help-block">Ex: PetShop Dog Feliz</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Telefone geral</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input ng-model="store.phone" type="text" id="telefone" name="telefone" class="form-control"/>
+                                    </div>
+                                    <span class="help-block">Ex: (xx) xxxxx-xxxx</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Descrição</label>
+                                <div class="col-md-6">
+                                    <textarea ng-model="store.description" class="form-control" rows="3" placeholder="Descreva sua loja"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group" >
+                                <label class="col-md-3 col-xs-12 control-label">Distância</label>
+
+                                <div class="col-md-6 col-xs-12">
+
+                                    <input type="checkbox"  ng-model="store.is_max_radius" class="form-check-input">
+                                    Limitar os atendimentos por distância.
+                                    <br>
+                                    <br>
+                                    <div ng-if="store.is_max_radius ? true : false" class="col-md-6 col-xs-12">
+
+                                        <input ng-model="store.max_radius" id="ex6" type="range" min="1"
+                                               max="50" step="1" value="10"/>
+                                        <span id="ex6CurrentSliderValLabel"><span id="ex6SliderVal">{{store.max_radius}}</span>KM</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-md-3 col-xs-12 control-label">Endereço</label>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input ng-model="store.address" class="form-control" type="text" id="txtEndereco" name="txtEndereco" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-md-3 col-xs-12 control-label">Mapa</label>
+                                <div id="mapa" style="height: 250px; width: 450px">
+                                </div>
+                                <input ng-model="store.lat" type="hidden" id="txtLatitude" name="txtLatitude" />
+                                <input ng-model="store.lng" type="hidden" id="txtLongitude" name="txtLongitude" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Horário de atendimento</label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input ng-click="clearDays()" type="checkbox"  ng-model="store.isDays" value="false" class="form-check-input">
+                                            Definir um horário para receber pedidos.
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="store.isDays ? true : false" class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label"></label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="input-group" ng-repeat="dia in diasSemana">
+                                        <label class="check" >
+                                            <input
+                                                    type="checkbox"
+                                                    name="work_days[]"
+                                                    value="{{dia.nome}}"
+                                                    ng-checked="work_days.indexOf(dia) > -1"
+                                                    ng-click="diasSelecionado(dia)"
+                                            />{{dia.name}}
+                                            <input ng-required="isInList(dia)" ng-model="dia.openhour" type="time">
+                                            <input ng-required="isInList(dia)" ng-model="dia.closehour" type="time">
+                                        </label>
+                                        <br/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Adicionar um banner </label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="imageForm">
+                                        <div>
+                                            <input type="file" id="filebanner" class="fileinput btn-primary" title="Escolher arquivo"/>
+                                            <span class="help-block">Faça upload da imagem</span>
+                                            <input type="hidden" ng-model="store.banner" id="filebannerhidden" value=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Adicionar um logotipo </label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="imageForm">
+                                        <div>
+                                            <input type="file" id="filebrand" class="fileinput btn-primary" title="Escolher arquivo"/>
+                                            <span class="help-block">Faça upload da imagem</span>
+                                            <input type="hidden" ng-model="store.brand" id="filebrandhidden" value=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="panel-footer">
+                            <button class="btn btn-primary pull-right" ng-click="salvarLoja(store)" >Salvar</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script>
+    $(document).ready(function() {
+	$("#fileUpload").on('change', function() {
+            //Get count of selected files
+            var countFiles = $(this)[0].files.length;
+            var imgPath = $(this)[0].value;
+            var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+            var image_holder = $("#image-holder");
+            image_holder.empty();
+            if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+                if (typeof(FileReader) != "undefined") {
+                    //loop for each file selected for uploaded.
+                    for (var i = 0; i < countFiles; i++)
+                    {
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                            $("<img />", {
+                                "src": e.target.result,
+                                "class": "thumb-image",
+                                "style": "height: 200px; width: 200px"
+                            }).appendTo(image_holder);
+                        }
+                        image_holder.show();
+                        reader.readAsDataURL($(this)[0].files[i]);
+                    }
+                } else {
+                    alert("This browser does not support FileReader.");
+                }
+            } else {
+                alert("Pls select only images");
+            }
+        });
+
+    });
+</script>
+</html>
