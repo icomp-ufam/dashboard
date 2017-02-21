@@ -181,7 +181,8 @@ angular.module("teewa").controller("analiseCtrl", function ($scope, $http, confi
 
             //Povondo o grafico
             for(i = 0; i < media.length; i++){
-                data.addRow([loja[i], media[i]]);
+		if(media[i] > 0)
+                	data.addRow([loja[i], media[i]]);
             }
 
             var options = {
