@@ -3,8 +3,12 @@
     <div id="login" class="login-box ">
         <!--Solicitacao do numero de telefone-->
         <div class="login-body" style="align-items: center; background-color: #1b6d85">
-            <div class="login-title" ><strong>Informe seu número para solicitar acesso a conta Teewa</strong></div>
+            <div class="login-title" ><strong>Torne-se um usuário Teewa !</strong>
+                <br><strong>Informe seu número: </strong>
+            </div>
             <form class="form-horizontal">
+
+
                 <div class="form-group">
                     <div class="col-md-12 col-xs-16">
                         <select name="countryCode" ng-model="pais" class="btn btn-block btn-info">
@@ -230,21 +234,16 @@
                     <div class="col-md-10"></div>
                     <div class="col-md-12 col-xs-12">
                         <div class="input-group">
-                                <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                            <span class="input-group-addon"><span class="fa fa-phone"></span></span>
                             <input required value="55" onkeypress="mascara(this, '## #####-####')" placeholder="(xx) xxxxx-xxxx" maxlength="13" type="tel" class="form-control"  ng-model="telefone"/>
                         </div>
                         <br>
                     </div>
                 </div>
-
                 <div class="form-group ">
-                    <div class="col-md-6">
-                        <p class="text-info"> Ainda não tem sua empresa no Teewa?
-                            <a ui-sref="main.login.autenticacaoUser" style="color: #fff3f4" >Clique Aqui</a>
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <button class="btn btn-info btn-block" ng-required="telefone > 1" ng-click="verificaNumero(pais,telefone)">Solicitar</button>
+
+                    <div class="col-md-12">
+                        <button class="btn btn-info btn-block" ng-click="verificaUsuario(pais,telefone)" ng-required="telefone > 1" >Solicitar</button>
                     </div>
                 </div>
 
@@ -252,35 +251,7 @@
         </div>
         <div class=" col-md-12 text-danger">{{mensagem}}</div>
     </div>
-    <!--Solicitacao do código-->
-    <div id="login2" class="login-box " style=" display: none">
-        <div class="login-body" style="align-items: center; background-color: #1b6d85">
-            <div class="login-title" ><strong>Informe o codigo de Verificação</strong></div>
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <div class="col-md-12 col-xs-16">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="fa fa-check"></span></span>
-                            <input  onkeypress="mascara(this, '###-###')" maxlength="7" type="text" class="form-control" placeholder="" ng-model="codigo"/>
-                        </div>
 
-                        <br>
-                    </div>
-                </div>
-                <div class="form-group ">
-                    <div class="col-md-4">
-                        <button class="btn btn-info btn-block" ng-click="voltar()">Reenviar</button>
-                    </div>
-                    <div class="col-md-2">
-                    </div>
-                    <div class="col-md-6">
-                        <button class="btn btn-info btn-block" ng-click="verificaCodigo(codigo)">Conectar</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class=" col-md-12 text-danger">{{mensagem}}</div>
-    </div>
 </div>
 
 <script>

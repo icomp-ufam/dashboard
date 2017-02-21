@@ -49,9 +49,9 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         url: '/loginadmin',
         templateUrl: 'app/pages/login/loginadmin.html',
         controller: 'loginController'
-    }).state('main.login.acessonegado', {
-        url: '/acessonegado',
-        templateUrl: 'app/pages/login/acessonegado.html',
+    }).state('main.login.autenticacaoUser', {
+        url: '/autenticacaoUser',
+        templateUrl: 'app/pages/login/autenticacaoUser.html',
         controller: 'loginController'
     }).state('main.clientes', {
         url: 'clientes',
