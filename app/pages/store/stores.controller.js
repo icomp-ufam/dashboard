@@ -1,4 +1,4 @@
-angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http, config) {
+angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $state, $http, config) {
     $scope.app = "Loja";
     $scope.stores;
     $scope.store ={"isDays":false, "is_max_radius":false, 'max_radius':10, "banner": '', "brand":''};
@@ -8,6 +8,7 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
     $scope.categories = [];
     $scope.subCategories = [];
     $scope.idUser = localStorage.getItem('userID');
+    $scope.subcat = [];
 
     $scope.diasSemana =[{"day": 0,"name":"Sunday", "openhour": "", "closehour":"", "nome":"Domingo"},
                         {"day": 1,"name":"Monday", "openhour": "", "closehour":"",  "nome":"Segunda"},
@@ -21,12 +22,15 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
 
     $scope.diasSelecionado = function (func) {
         var idx = $scope.work_days.indexOf(func);
+
         if (idx > -1) {
             $scope.work_days.splice(idx,1);
         }
         else {
             $scope.work_days.push(func);
         }
+
+
     };
 
     $scope.isInList = function(func){
@@ -88,12 +92,17 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
     }
 
     $scope.salvarLoja =  function(store){
-        html2canvas($("#mapa"), {
+       html2canvas($("#mapa"), {
             useCORS: true,
             onrendered: function(canvas) {
                 theCanvas = canvas;
-              //  document.body.appendChild(canvas);
-                store.map_frame = (canvas.toDataURL()).slice(22);
+                //document.body.appendChild(canvas);
+               store.map_frame = (canvas.toDataURL()).slice(22);
+
+                var aux_subCat = [];
+                angular.forEach($scope.subcat, function(sub, k){
+                    aux_subCat.push({'id': 'sub', 'hasOption':'false'});
+                });
 
                 store.lng = document.getElementById('txtLongitude').value;
                 store.lat = document.getElementById('txtLatitude').value;
@@ -105,40 +114,41 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
                 else             store.is24=true;
 
                 $http({
-                    url : config.baseUrl + "sellers/create/withnewstore",
+                    url : config.baseUrl + "/sellers/create/withnewstore",
                     method : 'post',
                     headers : {
                         'Content-Type': 'application/json',
                         'Authorization' : config.token
                     },
                     data: {
-                        'iduser':$scope.idUser,
-                        'name':store.name,
-                        'cnpj':store.cnpj,
-                        'lat': store.lat,
-                        'lng': store.lng,
-                        'address': store.address,
+                        'iduser':parseInt($scope.idUser),
+                        'name':String(store.name),
+                        'cnpj':String(store.cnpj),
+                        'lat': parseFloat(store.lat),
+                        'lng': parseFloat(store.lng),
+                        'address': String(store.address),
                         'zipcode':'',
-                        'is24' :  store.is24,
-                        'work_days' : $scope.work_days,
-                        'tzone': (new Date()).getTimezoneOffset(),
+                        'is24':  store.is24,
+                        'work_days': $scope.work_days,
+                        'tzone': String((new Date()).getTimezoneOffset()),
                         'brand': store.brand,
                         'banner': store.banner,
-                        'map_frame':store.map_frame,
-                        'subcategories':$scope.subcategories,
+                        'map_frame':store.banner,
+                        'subcategories':aux_subCat,
                         'description':store.description,
                         'phone':store.phone,
                         'is_max_radius': store.is_max_radius,
                         'max_radius': store.max_radius
                     }
                 }).success(function(data){
-                   console.log(data);
+                    console.log(data);
+                     $state.go('main.dashboardEstabelecimento');
                 }).error(function(error){
                     console.log(error);
                     $scope.message = "Aconteceu um problema: " + error;
                 });
             }
-        });
+       });
 
     };
 
@@ -201,7 +211,31 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
     };
 
 
-  //  {"id":125,"hasOption":false}
+    $scope.addSubCat = function(idsub){
+        var idx = $scope.subcat.indexOf(idsub);
+
+        if (idx > -1) {
+            $scope.subcat.splice(idx,1);
+        }
+        else {
+             $scope.subcat.push(idsub);
+        }
+    };
+
+    $scope.limparChecked = function(id){
+         angular.forEach( $scope.subCategories, function(sub, key) {
+            if(sub.id==id){
+               angular.forEach(sub.subs, function(s, k){
+
+                    var idx = $scope.subcat.indexOf(s.id);
+                    if (idx > -1) {
+                        $scope.subcat.splice(idx,1);
+                    }
+               });
+            }
+
+         });
+    }
 
     $scope.listarCategorias();
     $scope.listarLojas();
