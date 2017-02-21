@@ -68,7 +68,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
             //atualiza id da sala de chat
             $scope.to_id = ChatDetails.getTo();
-            $scope.initChats();
             $scope.addtime();
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
@@ -733,8 +732,12 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             }, 300);
         //se conectar carrega chats
         else{
+
+
             $timeout.cancel();
             $scope.joinChats();
+            $scope.initChats();
+
             $scope.precarregamento = false;
             //Exibe conectou! por 4 segundos
             if($rootScope.statusConexao == 'Conectado!')
@@ -749,6 +752,15 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         $scope.chats.forEach(function (value) {
             $scope.qteMsgsChats['chat'+value.id] = 0;
             $scope.composing['chat'+value.id] = false;
+
+            var iqMigs = $iq({type: "set"}).c("query", {xmlns: "jabber:iq:roster"}).c("item", {jid:value.userTo.id+"@ip-172-31-47-155",name:"None"});
+            console.log(iqMigs.tree());
+            sharedConn.connection.sendIQ(iqMigs);
+
+            var subscribe = $pres({to: value.userTo.id+"@ip-172-31-47-155", type: "subscribe"});
+            console.log(subscribe.tree());
+            sharedConn.connection.send(subscribe);
+
         });
     };
 
@@ -783,6 +795,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             type: "groupchat",
         }).c("composing", {xmlns: 'http://jabber.org/protocol/chatstates'});
 
+        console.log(msgComposing.tree());
         sharedConn.getConnectObj().send(msgComposing.tree());
     };
 
@@ -800,6 +813,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             type: "groupchat",
         }).c("paused", {xmlns: 'http://jabber.org/protocol/chatstates'});
 
+        console.log(msgPaused.tree());
         sharedConn.getConnectObj().send(msgPaused.tree());
     };
 

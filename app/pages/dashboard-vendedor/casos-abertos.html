@@ -43,6 +43,7 @@
 <div ng-if="(chatAtual == 'vazio')">
     <h1 class="textCenter">Não existem casos abertos! </h1>
 </div>
+<div ng-if="(chatAtual != 'vazio')">
 <div class="alert alert-success " ng-if="$root.statusConexao == 'Conectado!'">
     <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Conectado!</strong>
@@ -55,9 +56,10 @@
     <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Desconectado, recarregue a pagina!</strong>
 </div>
+</div>
 <!-- START ROW -->
 
-<div class="cover-container">
+<div ng-if="(chatAtual != 'vazio')" class="cover-container">
     <!-- START MESSAGES -->
     <div class="col-md-8">
         <div class="content-frame" >
@@ -159,7 +161,8 @@
                                 <a ng-if="message.userId.includes(idVendedor)" > Você </a>
                             </div>
                             <!-- Exibe texto da mensagem -->
-                            <p class="emoji">  {{message.text}}</p>
+                            <!--<p class="emoji">  {{message.text}}</p>-->
+                            {{message.text}}
                             <!--Exibe imagem da mensagem, caso exista-->
                             <br ng-show="message.image">
                             <br ng-show="message.image">
@@ -188,10 +191,9 @@
                             <div class="inner cover">
                                 <p class="lead emoji-picker-container">
                                     <!--para exibir os emojis usar: data-emojiable="true" na tag abaixo /-->
-                                    <input id="env2" name="envia" type="text" ng-keypress="enviarEnter(event)" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..."/>
+                                    <input id="txtMsg" name="envia" type="text" ng-keypress="enviarEnter(event)" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..."/>
                                     <!--input id="env" name="emoji" type="text" ng-model="data.emoji" data-emojiable="true"  /-->
                                 </p>
-                                {{message2}}
                             </div>
                             <div class="input-group-btn">
                                 <button style=" visibility: hidden"></button>
