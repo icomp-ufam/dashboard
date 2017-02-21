@@ -92,7 +92,8 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
             data.addColumn('number', 'Atendimentos');
             
             for(i = 0; i < name.length; i++){
-                data.addRow([name[i], atendimentos[i]]);
+                if(atendimentos[i] > 0)
+                    data.addRow([name[i], atendimentos[i]]);
             }
 
             var options = {
@@ -132,7 +133,8 @@ angular.module("teewa").controller("estabelecimentosCtrl", function ($scope, $ht
             data.addColumn('number', 'Consultas');
             
             for(i = 0; i < name.length; i++){
-                data.addRow([name[i], consultas[i]]);
+                if(consultas[i] > 0)
+                    data.addRow([name[i], consultas[i]]);
             }
 
             var options = {
