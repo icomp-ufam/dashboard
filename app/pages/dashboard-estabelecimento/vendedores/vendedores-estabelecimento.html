@@ -57,7 +57,8 @@
 
                                 <!--<td>{{vendedor.id}}</td>-->
                                 <td> <a class="image"><img  ng-src="{{urlPhotos}}{{vendedor.photo}}" width="50" height="50" > </a></td>
-                                <td>{{vendedor.name}}</td>
+                                <td ng-if="!(vendedor.id == iduser)" > <span title="vendedor"> {{vendedor.name}} </span></td>
+                                <td ng-if="(vendedor.id == iduser)"> <span title="administrador" class="fa fa-user" > {{vendedor.name }} </span> </td>
                                 <td>{{vendedor.mobile}}</td>
                                 <td>{{vendedor.created_at | limitTo:19}}</td>
                                 <td ng-switch on="{{vendedor.status }}">

@@ -13,6 +13,7 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
     $scope.app = "Dashboard";
     $scope.mensagem = '';
     $scope.infoLojaName = '';
+
     //Autentica o acesso para o usuário administrador.
     $scope.validaadmin = function (email, password){
         $http({

@@ -10,6 +10,7 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($fi
     $scope.idloja = localStorage.getItem('lojaID');
     $scope.iduser = localStorage.getItem('userID');
     $scope.urlPhotos = config.baseUrl + "/photos/";
+    $scope.qteSolicitacao = 0;
 
     if (localStorage.getItem('loginE') === '' && localStorage.getItem('loginadmin') === '')
         $state.go('main.login.index');
@@ -58,8 +59,10 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($fi
             }
         }).success(function (data) {
             $scope.solicitacoes = data.sellers;
-            console.log('oi pendentes');
-            console.log($scope.solicitacoes);
+            if($scope.solicitacoes.length > 0){
+                $scope.qteSolicitacao = $scope.solicitacoes.length;
+            }
+            console.log('hjhhj'+$scope.solicitacoes.length);
 
         }).error(function (error) {
             $scope.message = "Aconteceu um problema: " + data;

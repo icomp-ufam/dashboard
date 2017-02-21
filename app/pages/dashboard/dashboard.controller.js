@@ -129,7 +129,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $state, $h
             },
             data: {
                 'date_start' : '01/01/2016',
-                'date_end' : '31/12/2016'
+                'date_end' : '31/12/2020'
             }
         }).success(function(data){
             $scope.denuncias = data;
