@@ -678,6 +678,29 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     textarea.keypress(updateLastTypedTime);
     textarea.blur(refreshTypingStatus);
 
+    $scope.enviarEnter = function(e){
+        updateLastTypedTime();
+        var tecla=(window.event)?event.keyCode:e.which;
+        if (tecla == 13) {
+            //campo vazio
+            if (document.dados.envia.value=="") {
+                document.dados.envia.focus();
+                return false;
+            }else{
+                //envia mensagem
+                $scope.showSendMessage();
+                //$("#enviar").trigger('click');
+                document.dados.envia.value="";
+                //desce barra de rolagem das mensagens
+                document.getElementById(
+                    "msg"
+                ).scrollTop = document.getElementById(
+                    "msg"
+                ).scrollHeight;
+            }
+        }
+    }
+
 });
 
 //controller para main Vendedor
