@@ -1,0 +1,142 @@
+<ul class="breadcrumb">
+    <li><a ui-sref="main.dashboardVendedor.index">Dashboard Estabelecimento</a></li>
+    <li><a ui-sref="main.dashboardEstabelecimento.vendedoresEstabelecimento">Vendedor</a></li>
+    <li ><a ui-sref=main.dashboardEstabelecimento.chats">Chats</a> </li>
+</ul>
+
+<!-- START ROW -->
+<div ng-if="(chatAtual == 'vazio')">
+    <h1 class="textCenter">Este vendedor não possui chats! </h1>
+</div>
+<div ng-if="(chatAtual != 'vazio')" class="cover-container">
+    <!-- START MESSAGES -->
+    <div class="col-md-8">
+        <div class="content-frame" >
+            <!-- START PAINEL SUPERIOR DO CHAT -->
+            <div class="content-frame-top" style="background-color: #f2f2f2; padding-top:4px; padding-bottom: 0px;">
+                <div class="page-title">
+                    <!--Data em que o caso foi aceito pelo vendedor-->
+                    <p>Chat do vendedor <b>{{vendedorNome}}</b> com o cliente <b>{{chatAtual.userTo.name}}</b></p>
+
+                </div>
+
+            </div>
+
+            <!-- START MENSAGENS DO CHAT ATUAL -->
+            <div id="msg"  class="content-frame-body-right" style="overflow-y:scroll;height:422px;width:100%;">
+
+                <div class="messages messages-img">
+
+                    <!-- START PRIMEIRA MENSAGEM DA CONSULTA -->
+                    <div class="item item-visible">
+                        <!-- Exibe a descrição do caso/consulta em formato de mensagem e o arquivo(imagem) enviado caso exista -->
+
+                        <div class="image">
+                            <!-- Exibe foto de perfil do usuário ou imagem padrão caso não exista -->
+                            <img ng-if="chatAtual.userTo.photo" ng-src="{{urlPhotos+chatAtual.userTo.photo}}" alt="user">
+                            <img ng-if="!chatAtual.userTo.photo" ng-src="app/assets/images/users/no-image.jpg" alt="user">
+                        </div>
+
+                        <div class="text">
+                            <div class="heading">
+                                <!--Nome do cliente -->
+                                <a>{{chatAtual.userTo.name}} </a>
+                                <!--Data em que o cliente criou o caso/consulta-->
+                                <span class="date">{{chatAtual.case.created_at | limitTo:19}}</span>
+                            </div>
+                            <!-- Nome/descrição do caso/consulta -->
+                            {{chatAtual.case.name}}
+
+                            <br>
+                            <br>
+                            <!--Exibe imagem da consulta, caso exista-->
+                            <!-- O clique na imagem, abre um modal com a imagem em tamanho maior -->
+                            <img ng-click="open_image_modal(urlFiles+chatAtual.case.file, chatAtual.case.name)" data-toggle="modal" data-target="#modal_open_image" ng-if="chatAtual.case.file" ng-src="{{ urlFiles+chatAtual.case.file }}" style="max-width: 70%; max-height:50%">
+                        </div>
+                    </div>
+                    <!-- END PRIMEIRA MENSAGEM DA CONSULTA -->
+
+                    <!-- Carrega mensagem a partir da variavel de escopo messages usando o ng-repeat -->
+                    <div ng-repeat="message in messages | filter:chatAtual.id" ng-class="{in: message.userId.includes(idVendedor)}" class="item item-visible">
+
+                        <div class="image">
+
+                            <!-- caso o usuario seja o vendedor -->
+                            <img ng-if="message.userId.includes(idVendedor)" ng-src="{{urlPhotos+fotoVendedor}}" alt="user">
+
+                            <!-- exibe a foto do cliente, caso ele tenha -->
+                            <img ng-if="!(message.userId.includes(idVendedor)) && chatAtual.userTo.photo" ng-src="{{urlPhotos+chatAtual.userTo.photo}}" alt="user">
+
+                            <!-- caso o usuario nao tenha foto, exibe imagem padrão-->
+                            <img ng-if="!chatAtual.userTo.photo" ng-src="app/assets/images/users/no-image.jpg" alt="user">
+                        </div>
+
+                        <div class="text" >
+                            <div class="heading pull-right">
+                                <!-- Exibe o nome do usuário conforme seu perfil -->
+                                <a ng-if="!message.userId.includes(idVendedor)">{{chatAtual.userTo.name}}</a>
+                                <span ng-if="message.userId.includes(idVendedor)" class="date"> {{message.time | date:'yyyy-MM-dd HH:mm:ss'}} </span>
+                                <span ng-if="!message.userId.includes(idVendedor)" class="date">{{message.time | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                                <a ng-if="message.userId.includes(idVendedor)" > Você </a>
+                            </div>
+                            <!-- Exibe texto da mensagem -->
+                            <!--<p class="emoji">  {{message.text}}</p>-->
+                            {{message.text}}
+                            <!--Exibe imagem da mensagem, caso exista-->
+                            <br ng-show="message.image">
+                            <br ng-show="message.image">
+
+                            <!-- O clique na imagem, abre um modal com a imagem em tamanho maior -->
+                            <img ng-click="open_image_modal(message.image, message.text)" data-toggle="modal" data-target="#modal_open_image" ng-show="message.image" ng-src="{{message.image}}" style="max-width:70%; max-height:50%" >
+
+                            <!-- Relatorio de entrega da mensagem -->
+                            <div class="pull-right" >
+                                <!--<span ng-show="message.status == 0" class="fa fa-clock-o"></span>-->
+                                <span ng-if="message.received" class="fa fa-check"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END MENSAGENS DO CHAT ATUAL -->
+        </div>
+    </div>
+
+    <!-- END MESSAGES -->
+
+    <!-- START LISTA LATERAL DE CASOS ABERTOS -->
+    <div class="col-md-4 content-frame-right" >
+        <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="fa fa-comments"></span> Conversas {{vendedorNome}} </h3>
+            </div>
+            <div class="panel-body list-group list-group-contacts scroll" style="overflow:auto;height:532px">
+                <input class="form-control" type="text" ng-model="criterioDeBusca.userTo.name" placeholder="Procurar chat...">
+
+                <!-- carrega casos abertos usando o ng-repeat sobre a variavel de escopo chats -->
+                <a id="teste2" ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats | filter:criterioDeBusca |orderBy:'-time'">
+                    <div ng-if="(roster[chat.userTo.id] == 'online')" class="list-group-status status-online"></div>
+                    <div ng-if="(!roster[chat.userTo.id] || roster[chat.userTo.id] == 'offline')" class="list-group-status status-offline"></div>
+
+                    <!--se o usuário possui uma foto de perfil, exibe a imagem. Se o caso estiver encerrado, exibe essa imagem uma escala de cinza-->
+                    <img  ng-if="chat.userTo.photo" ng-src="{{(urlPhotos+chat.userTo.photo)}}" ng-class="(!chat.iduser_close || 'greyscale')"  alt="User"/>
+                    <!--se o usuário nao possui foto de perfil, exibe uma imagem padrão-->
+                    <img ng-if="!chat.userTo.photo" ng-src='app/assets/images/users/no-image.jpg'  alt="User"/>
+
+                    <!--Exibe o nome do cliente, ou indica que o caso foi encerrado-->
+                    <span class="contacts-title">{{(chat.iduser_close && 'Usuário encerrou o caso ' ) || chat.userTo.name}} <span ng-if="composing['chat'+chat.id]">...</span></span>
+
+                    <span ng-if="qteMsgsChats['chat'+chat.id] > 0" class="pull-right label label-success">{{qteMsgsChats['chat'+chat.id]}}</span>
+
+                    <!--data do chat com filtro-->
+                    <p>{{chat.created_at | limitTo:19}}</p>
+                    <!--p>{{chat.time}}</p-->
+                    <!--nome do caso/consulta-->
+                    <span class="contacts-title">{{chat.case.name}}</span>
+                    <!--<span class="contacts-title">{{ (chat.iduser_close && 'Você não pode mais enviar mensagens pois esta conversa foi encerrada pelo cliente.' ) || chat.case.name}}</span>-->
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

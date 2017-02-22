@@ -478,8 +478,8 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($fi
         }).success(function(data){
             $scope.atendimentosPorDates = data;
 
-            graficoDenunciaPorDateTOT(data);
-            /*graficoAtendimentoPorDateNEG(data);
+            /*graficoDenunciaPorDateTOT(data);
+            graficoAtendimentoPorDateNEG(data);
             graficoAtendimentoPorDateNAT(data);
             graficoAtendimentoPorDateATE(data);*/
 
@@ -733,4 +733,117 @@ angular.module("teewa").controller("dashboardEstabelecimentoCtrl", function ($fi
             console.log("login error");
         });
     };*/
+
+
+    var carregarDenunciasPorDIA = function (date_start, date_end, idstore) {
+        $http({
+            url : config.baseUrl + "ROTA DE DENUNCIAS POR DIA",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data: {
+
+                'date_start' : date_start,
+                'date_end' : date_end,
+                'idstore' : idstore
+            }
+        }).success(function(data){
+            console.log(data);
+            $scope.denuncias = data;
+        //graficoDenunciaPorData(data);
+        //essa função precisará ser alimentada pelas denuncias por dia...
+    }).error(function(error){
+        $scope.message = "Aconteceu um problema: " + error;
+        console.log("login error");
+    });
+};
+
+carregarDenunciasPorData("01/01/2015","24/12/2019", $scope.idloja);
+
+function graficoDenunciaPorDia(dado){
+    var date = [];
+    var qtd = [];
+    //dados para o grafico
+    for(dt in dado) {
+        date[dt] = dado[dt].case_date.substring(0, 10);
+        qtd[dt] = parseInt(dado[dt].tot);
+    }
+
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawStuff);
+    function drawStuff() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'date');
+        data.addColumn('number', 'TOTAL');
+        //Povondo o grafico
+        for(i = 0; i < date.length; i++){
+            data.addRow([date[i], qtd[i]]);
+        }
+
+        var options = {
+            title: 'Chess opening moves',
+            width: 950,
+            height: data.getNumberOfRows() * 65,
+            legend: { position: 'none' },
+            bars: 'horizontal', //orientação do gráfico
+            axes: {
+                x: {
+                    0: { side: 'top', label: 'TOTAL DE DENÚNCIAS'} // Top x-axis.
+                }
+            },
+            bar: { groupWidth: 20 }
+        };
+        //Construindo o gráfico
+        var chart = new google.charts.Bar(document.getElementById('graficoDenunciaPorDateTOT'));
+        chart.draw(data, options);
+    };
+}
+
+$scope.clickChats = function(id, vendedor){
+    localStorage.setItem('userchat', id);
+    localStorage.setItem('nameuserchat', vendedor);
+    $state.go('main.dashboardEstabelecimento.chats');
+};
+
+$scope.idVendedor = localStorage.getItem('userchat');
+$scope.vendedorNome = localStorage.getItem('nameuserchat');
+$scope.carregarCasosAbertos = function () {
+    $http({
+        url : config.baseUrl + "/sellers/"+ $scope.idVendedor + config.casos_aceitos,
+        method : 'get',
+        headers : {
+            'Content-Type': 'application/json',
+            'Authorization' : config.token
+        }
+    }).success(function(data){
+        $scope.chats = data.chats;
+        if ($scope.chats.length > 0){
+            //ao carregar pagina, abre primeiro chat da lista de casos
+            $scope.chatAtual = $scope.chats[0];
+        } else{
+            $scope.chatAtual = "vazio";
+        }
+    }).error(function(error){
+        $scope.message = "Aconteceu um problema: " + error;
+    });
+};
+
+
+$scope.clickChat = function (chat) {
+    //recebe chat clicado
+    $scope.chatAtual = chat;
+    //configurando qual sala de chat esta sendo escutada
+    //ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
+    //atualiza id da sala de chat
+    $scope.to_id = ChatDetails.getTo();
+    //$scope.qteMsgsChats['chat'+$scope.chatAtual.id] = 0;
+    //console.log($scope.qteMsgsChats);
+};
+
+$scope.carregarCasosAbertos();
 });
+
+
+
