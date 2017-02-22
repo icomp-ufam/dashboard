@@ -49,9 +49,9 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         url: '/loginadmin',
         templateUrl: 'app/pages/login/loginadmin.html',
         controller: 'loginController'
-    }).state('main.login.acessonegado', {
-        url: '/acessonegado',
-        templateUrl: 'app/pages/login/acessonegado.html',
+    }).state('main.login.autenticacaoUser', {
+        url: '/autenticacaoUser',
+        templateUrl: 'app/pages/login/autenticacaoUser.html',
         controller: 'loginController'
     }).state('main.clientes', {
         url: 'clientes',
@@ -162,7 +162,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         }).state('main.dashboardVendedor.index', {
         url: '/index',
         templateUrl: 'app/pages/dashboard-vendedor/dashboard-vendedor.html',
-        controller: 'dashboardVendedorCtrl',
+        controller: 'dashboardVendedorMainCtrl',
         activetab: 'dashboardVendedor'
     }).state('main.dashboardVendedor.casosAbertos', {
         url: '/casos-abertos',
@@ -172,7 +172,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
     }).state('main.dashboardVendedor.casosNovos', {
         url: '/casos-novos',
         templateUrl: 'app/pages/dashboard-vendedor/casos-novos.html',
-        controller: 'dashboardVendedorCtrl',
+        controller: 'dashboardVendedorMainCtrl',
         activetab: 'casos-novos'
     }).state('main.dashboardVendedor.emoji', {
         url: '/emoji',

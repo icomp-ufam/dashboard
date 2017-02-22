@@ -116,9 +116,7 @@
 
                 <!-- carrega casos abertos usando o ng-repeat sobre a variavel de escopo chats -->
                 <a id="teste2" ng-click="clickChat(chat)" class="list-group-item" ng-repeat="chat in chats | filter:criterioDeBusca |orderBy:'-time'">
-                    <div ng-if="(roster[chat.userTo.id] == 'online')" class="list-group-status status-online"></div>
-                    <div ng-if="(!roster[chat.userTo.id] || roster[chat.userTo.id] == 'offline')" class="list-group-status status-offline"></div>
-
+                    
                     <!--se o usuário possui uma foto de perfil, exibe a imagem. Se o caso estiver encerrado, exibe essa imagem uma escala de cinza-->
                     <img  ng-if="chat.userTo.photo" ng-src="{{(urlPhotos+chat.userTo.photo)}}" ng-class="(!chat.iduser_close || 'greyscale')"  alt="User"/>
                     <!--se o usuário nao possui foto de perfil, exibe uma imagem padrão-->

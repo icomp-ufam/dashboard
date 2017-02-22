@@ -21,10 +21,8 @@ angular.module("teewa").controller("denunciasCtrl", function ($scope, $http, con
                 'date_end' : date_end
             }
         }).success(function(data){
-            console.log($scope.denuncias);
             $scope.denuncias = data;
-            console.log($scope.denuncias);
-            console.log(date_start + " , " + date_end);
+            $scope.qtDenuncias= denuncias.length
 
             console.log(data);
         }).error(function(error){

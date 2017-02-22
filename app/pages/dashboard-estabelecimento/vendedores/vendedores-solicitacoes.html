@@ -15,8 +15,10 @@
 <div class="page-title" >
     <h2><span class="fa fa-bell"></span> Solicitações</h2>
 </div>
-
-<div class="row">
+<div ng-if="(qteSolicitacao == 0)">
+    <h1 class=text-center>Não existem solicitações. </h1>
+</div>
+<div class="row" ng-if="(qteSolicitacao != 0)">
     <!-- START SOICITAÇÕES -->
     <div class="col-md-3" ng-repeat="solicitacao in solicitacoes" >
         <!-- Lista os vendedores , usando a diretiva ng-repeat -->

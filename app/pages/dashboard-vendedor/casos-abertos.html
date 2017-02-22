@@ -43,6 +43,7 @@
 <div ng-if="(chatAtual == 'vazio')">
     <h1 class="textCenter">Não existem casos abertos! </h1>
 </div>
+<div ng-if="(chatAtual != 'vazio')">
 <div class="alert alert-success " ng-if="$root.statusConexao == 'Conectado!'">
     <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Conectado!</strong>
@@ -55,9 +56,10 @@
     <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Desconectado, recarregue a pagina!</strong>
 </div>
+</div>
 <!-- START ROW -->
 
-<div class="cover-container">
+<div ng-if="(chatAtual != 'vazio')" class="cover-container">
     <!-- START MESSAGES -->
     <div class="col-md-8">
         <div class="content-frame" >
@@ -99,7 +101,7 @@
             </p>
 
             <!-- START MENSAGENS DO CHAT ATUAL -->
-            <div id="msg"  class="content-frame-body-right" style="overflow-y:scroll;height:430px;width:100%;">
+            <div id="msg"  class="content-frame-body-right" style="overflow-y:scroll;height:422px;width:100%;">
 
                 <div class="messages messages-img">
 
@@ -132,8 +134,7 @@
                     </div>
                     <!-- END PRIMEIRA MENSAGEM DA CONSULTA -->
                     <div ng-show="!precarregamento" class="row">
-                        <img src="app/assets/img/loaders/default.gif" class="loading-img">
-                        <p align="center" > Carregando mensagens...</p>
+                        <img src="app/assets/img/loading_dots.gif" width="50" height="50" class="loading-img">
                     </div>
                     <!-- Carrega mensagem a partir da variavel de escopo messages usando o ng-repeat -->
                     <div ng-repeat="message in messages | filter:chatAtual.id" ng-class="{in: message.userId.includes(idVendedor)}" class="item item-visible">
@@ -159,7 +160,8 @@
                                 <a ng-if="message.userId.includes(idVendedor)" > Você </a>
                             </div>
                             <!-- Exibe texto da mensagem -->
-                            <p class="emoji">  {{message.text}}</p>
+                            <!--<p class="emoji">  {{message.text}}</p>-->
+                            {{message.text}}
                             <!--Exibe imagem da mensagem, caso exista-->
                             <br ng-show="message.image">
                             <br ng-show="message.image">
@@ -186,16 +188,10 @@
                     <form name="dados">
                         <div class="input-group">
                             <div class="inner cover">
-                                <p class="lead emoji-picker-container">
-                                    <!--para exibir os emojis usar: data-emojiable="true" na tag abaixo /-->
-                                    <input id="env2" name="envia" type="text" ng-keypress="enviarEnter(event)" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..."/>
-                                    <!--input id="env" name="emoji" type="text" ng-model="data.emoji" data-emojiable="true"  /-->
-                                </p>
-                                {{message2}}
+                                <input id="txtMsg" name="envia" type="text" ng-keypress="enviarEnter(event)" ng-model="data.message" title="digite sua mensagem"  class="form-control" placeholder="Digite uma mensagem..."/>
                             </div>
                             <div class="input-group-btn">
                                 <button style=" visibility: hidden"></button>
-                                <!-- funcao uploadFile() envia apenas a legenda, pois o arquivo é tratado no controller usando o id -->
                                 <button type="submit" ng-click="showSendMessage()" id="enviar" class="btn btn-default">
                                     <span class="fa fa-send"></span>
                                 </button>
@@ -216,7 +212,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><span class="fa fa-comments"></span> Conversas </h3>
             </div>
-            <div class="panel-body list-group list-group-contacts scroll" style="overflow:auto;height:530px">
+            <div class="panel-body list-group list-group-contacts scroll" style="overflow:auto;height:532px">
                 <input class="form-control" type="text" ng-model="criterioDeBusca.userTo.name" placeholder="Procurar chat...">
 
                 <!-- carrega casos abertos usando o ng-repeat sobre a variavel de escopo chats -->
@@ -342,14 +338,13 @@
     <!-- END MODAL DE UPLOAD DE IMAGEM -->
 </div>
 
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <!-- Begin emoji-picker JavaScript -->
-<script src="lib/emoji/lib/js/nanoscroller.min.js"></script>
+<!--<script src="lib/emoji/lib/js/nanoscroller.min.js"></script>
 <script src="lib/emoji/lib/js/tether.min.js"></script>
 <script src="lib/emoji/lib/js/config.js"></script>
 <script src="lib/emoji/lib/js/util.js"></script>
 <script src="lib/emoji/lib/js/jquery.emojiarea.js"></script>
-<script src="lib/emoji/lib/js/emoji-picker.js"></script>
+<script src="lib/emoji/lib/js/emoji-picker.js"></script>-->
 <!-- End emoji-picker JavaScript -->
 
 
@@ -368,9 +363,31 @@
         }
     }
 
-    //funcão que verifica se o campo está vazio e enviar via tecla enter
 
-    $(function() {
+    //funcão que verifica se o campo está vazio e enviar via tecla enter
+    function enviarEnter(e){
+        var tecla=(window.event)?event.keyCode:e.which;
+        if (tecla == 13) {
+            //campo vazio
+            if (document.dados.envia.value=="") {
+                document.dados.envia.focus();
+                return false;
+            }else{
+                //envia mensagem
+                $("#enviar").trigger('click');
+                document.dados.envia.value="";
+                //desce barra de rolagem das mensagens
+                document.getElementById(
+                    "msg"
+                ).scrollTop = document.getElementById(
+                    "msg"
+                ).scrollHeight;
+            }
+        }
+    }
+
+
+    /*$(function() {
         // Inicializa e cria emoji set from sprite sheet
         window.emojiPicker = new EmojiPicker({
             emojiable_selector: '[data-emojiable=true]',
@@ -381,7 +398,7 @@
         // Você pode querer atrasar este passo se você criou dinamicamente campos de entrada que aparecem mais tarde no processo de carregamento
         // Pode ser chamado quantas vezes for necessário; Campos de entrada previamente convertidos não serão convertidos novamente
         window.emojiPicker.discover();
-    });
+    });*/
 
 </script>
 

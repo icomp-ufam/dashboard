@@ -97,8 +97,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             }
         }).success(function(data,date){
             $scope.atendimentos = data;
-			
-			console.log(data);
+
 			
             $scope.data_start = {
                         value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
@@ -110,7 +109,6 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 };
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
-            console.log("login error");
         });
 
     };
@@ -130,7 +128,6 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
-            console.log("login error");
         });
 
     };
@@ -149,14 +146,13 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             graficoConsultasPorHoraContagem(data);
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
-            console.log("login error");
         });
 
     };
     $scope.carregarAtendimentosPorHora = function (date_start, date_end) {
         var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
         var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
-        //console.log(NovaDate_start);
+
         //console.log(NovaDate_end);
         
         $http({
@@ -227,8 +223,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
-            console.log("login error");
-
+        
 
         });
 
@@ -445,50 +440,17 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
         $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
     };
 
-    /*$scope.adicionarEstabelecimento = function (estabelecimento) {
-     estabelecimento.data = new Date();
-     $http.post("http://localhost:3412/estabelecimentos", estabelecimento).success(function (data) {
-     delete $scope.estabelecimento;
-     $scope.estabelecimentoForm.$setPristine();
-     carregarestabelecimentos();
-     });
-     };*/
-    /*var baseURl = "http://api.teewa.com.br:8081";
-
-     //usuarios por caso
-     var xmlhttp3 = new XMLHttpRequest();
-     var url3 = baseURl + "/analytics/users/by/cases";
-     var myArr3;
-     xmlhttp3.open("GET", url3, true);
-     xmlhttp3.send();
-
-     xmlhttp3.onload = function () {
-     if(this.readyState==4 && this.status==200) {
-     myArr3 = JSON.parse(this.responseText);
-     }
-
-     dataJ3 = [];
-     for (el in myArr3)
-     dataJ3.push({y: myArr3[el].casos, a: myArr3[el].usuarios})
-     Morris.Bar({
-     element: 'morris-bar-example',
-     data: dataJ3,
-     xkey: 'y',
-     ykeys: ['a'],
-     labels: ['Casos'],
-     barColors: ['#2aabd2']
-     });
-
-     };*/
+    //************ GRÁFICO DOS ATENDIMENTOS POR HORA *************
+    
     function graficoConsultasPorHoraContagem(dado){
         var hora = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             hora[dt] = parseInt(dado[dt].hora);
             qtd[dt] = parseInt(dado[dt].casos);
         }
-        //ordedando por hora
+        
         var swapped;
         do {
             swapped = false;
@@ -511,7 +473,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('number', 'Hora');
             data.addColumn('number', 'Consultas');
-            //Povoando o grafico
+           
             for(i = 0; i < hora.length; i++){
                 data.addRow([hora[i], qtd[i]]);
             }
@@ -521,15 +483,15 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'Consultas por hora (Contagem)'} // Top x-axis.
+                        0: { side: 'top', label: 'Consultas por hora (Contagem)'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+     
             var chart = new google.charts.Bar(document.getElementById('graficoConsultasPorHoraContagem'));
             chart.draw(data, options);
         };
@@ -538,7 +500,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     function graficoConsultasPorHora(dado){
         var hora = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             hora[dt] = parseInt(dado[dt].hora);
             qtd[dt] = parseInt(dado[dt].media_casos);
@@ -566,7 +528,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('number', 'Hora');
             data.addColumn('number', 'Consultas');
-            //Povoando o grafico
+           
             for(i = 0; i < hora.length; i++){
                 data.addRow([hora[i], qtd[i]]);
             }
@@ -576,15 +538,15 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'Média por hora do dia'} // Top x-axis.
+                        0: { side: 'top', label: 'Média por hora do dia'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+     
             var chart = new google.charts.Bar(document.getElementById('graficoConsultasPorHora'));
             chart.draw(data, options);
         };
@@ -593,17 +555,11 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     function graficoAtendimentoPorHoraTOT(dado){
         var hora = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             hora[dt] = dado[dt].case_hour.toString();
             qtd[dt] = parseInt(dado[dt].tot);
         }
-        //tamanho minimo do grafico
-        if(hora.length < 5)
-            for (i = 0; i < 3; i++){
-                hora[i + (hora.length)] = "";
-                qtd[i+ (hora.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
@@ -611,7 +567,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Hora');
             data.addColumn('number', 'TOTAL');
-            //Povoando o grafico
+           
             for(i = 0; i < hora.length; i++){
                 data.addRow([hora[i], qtd[i]]);
             }
@@ -621,41 +577,36 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'TOTAL DE LOJAS'} // Top x-axis.
+                        0: { side: 'top', label: 'TOTAL DE LOJAS'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+     
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorHoraTOT'));
             chart.draw(data, options);
         };
     }
+
     function graficoAtendimentoPorHoraATE(dado){
         var hora = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             hora[dt] = dado[dt].case_hour.toString();
             qtd[dt] = parseInt(dado[dt].ate);
         }
-        //tamanho minimo do grafico
-        if(hora.length < 5)
-            for (i = 0; i < 3; i++){
-                hora[i + (hora.length)] = "";
-                qtd[i+ (hora.length)] = 0;
-            }
-
+        
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
         function drawStuff() {
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Hora');
             data.addColumn('number', 'ATENDERAM');
-            //Povoando o grafico
+           
             for(i = 0; i < hora.length; i++){
                 data.addRow([hora[i], qtd[i]]);
             }
@@ -667,15 +618,15 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 legend: { position: 'none' },
                 colors: ['green'],
 
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE ATENDERAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE ATENDERAM'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+     
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorHoraATE'));
             chart.draw(data, options);
         };
@@ -684,12 +635,12 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     function graficoAtendimentoPorHoraNEG(dado){
         var hora = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             hora[dt] = dado[dt].case_hour.toString();
             qtd[dt] = parseInt(dado[dt].neg);
         }
-        //tamanho minimo do grafico
+        
         if(hora.length < 5)
             for (i = 0; i < 3; i++){
                 hora[i + (hora.length)] = "";
@@ -702,7 +653,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Hora');
             data.addColumn('number', 'NEGARAM');
-            //Povoando o grafico
+           
             for(i = 0; i < hora.length; i++){
                 data.addRow([hora[i], qtd[i]]);
             }
@@ -712,30 +663,31 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 colors: ['red'],
 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NEGARAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NEGARAM'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+     
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorHoraNEG'));
             chart.draw(data, options);
         };
     }
+
     function graficoAtendimentoPorHoraNAT(dado){
         var hora = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             hora[dt] = dado[dt].case_hour.toString();
             qtd[dt] = parseInt(dado[dt].nat);
         }
-        //tamanho minimo do grafico
+        
         if(hora.length < 5)
             for (i = 0; i < 3; i++){
                 hora[i + (hora.length)] = "";
@@ -748,7 +700,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Hora');
             data.addColumn('number', 'NÃO ATENDERAM');
-            //Povoando o grafico
+           
             for(i = 0; i < hora.length; i++){
                 data.addRow([hora[i], qtd[i]]);
             }
@@ -760,38 +712,31 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 legend: { position: 'none' },
                 colors: ['yellow'],
 
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NÃO ATENDERAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NÃO ATENDERAM'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+     
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorHoraNAT'));
             chart.draw(data, options);
         };
     }
 
-
-
+    //************ GRÁFICO DOS ATENDIMENTOS POR DIA DA SEMANA *************
 
     function graficoAtendimentoPorDiaSemanaTOT(dado){
         var dia = [];
         var qtd = [];
 
-        //dados para o grafico
+
         for(dt in dado) {
             dia[dt] = dado[dt].day_of_week.toString();
             qtd[dt] = parseInt(dado[dt].tot);
         }
-        //tamanho minimo do grafico
-        if(dia.length < 5)
-            for (i = 0; i < 3; i++){
-                dia[i + (dia.length)] = "";
-                qtd[i+ (dia.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
@@ -799,9 +744,9 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'TOTAL');
-            //Povoando o grafico
+           
             for(i = 0; i < dia.length; i++){
-                data.addRow([dia[i], qtd[i]]);
+                    data.addRow([dia[i], qtd[i]]);
             }
 
             var options = {
@@ -809,43 +754,38 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'TOTAL DE LOJAS'} // Top x-axis.
+                        0: { side: 'top', label: 'TOTAL DE LOJAS'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+     
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaSemanaTOT'));
             chart.draw(data, options);
         };
     }
+
     function graficoAtendimentoPorDiaSemanaATE(dado){
         var dia = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             dia[dt] = dado[dt].day_of_week.toString();
             qtd[dt] = parseInt(dado[dt].ate);
         }
-        //tamanho minimo do grafico
-        if(dia.length < 5)
-            for (i = 0; i < 3; i++){
-                dia[i + (dia.length)] = "";
-                qtd[i+ (dia.length)] = 0;
-            }
-
+        
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
         function drawStuff() {
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'ATENDERAM');
-            //Povoando o grafico
+           
             for(i = 0; i < dia.length; i++){
-                data.addRow([dia[i], qtd[i]]);
+                    data.addRow([dia[i], qtd[i]]);
             }
 
             var options = {
@@ -855,15 +795,15 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 legend: { position: 'none' },
                 colors: ['green'],
 
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE ATENDERAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE ATENDERAM'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+     
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaSemanaATE'));
             chart.draw(data, options);
         };
@@ -872,17 +812,11 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     function graficoAtendimentoPorDiaSemanaNEG(dado){
         var dia = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             dia[dt] = dado[dt].day_of_week.toString();
             qtd[dt] = parseInt(dado[dt].neg);
         }
-        //tamanho minimo do grafico
-        if(dia.length < 5)
-            for (i = 0; i < 3; i++){
-                dia[i + (dia.length)] = "";
-                qtd[i+ (dia.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
@@ -890,9 +824,9 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'NEGARAM');
-            //Povoando o grafico
+
             for(i = 0; i < dia.length; i++){
-                data.addRow([dia[i], qtd[i]]);
+                    data.addRow([dia[i], qtd[i]]);
             }
 
             var options = {
@@ -900,35 +834,30 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 colors: ['red'],
 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NEGARAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NEGARAM'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+     
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaSemanaNEG'));
             chart.draw(data, options);
         };
     }
+
     function graficoAtendimentoPorDiaSemanaNAT(dado){
         var dia = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             dia[dt] = dado[dt].day_of_week.toString();
             qtd[dt] = parseInt(dado[dt].nat);
         }
-        //tamanho minimo do grafico
-        if(dia.length < 5)
-            for (i = 0; i < 3; i++){
-                dia[i + (dia.length)] = "";
-                qtd[i+ (dia.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
@@ -936,9 +865,9 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'NÃO ATENDERAM');
-            //Povoando o grafico
+
             for(i = 0; i < dia.length; i++){
-                data.addRow([dia[i], qtd[i]]);
+                    data.addRow([dia[i], qtd[i]]);
             }
 
             var options = {
@@ -948,35 +877,30 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 legend: { position: 'none' },
                 colors: ['yellow'],
 
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NÃO ATENDERAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NÃO ATENDERAM'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+     
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaSemanaNAT'));
             chart.draw(data, options);
         };
     }
 
+        //************ GRÁFICO DOS ATENDIMENTOS POR DIA DO MÊS *************
 
     function graficoAtendimentoPorDiaMesTOT(dado){
         var dia = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             dia[dt] = dado[dt].day_of_month.toString();
             qtd[dt] = parseInt(dado[dt].tot);
         }
-        //tamanho minimo do grafico
-        if(dia.length < 5)
-            for (i = 0; i < 3; i++){
-                dia[i + (dia.length)] = "";
-                qtd[i+ (dia.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
@@ -984,7 +908,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'TOTAL');
-            //Povoando o grafico
+
             for(i = 0; i < dia.length; i++){
                 data.addRow([dia[i], qtd[i]]);
             }
@@ -994,33 +918,28 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'TOTAL DE LOJAS'} // Top x-axis.
+                        0: { side: 'top', label: 'TOTAL DE LOJAS'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+     
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaMesTOT'));
             chart.draw(data, options);
         };
     }
+
     function graficoAtendimentoPorDiaMesATE(dado){
         var dia = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             dia[dt] = dado[dt].day_of_month.toString();
             qtd[dt] = parseInt(dado[dt].ate);
         }
-        //tamanho minimo do grafico
-        if(dia.length < 5)
-            for (i = 0; i < 3; i++){
-                dia[i + (dia.length)] = "";
-                qtd[i+ (dia.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
@@ -1028,7 +947,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'ATENDERAM');
-            //Povoando o grafico
+           
             for(i = 0; i < dia.length; i++){
                 data.addRow([dia[i], qtd[i]]);
             }
@@ -1040,15 +959,15 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 legend: { position: 'none' },
                 colors: ['green'],
 
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE ATENDERAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE ATENDERAM'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaMesATE'));
             chart.draw(data, options);
         };
@@ -1057,17 +976,11 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     function graficoAtendimentoPorDiaMesNEG(dado){
         var dia = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             dia[dt] = dado[dt].day_of_month.toString();
             qtd[dt] = parseInt(dado[dt].neg);
         }
-        //tamanho minimo do grafico
-        if(dia.length < 5)
-            for (i = 0; i < 3; i++){
-                dia[i + (dia.length)] = "";
-                qtd[i+ (dia.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
@@ -1075,9 +988,10 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'NEGARAM');
-            //Povoando o grafico
+
             for(i = 0; i < dia.length; i++){
-                data.addRow([dia[i], qtd[i]]);
+                    data.addRow([dia[i], qtd[i]]);
+                
             }
 
             var options = {
@@ -1085,35 +999,30 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 colors: ['red'],
 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NEGARAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NEGARAM'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaMesNEG'));
             chart.draw(data, options);
         };
     }
+
     function graficoAtendimentoPorDiaMesNAT(dado){
         var dia = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             dia[dt] = dado[dt].day_of_month.toString();
             qtd[dt] = parseInt(dado[dt].nat);
         }
-        //tamanho minimo do grafico
-        if(dia.length < 5)
-            for (i = 0; i < 3; i++){
-                dia[i + (dia.length)] = "";
-                qtd[i+ (dia.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
@@ -1121,9 +1030,9 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Dia');
             data.addColumn('number', 'NÃO ATENDERAM');
-            //Povoando o grafico
+
             for(i = 0; i < dia.length; i++){
-                data.addRow([dia[i], qtd[i]]);
+                    data.addRow([dia[i], qtd[i]]);
             }
 
             var options = {
@@ -1133,45 +1042,39 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 legend: { position: 'none' },
                 colors: ['yellow'],
 
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NÃO ATENDERAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NÃO ATENDERAM'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDiaMesNAT'));
             chart.draw(data, options);
         };
     }
 
-
-
+    //************ GRÁFICO DOS ATENDIMENTOS POR CATEGORIA *************
 
     function graficoAtendimentoPorCategoriaTOT(dado){
         var categoria = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             categoria[dt] = dado[dt].categoria.toString();
             qtd[dt] = parseInt(dado[dt].tot);
         }
-        //tamanho minimo do grafico
-        if(categoria.length < 5)
-            for (i = 0; i < 3; i++){
-                categoria[i + (categoria.length)] = "";
-                qtd[i+ (categoria.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
+
         function drawStuff() {
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'categoria');
             data.addColumn('number', 'TOTAL');
-            //Povoando o grafico
+
             for(i = 0; i < categoria.length; i++){
                 data.addRow([categoria[i], qtd[i]]);
             }
@@ -1181,61 +1084,55 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'TOTAL DE LOJAS'} // Top x-axis.
+                        0: { side: 'top', label: 'TOTAL DE LOJAS'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorCategoriaTOT'));
             chart.draw(data, options);
         };
     }
+
     function graficoAtendimentoPorCategoriaATE(dado){
         var categoria = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             categoria[dt] = dado[dt].categoria.toString();
             qtd[dt] = parseInt(dado[dt].ate);
         }
-        //tamanho minimo do grafico
-        if(categoria.length < 5)
-            for (i = 0; i < 3; i++){
-                categoria[i + (categoria.length)] = "";
-                qtd[i+ (categoria.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
+        
         function drawStuff() {
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'categoria');
             data.addColumn('number', 'ATENDERAM');
-            //Povoando o grafico
+
             for(i = 0; i < categoria.length; i++){
                 data.addRow([categoria[i], qtd[i]]);
             }
-
             var options = {
-                title: 'Chess opening moves',
+                title: '',
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
+                bars: 'horizontal',
                 colors: ['green'],
-
-                bars: 'horizontal', //orientação do gráfico
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE ATENDERAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE ATENDERAM'}
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorCategoriaATE'));
             chart.draw(data, options);
         };
@@ -1244,25 +1141,20 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     function graficoAtendimentoPorCategoriaNEG(dado){
         var categoria = [];
         var qtd = [];
-        //dados para o grafico
+        
         for(dt in dado) {
             categoria[dt] = dado[dt].categoria.toString();
             qtd[dt] = parseInt(dado[dt].neg);
         }
-        //tamanho minimo do grafico
-        if(categoria.length < 5)
-            for (i = 0; i < 3; i++){
-                categoria[i + (categoria.length)] = "";
-                qtd[i+ (categoria.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
+        
         function drawStuff() {
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'categoria');
             data.addColumn('number', 'NEGARAM');
-            //Povoaando o grafico
+            
             for(i = 0; i < categoria.length; i++){
                 data.addRow([categoria[i], qtd[i]]);
             }
@@ -1272,43 +1164,39 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal',
                 colors: ['red'],
 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NEGARAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NEGARAM'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorCategoriaNEG'));
             chart.draw(data, options);
         };
     }
+
     function graficoAtendimentoPorCategoriaNAT(dado){
         var categoria = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             categoria[dt] = dado[dt].categoria.toString();
             qtd[dt] = parseInt(dado[dt].nat);
         }
-        //tamanho minimo do grafico
-        if(categoria.length < 5)
-            for (i = 0; i < 3; i++){
-                categoria[i + (categoria.length)] = "";
-                qtd[i+ (categoria.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
+        
         function drawStuff() {
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'categoria');
             data.addColumn('number', 'NÃO ATENDERAM');
-            //Povoando o grafico
+
             for(i = 0; i < categoria.length; i++){
                 data.addRow([categoria[i], qtd[i]]);
             }
@@ -1320,37 +1208,30 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 legend: { position: 'none' },
                 colors: ['yellow'],
 
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NÃO ATENDERAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NÃO ATENDERAM'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorCategoriaNAT'));
             chart.draw(data, options);
         };
     }
 
-
-
+    //************ GRÁFICO DOS ATENDIMENTOS POR DATA *************
 
     function graficoAtendimentoPorDateTOT(dado){
         var date = [];
         var qtd = [];
-        //dados para o grafico
+        
         for(dt in dado) {
             date[dt] = dado[dt].case_date.substring(0, 10);
             qtd[dt] = parseInt(dado[dt].tot);
         }
-        //tamanho minimo do grafico
-        if(date.length < 5)
-            for (i = 0; i < 3; i++){
-                date[i + (date.length)] = "";
-                qtd[i+ (date.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
@@ -1358,7 +1239,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'date');
             data.addColumn('number', 'TOTAL');
-            //Povondo o grafico
+            
             for(i = 0; i < date.length; i++){
                 data.addRow([date[i], qtd[i]]);
             }
@@ -1368,33 +1249,28 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'TOTAL DE LOJAS'} // Top x-axis.
+                        0: { side: 'top', label: 'TOTAL DE LOJAS'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDateTOT'));
             chart.draw(data, options);
         };
     }
+
     function graficoAtendimentoPorDateATE(dado){
         var date = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             date[dt] = dado[dt].case_date.substring(0, 10);
             qtd[dt] = parseInt(dado[dt].ate);
         }
-        //tamanho minimo do grafico
-        if(date.length < 5)
-            for (i = 0; i < 3; i++){
-                date[i + (date.length)] = "";
-                qtd[i+ (date.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
@@ -1402,7 +1278,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'date');
             data.addColumn('number', 'ATENDERAM');
-            //Povondo o grafico
+
             for(i = 0; i < date.length; i++){
                 data.addRow([date[i], qtd[i]]);
             }
@@ -1414,15 +1290,15 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 legend: { position: 'none' },
                 colors: ['green'],
 
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE ATENDERAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE ATENDERAM'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDateATE'));
             chart.draw(data, options);
         };
@@ -1431,17 +1307,11 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
     function graficoAtendimentoPorDateNEG(dado){
         var date = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             date[dt] = dado[dt].case_date.substring(0, 10);
             qtd[dt] = parseInt(dado[dt].neg);
         }
-        //tamanho minimo do grafico
-        if(date.length < 5)
-            for (i = 0; i < 3; i++){
-                date[i + (date.length)] = "";
-                qtd[i+ (date.length)] = 0;
-            }
 
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
@@ -1449,7 +1319,7 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'date');
             data.addColumn('number', 'NEGARAM');
-            //Povondo o grafico
+            
             for(i = 0; i < date.length; i++){
                 data.addRow([date[i], qtd[i]]);
             }
@@ -1459,43 +1329,39 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 width: 950,
                 height: data.getNumberOfRows() * 65,
                 legend: { position: 'none' },
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal',
                 colors: ['red'],
 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NEGARAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NEGARAM'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDateNEG'));
             chart.draw(data, options);
         };
     }
+
     function graficoAtendimentoPorDateNAT(dado){
         var date = [];
         var qtd = [];
-        //dados para o grafico
+
         for(dt in dado) {
             date[dt] = dado[dt].case_date.substring(0, 10);
             qtd[dt] = parseInt(dado[dt].nat);
         }
-        //tamanho minimo do grafico
-        if(date.length < 5)
-            for (i = 0; i < 3; i++){
-                date[i + (date.length)] = "";
-                qtd[i+ (date.length)] = 0;
-            }
-
+        
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawStuff);
+        
         function drawStuff() {
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'date');
             data.addColumn('number', 'NÃO ATENDERAM');
-            //Povondo o grafico
+ 
             for(i = 0; i < date.length; i++){
                 data.addRow([date[i], qtd[i]]);
             }
@@ -1506,50 +1372,19 @@ angular.module("teewa").controller("atendimentosCtrl", function ($scope, $http, 
                 legend: { position: 'none' },
                 colors: ['yellow'],
 
-                bars: 'horizontal', //orientação do gráfico
+                bars: 'horizontal', 
                 axes: {
                     x: {
-                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NÃO ATENDERAM'} // Top x-axis.
+                        0: { side: 'top', label: 'QUANTIDADE DE LOJAS QUE NÃO ATENDERAM'} 
                     }
                 },
                 bar: { groupWidth: 20 }
             };
-            //Construindo o gráfico
+
             var chart = new google.charts.Bar(document.getElementById('graficoAtendimentoPorDateNAT'));
             chart.draw(data, options);
         };
     }
-
-//Pegando a data atual
-    // d = new Date();
-    // //console.log("d: " + d);
-    // var dia = d.getDate();
-    // var mes = d.getMonth() + 1;
-    // var ano = d.getFullYear();
-    // var dataAtual = dia + "/"+mes +"/"+  ano;
-
-    // //pegando data da semana passada
-    // var novaData = new Date(d.getTime() - 10080*60000);
-    // //console.log("nova Data: " + novaData);
-    // var dataPassada = novaData.getDate() +"/"+ (novaData.getMonth() +1) + "/" + novaData.getFullYear()
-    // //carregando clientes da semana passada até hoje
-    // console.log("semana passada: "+dataPassada +" hoje: "+ dataAtual);
-    // //carregarClientesPorData2(dataPassada ,dataAtual);
-
-
-
-
-    // //carregarCases();
-    // var curr = new Date; // get current date
-    // var first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
-    // var last = first + 6; // last day is the first day + 6
-
-    // var firstday = new Date(curr.setDate(first)).toLocaleDateString();
-    // var lastday = new Date(curr.setDate(last)).toLocaleDateString();
-    //console.log(firstday);
-
-  // $scope.carregarAtendimentos("28/12/2016" ,dataAtual);
-    //carregarNatendimentos();
 
     var d = {
         value: new Date()

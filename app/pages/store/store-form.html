@@ -155,6 +155,23 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-xs-12 control-label">Adicionar um logotipo </label>
+                                <div class="col-md-6 col-xs-12">
+                                    <div ng-repeat="cat in categories">
+                                        <div><input type="checkbox" value="false" class="form-check-input">
+                                            {{cat.name}}
+                                            <div  ng-repeat="sub in subCategories | filter:{ 'id':cat.id}:true">
+                                                <span>{{sub.subs}}</span>
+                                            </div>
+
+                                            <div>--------------------------</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
                     <div class="panel-footer">
