@@ -496,8 +496,9 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         // evento de digitando
         var composing = msg.getElementsByTagName('composing')[0];
         if (composing){
-            //console.log(msg);
+            if(!from.includes($scope.idVendedor)){
             $scope.composing[from.split('@')[0]] = true;
+            }
         }
 
         //evento de parou de digitar
@@ -576,12 +577,10 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             $scope.qteMsgsChats['chat'+value.id] = 0;
             $scope.composing['chat'+value.id] = false;
 
-            var iqMigs = $iq({type: "set"}).c("query", {xmlns: "jabber:iq:roster"}).c("item", {jid:value.userTo.id+"@ip-172-31-47-155",name:"None"});
-            console.log(iqMigs.tree());
+            var iqMigs = $iq({type: "set"}).c("query", {xmlns: "jabber:iq:roster"}).c("item", {jid:value.userTo.id+"@"+config.XMPP_DOMAIN,name:"None"});
             sharedConn.connection.sendIQ(iqMigs);
 
-            var subscribe = $pres({to: value.userTo.id+"@ip-172-31-47-155", type: "subscribe"});
-            console.log(subscribe.tree());
+            var subscribe = $pres({to: value.userTo.id+"@"+config.XMPP_DOMAIN, type: "subscribe"});
             sharedConn.connection.send(subscribe);
 
         });
@@ -613,12 +612,11 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         var timestamp = new Date().getTime();
         var msgComposing = $msg({
             xmlns: 'jabber:client',
-            to:'chat'+$scope.chatAtual.id+'@conference.ip-172-31-47-155',
+            to:'chat'+$scope.chatAtual.id+'@conference.'+config.XMPP_DOMAIN,
             id:$scope.chatAtual.id+"composing"+timestamp,
             type: "groupchat",
         }).c("composing", {xmlns: 'http://jabber.org/protocol/chatstates'});
 
-        console.log(msgComposing.tree());
         sharedConn.getConnectObj().send(msgComposing.tree());
     };
 
@@ -631,12 +629,11 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         var timestamp = new Date().getTime();
         var msgPaused = $msg({
             xmlns: 'jabber:client',
-            to:'chat'+$scope.chatAtual.id+'@conference.ip-172-31-47-155',
+            to:'chat'+$scope.chatAtual.id+'@conference.'+config.XMPP_DOMAIN,
             id:$scope.chatAtual.id+"paused"+timestamp,
             type: "groupchat",
         }).c("paused", {xmlns: 'http://jabber.org/protocol/chatstates'});
 
-        console.log(msgPaused.tree());
         sharedConn.getConnectObj().send(msgPaused.tree());
     };
 
@@ -657,14 +654,12 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         textarea = $('#txtMsg');
         if (!textarea.is(':focus') || textarea.val() == '' || new Date().getTime() - lastTypedTime.getTime() > typingDelayMillis) {
             if (typingStatus == true){
-                console.log('typingStatus == true');
                 typingStatus = false;
                 $scope.sendPaused();
             }
 
         } else {
             if (typingStatus == false){
-                console.log('typingStatus == false');
                 typingStatus = true;
                 $scope.sendComposing();
             }
