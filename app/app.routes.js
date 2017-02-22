@@ -348,6 +348,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         templateUrl: 'app/pages/store/store-form.html',
         controller: 'storesCtrl',
         activetab: 'lojaForm'
-    })
+    }).state('main.store.cat', {
+              url: '/cat',
+              templateUrl: 'app/pages/store/store-form-categorias.html',
+              controller: 'storesCtrl',
+              activetab: 'cat'
+          })
 
 });

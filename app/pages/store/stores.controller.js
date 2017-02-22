@@ -1,13 +1,52 @@
 angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $state, $http, config) {
     $scope.app = "Loja";
     $scope.stores;
-    $scope.store ={"isDays":false, "is_max_radius":false, 'max_radius':10, "banner": '', "brand":''};
+    $scope.store ={"idstore": false,"isDays":false, "is_max_radius":false, 'max_radius':10, "banner": '', "brand":''};
 
     $scope.urlImg = config.baseUrl + "/images/";
 
     $scope.categories = [];
     $scope.subCategories = [];
     $scope.idUser = localStorage.getItem('userID');
+    $scope.idloja = localStorage.getItem('lojaID');
+    if($scope.idloja != '') {
+        editarLoja();
+        $scope.store.idstore=true;
+    }
+
+
+     $scope.editarLoja = function(store){
+        $scope.subcat = [];
+
+        $http({
+            url : config.baseUrl + "/stores/"+$scope.idloja,
+            method : 'get',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data: {
+
+                'id' : $scope.idloja,
+            }
+        }).success(function(data){
+            $scope.store = data;
+            console.log(data);
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+
+
+        angular.forEach(store.subcategories, function(sub, k){
+            $scope.subcat.push(sub.id);
+        });
+
+        $scope.work_days = store.work_days;
+        $scope.store = store;
+        $scope.store.idstore = true;
+
+     };
+
     $scope.subcat = [];
 
     $scope.diasSemana =[{"day": 0,"name":"Sunday", "openhour": "", "closehour":"", "nome":"Domingo"},
@@ -101,7 +140,12 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
 
                 var aux_subCat = [];
                 angular.forEach($scope.subcat, function(sub, k){
-                    aux_subCat.push({'id': 'sub', 'hasOption':'false'});
+                    aux_subCat.push({"id": sub, "hasOption":false});
+                });
+
+                var aux_work_days = [];
+                angular.forEach($scope.work_days, function(day, k){
+                    aux_work_days.push({"day": day.day,"name": day.name, "openhour": day.openhour, "closehour":day.closehour});
                 });
 
                 store.lng = document.getElementById('txtLongitude').value;
@@ -113,6 +157,11 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                 if(store.isDays) store.is24=false;
                 else             store.is24=true;
 
+                console.log(aux_work_days);
+                console.log(aux_subCat);
+                console.log($scope.idUser);
+
+
                 $http({
                     url : config.baseUrl + "/sellers/create/withnewstore",
                     method : 'post',
@@ -121,29 +170,31 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                         'Authorization' : config.token
                     },
                     data: {
-                        'iduser':parseInt($scope.idUser),
+                        'iduser':$scope.idUser,
                         'name':String(store.name),
                         'cnpj':String(store.cnpj),
-                        'lat': parseFloat(store.lat),
-                        'lng': parseFloat(store.lng),
+                        'lat': store.lat,
+                        'lng': store.lng,
                         'address': String(store.address),
                         'zipcode':'',
-                        'is24':  store.is24,
-                        'work_days': $scope.work_days,
+                        'is24' :  store.is24,
+                        'work_days' : JSON.stringify(aux_work_days),
                         'tzone': String((new Date()).getTimezoneOffset()),
                         'brand': store.brand,
                         'banner': store.banner,
                         'map_frame':store.banner,
-                        'subcategories':aux_subCat,
-                        'description':store.description,
-                        'phone':store.phone,
+                        'subcategories':JSON.stringify(aux_subCat),
+                        'description':String(store.description),
+                        'phone':String(store.phone),
                         'is_max_radius': store.is_max_radius,
-                        'max_radius': store.max_radius
+                        'max_radius': parseInt(store.max_radius)
                     }
+
                 }).success(function(data){
-                    console.log(data);
-                     $state.go('main.dashboardEstabelecimento');
+                    console.log('Tudo okjjj');
+                   console.log(data);
                 }).error(function(error){
+                    console.log('error');
                     console.log(error);
                     $scope.message = "Aconteceu um problema: " + error;
                 });
@@ -213,7 +264,6 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
 
     $scope.addSubCat = function(idsub){
         var idx = $scope.subcat.indexOf(idsub);
-
         if (idx > -1) {
             $scope.subcat.splice(idx,1);
         }
@@ -236,6 +286,71 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
 
          });
     }
+
+
+
+ $scope.atualizarLoja =  function(store){
+       html2canvas($("#mapa"), {
+            useCORS: true,
+            onrendered: function(canvas) {
+               theCanvas = canvas;
+               store.map_frame = (canvas.toDataURL()).slice(22);
+
+                var aux_subCat = [];
+                angular.forEach($scope.subcat, function(sub, k){
+                    aux_subCat.push({'id': 'sub', 'hasOption':'false'});
+                });
+
+                store.lng = document.getElementById('txtLongitude').value;
+                store.lat = document.getElementById('txtLatitude').value;
+
+                store.banner = document.getElementById("filebanner"+'hidden').value;
+                store.brand  = document.getElementById("filebrand"+'hidden').value;
+
+                if(store.isDays) store.is24=false;
+                else             store.is24=true;
+
+
+                $http({
+                    url : config.baseUrl + "/stores/update",
+                    method : 'put',
+                    headers : {
+                        'Content-Type': 'application/json',
+                        'Authorization' : config.token
+                    },
+                    data: {
+                        'idstore':$scope.idloja ,
+                        'iduser':$scope.idUser,
+                        'name':store.name,
+                        'cnpj':store.cnpj,
+                        'lat': store.lat,
+                        'lng': store.lng,
+                        'address': store.address,
+                        'zipcode':'',
+                        'is24' :  store.is24,
+                        'work_days' : $scope.work_days,
+                        'tzone': String((new Date()).getTimezoneOffset()),
+                        'brand': store.brand,
+                        'banner': store.banner,
+                        'map_frame':store.banner,
+                        'subcategories':aux_subCat,
+                        'description':store.description,
+                        'phone':store.phone,
+                        'is_max_radius': store.is_max_radius,
+                        'max_radius': store.max_radius
+                    }
+                }).success(function(data){
+                    console.log('Tudo Salvo...');
+                    console.log(data);
+                }).error(function(error){
+                    console.log(error);
+                    $scope.message = "Aconteceu um problema: " + error;
+                });
+            }
+       });
+
+    };
+
 
     $scope.listarCategorias();
     $scope.listarLojas();
