@@ -240,6 +240,7 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                 }
             }).success(function(data){
                 alert('O cadastro realizado com sucesso. Aguarde a aprovação pelo Administrador do estabelecimento.');
+                $state.go('main.login.index');
             }).error(function(error){
                 console.log(error);
             });
