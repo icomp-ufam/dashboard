@@ -228,7 +228,7 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
 
     //Código é verificado a partir da solicitação do usuario
    $scope.verificaCodigo= function (code) {
-        /*$http({
+        $http({
             url : config.baseUrl + "/dash/login",
             method : 'post',
             headers : {
@@ -241,7 +241,7 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
             }
         }).success(function(data){
             $scope.codigoconfirmacao = data;
-            if($scope.codigoconfirmacao.code == '200'){*/
+            if($scope.codigoconfirmacao.code == '200'){
                 localStorage.setItem('loginV', $scope.infoVendedorNome);
                 localStorage.setItem('vendedor', JSON.stringify(true));
                 //se usuario for dono de loja
@@ -256,7 +256,7 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
                 $state.go("main.dashboardVendedor.index", {}, {
                     location: "replace",
                     reload: true
-                });/*
+                });
             }else{
                 $scope.mensagem = 'Codigo inválido';
                 $timeout(function() {
@@ -266,20 +266,19 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
 
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
-        });*/
+        });
     };
 
     XMPP_DOMAIN = config.XMPP_DOMAIN;
 
     $scope.login = function() {
-        /*sharedConn.login($scope.infoVendedorID,XMPP_DOMAIN,config.password);
+        sharedConn.login($scope.infoVendedorID,XMPP_DOMAIN,config.password);
         $scope.chats = sharedConn.getRoster();
         $scope.hideTime = true;
         $scope.data = {};
         $scope.myId = sharedConn.getConnectObj().jid;
         $scope.messages = [];
         $scope.to_id = ChatDetails.getTo();
-*/
         localStorage.setItem('vendedor', JSON.stringify(true));
         $scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
 
