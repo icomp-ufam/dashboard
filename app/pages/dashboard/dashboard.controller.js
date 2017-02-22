@@ -12,6 +12,7 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $state, $h
     //$scope.estabelecimentos = [];
     $scope.cases = [];
     $scope.clientes = [];
+    $scope.clientesAntes = [];
     $scope.atendimentos = [];
     $scope.atendimentosAntes = [];
     $scope.estabelecimentos = [];
@@ -31,11 +32,59 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $state, $h
         }).success(function(data){
             $scope.clientes = data;
             $scope.qtClientes = $scope.clientes.users.length;
-            $scope.qtClientesAntes = 0;
             //$scope.qtClientes =
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + data;
             console.log("login error");
+        });
+
+        var today= new Date();
+        var ddToday= today.getDate();
+        var mmToday= today.getMonth()+1;
+        var yyToday= today.getFullYear();
+        var dataToday= ddToday+'/'+mmToday+'/'+yyToday;
+
+
+        //quantidade de dias para voltar
+        var dParaVoltar= 7;
+        ///////////////////
+        var ddAntes= ddToday;
+        var mmAntes= mmToday;
+        var yyAntes= yyToday;
+        var todayS= mmAntes+'/'+ddAntes+'/'+yyAntes;
+
+        var myDate = new Date(todayS);
+        var dayOfMonth = myDate.getDate();
+        myDate.setDate(dayOfMonth - dParaVoltar);
+        var todayAntes= myDate.getDate()+'/'+(myDate.getMonth()+1)+'/'+myDate.getFullYear();
+
+        $http({
+            url: config.baseUrl + "/dash/users",
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': config.token
+            },
+            data: {
+                'date_start': todayAntes,
+                'date_end': dataToday,
+            }
+        }).success(function (data) {
+            $scope.clientesAntes = data;
+            $scope.qtClientesAntes= $scope.clientesAntes.length;
+
+            //calculo em percentagem
+            var t4= $scope.qtClientes;
+            var n4= $scope.qtClientesAntes;
+            var p4= ((t4-(t4-n4))/t4)*100;
+            if(p4 < 0){
+                p4= p4*-1;
+            }
+            $scope.qtClientesAntesPer= p4;
+
+
+        }).error(function (error) {
+            $scope.message = "Aconteceu um problema: " + error;
         });
     };
 
@@ -101,14 +150,14 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $state, $h
             }
         }).success(function(data,date){
             $scope.atendimentosAntes = data;
+            $scope.qtAtendimentosAntes= $scope.atendimentosAntes.length;
             //calculo em percentagem
             var t3= $scope.qtAtendimentos;
-            var n3= $scope.atendimentosAntes.length;
+            var n3= $scope.qtAtendimentosAntes;
             var p3= ((t3-(t3-n3))/t3)*100;
             if(p3 < 0){
                 p3= p3*-1;
             }
-            $scope.qtAtendimentosAntes= $scope.atendimentosAntes.length;
             $scope.qtAtendimentosAntesPer= p3;
 
             //console.log($scope.qtAtendimentos)
