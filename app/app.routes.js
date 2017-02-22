@@ -275,6 +275,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
     }).state('main.dashboardEstabelecimento', {
         url: 'dashboard-estabelecimento',
         template: '<ui-view></ui-view>'
+    }).state('main.dashboardEstabelecimento.chats', {
+        url: '/vendedores/chats',
+        templateUrl: 'app/pages/dashboard-estabelecimento/vendedores/vendedores-chats.html',
+        controller: 'dashboardEstabelecimentoCtrl',
+        activetab: 'vendedoresEstabelecimento'
     }).state('main.dashboardEstabelecimento.index', {
         url: '/index/:idstore',
         templateUrl: 'app/pages/dashboard-estabelecimento/dashboard-estabelecimento.html',
