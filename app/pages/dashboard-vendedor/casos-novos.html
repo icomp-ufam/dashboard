@@ -15,7 +15,11 @@
     <h2><span class="fa fa-bell"></span> Casos Novos</h2>
 </div>
 
-<div class="row">
+<div ng-if="(qteCasos == 0)">
+    <h1 class=text-center>Você não possui casos novos.</h1>
+</div>
+
+<div class="row" ng-if="(qteCasos != 0)">
     <!-- START NOVO CASO -->
     <div class="col-md-3" ng-repeat="caso in casos" >
         <!-- Lista os casos novos, usando a diretiva ng-repeat -->

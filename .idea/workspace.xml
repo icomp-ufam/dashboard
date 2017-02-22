@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39fa8f05-15be-41f2-b7f8-1f0df24c357b" name="Default" comment="">
+    <list default="true" id="39fa8f05-15be-41f2-b7f8-1f0df24c357b" name="Default" comment="Correção na conexão do chat, ao aceitar casos e ao realizar transição de paginas;&#10;Icone do sistema atualizado">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/loading_dots.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/img/unnamed.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/clientes/clientes.controller.js" afterPath="$PROJECT_DIR$/app/pages/clientes/clientes.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.routes.js" afterPath="$PROJECT_DIR$/app/app.routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-abertos.html" afterPath="$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-abertos.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-novos.html" afterPath="$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-novos.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboardvendedor.controller.js" afterPath="$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboardvendedor.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/login/login.controller.js" afterPath="$PROJECT_DIR$/app/pages/login/login.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="dashboard.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,36 +39,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/admin/admin.html">
+      <file leaf-file-name="casos-abertos.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-abertos.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="47" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+            <state relative-caret-position="415">
+              <caret line="196" column="41" lean-forward="true" selection-start-line="196" selection-start-column="41" selection-end-line="196" selection-end-column="41" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="e#16519#16526#0" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#3;n#!!top" expanded="true" />
+                <element signature="e#17456#17463#0" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#4;n#div#3;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form_admin.controller.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/pages/admin/form_admin.controller.js">
+      <file leaf-file-name="casos-novos.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-novos.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboardvendedor.controller.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="57" lean-forward="false" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboardvendedor.controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboardvendedor.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4600">
-              <caret line="230" column="17" lean-forward="false" selection-start-line="230" selection-start-column="17" selection-end-line="230" selection-end-column="17" />
+            <state relative-caret-position="6915">
+              <caret line="461" column="50" lean-forward="false" selection-start-line="461" selection-start-column="50" selection-end-line="461" selection-end-column="50" />
               <folding>
-                <marker date="1485824461608" expanded="true" signature="6883:6927" ph="{...}" />
+                <marker date="1487721129873" expanded="true" signature="21471:21536" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/login/login.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3420">
+              <caret line="243" column="55" lean-forward="false" selection-start-line="243" selection-start-column="55" selection-end-line="243" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboard-vendedor.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboard-vendedor.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="840">
+              <caret line="56" column="68" lean-forward="false" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="68" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,75 +116,8 @@
       <file leaf-file-name="app.routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/app.routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4860">
-              <caret line="244" column="46" lean-forward="false" selection-start-line="244" selection-start-column="46" selection-end-line="244" selection-end-column="46" />
-              <folding>
-                <marker date="1485909780555" expanded="true" signature="4361:4532" ph="{&quot;url&quot;: '/lista'...}" />
-                <marker date="1485909780555" expanded="true" signature="4561:4649" ph="{&quot;url&quot;: 'atendimentos'...}" />
-                <marker date="1485909780555" expanded="true" signature="4685:4874" ph="{&quot;url&quot;: '/lista'...}" />
-                <marker date="1485909780555" expanded="true" signature="4917:5168" ph="{&quot;url&quot;: '/listarPorHora/:data_startParametro/:data_endParametro'...}" />
-                <marker date="1485909780555" expanded="true" signature="5224:5474" ph="{&quot;url&quot;: '/listarPorHoraContagemMedia'...}" />
-                <marker date="1485909780555" expanded="true" signature="5522:5785" ph="{&quot;url&quot;: '/listarPorDiaSemana/:data_startParametro/:data_endParametro'...}" />
-                <marker date="1485909780555" expanded="true" signature="5830:6084" ph="{&quot;url&quot;: '/listarPorDiaMes/:data_startParametro/:data_endParametro'...}" />
-                <marker date="1485909780555" expanded="true" signature="6132:6398" ph="{&quot;url&quot;: '/listarPorCategoria/:data_startParametro/:data_endParametro'...}" />
-                <marker date="1485909780555" expanded="true" signature="6441:6692" ph="{&quot;url&quot;: '/listarPorDate/:data_startParametro/:data_endParametro'...}" />
-                <marker date="1485909780555" expanded="true" signature="6740:6966" ph="{&quot;url&quot;: '/listarPorDataGeral'...}" />
-                <marker date="1485909780555" expanded="true" signature="6987:7067" ph="{&quot;url&quot;: 'chat'...}" />
-                <marker date="1485909780555" expanded="true" signature="7095:7252" ph="{&quot;url&quot;: '/lista'...}" />
-                <marker date="1485909780555" expanded="true" signature="7278:7363" ph="{&quot;url&quot;: 'dashboard'...}" />
-                <marker date="1485909780555" expanded="true" signature="7396:7573" ph="{&quot;url&quot;: '/index'...}" />
-                <marker date="1485909780555" expanded="true" signature="7617:7723" ph="{&quot;url&quot;: 'dashboard-vendedor'...}" />
-                <marker date="1485909780555" expanded="true" signature="7763:7974" ph="{&quot;url&quot;: '/index'...}" />
-                <marker date="1485909780555" expanded="true" signature="8021:8222" ph="{&quot;url&quot;: '/casos-abertos'...}" />
-                <marker date="1485909780555" expanded="true" signature="8267:8471" ph="{&quot;url&quot;: '/casos-novos'...}" />
-                <marker date="1485909780555" expanded="true" signature="8511:8698" ph="{&quot;url&quot;: '/emoji'...}" />
-                <marker date="1485909780555" expanded="true" signature="8733:8816" ph="{&quot;url&quot;: 'pacotes'...}" />
-                <marker date="1485909780555" expanded="true" signature="8847:9025" ph="{&quot;url&quot;: '/lista'...}" />
-                <marker date="1485909780555" expanded="true" signature="9051:9136" ph="{&quot;url&quot;: 'denuncias'...}" />
-                <marker date="1485909780555" expanded="true" signature="9169:9346" ph="{&quot;url&quot;: '/lista'...}" />
-                <marker date="1485909780555" expanded="true" signature="9373:9459" ph="{&quot;url&quot;: 'avaliacoes'...}" />
-                <marker date="1485909780555" expanded="true" signature="9493:9674" ph="{&quot;url&quot;: '/lista'...}" />
-                <marker date="1485909780555" expanded="true" signature="9706:9798" ph="{&quot;url&quot;: '/escolher-pacote'...}" />
-                <marker date="1485909780555" expanded="true" signature="9831:10014" ph="{&quot;url&quot;: '/escolha'...}" />
-                <marker date="1485909780555" expanded="true" signature="10044:10133" ph="{&quot;url&quot;: 'analisesCasos'...}" />
-                <marker date="1485909780555" expanded="true" signature="10170:10443" ph="{&quot;url&quot;: '/listaCasos/:data_startParametro/:data_endParametro'...}" />
-                <marker date="1485909780555" expanded="true" signature="10492:10699" ph="{&quot;url&quot;: '/listaAtendimentos'...}" />
-                <marker date="1485909780555" expanded="true" signature="10749:10958" ph="{&quot;url&quot;: '/listaNatendimentos'...}" />
-                <marker date="1485909780555" expanded="true" signature="11000:11190" ph="{&quot;url&quot;: '/rating-geral'...}" />
-                <marker date="1485909780555" expanded="true" signature="11213:11295" ph="{&quot;url&quot;: 'perfil'...}" />
-                <marker date="1485909780555" expanded="true" signature="11325:11468" ph="{&quot;url&quot;: '/perfil'...}" />
-                <marker date="1485909780555" expanded="true" signature="11519:11632" ph="{&quot;url&quot;: 'dashboard-estabelecimento'...}" />
-                <marker date="1485909780555" expanded="true" signature="11679:11918" ph="{&quot;url&quot;: '/index'...}" />
-                <marker date="1485909780555" expanded="true" signature="11981:12238" ph="{&quot;url&quot;: '/perfil-estabelecimento'...}" />
-                <marker date="1485909780555" expanded="true" signature="12305:12578" ph="{&quot;url&quot;: '/vendedores-estabelecimento'...}" />
-                <marker date="1485909780555" expanded="true" signature="12647:12928" ph="{&quot;url&quot;: '/atendimentos-estabelecimento'...}" />
-                <marker date="1485909780555" expanded="true" signature="12993:13258" ph="{&quot;url&quot;: '/anuncios-estabelecimento'...}" />
-                <marker date="1485909780555" expanded="true" signature="13324:13593" ph="{&quot;url&quot;: '/denuncias-estabelecimento'...}" />
-                <marker date="1485909780555" expanded="true" signature="13658:13901" ph="{&quot;url&quot;: '/listarPorHora/:data_startParametro/:data_endParametro'...}" />
-                <marker date="1485909780555" expanded="true" signature="13969:14198" ph="{&quot;url&quot;: '/listarPorHoraContagemMedia'...}" />
-                <marker date="1485909780555" expanded="true" signature="14258:14511" ph="{&quot;url&quot;: '/listarPorCategoria/:data_startParametro/:data_endParametro'...}" />
-                <marker date="1485909780555" expanded="true" signature="14571:14824" ph="{&quot;url&quot;: '/listarPorDiaSemana/:data_startParametro/:data_endParametro'...}" />
-                <marker date="1485909780555" expanded="true" signature="14879:15122" ph="{&quot;url&quot;: '/listarPorDate/:data_startParametro/:data_endParametro'...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="denuncias.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/denuncias/denuncias.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="29" column="11" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="29" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="denuncias.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/denuncias/denuncias.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+            <state relative-caret-position="-9">
+              <caret line="151" column="25" lean-forward="true" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -158,6 +137,23 @@
     <findStrings>
       <find>denuncias.</find>
       <find>perfil.</find>
+      <find>usuario</find>
+      <find>infoVendedorID</find>
+      <find>tina</find>
+      <find>ordeba</find>
+      <find>ordenap</find>
+      <find>login</find>
+      <find>atendimentos</find>
+      <find>carregando</find>
+      <find>alert</find>
+      <find>encerrar</find>
+      <find>$scope.log</find>
+      <find>showSend</find>
+      <find>dashboard-vended</find>
+      <find>emoj</find>
+      <find>dashboard</find>
+      <find>carregando mensagens</find>
+      <find>precarregamento</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -173,7 +169,6 @@
         <option value="$PROJECT_DIR$/template-joli/js/demo_charts_morris.js" />
         <option value="$PROJECT_DIR$/app/pages/avaliacoes/avaliacoes.html" />
         <option value="$PROJECT_DIR$/app/assets/js/demo_charts_morris.js" />
-        <option value="$PROJECT_DIR$/app/pages/dashboard/dashboard.controller.js" />
         <option value="$PROJECT_DIR$/app/pages/pacotes/pacotes.html" />
         <option value="$PROJECT_DIR$/app/pages/analises/ratingGeral.html" />
         <option value="$PROJECT_DIR$/app/pages/clientes/clientes.html" />
@@ -185,23 +180,33 @@
         <option value="$PROJECT_DIR$/app/pages/dashboard/dashboard.html" />
         <option value="$PROJECT_DIR$/app/pages/vendedores/vendedores.html" />
         <option value="$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboard-vendedor.html" />
-        <option value="$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-novos.html" />
         <option value="$PROJECT_DIR$/app/pages/denuncias/denuncias.html" />
         <option value="$PROJECT_DIR$/app/assets/css/estilo.css" />
         <option value="$PROJECT_DIR$/app/pages/chat/chat.controller.js" />
         <option value="$PROJECT_DIR$/app/services/chats.service.js" />
         <option value="$PROJECT_DIR$/app/services/chat-details.service.js" />
-        <option value="$PROJECT_DIR$/app/app.routes.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/app/services/sharedConn.service.js" />
-        <option value="$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-abertos.html" />
-        <option value="$PROJECT_DIR$/app/value/config.js" />
-        <option value="$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboardvendedor.controller.js" />
-        <option value="$PROJECT_DIR$/app/pages/main/main.controller.js" />
-        <option value="$PROJECT_DIR$/app/pages/main/main.html" />
         <option value="$PROJECT_DIR$/app/pages/clientes/clientes.controller.js" />
-        <option value="$PROJECT_DIR$/app/pages/admin/form_admin.controller.js" />
         <option value="$PROJECT_DIR$/app/pages/denuncias/index.html" />
+        <option value="$PROJECT_DIR$/app/pages/login/loginadmin.html" />
+        <option value="$PROJECT_DIR$/app/pages/dashboard/dashboard.controller.js" />
+        <option value="$PROJECT_DIR$/app/pages/login/login.html" />
+        <option value="$PROJECT_DIR$/app/pages/dashboard-estabelecimento/dashboardestabelecimento.controller.js" />
+        <option value="$PROJECT_DIR$/app/value/config.js" />
+        <option value="$PROJECT_DIR$/app/pages/admin/admin.html" />
+        <option value="$PROJECT_DIR$/app/pages/atendimentos/atendimentos.html" />
+        <option value="$PROJECT_DIR$/app/assets/css/theme-teewa.css" />
+        <option value="$PROJECT_DIR$/app/services/sharedConn.service.js" />
+        <option value="$PROJECT_DIR$/app/pages/main/main.controller.js" />
+        <option value="$PROJECT_DIR$/app/pages/admin/form_admin.controller.js" />
+        <option value="$PROJECT_DIR$/app/pages/atendimentos/atendimentos.controller.js" />
+        <option value="$PROJECT_DIR$/emojiteste.html" />
+        <option value="$PROJECT_DIR$/app/pages/main/main.html" />
+        <option value="$PROJECT_DIR$/app/app.routes.js" />
+        <option value="$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-novos.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/app/pages/login/login.controller.js" />
+        <option value="$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-abertos.html" />
+        <option value="$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboardvendedor.controller.js" />
       </list>
     </option>
   </component>
@@ -219,9 +224,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="10" />
-    <option name="width" value="1346" />
-    <option name="height" value="735" />
+    <option name="x" value="-2" />
+    <option name="width" value="1370" />
+    <option name="height" value="745" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -239,6 +244,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -301,7 +307,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard-vendedor" />
+              <option name="myItemId" value="login" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -319,39 +325,12 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -364,16 +343,132 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/assets/js" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/assets/images/users" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/pages/main" />
       <recent name="$PROJECT_DIR$/app/pages/dashboard-vendedor" />
       <recent name="$PROJECT_DIR$/app/pages" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/img" />
+      <recent name="$PROJECT_DIR$/app/assets/js" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/assets/images/users" />
+    </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard-estabelecimento/dashboardestabelecimento.controller.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard-estabelecimento/vendedores/vendedores-estabelecimento.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard-estabelecimento/vendedores/vendedores-solicitacoes.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/dashboard/dashboard.controller.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/denuncias/denuncias.controller.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/pages/login/login.controller.js</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
@@ -503,6 +598,28 @@
       <workItem from="1485810386885" duration="3138000" />
       <workItem from="1485821255139" duration="1436000" />
       <workItem from="1485915706860" duration="786000" />
+      <workItem from="1486043272908" duration="642000" />
+      <workItem from="1486243647832" duration="1149000" />
+      <workItem from="1486392087291" duration="10989000" />
+      <workItem from="1486472507738" duration="5247000" />
+      <workItem from="1486576028097" duration="6702000" />
+      <workItem from="1486652581224" duration="142000" />
+      <workItem from="1486653056567" duration="15100000" />
+      <workItem from="1486832196185" duration="66000" />
+      <workItem from="1486989187860" duration="1587000" />
+      <workItem from="1486996298942" duration="2566000" />
+      <workItem from="1487001149020" duration="7091000" />
+      <workItem from="1487091762661" duration="13585000" />
+      <workItem from="1487173818077" duration="5442000" />
+      <workItem from="1487276270203" duration="4103000" />
+      <workItem from="1487284300530" duration="694000" />
+      <workItem from="1487347715670" duration="3987000" />
+      <workItem from="1487445569897" duration="3230000" />
+      <workItem from="1487601153522" duration="3529000" />
+      <workItem from="1487612723951" duration="8230000" />
+      <workItem from="1487696931806" duration="683000" />
+      <workItem from="1487698620655" duration="7222000" />
+      <workItem from="1487712879180" duration="7566000" />
     </task>
     <task id="LOCAL-00001" summary="Removidos arquivos desnessários do template.">
       <created>1480378032482</created>
@@ -721,11 +838,67 @@
       <option name="project" value="LOCAL" />
       <updated>1485809735379</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Escondendo menu lateral e nav bar enquanto não houver usuário logado;&#10;Reorganizando códigos;">
+      <created>1486395946260</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1486395946260</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Atualizando informações do vendedor;">
+      <created>1486410747356</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1486410747357</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Centralizando parâmetros de conexão com servidor xmpp e todas as rotas do chat no arquivo de configuração;&#10;Correção no logout: Desconectava apenas quando o vendedor era dono de loja;">
+      <created>1486477715797</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1486477715797</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Adicionado identificação visual do status da conexão,&#10;(Conectando, Conectado, Desconectado);">
+      <created>1486657362458</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1486657362458</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Adicionado: Carregamento automático de mensagens assim que a conexão é estabelecida;&#10;Mensagem de conexão com sucesso some após 4 segundos se o usuário não a fechar antes;&#10;Três pontos ('...') interativos durante o carregamento.">
+      <created>1486673954379</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1486673954379</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Doing: Filtro de casos para última mensagem recebida;&#10;Ajustes em identificação de conexão;&#10;Ajustes na exibição de foto e nome da loja do vendedor/dono de estabelecimento;&#10;Ajustes no login do vendedor;">
+      <created>1487014069882</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1487014069882</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Ajustes no time ao receber mensagens antigas;&#10;Doing: Envio de emojis 😍😎 ;">
+      <created>1487118952450</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1487118952450</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Ajustes no chat (emojis)">
+      <created>1487620597043</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1487620597043</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="242262000" />
+    <option name="totallyTimeSpent" value="351814000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -737,19 +910,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="0" width="1346" height="735" extended-state="0" />
-    <editor active="false" />
+    <frame x="-2" y="0" width="1370" height="745" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19924243" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2792208" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2792208" sideWeight="0.5030257" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37370244" sideWeight="0.4697428" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24110033" sideWeight="0.4697428" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -762,15 +935,15 @@
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2796748" sideWeight="0.5030257" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2792208" sideWeight="0.5030257" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2796748" sideWeight="0.4697428" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30744338" sideWeight="0.4697428" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22768533" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25984848" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284553" sideWeight="0.4969743" order="1" side_tool="false" content_ui="tabs" />
@@ -813,14 +986,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Desenvolvendo gráfico de consultas por hora" />
-    <MESSAGE value="Adicionado gráfico de consultas por hora" />
-    <MESSAGE value="Adicionado gráfico de média de consultas por hora" />
-    <MESSAGE value="Adicionado gráfico de consultas por data" />
-    <MESSAGE value="Adicionado widget de usuários registrados" />
-    <MESSAGE value="Adicionado interface de escolha de pacotes" />
-    <MESSAGE value="Adicionada avaliação do estabelecimento" />
-    <MESSAGE value="Adicionado gráfico de avaliação geral dos estabelecimentos" />
     <MESSAGE value="Alterações no dashboard do estabelecimento" />
     <MESSAGE value="Gráfico de avaliação geral dos estabelecimentos atualizada" />
     <MESSAGE value="Lista de estabelecimentos passando parâmetro para a lista de vendedores;&#10;Lista de vendedores ajustada para a rota /dash/store/seller;&#10;Adicionado filtro na lista de vendedores;" />
@@ -838,138 +1003,23 @@
     <MESSAGE value="Adicionada rota de informações do vendedor; Adicionadas libs de envio de imagem" />
     <MESSAGE value="Corrigindo problemas nos commits" />
     <MESSAGE value="feitos o cadastrar, excluir e visualizar administradores." />
-    <option name="LAST_COMMIT_MESSAGE" value="feitos o cadastrar, excluir e visualizar administradores." />
+    <MESSAGE value="Escondendo menu lateral e nav bar enquanto não houver usuário logado;&#10;Reorganizando códigos;" />
+    <MESSAGE value="Atualizando informações do vendedor;" />
+    <MESSAGE value="Centralizando parâmetros de conexão com servidor xmpp e todas as rotas do chat no arquivo de configuração;&#10;Correção no logout: Desconectava apenas quando o vendedor era dono de loja;" />
+    <MESSAGE value="Adicionado identificação visual do status da conexão,&#10;(Conectando, Conectado, Desconectado);" />
+    <MESSAGE value="Adicionado: Carregamento automático de mensagens assim que a conexão é estabelecida;&#10;Mensagem de conexão com sucesso some após 4 segundos se o usuário não a fechar antes;&#10;Três pontos ('...') interativos durante o carregamento." />
+    <MESSAGE value="Doing: Filtro de casos para última mensagem recebida;&#10;Ajustes em identificação de conexão;&#10;Ajustes na exibição de foto e nome da loja do vendedor/dono de estabelecimento;&#10;Ajustes no login do vendedor;" />
+    <MESSAGE value="Ajustes no time ao receber mensagens antigas;&#10;Doing: Envio de emojis 😍😎 ;" />
+    <MESSAGE value="Ajustes no chat (emojis)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajustes no chat (emojis)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="29" column="14" lean-forward="false" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentosPorData.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="175" column="29" lean-forward="false" selection-start-line="169" selection-start-column="23" selection-end-line="175" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMCore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="268" column="0" lean-forward="false" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentos.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="1483" column="26" lean-forward="false" selection-start-line="1483" selection-start-column="26" selection-end-line="1483" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/analises/ratingGeral.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clientes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="15" column="69" lean-forward="false" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/clientes/clienteGraphic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/analises/analiseCasos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="73" column="34" lean-forward="false" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/analises/analise.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/angular-ui-router/release/angular-ui-router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="3798" column="0" lean-forward="false" selection-start-line="3798" selection-start-column="0" selection-end-line="3798" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/main/mainVendedor.html" />
-    <entry file="file://$PROJECT_DIR$/template-joli/ui-widgets.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="1069" column="59" lean-forward="false" selection-start-line="1069" selection-start-column="59" selection-end-line="1069" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/vendedores/vendedores.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/vendedores/vendedores.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="34" lean-forward="false" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template-joli/pages-address-book.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="387" column="70" lean-forward="false" selection-start-line="387" selection-start-column="70" selection-end-line="387" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/estabelecimentos/estabelecimentos.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="12" column="64" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/img/LOGO_TEEWA-01.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/img/teewaTeste.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-novos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="63" lean-forward="false" selection-start-line="37" selection-start-column="63" selection-end-line="37" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/css/estilo.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1022,72 +1072,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/main/mainVendedor.controller.js" />
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="36" column="49" lean-forward="false" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/sharedConn.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/chats.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/chat-details.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboard-vendedor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/dashbord-estabelecimento/casos-abertos.html" />
-    <entry file="file://$PROJECT_DIR$/app/value/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/main/main.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="96" column="33" lean-forward="false" selection-start-line="96" selection-start-column="33" selection-end-line="96" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/main/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1632">
-          <caret line="160" column="17" lean-forward="true" selection-start-line="160" selection-start-column="17" selection-end-line="160" selection-end-column="17" />
-          <caret line="161" column="0" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
-          <caret line="162" column="46" lean-forward="true" selection-start-line="162" selection-start-column="46" selection-end-line="162" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-abertos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="72" lean-forward="false" selection-start-line="27" selection-start-column="72" selection-end-line="27" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/pacotes/pacotes.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -1102,27 +1087,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/admin/admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="47" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/dashboard/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2528">
           <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/dashboard/dashboard.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -1133,99 +1101,266 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/denuncias/denuncias.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/denuncias/index.html" />
+    <entry file="file://$PROJECT_DIR$/app/pages/denuncias/denuncias.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/dashboard/dashboard.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/login/loginadmin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/dashboard-estabelecimento/dashboardestabelecimento.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="159" column="35" lean-forward="false" selection-start-line="159" selection-start-column="35" selection-end-line="159" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/chat-details.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/chats.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="28" column="91" lean-forward="false" selection-start-line="28" selection-start-column="91" selection-end-line="28" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="48" column="25" lean-forward="false" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/novoEstabelecimento.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="192" column="56" lean-forward="false" selection-start-line="192" selection-start-column="46" selection-end-line="192" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/css/theme-teewa.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="2417" column="24" lean-forward="false" selection-start-line="2417" selection-start-column="24" selection-end-line="2417" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/sharedConn.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="56" lean-forward="false" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/admin/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="18" column="87" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/admin/form_admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/admin/form_admin.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1616">
+          <caret line="98" column="40" lean-forward="true" selection-start-line="98" selection-start-column="40" selection-end-line="98" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/value/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/emoji/lib/css/nanoscroller.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/emoji/lib/js/emoji-picker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1396">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/emoji/lib/css/emoji.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentos.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-22200">
+          <caret line="52" column="13" lean-forward="false" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/main/main.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1800">
+          <caret line="60" column="12" lean-forward="true" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/atendimentos/atendimentosPorDiaSemana.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="61" column="62" lean-forward="false" selection-start-line="61" selection-start-column="62" selection-end-line="61" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/emoji/lib/js/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/emojis.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="64" column="47" lean-forward="false" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/emojiteste.html" />
+    <entry file="file://$PROJECT_DIR$/app/pages/main/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2518">
+          <caret line="230" column="12" lean-forward="false" selection-start-line="230" selection-start-column="12" selection-end-line="230" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/app.routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4860">
-          <caret line="244" column="46" lean-forward="false" selection-start-line="244" selection-start-column="46" selection-end-line="244" selection-end-column="46" />
+        <state relative-caret-position="-9">
+          <caret line="151" column="25" lean-forward="true" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboard-vendedor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="56" column="68" lean-forward="false" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/dashboard-estabelecimento/vendedores/vendedores-estabelecimento.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/dashboard-estabelecimento/vendedores/vendedores-solicitacoes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="19" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="57" lean-forward="false" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-novos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/casos-abertos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="196" column="41" lean-forward="true" selection-start-line="196" selection-start-column="41" selection-end-line="196" selection-end-column="41" />
           <folding>
-            <marker date="1485909780555" expanded="true" signature="4361:4532" ph="{&quot;url&quot;: '/lista'...}" />
-            <marker date="1485909780555" expanded="true" signature="4561:4649" ph="{&quot;url&quot;: 'atendimentos'...}" />
-            <marker date="1485909780555" expanded="true" signature="4685:4874" ph="{&quot;url&quot;: '/lista'...}" />
-            <marker date="1485909780555" expanded="true" signature="4917:5168" ph="{&quot;url&quot;: '/listarPorHora/:data_startParametro/:data_endParametro'...}" />
-            <marker date="1485909780555" expanded="true" signature="5224:5474" ph="{&quot;url&quot;: '/listarPorHoraContagemMedia'...}" />
-            <marker date="1485909780555" expanded="true" signature="5522:5785" ph="{&quot;url&quot;: '/listarPorDiaSemana/:data_startParametro/:data_endParametro'...}" />
-            <marker date="1485909780555" expanded="true" signature="5830:6084" ph="{&quot;url&quot;: '/listarPorDiaMes/:data_startParametro/:data_endParametro'...}" />
-            <marker date="1485909780555" expanded="true" signature="6132:6398" ph="{&quot;url&quot;: '/listarPorCategoria/:data_startParametro/:data_endParametro'...}" />
-            <marker date="1485909780555" expanded="true" signature="6441:6692" ph="{&quot;url&quot;: '/listarPorDate/:data_startParametro/:data_endParametro'...}" />
-            <marker date="1485909780555" expanded="true" signature="6740:6966" ph="{&quot;url&quot;: '/listarPorDataGeral'...}" />
-            <marker date="1485909780555" expanded="true" signature="6987:7067" ph="{&quot;url&quot;: 'chat'...}" />
-            <marker date="1485909780555" expanded="true" signature="7095:7252" ph="{&quot;url&quot;: '/lista'...}" />
-            <marker date="1485909780555" expanded="true" signature="7278:7363" ph="{&quot;url&quot;: 'dashboard'...}" />
-            <marker date="1485909780555" expanded="true" signature="7396:7573" ph="{&quot;url&quot;: '/index'...}" />
-            <marker date="1485909780555" expanded="true" signature="7617:7723" ph="{&quot;url&quot;: 'dashboard-vendedor'...}" />
-            <marker date="1485909780555" expanded="true" signature="7763:7974" ph="{&quot;url&quot;: '/index'...}" />
-            <marker date="1485909780555" expanded="true" signature="8021:8222" ph="{&quot;url&quot;: '/casos-abertos'...}" />
-            <marker date="1485909780555" expanded="true" signature="8267:8471" ph="{&quot;url&quot;: '/casos-novos'...}" />
-            <marker date="1485909780555" expanded="true" signature="8511:8698" ph="{&quot;url&quot;: '/emoji'...}" />
-            <marker date="1485909780555" expanded="true" signature="8733:8816" ph="{&quot;url&quot;: 'pacotes'...}" />
-            <marker date="1485909780555" expanded="true" signature="8847:9025" ph="{&quot;url&quot;: '/lista'...}" />
-            <marker date="1485909780555" expanded="true" signature="9051:9136" ph="{&quot;url&quot;: 'denuncias'...}" />
-            <marker date="1485909780555" expanded="true" signature="9169:9346" ph="{&quot;url&quot;: '/lista'...}" />
-            <marker date="1485909780555" expanded="true" signature="9373:9459" ph="{&quot;url&quot;: 'avaliacoes'...}" />
-            <marker date="1485909780555" expanded="true" signature="9493:9674" ph="{&quot;url&quot;: '/lista'...}" />
-            <marker date="1485909780555" expanded="true" signature="9706:9798" ph="{&quot;url&quot;: '/escolher-pacote'...}" />
-            <marker date="1485909780555" expanded="true" signature="9831:10014" ph="{&quot;url&quot;: '/escolha'...}" />
-            <marker date="1485909780555" expanded="true" signature="10044:10133" ph="{&quot;url&quot;: 'analisesCasos'...}" />
-            <marker date="1485909780555" expanded="true" signature="10170:10443" ph="{&quot;url&quot;: '/listaCasos/:data_startParametro/:data_endParametro'...}" />
-            <marker date="1485909780555" expanded="true" signature="10492:10699" ph="{&quot;url&quot;: '/listaAtendimentos'...}" />
-            <marker date="1485909780555" expanded="true" signature="10749:10958" ph="{&quot;url&quot;: '/listaNatendimentos'...}" />
-            <marker date="1485909780555" expanded="true" signature="11000:11190" ph="{&quot;url&quot;: '/rating-geral'...}" />
-            <marker date="1485909780555" expanded="true" signature="11213:11295" ph="{&quot;url&quot;: 'perfil'...}" />
-            <marker date="1485909780555" expanded="true" signature="11325:11468" ph="{&quot;url&quot;: '/perfil'...}" />
-            <marker date="1485909780555" expanded="true" signature="11519:11632" ph="{&quot;url&quot;: 'dashboard-estabelecimento'...}" />
-            <marker date="1485909780555" expanded="true" signature="11679:11918" ph="{&quot;url&quot;: '/index'...}" />
-            <marker date="1485909780555" expanded="true" signature="11981:12238" ph="{&quot;url&quot;: '/perfil-estabelecimento'...}" />
-            <marker date="1485909780555" expanded="true" signature="12305:12578" ph="{&quot;url&quot;: '/vendedores-estabelecimento'...}" />
-            <marker date="1485909780555" expanded="true" signature="12647:12928" ph="{&quot;url&quot;: '/atendimentos-estabelecimento'...}" />
-            <marker date="1485909780555" expanded="true" signature="12993:13258" ph="{&quot;url&quot;: '/anuncios-estabelecimento'...}" />
-            <marker date="1485909780555" expanded="true" signature="13324:13593" ph="{&quot;url&quot;: '/denuncias-estabelecimento'...}" />
-            <marker date="1485909780555" expanded="true" signature="13658:13901" ph="{&quot;url&quot;: '/listarPorHora/:data_startParametro/:data_endParametro'...}" />
-            <marker date="1485909780555" expanded="true" signature="13969:14198" ph="{&quot;url&quot;: '/listarPorHoraContagemMedia'...}" />
-            <marker date="1485909780555" expanded="true" signature="14258:14511" ph="{&quot;url&quot;: '/listarPorCategoria/:data_startParametro/:data_endParametro'...}" />
-            <marker date="1485909780555" expanded="true" signature="14571:14824" ph="{&quot;url&quot;: '/listarPorDiaSemana/:data_startParametro/:data_endParametro'...}" />
-            <marker date="1485909780555" expanded="true" signature="14879:15122" ph="{&quot;url&quot;: '/listarPorDate/:data_startParametro/:data_endParametro'...}" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="e#16519#16526#0" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#3;n#!!top" expanded="true" />
+            <element signature="e#17456#17463#0" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#4;n#div#3;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/denuncias/denuncias.controller.js">
+    <entry file="file://$PROJECT_DIR$/app/pages/login/login.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="29" column="11" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="29" selection-end-column="11" />
+        <state relative-caret-position="3420">
+          <caret line="243" column="55" lean-forward="false" selection-start-line="243" selection-start-column="55" selection-end-line="243" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/dashboard-vendedor/dashboardvendedor.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4600">
-          <caret line="230" column="17" lean-forward="false" selection-start-line="230" selection-start-column="17" selection-end-line="230" selection-end-column="17" />
+        <state relative-caret-position="6915">
+          <caret line="461" column="50" lean-forward="false" selection-start-line="461" selection-start-column="50" selection-end-line="461" selection-end-column="50" />
           <folding>
-            <marker date="1485824461608" expanded="true" signature="6883:6927" ph="{...}" />
+            <marker date="1487721129873" expanded="true" signature="21471:21536" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/denuncias/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/denuncias/denuncias.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/admin/form_admin.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

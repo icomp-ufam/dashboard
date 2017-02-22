@@ -34,15 +34,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     // imagem pra ser carregada nas mensagens do chat
     $scope.fotoVendedor = localStorage.getItem('vendedor_foto');
 
-    /*casos_aceitos: "/accepted/cases",
-     novos_casos: "/sellers/news/cases",
-     aceitar_caso: "/cases/accept/xmpp",
-     nao_tenho: "/cases/dont/have",
-     recusar_caso: "/cases/deny",
-     encerra_caso: "/chats/close",
-     denunciar_cliente: "/stores/complaint",
-     envio_de_imagem: "/chats/send/image"*/
-
     $scope.carregarCasosAbertos = function () {
         $http({
 
@@ -100,147 +91,8 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         });
     };
 
-    $scope.aceitarCaso = function (idcase) {
-        $http({
-            url : config.baseUrl + config.aceitar_caso,
-            method : 'put',
-            headers : {
-                'Content-Type': 'application/json',
-                'Authorization' : config.token
-            },
-            data: {
-                //id do chat-dashboard
-                'idstore' : $scope.idstore,
-                'idseller' :$scope.idVendedor,
-                'idcase' : idcase
-            }
-        }).success(function(data){
-            //carrega informacoes do chat aceito
-            $scope.chatAtual = data.chat;
 
-            //configurando qual sala de chat esta sendo escutada
-            ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
 
-            //atualiza id da sala de chat
-            $scope.to_id = ChatDetails.getTo();
-
-            //abre view de casos abertos
-            $state.go("main.dashboardVendedor.casosAbertos");
-
-        }).error(function(error){
-            $scope.message = "Aconteceu um problema: " + error;
-        });
-    };
-
-    $scope.naoTenho = function (idcase) {
-        $http({
-            url : config.baseUrl + config.nao_tenho,
-            method : 'post',
-            headers : {
-                'Content-Type': 'application/json',
-                'Authorization' : config.token
-            },
-            data: {
-                'idstore' : $scope.idstore,
-                'idseller' :$scope.idVendedor,
-                'idcase' : idcase
-            }
-        }).success(function(data){
-            // recarregar a página
-            $state.reload();
-
-        }).error(function(error){
-            $scope.message = "Aconteceu um problema: " + error;
-        });
-    };
-
-    $scope.recusarCaso = function (idcase) {
-        // so fazer essa parada quando tiver contas de teste
-        // rota: /cases/deny, metodo PUT, params: idseller, idcase, idstore
-        $http({
-            url : config.baseUrl + config.recusar_caso,
-            method : 'put',
-            headers : {
-                'Content-Type': 'application/json',
-                'Authorization' : config.token
-            },
-            data: {
-                //id do chat-dashboard
-                'idstore' : $scope.idstore,
-                'idseller' :$scope.idVendedor,
-                'idcase' : idcase
-            }
-        }).success(function(data){
-            // recarregar a página
-            $state.reload();
-
-        }).error(function(error){
-            $scope.message = "Aconteceu um problema: " + error;
-        });
-    };
-    
-    $scope.deixarEstabelecimento = function (){
-        var deixar = confirm('Tem certeza que deseja deixar o estabelecimento?');
-        if (deixar == true){
-            $http({
-                url : config.baseUrl + config.remove_vendedor,
-                method : 'put',
-                headers : {
-                    'Content-Type': 'application/json',
-                    'Authorization' : config.token
-                },
-                data: {
-                    'idstore' : $scope.idstore,
-                    'idseller' : $scope.idVendedor,
-                    'notify' : 'true'
-                }
-            }).success(function(data){
-                console.log(data);
-                $scope.limparSessao();
-                $state.go('main.login.index');
-            }).error(function(error){
-                console.log(error);
-                $scope.message = "Aconteceu um problema: " + error;
-            });
-
-        }
-    };
-
-    $scope.limparSessao = function() {
-        var sair = false;
-        if(localStorage.getItem('vendedor') === 'true'){
-            sair = true;
-        }
-        localStorage.setItem('vendedor', JSON.stringify(false));
-        $scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
-        localStorage.setItem('vendedor_foto', '');
-        localStorage.setItem('vendedor_nome', '');
-        localStorage.setItem('loginE', '');
-        localStorage.setItem('lojaID', '');
-        localStorage.setItem('lojaIDvendedor', '');
-        //se estabelecimento
-        localStorage.setItem('Estabelecimento', JSON.stringify(false));
-        $scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
-
-        localStorage.setItem('loginadmin', '');
-        localStorage.setItem('loginV', '');
-        localStorage.setItem('userID', '');
-
-        console.log("desconectou!!");
-        if(sair == true){
-            sharedConn.logout();
-            $state.go('main.login.index', {}, {
-                location: "replace",
-                reload: true
-            });
-        }else{
-            $state.go('main.login.indexadmin', {}, {
-                location: "replace",
-                reload: true
-            });
-        }
-
-    };
 
     $scope.encerrarCaso = function (idchat) {
         $http({
@@ -391,9 +243,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         $scope.to_id = ChatDetails.getTo();
 
     };
-    $scope.teste = function () {
-        $state.go('main.dashboardVendedor.casosAbertos');
-    };
 
     $scope.login();
 
@@ -472,31 +321,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
 
         sharedConn.getConnectObj().send(reply.tree());
         //console.log('I sent ' + to + ': ' + message, reply.tree());
-    };
-    $scope.enviarEnter = function(e){
-        if($scope.data.emoji != null)
-            $scope.message2 = $scope.data.message + '' +  $scope.data.emoji;
-        else
-            $scope.message2 = $scope.data.message;
-        console.log('teclado'+ $scope.message2);
-        //$scope.data.message =  $scope.messagen2;
-        var tecla=(window.event)?event.keyCode:e.which;
-        if (tecla == 13) {
-            //campo vazio
-            if (document.dados.envia.value=="") {
-                document.dados.envia.focus();
-                return false;
-            }else{
-                //envia mensagem
-                $("#enviar").trigger('click');
-                //desce barra de rolagem das mensagens
-                document.getElementById(
-                    "msg"
-                ).scrollTop = document.getElementById(
-                    "msg"
-                ).scrollHeight;
-            }
-        }
     };
 
     $scope.showSendMessage = function() {
@@ -635,6 +459,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
                         received: false
                     });
                     //atualiza time em caso de envio de nova mensagem
+                    $scope.precarregamento = true;
                     $scope.msgtop(from, time);
                 }else{
                     $scope.qteMsgsChats[from.split('@')[0]]++;
@@ -691,7 +516,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
         //Salva atividade do usuário
         //console.log(localStorage.getItem('expired'));
         localStorage.setItem('expired', new Date().getTime());
-
         $scope.$apply();
     };
 
@@ -704,6 +528,7 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     };
 
     $scope.$on('msgRecievedBroadcast', function(event, data) {
+
         $scope.messageRecieve(data);
     });
 
@@ -732,8 +557,6 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
             }, 300);
         //se conectar carrega chats
         else{
-
-
             $timeout.cancel();
             $scope.joinChats();
             $scope.initChats();
@@ -818,21 +641,30 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     };
 
 
+    /*    console.log(' if (!textarea.is');
+    console.log('msg: ' + textarea.val());
+    tempo = lastTypedTime.getTime();
+    console.log(tempo);
+    console.log(textarea.is(':focus'));*/
+
     // digitando
     var textarea = $('#txtMsg');
     var lastTypedTime = new Date(0); // it's 01/01/1970
     var typingDelayMillis = 3000;
     var typingStatus = false;
-
+    var tempo;
     function refreshTypingStatus() {
+        textarea = $('#txtMsg');
         if (!textarea.is(':focus') || textarea.val() == '' || new Date().getTime() - lastTypedTime.getTime() > typingDelayMillis) {
             if (typingStatus == true){
+                console.log('typingStatus == true');
                 typingStatus = false;
                 $scope.sendPaused();
             }
 
         } else {
             if (typingStatus == false){
+                console.log('typingStatus == false');
                 typingStatus = true;
                 $scope.sendComposing();
             }
@@ -846,4 +678,284 @@ angular.module("teewa").controller("dashboardVendedorCtrl", function ($scope, $t
     textarea.keypress(updateLastTypedTime);
     textarea.blur(refreshTypingStatus);
 
+    $scope.enviarEnter = function(e){
+        updateLastTypedTime();
+        var tecla=(window.event)?event.keyCode:e.which;
+        if (tecla == 13) {
+            //campo vazio
+            if (document.dados.envia.value=="") {
+                document.dados.envia.focus();
+                return false;
+            }else{
+                //envia mensagem
+                $scope.showSendMessage();
+                //$("#enviar").trigger('click');
+                document.dados.envia.value="";
+                //desce barra de rolagem das mensagens
+                document.getElementById(
+                    "msg"
+                ).scrollTop = document.getElementById(
+                    "msg"
+                ).scrollHeight;
+            }
+        }
+    }
+
+});
+
+//controller para main Vendedor
+angular.module("teewa").controller("dashboardVendedorMainCtrl", function ($scope, $timeout, $rootScope, $http, config, $state , sharedConn, Chats, ChatDetails) {
+    //console.log(localStorage.getItem('expired'));
+    localStorage.setItem('expired', new Date().getTime());
+
+    if(localStorage.getItem('loginV') === '')
+        $state.go('main.login.index');
+    $scope.app = "Dashboard Vendedor";
+    $scope.casos = [];
+
+    $scope.chatAtual = "carregando";
+
+    $scope.urlPhotos = config.baseUrl + "/photos/";
+
+    $scope.carregando = false;
+    $scope.loading = false;
+
+    var XMPP_DOMAIN = config.XMPP_DOMAIN;
+    $scope.idVendedor = localStorage.getItem('userID');//'672';
+    $scope.idstore =  localStorage.getItem('vendedor_idLoja'); //localStorage.getItem('lojaID');//'118';
+
+    // imagem pra ser carregada nas mensagens do chat
+    $scope.fotoVendedor = localStorage.getItem('vendedor_foto');
+
+
+    $scope.carregarCasosAbertos = function () {
+        $http({
+
+            url : config.baseUrl + "/sellers/"+ $scope.idVendedor + config.casos_aceitos,
+            method : 'get',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            }
+        }).success(function(data){
+            $scope.chats = data.chats;
+            if ($scope.chats.length > 0){
+                //ao carregar pagina, abre primeiro chat da lista de casos
+                $scope.chatAtual = $scope.chats[0];
+            } else{
+                $scope.chatAtual = "vazio";
+            }
+            //quantidade de casos abertos que é exibida no dashboard
+            $scope.qteChats = $scope.chats.length;
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
+
+    $scope.joinChats = function(){
+        sharedConn.joinChats($scope.chats);
+    };
+
+    $scope.carregarCasosNovos = function () {
+        $http({
+            url : config.baseUrl + config.novos_casos,
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data: {
+                //id do chat-dashboard
+                'idstore' : $scope.idstore,
+                'idseller' :$scope.idVendedor
+            }
+        }).success(function(data){
+            $scope.casos = data.cases;
+            $scope.qteCasos = $scope.casos.length;
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
+    $scope.aceitarCaso = function (idcase) {
+        $http({
+            url : config.baseUrl + config.aceitar_caso,
+            method : 'put',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data: {
+                //id do chat-dashboard
+                'idstore' : $scope.idstore,
+                'idseller' :$scope.idVendedor,
+                'idcase' : idcase
+            }
+        }).success(function(data){
+            //carrega informacoes do chat aceito
+            $scope.chatAtual = data.chat;
+
+            //configurando qual sala de chat esta sendo escutada
+            ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
+
+            //atualiza id da sala de chat
+            $scope.to_id = ChatDetails.getTo();
+
+            //abre view de casos abertos
+            $state.go("main.dashboardVendedor.casosAbertos");
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
+    $scope.naoTenho = function (idcase) {
+        $http({
+            url : config.baseUrl + config.nao_tenho,
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data: {
+                'idstore' : $scope.idstore,
+                'idseller' :$scope.idVendedor,
+                'idcase' : idcase
+            }
+        }).success(function(data){
+            // recarregar a página
+            $state.reload();
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
+    $scope.recusarCaso = function (idcase) {
+        // so fazer essa parada quando tiver contas de teste
+        // rota: /cases/deny, metodo PUT, params: idseller, idcase, idstore
+        $http({
+            url : config.baseUrl + config.recusar_caso,
+            method : 'put',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data: {
+                //id do chat-dashboard
+                'idstore' : $scope.idstore,
+                'idseller' :$scope.idVendedor,
+                'idcase' : idcase
+            }
+        }).success(function(data){
+            // recarregar a página
+            $state.reload();
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
+    $scope.deixarEstabelecimento = function (){
+        var deixar = confirm('Tem certeza que deseja deixar o estabelecimento?');
+        if (deixar == true){
+            $http({
+                url : config.baseUrl + config.remove_vendedor,
+                method : 'put',
+                headers : {
+                    'Content-Type': 'application/json',
+                    'Authorization' : config.token
+                },
+                data: {
+                    'idstore' : $scope.idstore,
+                    'idseller' : $scope.idVendedor,
+                    'notify' : 'true'
+                }
+            }).success(function(data){
+                console.log(data);
+                $scope.limparSessao();
+                $state.go('main.login.index');
+            }).error(function(error){
+                console.log(error);
+                $scope.message = "Aconteceu um problema: " + error;
+            });
+
+        }
+    };
+
+    $scope.limparSessao = function() {
+        var sair = false;
+        if(localStorage.getItem('vendedor') === 'true'){
+            sair = true;
+        }
+        localStorage.setItem('vendedor', JSON.stringify(false));
+        $scope.vendedor = JSON.parse(localStorage.getItem('vendedor'));
+        localStorage.setItem('vendedor_foto', '');
+        localStorage.setItem('vendedor_nome', '');
+        localStorage.setItem('loginE', '');
+        localStorage.setItem('lojaID', '');
+        localStorage.setItem('lojaIDvendedor', '');
+        //se estabelecimento
+        localStorage.setItem('Estabelecimento', JSON.stringify(false));
+        $scope.Estabelecimento = JSON.parse(localStorage.getItem('Estabelecimento'));
+
+        localStorage.setItem('loginadmin', '');
+        localStorage.setItem('loginV', '');
+        localStorage.setItem('userID', '');
+
+        console.log("desconectou!!");
+        if(sair == true){
+            sharedConn.logout();
+            $state.go('main.login.index', {}, {
+                location: "replace",
+                reload: true
+            });
+        }else{
+            $state.go('main.login.indexadmin', {}, {
+                location: "replace",
+                reload: true
+            });
+        }
+
+    };
+
+    $scope.encerrarCaso = function (idchat) {
+        $http({
+            url : config.baseUrl + config.encerra_caso,
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data: {
+                'iduser' : $scope.idVendedor,
+                'isseller' : 'true',
+                'idschats' : "["+idchat+"]"
+            }
+        }).success(function(data){
+            //ao carregar pagina, abre primeiro chat da lista de casos
+            $scope.chatAtual = $scope.chats[0];
+
+            //configurando qual sala de chat esta sendo escutada
+            ChatDetails.setTo("chat"+$scope.chatAtual.id+"@conference."+XMPP_DOMAIN);
+
+            //atualiza id da sala de chat
+            $scope.to_id = ChatDetails.getTo();
+
+            //recarrega página
+            $state.reload();
+        }).error(function(error){
+            console.log(error);
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+    $scope.logout = function() {
+        if($rootScope.statusConexao == 'Conectado!' ||  $rootScope.statusConexao == 'Conectando!')
+            sharedConn.logout();
+    };
+    $scope.logout();
+    $scope.carregarCasosAbertos();
+    $scope.carregarCasosNovos();
 });

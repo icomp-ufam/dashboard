@@ -162,7 +162,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         }).state('main.dashboardVendedor.index', {
         url: '/index',
         templateUrl: 'app/pages/dashboard-vendedor/dashboard-vendedor.html',
-        controller: 'dashboardVendedorCtrl',
+        controller: 'dashboardVendedorMainCtrl',
         activetab: 'dashboardVendedor'
     }).state('main.dashboardVendedor.casosAbertos', {
         url: '/casos-abertos',
@@ -172,7 +172,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
     }).state('main.dashboardVendedor.casosNovos', {
         url: '/casos-novos',
         templateUrl: 'app/pages/dashboard-vendedor/casos-novos.html',
-        controller: 'dashboardVendedorCtrl',
+        controller: 'dashboardVendedorMainCtrl',
         activetab: 'casos-novos'
     }).state('main.dashboardVendedor.emoji', {
         url: '/emoji',
