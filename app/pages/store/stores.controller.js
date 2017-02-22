@@ -1,13 +1,53 @@
-angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http, config) {
+angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $state, $http, config) {
     $scope.app = "Loja";
     $scope.stores;
-    $scope.store ={"isDays":false, "is_max_radius":false, 'max_radius':10, "banner": '', "brand":''};
+    $scope.store ={"idstore": false,"isDays":false, "is_max_radius":false, 'max_radius':10, "banner": '', "brand":''};
 
     $scope.urlImg = config.baseUrl + "/images/";
 
     $scope.categories = [];
     $scope.subCategories = [];
     $scope.idUser = localStorage.getItem('userID');
+    $scope.idloja = localStorage.getItem('lojaID');
+    if($scope.idloja != '') {
+        editarLoja();
+        $scope.store.idstore=true;
+    }
+
+
+     $scope.editarLoja = function(store){
+        $scope.subcat = [];
+
+        $http({
+            url : config.baseUrl + "/stores/"+$scope.idloja,
+            method : 'get',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data: {
+
+                'id' : $scope.idloja,
+            }
+        }).success(function(data){
+            $scope.store = data;
+            console.log(data);
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+
+
+        angular.forEach(store.subcategories, function(sub, k){
+            $scope.subcat.push(sub.id);
+        });
+
+        $scope.work_days = store.work_days;
+        $scope.store = store;
+        $scope.store.idstore = true;
+
+     };
+
+    $scope.subcat = [];
 
     $scope.diasSemana =[{"day": 0,"name":"Sunday", "openhour": "", "closehour":"", "nome":"Domingo"},
                         {"day": 1,"name":"Monday", "openhour": "", "closehour":"",  "nome":"Segunda"},
@@ -21,12 +61,15 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
 
     $scope.diasSelecionado = function (func) {
         var idx = $scope.work_days.indexOf(func);
+
         if (idx > -1) {
             $scope.work_days.splice(idx,1);
         }
         else {
             $scope.work_days.push(func);
         }
+
+
     };
 
     $scope.isInList = function(func){
@@ -88,12 +131,22 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
     }
 
     $scope.salvarLoja =  function(store){
-        html2canvas($("#mapa"), {
+       html2canvas($("#mapa"), {
             useCORS: true,
             onrendered: function(canvas) {
                 theCanvas = canvas;
-              //  document.body.appendChild(canvas);
-                store.map_frame = (canvas.toDataURL()).slice(22);
+                //document.body.appendChild(canvas);
+               store.map_frame = (canvas.toDataURL()).slice(22);
+
+                var aux_subCat = [];
+                angular.forEach($scope.subcat, function(sub, k){
+                    aux_subCat.push({"id": sub, "hasOption":false});
+                });
+
+                var aux_work_days = [];
+                angular.forEach($scope.work_days, function(day, k){
+                    aux_work_days.push({"day": day.day,"name": day.name, "openhour": day.openhour, "closehour":day.closehour});
+                });
 
                 store.lng = document.getElementById('txtLongitude').value;
                 store.lat = document.getElementById('txtLatitude').value;
@@ -104,8 +157,13 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
                 if(store.isDays) store.is24=false;
                 else             store.is24=true;
 
+                console.log(aux_work_days);
+                console.log(aux_subCat);
+                console.log($scope.idUser);
+
+
                 $http({
-                    url : config.baseUrl + "sellers/create/withnewstore",
+                    url : config.baseUrl + "/sellers/create/withnewstore",
                     method : 'post',
                     headers : {
                         'Content-Type': 'application/json',
@@ -113,32 +171,35 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
                     },
                     data: {
                         'iduser':$scope.idUser,
-                        'name':store.name,
-                        'cnpj':store.cnpj,
+                        'name':String(store.name),
+                        'cnpj':String(store.cnpj),
                         'lat': store.lat,
                         'lng': store.lng,
-                        'address': store.address,
+                        'address': String(store.address),
                         'zipcode':'',
                         'is24' :  store.is24,
-                        'work_days' : $scope.work_days,
-                        'tzone': (new Date()).getTimezoneOffset(),
+                        'work_days' : JSON.stringify(aux_work_days),
+                        'tzone': String((new Date()).getTimezoneOffset()),
                         'brand': store.brand,
                         'banner': store.banner,
-                        'map_frame':store.map_frame,
-                        'subcategories':$scope.subcategories,
-                        'description':store.description,
-                        'phone':store.phone,
+                        'map_frame':store.banner,
+                        'subcategories':JSON.stringify(aux_subCat),
+                        'description':String(store.description),
+                        'phone':String(store.phone),
                         'is_max_radius': store.is_max_radius,
-                        'max_radius': store.max_radius
+                        'max_radius': parseInt(store.max_radius)
                     }
+
                 }).success(function(data){
+                    console.log('Tudo okjjj');
                    console.log(data);
                 }).error(function(error){
+                    console.log('error');
                     console.log(error);
                     $scope.message = "Aconteceu um problema: " + error;
                 });
             }
-        });
+       });
 
     };
 
@@ -201,7 +262,95 @@ angular.module("teewa").controller("storesCtrl", function ($scope, $state, $http
     };
 
 
-  //  {"id":125,"hasOption":false}
+    $scope.addSubCat = function(idsub){
+        var idx = $scope.subcat.indexOf(idsub);
+        if (idx > -1) {
+            $scope.subcat.splice(idx,1);
+        }
+        else {
+             $scope.subcat.push(idsub);
+        }
+    };
+
+    $scope.limparChecked = function(id){
+         angular.forEach( $scope.subCategories, function(sub, key) {
+            if(sub.id==id){
+               angular.forEach(sub.subs, function(s, k){
+
+                    var idx = $scope.subcat.indexOf(s.id);
+                    if (idx > -1) {
+                        $scope.subcat.splice(idx,1);
+                    }
+               });
+            }
+
+         });
+    }
+
+
+
+ $scope.atualizarLoja =  function(store){
+       html2canvas($("#mapa"), {
+            useCORS: true,
+            onrendered: function(canvas) {
+               theCanvas = canvas;
+               store.map_frame = (canvas.toDataURL()).slice(22);
+
+                var aux_subCat = [];
+                angular.forEach($scope.subcat, function(sub, k){
+                    aux_subCat.push({'id': 'sub', 'hasOption':'false'});
+                });
+
+                store.lng = document.getElementById('txtLongitude').value;
+                store.lat = document.getElementById('txtLatitude').value;
+
+                store.banner = document.getElementById("filebanner"+'hidden').value;
+                store.brand  = document.getElementById("filebrand"+'hidden').value;
+
+                if(store.isDays) store.is24=false;
+                else             store.is24=true;
+
+
+                $http({
+                    url : config.baseUrl + "/stores/update",
+                    method : 'put',
+                    headers : {
+                        'Content-Type': 'application/json',
+                        'Authorization' : config.token
+                    },
+                    data: {
+                        'idstore':$scope.idloja ,
+                        'iduser':$scope.idUser,
+                        'name':store.name,
+                        'cnpj':store.cnpj,
+                        'lat': store.lat,
+                        'lng': store.lng,
+                        'address': store.address,
+                        'zipcode':'',
+                        'is24' :  store.is24,
+                        'work_days' : $scope.work_days,
+                        'tzone': String((new Date()).getTimezoneOffset()),
+                        'brand': store.brand,
+                        'banner': store.banner,
+                        'map_frame':store.banner,
+                        'subcategories':aux_subCat,
+                        'description':store.description,
+                        'phone':store.phone,
+                        'is_max_radius': store.is_max_radius,
+                        'max_radius': store.max_radius
+                    }
+                }).success(function(data){
+                    console.log('Tudo Salvo...');
+                    console.log(data);
+                }).error(function(error){
+                    console.log(error);
+                    $scope.message = "Aconteceu um problema: " + error;
+                });
+            }
+       });
+
+    };
+
 
     $scope.listarCategorias();
     $scope.listarLojas();

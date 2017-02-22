@@ -275,6 +275,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
     }).state('main.dashboardEstabelecimento', {
         url: 'dashboard-estabelecimento',
         template: '<ui-view></ui-view>'
+    }).state('main.dashboardEstabelecimento.chats', {
+        url: '/vendedores/chats',
+        templateUrl: 'app/pages/dashboard-estabelecimento/vendedores/vendedores-chats.html',
+        controller: 'dashboardEstabelecimentoCtrl',
+        activetab: 'vendedoresEstabelecimento'
     }).state('main.dashboardEstabelecimento.index', {
         url: '/index/:idstore',
         templateUrl: 'app/pages/dashboard-estabelecimento/dashboard-estabelecimento.html',
@@ -348,6 +353,11 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
         templateUrl: 'app/pages/store/store-form.html',
         controller: 'storesCtrl',
         activetab: 'lojaForm'
-    })
+    }).state('main.store.cat', {
+              url: '/cat',
+              templateUrl: 'app/pages/store/store-form-categorias.html',
+              controller: 'storesCtrl',
+              activetab: 'cat'
+          })
 
 });

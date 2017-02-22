@@ -1,7 +1,5 @@
 <head>
     <!-- CSS INCLUDE -->
-    <link rel="stylesheet" type="text/css" id="theme" href="app/assets/css/theme-brown.css"/>
-    <link href="app/assets/css/estilo.css" type="text/css" rel="stylesheet" />
     <!-- EOF CSS INCLUDE -->
     <style type="text/css">.thumb-image{float:left;width:100px;position:relative;padding:5px;}</style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -14,9 +12,8 @@
 
 
 </head>
-<body style="background-color: #063a48" >
-<div style="margin: 50px; margin-left: 150px; margin-right: 150px;" class="page-content-wrap">
-    <div class="row">
+<body  >
+
         <div class="col-md-12">
             <form ng-model="store" class="form-horizontal">
                 <div class="panel panel-default ">
@@ -111,23 +108,32 @@
                                     </div>
                                 </div>
                             </div>
-                            <div ng-if="store.isDays ? true : false" class="form-group">
+                            <div class="form-group">
                                 <label class="col-md-3 col-xs-12 control-label"></label>
                                 <div class="col-md-6 col-xs-12">
-                                    <div class="input-group" ng-repeat="dia in diasSemana">
-                                        <label class="check" >
+                                    <div ng-if="store.isDays ? true : false" class="input-group" ng-repeat="dia in diasSemana">
+
                                             <input
                                                     type="checkbox"
                                                     name="work_days[]"
                                                     value="{{dia.nome}}"
+                                                    ng-model="days[$index]"
                                                     ng-checked="work_days.indexOf(dia) > -1"
                                                     ng-click="diasSelecionado(dia)"
-                                            />{{dia.name}}
-                                            <input ng-required="isInList(dia)" ng-model="dia.openhour" type="time">
-                                            <input ng-required="isInList(dia)" ng-model="dia.closehour" type="time">
-                                        </label>
-                                        <br/>
+                                            />{{dia.nome}}
+
+                                        <span ng-if="days[$index]">
+                                            <div class="col-xs-3">
+                                            <input placeholder="23:59" ng-required="isInList(dia)" ng-model="dia.openhour"  class="form-control" type="text">
+                                            </div><div class="col-xs-3">
+                                                <input placeholder="23:59" ng-required="isInList(dia)" ng-model="dia.closehour" class="form-control" type="text">
+                                            </div>
+                                            <br/>
+                                        </span>
+
+
                                     </div>
+
                                 </div>
                             </div>
                             <div class="form-group">
@@ -157,31 +163,42 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-3 col-xs-12 control-label">Adicionar um logotipo </label>
+                                <label class="col-md-3 col-xs-12 control-label">Funcionalidades </label>
                                 <div class="col-md-6 col-xs-12">
                                     <div ng-repeat="cat in categories">
-                                        <div><input type="checkbox" value="false" class="form-check-input">
+                                        <div><input ng-click="!categ[$index] && limparChecked(cat.id)" type="checkbox" value="false" ng-model="categ[$index]" class="form-check-input">
                                             {{cat.name}}
-                                            <div  ng-repeat="sub in subCategories | filter:{ 'id':cat.id}:true">
-                                                <span>{{sub.subs}}</span>
-                                            </div>
+                                            <div  ng-if="categ[$index]">
+                                                <div ng-repeat="sub in subCategories | filter:{'id':cat.id}:true">
+                                                    <div ng-repeat="s in sub.subs">
 
-                                            <div>--------------------------</div>
+                                                        <input style="margin-left:10px;"
+                                                               ng-click="addSubCat(s.id)"
+                                                               type="checkbox" value="false"
+                                                               name="subcat[]"
+                                                               ng-checked="subcat.indexOf(s.id) > -1"
+                                                               class="form-check-input">
+                                                        <span>{{s.name}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
+
                         </div>
 
                     <div class="panel-footer">
-                            <button class="btn btn-primary pull-right" ng-click="salvarLoja(store)" >Salvar</button>
+                        <button class="btn btn-primary pull-right"
+                                ng-click="store.idstore ? atualizarLoja(store) : salvarLoja(store)" >{{store.idstore ? 'Atualizar' : 'Salvar'}}</button>
                         </div>
                     </div>
             </form>
+
+
         </div>
-    </div>
-</div>
 
 </body>
 
