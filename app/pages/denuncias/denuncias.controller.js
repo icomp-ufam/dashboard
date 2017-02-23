@@ -7,7 +7,10 @@ angular.module("teewa").controller("denunciasCtrl", function ($scope, $http, con
     $scope.app = "Denuncias";
     $scope.denuncias = [];
 
-    var carregarDenunciasPorData = function (date_start, date_end) {
+    $scope.carregarDenunciasPorData = function (date_start, date_end) {
+        var NovaDate_start = date_start.value.getDate() + "/" + (date_start.value.getMonth() +1) + "/" + date_start.value.getFullYear()
+        var NovaDate_end = date_end.value.getDate() + "/" + (date_end.value.getMonth() +1) + "/" + date_end.value.getFullYear()
+
         $http({
             url : config.baseUrl + "/dash/complaints/",
             method : 'post',
@@ -17,21 +20,34 @@ angular.module("teewa").controller("denunciasCtrl", function ($scope, $http, con
             },
             data: {
                 
-                'date_start' : date_start,
-                'date_end' : date_end
+                'date_start' : NovaDate_start,
+                'date_end' :  NovaDate_end,
             }
-        }).success(function(data){
-            $scope.denuncias = data;
-            $scope.qtDenuncias= denuncias.length
 
-            console.log(data);
+        }).success(function(data,date){
+            $scope.denuncias = data;
+
+            $scope.data_start = {
+                value: new Date(date_start.value.getFullYear(), date_start.value.getMonth(), date_start.value.getDate()),
+            };
+                
+            $scope.data_end = {
+                value: new Date(date_end.value.getFullYear(), date_end.value.getMonth(), date_end.value.getDate()),
+            };
+
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
-            console.log("login error");
         });
 
     };
 
+    var d = {
+        value: new Date()
+    };
+     var novaData = {
+        value: new Date(d.value.getTime() - 10080*60000)
+    };
+
     //carregarDenuncias();
-    carregarDenunciasPorData("01/01/2015","24/12/2019");
+    $scope.carregarDenunciasPorData(novaData, d);
 });

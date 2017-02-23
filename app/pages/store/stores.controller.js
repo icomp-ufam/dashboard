@@ -73,7 +73,7 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
 
      };
 
-    if($scope.idloja != null) {
+    if($scope.idloja != '') {
         $scope.editarLoja();
         $scope.isLoja = true;
     }
@@ -81,6 +81,8 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
 
 
     $scope.diasSelecionado = function (func) {
+
+
         var idx = $scope.work_days.indexOf(func);
 
         if (idx > -1) {
@@ -227,7 +229,6 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
     $scope.vincularLoja = function(loja){
         if(confirm("Você dejesa se tornar vendedor em "+loja.name+
         "? Ao clicar sim, sua solicitação será enviada para aprovação pelo administrador do estabelecimento")){
-
             $http({
                 url : config.baseUrl + "/sellers/create/withexistingstore",
                 method : 'post',
@@ -236,7 +237,7 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                     'Authorization' : config.token
                 },
                 data : {'idstore':loja.id,
-                        'id' : parseInt($scope.idUser)
+                        'id' : $scope.idUser
                 }
             }).success(function(data){
                 alert('O cadastro realizado com sucesso. Aguarde a aprovação pelo Administrador do estabelecimento.');
@@ -378,6 +379,41 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
 
     };
 
+
+    $scope.stepsModel = []
+    $scope.imageUpload = function (event ) {
+        $scope.stepsModel = [];
+        var files = event.target.files;
+
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var reader = new FileReader();
+            reader.onload = $scope.imageIsLoaded;
+            reader.readAsDataURL(file);
+        }
+    };$scope.imageIsLoaded = function (e) {
+        $scope.$apply(function () {
+            $scope.stepsModel.push(e.target.result);
+        });
+    };
+
+
+    $scope.stepsModel2 = []
+    $scope.imageUpload2 = function (event ) {
+        $scope.stepsModel2 = [];
+        var files = event.target.files;
+
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var reader = new FileReader();
+            reader.onload = $scope.imageIsLoaded2;
+            reader.readAsDataURL(file);
+        }
+    };$scope.imageIsLoaded2 = function (e) {
+        $scope.$apply(function () {
+            $scope.stepsModel2.push(e.target.result);
+        });
+    };
 
     $scope.listarCategorias();
     $scope.listarLojas();
