@@ -271,7 +271,7 @@ angular.module('teewa').config(function ($stateProvider, $urlRouterProvider){
     }).state('main.perfil.listar', {
         url: '/perfil',
         templateUrl: 'app/pages/perfil/perfil.html',
-        controller: 'form_adminCtrl'
+        controller: 'form_perfilCtrl'
     }).state('main.dashboardEstabelecimento', {
         url: 'dashboard-estabelecimento',
         template: '<ui-view></ui-view>'

@@ -130,9 +130,19 @@
                                     <td class="active">{{atendimento.name}}</td>
                                     <td class="active">{{atendimento.seller}}</td>
                                     <td class="active">{{atendimento.created_at | date: 'dd/MM/y hh:mm'}}</td>
-                                    <td class="active">{{atendimento.status}}</td>
+                                    <td ng-switch on="{{atendimento.status}}">
+                                        <span ng-switch-when="0"> Novo vendedor </span>
+                                        <span ng-switch-when="1"> Vendedor Ativo/Aceito </span>
+                                        <span ng-switch-when="2"> Vendedor Negado </span>
+                                        <span ng-switch-when="3"> Vendedor Removido </span>
+                                        <span ng-switch-when="4"> Vendedor Deixou alguma loja </span>
+                                        <span ng-switch-when="5"> Outros </span>
+
+                                    </td>
                                     <td> <button class="btn btn-default" >Ver Chat</button> </td>
                                 </tr>
+
+                                
                             </tbody>
                         </table>
                     </div>

@@ -34,6 +34,12 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
             if($scope.admins.code == '200'){
                 localStorage.setItem('loginadmin',$scope.admins.admin.name);
                 localStorage.setItem('fotoadmin', $scope.admins.admin.photo);
+                
+                localStorage.setItem('adm_edit1', "true");
+                localStorage.setItem('adm_edit_id1', $scope.admins.admin.id);
+                localStorage.setItem('adm_edit_name1', $scope.admins.admin.name);
+                localStorage.setItem('adm_edit_email1', $scope.admins.admin.email);
+                
                 $scope.mensagem = '';
                 $state.go("main.dashboard.listar", {}, {
                     location: "replace",

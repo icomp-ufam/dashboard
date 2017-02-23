@@ -10,7 +10,7 @@ angular.module("teewa").controller("form_adminCtrl", function ($scope, $http, co
     }
     $scope.admins = [];
     $scope.admin = [];
-
+    $scope.id = localStorage.getItem('adm_edit_id1');
     $scope.update = localStorage.getItem('adm_edit');
     $scope.admin.id = localStorage.getItem('adm_edit_id');
     $scope.admin.name = localStorage.getItem('adm_edit_name');

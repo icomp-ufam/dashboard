@@ -55,11 +55,13 @@
 
                             <tbody>
                             <tr ng-repeat="admin in admins | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-                                <td>{{admin.name}}</td>
-                                <td>{{admin.email}}</td>
+                                <td  ng-if="(id == admin.id)"><b>{{admin.name+"(seu perfil)"}}</b> </td>
+                                <td  ng-if="(id != admin.id)">{{admin.name}}</td>
+                                <td ng-if="(id == admin.id)"><b>{{admin.email}}<b></td>
+                                <td ng-if="(id != admin.id)">{{admin.email}}</td>
                                 <td style="text-align: center;">
                                     <i ng-click="editAdministrador(admin)" style="cursor: pointer;" class="fa fa-edit"></i>
-                                    <i ng-click="apagarAdministrador(admin)" style="cursor: pointer;" class="fa fa-trash-o"></i>
+                                    <i ng-if="(id != admin.id)" ng-click="apagarAdministrador(admin)" style="cursor: pointer;" class="fa fa-trash-o"></i>
                                 </td>
                             </tr>
                             </tbody>
