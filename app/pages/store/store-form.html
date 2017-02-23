@@ -26,7 +26,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input ng-model="store.cnpj" type="text" id="cnpj" name="cnpj" class="form-control"/>
+                                        <input ng-model="store.cnpj" maxlength="20" onkeypress='mascaraMutuario(this,cpfCnpj)' onblur='clearTimeout()' type="text" id="cnpj" name="cnpj" class="form-control"/>
                                     </div>
                                     <span class="help-block">Ex: xx.xxx.xxx/xxxx-xx</span>
                                 </div>
@@ -36,7 +36,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input ng-model="store.name" type="text" id="nome" name="nome" class="form-control"/>
+                                        <input ng-model="store.name" maxlength="50" type="text" id="nome" name="nome" class="form-control"/>
                                     </div>
                                     <span class="help-block">Ex: PetShop Dog Feliz</span>
                                 </div>
@@ -46,7 +46,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input ng-model="store.phone" type="text" id="telefone" name="telefone" class="form-control"/>
+                                        <input ng-model="store.phone" onkeyup="mascara( this, mtel );" maxlength="11" type="text" id="telefone" name="telefone" class="form-control"/>
                                     </div>
                                     <span class="help-block">Ex: (xx) xxxxx-xxxx</span>
                                 </div>
@@ -54,7 +54,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 col-xs-12 control-label">Descrição</label>
                                 <div class="col-md-6">
-                                    <textarea ng-model="store.description" class="form-control" rows="3" placeholder="Descreva sua loja"></textarea>
+                                    <textarea ng-model="store.description" maxlength="300" class="form-control" rows="3" placeholder="Descreva sua loja"></textarea>
                                 </div>
                             </div>
                             <div class="form-group" >
@@ -88,10 +88,12 @@
 
                             <div class="form-group" >
                                 <label class="col-md-3 col-xs-12 control-label">Mapa</label>
-                                <div id="mapa" style="height: 250px; width: 450px">
+                                <div class="col-md-6">
+                                    <div id="mapa" style="height: 250px; border-radius:6px;">
+                                    </div>
+                                    <input ng-model="store.lat" type="hidden" id="txtLatitude" name="txtLatitude" />
+                                    <input ng-model="store.lng" type="hidden" id="txtLongitude" name="txtLongitude" />
                                 </div>
-                                <input ng-model="store.lat" type="hidden" id="txtLatitude" name="txtLatitude" />
-                                <input ng-model="store.lng" type="hidden" id="txtLongitude" name="txtLongitude" />
                             </div>
 
                             <div class="form-group">
@@ -133,14 +135,37 @@
 
                                 </div>
                             </div>
+                            <style>
+                                .thumb{
+                                    width:100px;
+                                    margin:5px;
+                                    float:left;
+                                }
+                                .thumb2{
+                                    width:400px;
+                                    height: 100px;
+                                    margin:5px;
+                                    float:left;
+                                }
+
+                                .uploader{
+                                    clear:both;
+                                }
+
+                            </style>
                             <div class="form-group">
                                 <label class="col-md-3 col-xs-12 control-label">Adicionar um banner </label>
                                 <div class="col-md-6 col-xs-12">
                                     <div class="imageForm">
                                         <div>
-                                            <input type="file" id="filebanner" class="fileinput btn-primary" title="Escolher arquivo"/>
-                                            <span class="help-block">Faça upload da imagem</span>
+                                            <input ng-model-instant onchange="angular.element(this).scope().imageUpload2(event)"  type="file" id="filebanner" class="form-control" title="Escolher arquivo"/>
                                             <input type="hidden" ng-model="store.banner" id="filebannerhidden" value=""/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div  ng-repeat="step in stepsModel2">
+                                            <img class="thumb2" ng-src="{{step}}" />
                                         </div>
                                     </div>
                                 </div>
@@ -151,9 +176,15 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="imageForm">
                                         <div>
-                                            <input type="file" id="filebrand" class="fileinput btn-primary" title="Escolher arquivo"/>
-                                            <span class="help-block">Faça upload da imagem</span>
-                                            <input type="hidden" ng-model="store.brand" id="filebrandhidden" value=""/>
+                                            <input ng-model-instant onchange="angular.element(this).scope().imageUpload(event)"  type="file" id="filebrand" class="form-control" title="Escolher arquivo"/>
+                                            <input  type="hidden" ng-model="store.brand" id="filebrandhidden" value=""/>
+                                        </div>
+                                    </div><br>
+                                    <div class="col-md-3">
+                                        <div >
+                                            <div  ng-repeat="step in stepsModel">
+                                                <img class="thumb" ng-src="{{step}}" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -184,20 +215,84 @@
                                 </div>
                             </div>
 
-
                         </div>
 
-                    <div class="panel-footer">{{isLoja}}
+                    <div class="panel-footer">
                         <button class="btn btn-primary pull-right"
                                 ng-click="isLoja ? atualizarLoja(store) : salvarLoja(store)" >{{isLoja ? 'Atualizar' : 'Salvar'}}</button>
                         </div>
                     </div>
-            </form>
-
+               </form>
 
         </div>
 
 </body>
+
+<script>
+/* Máscaras ER */
+function mascara(o,f){
+    v_obj=o
+    v_fun=f
+    setTimeout("execmascara()",1)
+}
+function execmascara(){
+    v_obj.value=v_fun(v_obj.value)
+}
+function mtel(v){
+    v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
+    v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+    return v;
+}
+
+/*Máscara cnpj/cpf*/
+function mascaraMutuario(o,f){
+    v_obj=o
+    v_fun=f
+    setTimeout('execmascara()',1)
+}
+
+function execmascara(){
+    v_obj.value=v_fun(v_obj.value)
+}
+
+function cpfCnpj(v){
+
+    //Remove tudo o que não é dígito
+    v=v.replace(/\D/g,"")
+
+    if (v.length <= 14) { //CPF
+
+        //Coloca um ponto entre o terceiro e o quarto dígitos
+        v=v.replace(/(\d{3})(\d)/,"$1.$2")
+
+        //Coloca um ponto entre o terceiro e o quarto dígitos
+        //de novo (para o segundo bloco de números)
+        v=v.replace(/(\d{3})(\d)/,"$1.$2")
+
+        //Coloca um hífen entre o terceiro e o quarto dígitos
+        v=v.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+
+    } else { //CNPJ
+
+        //Coloca ponto entre o segundo e o terceiro dígitos
+        v=v.replace(/^(\d{2})(\d)/,"$1.$2")
+
+        //Coloca ponto entre o quinto e o sexto dígitos
+        v=v.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3")
+
+        //Coloca uma barra entre o oitavo e o nono dígitos
+        v=v.replace(/\.(\d{3})(\d)/,".$1/$2")
+
+        //Coloca um hífen depois do bloco de quatro dígitos
+        v=v.replace(/(\d{4})(\d)/,"$1-$2")
+
+    }
+
+    return v
+
+}
+</script>
 
 <script>
     $(document).ready(function() {

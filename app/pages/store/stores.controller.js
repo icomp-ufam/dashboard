@@ -73,7 +73,7 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
 
      };
 
-    if($scope.idloja != null) {
+    if($scope.idloja != '') {
         $scope.editarLoja();
         $scope.isLoja = true;
     }
@@ -377,6 +377,41 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
 
     };
 
+
+    $scope.stepsModel = []
+    $scope.imageUpload = function (event ) {
+        $scope.stepsModel = [];
+        var files = event.target.files;
+
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var reader = new FileReader();
+            reader.onload = $scope.imageIsLoaded;
+            reader.readAsDataURL(file);
+        }
+    };$scope.imageIsLoaded = function (e) {
+        $scope.$apply(function () {
+            $scope.stepsModel.push(e.target.result);
+        });
+    };
+
+
+    $scope.stepsModel2 = []
+    $scope.imageUpload2 = function (event ) {
+        $scope.stepsModel2 = [];
+        var files = event.target.files;
+
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var reader = new FileReader();
+            reader.onload = $scope.imageIsLoaded2;
+            reader.readAsDataURL(file);
+        }
+    };$scope.imageIsLoaded2 = function (e) {
+        $scope.$apply(function () {
+            $scope.stepsModel2.push(e.target.result);
+        });
+    };
 
     $scope.listarCategorias();
     $scope.listarLojas();
