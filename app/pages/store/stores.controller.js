@@ -227,7 +227,6 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
     $scope.vincularLoja = function(loja){
         if(confirm("Você dejesa se tornar vendedor em "+loja.name+
         "? Ao clicar sim, sua solicitação será enviada para aprovação pelo administrador do estabelecimento")){
-
             $http({
                 url : config.baseUrl + "/sellers/create/withexistingstore",
                 method : 'post',
@@ -236,7 +235,7 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                     'Authorization' : config.token
                 },
                 data : {'idstore':loja.id,
-                        'id' : parseInt($scope.idUser)
+                        'id' : $scope.idUser
                 }
             }).success(function(data){
                 alert('O cadastro realizado com sucesso. Aguarde a aprovação pelo Administrador do estabelecimento.');

@@ -129,8 +129,10 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
 
             souvendedor = $scope.verificaVendedor(numero);
 
+
             for(user in $scope.usuarios){
                 if($scope.usuarios[user].mobile === numero){
+                    localStorage.setItem('userID', $scope.usuarios[user].id);
                     souusuario = true;
                 }
             }
