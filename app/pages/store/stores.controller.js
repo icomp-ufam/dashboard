@@ -81,6 +81,8 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
 
 
     $scope.diasSelecionado = function (func) {
+
+
         var idx = $scope.work_days.indexOf(func);
 
         if (idx > -1) {

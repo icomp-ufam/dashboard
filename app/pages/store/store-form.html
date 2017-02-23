@@ -46,7 +46,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input ng-model="store.phone" onkeyup="mascara( this, mtel );" maxlength="11" type="text" id="telefone" name="telefone" class="form-control"/>
+                                        <input ng-model="store.phone" onkeyup="mascara( this, mtel )" onblur='clearTimeout()' maxlength="11" type="text" id="telefone" name="telefone" class="form-control"/>
                                     </div>
                                     <span class="help-block">Ex: (xx) xxxxx-xxxx</span>
                                 </div>
@@ -111,27 +111,31 @@
                                 <label class="col-md-3 col-xs-12 control-label"></label>
                                 <div class="col-md-6 col-xs-12">
                                     <div ng-if="store.isDays ? true : false" class="input-group" ng-repeat="dia in diasSemana">
+                                        <input
+                                             type="checkbox"
+                                             name="work_days[]"
+                                             value="{{dia.nome}}"
+                                             ng-model="days[$index]"
+                                             ng-checked="work_days.indexOf(dia) > -1"
+                                             ng-click="diasSelecionado(dia)"
+                                         />{{dia.nome}}
 
-                                            <input
-                                                    type="checkbox"
-                                                    name="work_days[]"
-                                                    value="{{dia.nome}}"
-                                                    ng-model="days[$index]"
-                                                    ng-checked="work_days.indexOf(dia) > -1"
-                                                    ng-click="diasSelecionado(dia)"
-                                            />{{dia.nome}}
+                                         <span  ng-if="days[$index]">
+                                            <input class="input-sm" style="width:15%;" maxlength="5" onkeypress='mascaraTime(this,timeMask)'
+                                                   onblur='clearTimeout()' type="text"
+                                                   name="input" ng-required="isInList(dia)" ng-model="dia.openhour"
+                                                   placeholder="HH:mm" min="00:00" max="23:59"/> -
 
-                                        <span ng-if="days[$index]">
-                                            <div class="col-xs-3">
-                                            <input placeholder="23:59" ng-required="isInList(dia)" ng-model="dia.openhour"  class="form-control" type="text">
-                                            </div><div class="col-xs-3">
-                                                <input placeholder="23:59" ng-required="isInList(dia)" ng-model="dia.closehour" class="form-control" type="text">
-                                            </div>
+                                            <input class="input-sm" style="width:15%;" maxlength="5" onkeypress='mascaraTime(this,timeMask)'
+                                                   onblur='clearTimeout()' type="text"type="time"
+                                                   name="input" ng-required="isInList(dia)" ng-model="dia.closehour"
+                                                   placeholder="HH:mm" min="00:00" max="23:59"/>
                                             <br/>
-                                        </span>
+                                         </span>
 
 
                                     </div>
+
 
                                 </div>
                             </div>
@@ -223,27 +227,42 @@
                         </div>
                     </div>
                </form>
-
         </div>
 
 </body>
 
 <script>
-/* Máscaras ER */
+/* Máscaras ER  <input maxlength="5" onkeypress='mascaraTime(this,timeMask)' onblur='clearTimeout()' type="text" />
+ */
+
+function execmascara(){
+    v_obj.value=v_fun(v_obj.value)
+}
+
 function mascara(o,f){
     v_obj=o
     v_fun=f
     setTimeout("execmascara()",1)
 }
-function execmascara(){
-    v_obj.value=v_fun(v_obj.value)
-}
+
 function mtel(v){
     v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
     v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
     v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
     return v;
 }
+
+function mascaraTime(o,f){
+    v_obj=o
+    v_fun=f
+    setTimeout('execmascara()',1)
+}
+function timeMask(v){
+    v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
+    v=v.replace(/^(\d{2})(\d)/g,"$1:$2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    return v;
+}
+
 
 /*Máscara cnpj/cpf*/
 function mascaraMutuario(o,f){
@@ -252,9 +271,6 @@ function mascaraMutuario(o,f){
     setTimeout('execmascara()',1)
 }
 
-function execmascara(){
-    v_obj.value=v_fun(v_obj.value)
-}
 
 function cpfCnpj(v){
 
