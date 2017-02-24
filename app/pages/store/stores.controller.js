@@ -50,7 +50,8 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                                 {"day": 5,"name":"Friday", "openhour": $scope.store.start_friday, "closehour":$scope.store.end_friday,  "nome":"Sexta"},
                                 {"day": 6,"name":"Saturday", "openhour": $scope.store.start_saturday, "closehour":$scope.store.end_saturday,  "nome":"Sábado"}];
 
-            console.log(data);
+            $scope.store.max_radius = 10;
+            console.log($scope.store);
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
@@ -202,6 +203,8 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                 store.banner = document.getElementById("filebanner"+'hidden').value;
                 store.brand  = document.getElementById("filebrand"+'hidden').value;
 
+                store.address = document.getElementById('txtEndereco').value;
+
                 if(store.isDays) store.is24=false;
                 else             store.is24=true;
 
@@ -230,7 +233,7 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                         'description':String(store.description),
                         'phone':String(store.phone),
                         'is_max_radius': store.is_max_radius,
-                        'max_radius': store.is_max_radius ? parseInt(store.max_radius): 0
+                        'max_radius': store.is_max_radius ? parseInt(store.max_radius): -1
                     }
 
                 }).success(function(data){
@@ -358,6 +361,8 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                 store.banner = document.getElementById("filebanner"+'hidden').value;
                 store.brand  = document.getElementById("filebrand"+'hidden').value;
 
+                store.address = document.getElementById('txtEndereco').value;
+
                 if(store.isDays) store.is24=false;
                 else             store.is24=true;
 
@@ -388,7 +393,7 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                         'description':String(store.description),
                         'phone':String(store.phone),
                         'is_max_radius': store.is_max_radius,
-                        'max_radius':  parseInt(store.max_radius)
+                        'max_radius':  store.is_max_radius ? parseInt(store.max_radius): -1
                     }
                 }).success(function(data){
                      $state.go("main.dashboardVendedor.index");
