@@ -1,4 +1,7 @@
 angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $state, $http, config) {
+    if (localStorage.getItem('userID') === '')  $state.go('main.login.autenticacaoUser');
+
+
     $scope.app = "Loja";
     $scope.stores;
     $scope.isLoja = false;
@@ -73,7 +76,7 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
 
      };
 
-    if($scope.idloja != '') {
+    if($scope.idloja != '' && localStorage.getItem('loginV') != '') {
         $scope.editarLoja();
         $scope.isLoja = true;
     }
@@ -153,6 +156,28 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
         }
     }
 
+    $scope.setarLoginV =  function(){
+        $http({
+            url : config.baseUrl + "/sellers",
+            method : 'get',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            }
+        }).success(function(data){
+
+            angular.forEach( data.sellers, function(sell, key) {
+                if(sell.id == $scope.idUser){
+                    localStorage.setItem('loginV', sell.name);
+                }
+            });
+
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    }
+
     $scope.salvarLoja =  function(store){
        html2canvas($("#mapa"), {
             useCORS: true,
@@ -180,11 +205,6 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                 if(store.isDays) store.is24=false;
                 else             store.is24=true;
 
-                console.log(aux_work_days);
-                console.log(aux_subCat);
-                console.log($scope.idUser);
-
-
                 $http({
                     url : config.baseUrl + "/sellers/create/withnewstore",
                     method : 'post',
@@ -210,12 +230,15 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                         'description':String(store.description),
                         'phone':String(store.phone),
                         'is_max_radius': store.is_max_radius,
-                        'max_radius':  parseInt(store.max_radius)
+                        'max_radius': store.is_max_radius ? parseInt(store.max_radius): 0
                     }
 
                 }).success(function(data){
-                    console.log('Tudo okjjj');
-                   console.log(data);
+                    console.log(data);
+                   // localStorage.setItem('loginV', user.name);
+                     $scope.setarLoginV();
+                     $state.go("main.dashboardVendedor.index");
+                //   $state.go('main.dashboardVendedor.index');
                 }).error(function(error){
                     console.log('error');
                     console.log(error);
@@ -368,7 +391,7 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                         'max_radius':  parseInt(store.max_radius)
                     }
                 }).success(function(data){
-                    console.log('Tudo Salvo...');
+                     $state.go("main.dashboardVendedor.index");
                     console.log(data);
                 }).error(function(error){
                     console.log(error);

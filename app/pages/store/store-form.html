@@ -26,7 +26,9 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input ng-model="store.cnpj" maxlength="20" onkeypress='mascaraMutuario(this,cpfCnpj)' onblur='clearTimeout()' type="text" id="cnpj" name="cnpj" class="form-control"/>
+                                        <input ng-model="store.cnpj" maxlength="20" placeholder="xx.xxx.xxx/xxxx-xx"
+                                               onkeypress='mascaraMutuario(this,cpfCnpj)' onblur='clearTimeout()'
+                                               type="text" id="cnpj" name="cnpj" class="form-control"/>
                                     </div>
                                     <span class="help-block">Ex: xx.xxx.xxx/xxxx-xx</span>
                                 </div>
@@ -46,7 +48,9 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                        <input ng-model="store.phone" onkeyup="mascara( this, mtel )" onblur='clearTimeout()' maxlength="11" type="text" id="telefone" name="telefone" class="form-control"/>
+                                        <input ng-model="store.phone"
+                                               onkeypress="mascaraFone(this, '## #####-####')" placeholder="(xx) xxxxx-xxxx"
+                                               maxlength="13" type="text" id="telefone" name="telefone" class="form-control"/>
                                     </div>
                                     <span class="help-block">Ex: (xx) xxxxx-xxxx</span>
                                 </div>
@@ -232,6 +236,21 @@
 </body>
 
 <script>
+    //Define padrão de entrado do telefone e código
+    function mascaraFone(t, mask){
+        var i = t.value.length;
+        var saida = mask.substring(1,0);
+        var texto = mask.substring(i);
+        if (texto.substring(0,1) != saida){
+            t.value += texto.substring(0,1);
+        }
+    }
+</script>
+
+
+<script>
+
+
 /* Máscaras ER  <input maxlength="5" onkeypress='mascaraTime(this,timeMask)' onblur='clearTimeout()' type="text" />
  */
 
