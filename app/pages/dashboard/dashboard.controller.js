@@ -59,12 +59,12 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $state, $h
                 var arrayData= data.users[i]['created_at'];
                 var arrayDataAtual= new Date(arrayData);
                 var idDataAtual= arrayDataAtual.getDate()+'/'+(arrayDataAtual.getMonth()+1)+'/'+arrayDataAtual.getFullYear();
-                console.log(idDataAtual+' -- '+dataToday);
+                //console.log(idDataAtual+' -- '+dataToday);
                 if(idDataAtual == dataToday){
                     clientesDataAtual= clientesDataAtual + 1;
                 }
             }
-            console.log(clientesDataAtual);
+            //console.log(clientesDataAtual);
             //
             //calculo em percentagem
             var t4= $scope.qtClientes;
@@ -119,47 +119,37 @@ angular.module("teewa").controller("dashboardCtrl", function ($scope, $state, $h
                 'date_end' : dataToday,
                 //'idcategory' : '5'
             }
-        }).success(function(data,date){
+        }).success(function(data, date){
             $scope.atendimentos = data;
+            //console.log(data);
             $scope.qtAtendimentos = $scope.atendimentos.length;
             //console.log($scope.qtAtendimentos)
-        }).error(function(error){
-            $scope.message = "Aconteceu um problema: " + error;
-            console.log("login error");
-        });
-
-
-        $http({
-
-            url : config.baseUrl + "/dash/calls/",
-            method : 'post',
-            headers : {
-                'Content-Type': 'application/json',
-                'Authorization' : config.token
-            },
-            data: {
-                'date_start' : todayAntes,
-                'date_end' : dataToday,
-                //'idcategory' : '5'
+            var atendimentosDataAtual= 0;
+            for(var i= 0; i < data.length; i++){
+                var arrayData= data[i]['date_trunc'];
+                var arrayDataAtual= new Date(arrayData);
+                var idDataAtual= arrayDataAtual.getDate()+'/'+(arrayDataAtual.getMonth()+1)+'/'+arrayDataAtual.getFullYear();
+                console.log(idDataAtual+' -- '+dataToday);
+                if(idDataAtual == dataToday){
+                    atendimentosDataAtual= atendimentosDataAtual + 1;
+                }
             }
-        }).success(function(data,date){
-            $scope.atendimentosAntes = data;
-            $scope.qtAtendimentosAntes= $scope.atendimentosAntes.length;
+            //
+            console.log(atendimentosDataAtual);
             //calculo em percentagem
-            var t3= $scope.qtAtendimentos;
-            var n3= $scope.qtAtendimentosAntes;
+            var t3= $scope.qtEstalecimentos;
+            var n3= atendimentosDataAtual;
             var p3= ((t3-(t3-n3))/t3)*100;
             if(p3 < 0){
                 p3= p3*-1;
             }
+            $scope.qtAtendimentosAntes = atendimentosDataAtual;
             $scope.qtAtendimentosAntesPer= p3;
 
-            //console.log($scope.qtAtendimentos)
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
             console.log("login error");
         });
-            
 
     };
 

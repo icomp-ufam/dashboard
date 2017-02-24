@@ -11,16 +11,18 @@
         <div class="row">
             <div class="col-md-6">
                 <!-- START WIDGET REGISTRED -->
-                <div style="cursor: pointer;" class="widget widget-default widget-item-icon" ui-sref="main.clientes.listar">
-                    <div class="widget-item-left">
+                <div class="widget widget-default widget-item-icon" ui-sref="main.clientes.listar" style="background-color:powderblue;">
+                    <div class="widget-item-left" >
                         <span class="fa fa-user"></span>
                     </div>
                     <div class="widget-data">
-                        <div class="widget-int num-count">{{qtClientes}}</div>
-                        <div class="widget-title">Clientes registrados</div>
-                        <div class="widget-subtitle">no Teewa</div>
-                        <div class="badge"><h3> {{qtClientesAntes}} Novas </h3></div>
-                        <div class="badge"><h3> Crescimento de: {{qtClientesAntesPer | number:2}} % </h3></div>
+                        <div class="widget-int num-count"><center> {{qtClientes}} </center></div>
+                        <div class="widget-title"><center> Clientes registrados</center></div>
+                        <div class="widget-subtitle"><center> no Teewa</center></div>
+                    </div>
+                    <div class="widget-data">
+                        <div class="widget-int num-count"><center> {{qtClientesAntes}} <h3> Nova(s) </h3></center></div>
+                        <div class="widget-title"><center> Crescimento de: {{qtClientesAntesPer | number:2}} % </center></div>
                     </div>
                 </div>
                 <!-- END WIDGET REGISTRED -->
@@ -47,16 +49,18 @@
 
             <div class="col-md-6">
                 <!-- START WIDGET REGISTRED -->
-                <div style="cursor: pointer;" class="widget widget-default widget-item-icon" ui-sref="main.estabelecimentos.listar">
+                <div style="background-color:lightgray;" class="widget widget-default widget-item-icon" ui-sref="main.estabelecimentos.listar">
                     <div class="widget-item-left">
                         <span class="fa fa-shopping-cart"></span>
                     </div>
                     <div class="widget-data">
-                        <div class="widget-int num-count">{{qtEstalecimentos}}</div>
-                        <div class="widget-title">Lojas Registradas</div>
-                        <div class="widget-subtitle">no Teewa</div>
-                        <div class="badge"><h3> {{qtEstalecimentosAntes}} Novas.</h3></div>
-                        <div class="badge"><h3> Crescimento de: {{qtEstalecimentosAntes | number:2}} % </h3></div>
+                        <div class="widget-int num-count"><center> {{qtEstalecimentos}}</center></div>
+                        <div class="widget-title"><center> Lojas Registradas</center></div>
+                        <div class="widget-subtitle"><center> no Teewa</center></div>
+                    </div>
+                    <div class="widget-data">
+                        <div class="widget-int num-count"><center>{{qtEstalecimentosAntes}} <h3> Nova(s) </h3></center></div>
+                        <div class="widget-title"><center> Crescimento de: {{qtEstalecimentosAntes | number:2}} % </center></div>
                     </div>
                 </div>
                 <!-- END WIDGET REGISTRED -->
@@ -66,16 +70,18 @@
         <div class="row">
             <div class="col-md-6">
                 <!-- START WIDGET REGISTRED -->
-                <div style="cursor: pointer;" class="widget widget-default widget-item-icon" ui-sref="main.atendimentos.listar">
+                <div style="background-color:lightcyan;" class="widget widget-default widget-item-icon" ui-sref="main.atendimentos.listar">
                     <div class="widget-item-left">
                         <span class="fa fa-info-circle"></span>
                     </div>
                     <div class="widget-data">
-                        <div class="widget-int num-count">{{qtAtendimentos}}</div>
-                        <div class="widget-title">Atendimentos Registrados</div>
-                        <div class="widget-subtitle">no Teewa</div>
-                        <div class="badge"><h3> {{qtAtendimentosAntes}} Novas. </h3></div>
-                        <div class="badge"><h3> Crescimento de: {{qtAtendimentosAntesPer | number:2}} % </h3></div>
+                        <div class="widget-int num-count"><center> {{qtAtendimentos}} </center></div>
+                        <div class="widget-title"><center> Atendimentos Registrados </center></div>
+                        <div class="widget-subtitle"><center> no Teewa</center></div>
+                    </div>
+                    <div class="widget-data">
+                        <div class="widget-int num-count"> <center>{{qtAtendimentosAntes}} <h3> Nova(s) </h3></center></div>
+                        <div class="widget-title"><center> Crescimento de: {{qtAtendimentosAntesPer | number:2}} % </center></div>
                     </div>
                 </div>
                 <!-- END WIDGET REGISTRED -->
@@ -102,16 +108,18 @@
 
             <div class="col-md-6">
                 <!-- START WIDGET REGISTRED -->
-                <div style="cursor: pointer;" class="widget widget-default widget-item-icon" ui-sref="main.denuncias.listar">
+                <div class="widget widget-default widget-item-icon" ui-sref="main.denuncias.listar" style="background-color:lavenderblush;">
                     <div class="widget-item-left">
                         <span class="fa fa-bullhorn"></span>
                     </div>
                     <div class="widget-data">
-                        <div class="widget-int num-count">{{qtDenuncias}}</div>
-                        <div class="widget-title">Denúncias Registradas</div>
-                        <div class="widget-subtitle">no Teewa</div>
-                        <div class="badge"><h3> {{qtDenunciasAntes}} Novas. </h3></div>
-                        <div class="badge"><h3> Crescimento de: {{qtDenunciasAntesPer | number:2}} % </h3></div>
+                        <div class="widget-int num-count"><center> {{qtDenuncias}}</center></div>
+                        <div class="widget-title"><center> Denúncias Registradas</center></div>
+                        <div class="widget-subtitle"><center> no Teewa</center></div>
+                    </div>
+                    <div class="widget-data">
+                        <div class="widget-int num-count"><center> {{qtDenunciasAntes}} <h3> Nova(s) </h3></center></div>
+                        <div class="widget-title"><center> Crescimento de: {{qtDenunciasAntesPer | number:2}} % </center></div>
                     </div>
                 </div>
                 <!-- END WIDGET REGISTRED -->
