@@ -146,10 +146,11 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
             if(souvendedor){
                 alert('Voce precisa sair da sua loja primeiro!');
             }else if (souusuario && !souvendedor){
-                $state.go('main.store.lojaList', {}, {
-                    location: "replace",
-                    reload: true
-                });
+                $scope.solicitacodigo(numero);
+                // $state.go('main.store.lojaList', {}, {
+                //     location: "replace",
+                //     reload: true
+                // });
             }else{
                 var sim = confirm('Você ainda não é usuário teewa, deseja baixar a aplicação?')
                 if(sim == true){
@@ -265,6 +266,35 @@ angular.module("teewa").controller("loginController", function ($scope, $timeout
                     location: "replace",
                     reload: true
                 });
+            }else{
+                $scope.mensagem = 'Codigo inválido';
+                $timeout(function() {
+                    $scope.mensagem = '';
+                }, 2000);
+            }
+
+        }).error(function(error){
+            $scope.message = "Aconteceu um problema: " + error;
+        });
+    };
+
+    $scope.verificaCodigoOther= function (code) {
+        $http({
+            url : config.baseUrl + "/dash/login",
+            method : 'post',
+            headers : {
+                'Content-Type': 'application/json',
+                'Authorization' : config.token
+            },
+            data:{
+                'iduser': localStorage.getItem('userID'),
+                'code': code
+            }
+        }).success(function(data){
+            $scope.codigoconfirmacao = data;
+            if($scope.codigoconfirmacao.code == '200'){
+                localStorage.setItem('userID', $scope.usuarios[user].id);
+                $state.go('main.store.lojaList');
             }else{
                 $scope.mensagem = 'Codigo inválido';
                 $timeout(function() {
