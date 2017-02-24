@@ -5,7 +5,7 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
     $scope.app = "Loja";
     $scope.stores;
     $scope.isLoja = false;
-    $scope.store ={"isDays":false, "is_max_radius":false, 'max_radius':10, "banner": '', "brand":''};
+    $scope.store ={"isDays":false, "is_max_radius":false, 'max_radius':12, "banner": '', "brand":''};
 
     $scope.urlImg = config.baseUrl + "/images/";
 
@@ -42,6 +42,16 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
         }).success(function(data){
             $scope.store = data.store;
 
+            console.log($scope.store);
+
+            document.getElementById('txtLongitude').value = $scope.store.lng;
+            document.getElementById('txtLatitude').value  = $scope.store.lat;
+
+            document.getElementById("filebanner"+'hidden').value = $scope.store.banner;
+            document.getElementById("filebrand"+'hidden').value = $scope.store.brand;
+
+            document.getElementById('txtEndereco').value = $scope.store.address;
+
             $scope.diasSemana =[{"day": 0,"name":"Sunday", "openhour": $scope.store.start_sunday, "closehour":$scope.store.end_sunday, "nome":"Domingo"},
                                 {"day": 1,"name":"Monday", "openhour": $scope.store.start_monday, "closehour":$scope.store.end_start_monday,  "nome":"Segunda"},
                                 {"day": 2,"name":"Tuesday", "openhour": $scope.store.start_tuesday, "closehour":$scope.store.end_tuesday,  "nome":"Terça"},
@@ -50,8 +60,22 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                                 {"day": 5,"name":"Friday", "openhour": $scope.store.start_friday, "closehour":$scope.store.end_friday,  "nome":"Sexta"},
                                 {"day": 6,"name":"Saturday", "openhour": $scope.store.start_saturday, "closehour":$scope.store.end_saturday,  "nome":"Sábado"}];
 
-            $scope.store.max_radius = 10;
-            console.log($scope.store);
+
+            if($scope.store.start_sunday != null) $scope.work_days.push({"day": 0,"name":"Sunday", "openhour": $scope.store.start_sunday,"closehour":$scope.store.end_sunday, "nome":"Domingo"});
+            if($scope.store.start_monday != null) $scope.work_days.push({"day": 1,"name":"Monday", "openhour": $scope.store.start_monday, "closehour":$scope.store.end_start_monday,  "nome":"Segunda"});
+            if($scope.store.start_tuesday != null) $scope.work_days.push({"day": 2,"name":"Tuesday", "openhour": $scope.store.start_tuesday, "closehour":$scope.store.end_tuesday,  "nome":"Terça"});
+            if($scope.store.start_wednesday != null) $scope.work_days.push({"day": 3,"name":"Wednesday", "openhour": $scope.store.start_wednesday, "closehour":$scope.store.end_wednesday,  "nome":"Quarta"});
+            if($scope.store.start_thursday != null) $scope.work_days.push({"day": 4,"name":"Thursday", "openhour": $scope.store.start_thursday, "closehour":$scope.store.end_thursday,  "nome":"Quinta"});
+            if($scope.store.start_friday != null) $scope.work_days.push({"day": 5,"name":"Friday", "openhour": $scope.store.start_friday, "closehour":$scope.store.end_friday,  "nome":"Sexta"});
+            if($scope.store.start_saturday != null) $scope.work_days.push({"day": 6,"name":"Saturday", "openhour": $scope.store.start_saturday, "closehour":$scope.store.end_saturday,  "nome":"Sábado"});
+
+            if(String($scope.store.max_radius) == '-1'){
+                $scope.store.max_radius = 10;
+            }
+            else{
+                $scope.store.is_max_radius = true;
+            }
+
         }).error(function(error){
             $scope.message = "Aconteceu um problema: " + error;
         });
@@ -85,6 +109,7 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
 
 
     $scope.diasSelecionado = function (func) {
+        console.log($scope.work_days)
 
 
         var idx = $scope.work_days.indexOf(func);
@@ -208,6 +233,8 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                 if(store.isDays) store.is24=false;
                 else             store.is24=true;
 
+                 if(!store.is_max_radius) store.max_radius = -1;
+
                 $http({
                     url : config.baseUrl + "/sellers/create/withnewstore",
                     method : 'post',
@@ -233,7 +260,7 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                         'description':String(store.description),
                         'phone':String(store.phone),
                         'is_max_radius': store.is_max_radius,
-                        'max_radius': store.is_max_radius ? parseInt(store.max_radius): -1
+                        'max_radius': parseInt(store.max_radius)
                     }
 
                 }).success(function(data){
@@ -367,6 +394,10 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                 else             store.is24=true;
 
 
+                if(!store.is_max_radius){
+                    store.max_radius = -1;
+                }
+
                 $http({
                     url : config.baseUrl + "/stores/update",
                     method : 'put',
@@ -393,7 +424,7 @@ angular.module("teewa").controller("storesCtrl", function ($filter, $scope, $sta
                         'description':String(store.description),
                         'phone':String(store.phone),
                         'is_max_radius': store.is_max_radius,
-                        'max_radius':  store.is_max_radius ? parseInt(store.max_radius): -1
+                        'max_radius':  parseInt(store.max_radius)
                     }
                 }).success(function(data){
                      $state.go("main.dashboardVendedor.index");
